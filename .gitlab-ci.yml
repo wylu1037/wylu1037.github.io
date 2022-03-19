@@ -5,13 +5,12 @@ cache:
 
 before_script:
   - npm install hexo-cli -g
-  - npm install
+  - test -e package.json && npm install
+  - hexo generate
 
 pages:
   script:
-    - hexo clean
     - hexo generate
-    - hexo deploy
   artifacts:
     paths:
       - public
