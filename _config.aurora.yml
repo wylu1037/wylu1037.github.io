@@ -1,0 +1,340 @@
+#! ---------------------------------------------------------------
+#! Aurora Theme for Hexo
+#! ---------------------------------------------------------------
+#! Designed & Coded By TriDiamond
+#! ---------------------------------------------------------------
+
+#! ---------------------------------------------------------------
+#! Site Configs
+#！ @docs https://aurora.tridiamond.tech/guide/configuration.html
+#! ---------------------------------------------------------------
+site:
+  subtitle: '认真工作，努力生活！'
+  author: 卢文扬
+  nick: Mr.Lu
+  description:
+  link: '/'
+  language: zh-Hans
+  multi_language: true
+  logo: https://img-blog.csdnimg.cn/20210313122054101.png
+  avatar: /images/jaychou.JPG
+  beian:
+    number: ''
+    link: ''
+  police_beian:
+    number: ''
+    link: ''
+
+#! ---------------------------------------------------------------
+#! Authors Configs
+#！ @docs https://aurora.tridiamond.tech/guide/authors.html
+#! ---------------------------------------------------------------
+authors:
+  ##! example
+  # TriDiamond:
+  #   name: TriDiamond
+  #   avatar: https://up.enterdesk.com/edpic_source/44/ff/3d/44ff3d6bd2819d524facfcc33205d4cd.jpg
+  #   link: https://github.com/TriDiamond
+  #   description: 'Think like an artist, code like an artisan.'
+  #   socials:
+  #     github: https://tridiamond.tech
+
+#! ---------------------------------------------------------------
+#! Menu Configs：自定义菜单
+#！ @docs https://aurora.tridiamond.tech/guide/menu.html
+#! ---------------------------------------------------------------
+menu:
+  About: true
+  Tags: true
+  Archives: true
+  Email:
+    name: '邮件'
+    path: 'wylu@zkjg.com'
+  Aurora:
+    name: 'Github'
+    children:
+      warehouse:
+        name: '仓库'
+        path: 'https://github.com/auroral-ui/hexo-theme-aurora'
+      document:
+        name: '文档'
+        path: 'https://aurora.tridiamond.tech/'
+
+#! ---------------------------------------------------------------
+#! Theme Config
+#! @docs https://aurora.tridiamond.tech/guide/theme.html
+#! ---------------------------------------------------------------
+theme:
+  # true-强制改为默认深色模式; false-强制改为默认浅色模式; 'auto'-自动识别系统的模式
+  dark_mode: false
+  # 头像形状配置
+  profile_shape: circle # support `circle`, `diamond`, `rounded`
+  # 推荐布局模式：根据 markdown 的 Front-Meta 中的 feature 属性来选择文章，为true则推荐
+  # false时为置顶布局模式
+  feature: true
+  # 渐变颜色
+  gradient:
+    color_1: '#24c6dc'
+    color_2: '#5433ff'
+    color_3: '#ff0099'
+
+#! ---------------------------------------------------------------
+#! Social Configs
+#! @docs https://aurora.tridiamond.tech/guide/social.html
+#! ---------------------------------------------------------------
+socials:
+  customs:
+  ##! Example:
+  ##! --- Using SVG
+  # bilibili:
+  #   icon: http://localhost:4000/svg/bilibili.svg
+  #   link: https://live.bilibili.com/22619211
+
+  ##! --- Using IconFont
+  # baidu:
+  #   icon: iconfont icon-baidu
+  #   link: https://live.bilibili.com/22619211
+
+  ##! --- Using FontAwesome
+  # book:
+  #   icon: far fa-address-book
+  #   link: https://live.bilibili.com/22619211
+  github: 'https://github.com/luwy5180'
+  twitter: ''
+  stackoverflow: ''
+  weibo: 'https://weibo.com/u/7318914058'
+  zhihu: 'https://www.zhihu.com/people/tridiamond'
+  csdn: 'https://blog.csdn.net/TriDiamond6'
+  juejin: 'https://juejin.cn/user/1873223546578589'
+
+#! ---------------------------------------------------------------
+#! Site Meta Configs
+#! @docs https://aurora.tridiamond.tech/guide/theme.html
+#! ---------------------------------------------------------------
+site_meta:
+  cdn: cn
+  favicon:
+  description: 'z纵有疾风起，人生不言弃！'
+  keywords: 'Backend、Frontend、Java、Go、Vue、Database'
+  author: 'Mr.Lu'
+
+#! ---------------------------------------------------------------
+#! Plugins
+#! @docs https://aurora.tridiamond.tech/guide/plugins.html
+#! ---------------------------------------------------------------
+
+# For local development only!
+gitalk:
+  enable: true
+  autoExpand: true
+  clientID: ''
+  clientSecret: ''
+  repo: 'dev-blog-comments'
+  owner: 'TriDiamond'
+  admin: ['TriDiamond']
+  id: uid
+  language: zh-Hans
+  distractionFreeMode: true
+  recentComment: true
+  proxy: ''
+
+# Valine comment plugin (recommended!)
+# see https://valine.js.org/quickstart.html
+valine:
+  enable: false
+  app_id:
+  app_key:
+  avatar: ''
+  placeholder: Leave your thoughts behind~
+  visitor: true
+  lang: zh-Hans
+  avatarForce: false
+  meta: ['nick', 'mail']
+  requiredFields: []
+  admin: 'TriDiamond'
+  recentComment: true
+
+# Enable Busuanzi statistic plugin
+# see http://ibruce.info/2015/04/04/busuanzi/
+busuanzi:
+  enable: true
+
+copy_protection:
+  enable: true
+  author:
+    cn: 作者
+    en: Author
+  link:
+    cn: 本文来自于
+    en: Article is from
+  license:
+    cn: 博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议
+    en: This content is shared under the CC BY-NC-SA 4.0 protocol (Non-Commercial)
+
+#! ---------------------------------------------------------------
+#! Enable Aurora Bot Dia
+#! @docs https://aurora.tridiamond.tech/guide/site-meta.html#custom-meta
+#! ---------------------------------------------------------------
+aurora_bot:
+  enable: true
+  locale: cn
+  bot_type: dia
+  tips:
+    messages:
+      - 你好，我是 <span>Dia</span>，好高兴遇见你～
+      - 好久不见，日子过得好快呢……
+      - '<span>大坏蛋！</span>你都多久没理人家了呀，嘤嘤嘤～'
+      - 嗨～快来逗我玩吧！
+      - 拿小拳拳锤你胸口！
+      - 学习使我们快乐，快乐使我们更想学习～
+      - 你知道吗？你可以<span>点击我</span>返回页面顶部哦！～
+      # 这是一个特殊的函数，它将触发 quotes API
+      # 和 Dia 会说出每日引用的信息。
+      - showQuote
+    console: 哈哈，你打开了控制台，是想要看看我的小秘密吗？
+    copy: 你都复制了些什么呀，转载要记得加上出处哦！
+    visibility_change: 老朋友，你怎么才回来呀～
+    welcome:
+      '24': 你是夜猫子呀？这么晚还不睡觉，明天起的来嘛？
+      '5_7': 早上好！一日之计在于晨，美好的一天就要开始了。
+      '7_11': 上午好！工作顺利嘛，不要久坐，多起来走动走动哦！
+      '11_13': 中午了，工作了一个上午，现在是午餐时间！
+      '13_17': 午后很容易犯困呢，今天的运动目标完成了吗？
+      '17_19': 傍晚了！窗外夕阳的景色很美丽呢，最美不过夕阳红～
+      '19_21': 晚上好，今天过得怎么样？
+      '21_23':
+        - 已经这么晚了呀，早点休息吧，晚安～
+        - 深夜时要爱护眼睛呀！
+    referrer:
+      # 用户来自你自己的网站。
+      self: 欢迎来到<span>「[PLACEHOLDER]」</span>
+      # 用户来自百度搜索引擎。
+      baidu: Hello！来自 百度搜索 的朋友<br>你是搜索 <span>「[PLACEHOLDER]」</span> 找到的我吗？
+      # 用户来自360搜索引擎。
+      so: Hello！来自 360搜索 的朋友<br>你是搜索 <span>「[PLACEHOLDER]」</span> 找到的我吗？
+      # 用户来自谷歌搜索引擎。
+      google: Hello！来自 谷歌搜索 的朋友<br>欢迎阅读<span>「[PLACEHOLDER]」</span>
+      # 用户来自另一个网站。
+      site: Hello！来自 <span>[PLACEHOLDER]</span> 的朋友
+      # 任何其他来源。
+      other: 感谢您阅读： <span>「[PLACEHOLDER]」</span>
+    mouseover:
+      # 悬浮在 Dia 上
+      - selector: '#Aurora-Dia'
+        text:
+          - 哇啊啊啊啊啊啊... <span>你想干嘛</span>? O.O
+          - 请您轻一点，我是<span>很昂贵</span>的机器人哦! O.O
+          - '<span>领导，我在呢!</span> 我有什么可以帮到你呢? O.O'
+      # 悬浮在 Home 菜单
+      - selector: "[data-menu='Home']"
+        text:
+          - 点击前往首页，想回到上一页可以使用浏览器的后退功能哦。
+          - 点它就可以回到首页啦！
+          - 回首页看看吧。
+      # 悬浮在 About 菜单
+      - selector: "[data-menu='About']"
+        text:
+          - 你想知道我家主人是谁吗？
+          - 这里有一些关于我家主人的秘密哦，要不要看看呢？
+          - 发现主人出没地点！
+      # 悬浮在 Archives 菜单
+      - selector: "[data-menu='Archives']"
+        text:
+          - 这里存储了主人的所有作品哦！
+          - 想看看主人的图书馆吗？
+      # 悬浮在 Tags 菜单
+      - selector: "[data-menu='Tags']"
+        text:
+          - 点击就可以看文章的标签啦！
+          - 使用标签可以更好的分类你的文章哦～
+      # 悬浮在 language 菜单
+      - selector: "[data-dia='language']"
+        text: 主人的博客支持多种语言。
+      # 悬浮在黑白切换按钮上
+      - selector: "[data-dia='light-switch']"
+        text: 您可以点击这里切换黑白模式哦！
+      # 悬浮在作者简介上
+      - selector: "[data-dia='author']"
+        text:
+          - 这是我主人的简介。
+          - 点击其中任何一个链接都可以传送到我主人的其他世界。
+      # 悬浮在作跳转评论按钮上
+      - selector: "[data-dia='jump-to-comment']"
+        text:
+          - 你想看看评论吗?
+          - 点击这里可以帮助你直接跳转到评论部分。
+
+    # ======================================================
+    # 当你的'鼠标点击'为特定的HTML标签，Dia将
+    # 给用户留言帮助他们解决问题。
+    # ------------------------------------------------------
+    # 属性与' moveover '事件相同
+    # ======================================================
+    click:
+      # 鼠标点击搜索按钮
+      - selector: "[data-dia='search']"
+        text:
+          - 没有看到你想要的文章，那么就输入你想搜索的关键词吧～
+          - 可以使用 ctrl/cmd + k 快捷键打开搜索哦～
+      # 鼠标点击文章标题
+      - selector: "[data-dia='article-link']"
+        text:
+          - 希望你会喜欢这篇文章：<span>「{text}」</span>.
+          - 您的选择真的不错哦！好好享受这篇文章吧～
+          - 希望您能从 <span>「{text}」</span>这篇文章中学到点东西。
+      # 鼠标点击跳转评论输入框（Gitalk）
+      - selector: '.gt-header-textarea'
+        text:
+          - 要吐槽些什么呢？
+          - 一定要认真填写喵～
+          - 有什么想说的吗？
+          - 如果觉得文章不错的话，就给博主留个言吧～
+      # 鼠标点击跳转评论输入框（Valine）
+      - selector: '.veditor'
+        text:
+          - 要吐槽些什么呢？
+          - 一定要认真填写喵～
+          - 有什么想说的吗？
+          - 如果觉得文章不错的话，就给博主留个言吧～
+
+    # ======================================================
+    # 在特定的日期，Dia会向你的读者问候。
+    # ------------------------------------------------------
+    # date: 特别活动的日期(格式:月/日或月/日-月/日)
+    # text:
+    # ---只使用一个简单的字符串。
+    # -——消息的随机集合，使用数组配置格式。
+    # ======================================================
+    events:
+      - date: 01/01
+        text: '<span>元旦</span>了呢，新的一年又开始了，今年是{year}年～'
+      - date: 02/14
+        text: 又是一年<span>情人节</span>，{year}年找到对象了嘛～
+      - date: 03/08
+        text: 今天是<span>国际妇女节</span>！
+      - date: 03/12
+        text: 今天是<span>植树节</span>，要保护环境呀！
+      - date: 04/01
+        text: 悄悄告诉你一个秘密～<span>今天是愚人节，不要被骗了哦～</span>
+      - date: 05/01
+        text: 今天是<span>五一劳动节</span>，计划好假期去哪里了吗～
+      - date: 06/01
+        text: '<span>儿童节</span>了呢，快活的时光总是短暂，要是永远长不大该多好啊…'
+      - date: '09/03'
+        text: '<span>中国人民抗日战争胜利纪念日</span>，铭记历史、缅怀先烈、珍爱和平、开创未来。'
+      - date: '09/10'
+        text: '<span>教师节</span>，在学校要给老师问声好呀～'
+      - date: 10/01
+        text: '<span>国庆节</span>到了，为祖国母亲庆生！'
+      - date: 11/05-11/12
+        text: 今年的<span>双十一</span>是和谁一起过的呢～
+      - date: 12/20-12/31
+        text: 这几天是<span>圣诞节</span>，主人肯定又去剁手买买买了～
+
+#! ---------------------------------------------------------------
+#! Injections
+#! @docs https://aurora.tridiamond.tech/guide/site-meta.html#custom-meta
+#! ---------------------------------------------------------------
+injects:
+  scripts:
+  css:
