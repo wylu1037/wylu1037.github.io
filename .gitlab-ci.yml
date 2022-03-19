@@ -9,10 +9,9 @@ before_script:
 
 pages:
   script:
-    - npm install
-    - ./node_modules/hexo/bin/hexo clean
-    - ./node_modules/hexo/bin/hexo generate
-    - ./node_modules/hexo/bin/hexo deploy
+    - hexo clean
+    - hexo generate
+    - hexo deploy
   artifacts:
     paths:
       - public
