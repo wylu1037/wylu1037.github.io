@@ -200,7 +200,7 @@ hexo clean & hexo g & hexo server
 
 ## 3.aurora配置
 
-:::tips
+:::tip
 
 链接：https://aurora.tridiamond.tech/zh/guide/configuration.html
 
@@ -208,7 +208,7 @@ hexo clean & hexo g & hexo server
 
 ## 4.部署到GitLab Pages
 
-:::tips
+:::tip
 
 链接：https://hexo.io/zh-cn/docs/gitlab-pages
 
