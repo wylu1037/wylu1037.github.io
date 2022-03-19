@@ -14,10 +14,10 @@ site:
   nick: Mr.Lu
   description:
   link: '/'
-  language: zh-Hans
+  language: cn
   multi_language: true
-  logo: https://img-blog.csdnimg.cn/20210313122054101.png
-  avatar: /images/jaychou.JPG
+  logo: /img/favicon-32x32-jay.ico
+  avatar: /img/jaychou.JPG
   beian:
     number: ''
     link: ''
