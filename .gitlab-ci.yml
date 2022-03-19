@@ -1,17 +1,19 @@
-image: node:9.10.0 #當初電腦上是裝這個版本，有試過改成較新版也可運行。若版號差距大時，可以試試拉高版本看看gitlab支援了沒
+image: node:10.15.3
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - npm install hexo-cli -g
+  - test -e package.json && npm install
+  - hexo generate
 
 pages:
   script:
-  - npm install
-  - ./node_modules/hexo/bin/hexo clean
-  - ./node_modules/hexo/bin/hexo generate
-  - ./node_modules/hexo/bin/hexo deploy # 若閱讀次數採leanCloud的話，需要加上deploy抓閱讀次數
+    - hexo generate
   artifacts:
     paths:
-    - public
-  cache:
-    paths:
-      - node_modules
-    key: project
+      - public
   only:
-  - master
+    - main
