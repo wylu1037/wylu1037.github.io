@@ -102,4 +102,7 @@ theme: aurora
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: 'git'
+  # repo: https://github.com/luwy5180/luwy5180.github.io.git
+  repo: git@gitlab.com:wylu/wylu.gitlab.io.git
+  branch: main

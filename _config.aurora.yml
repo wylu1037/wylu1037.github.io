@@ -12,11 +12,11 @@ site:
   subtitle: '认真工作，努力生活！'
   author: 卢文扬
   nick: Mr.Lu
-  description: 纵有疾风起，人生不言弃！<br /> <b>- 来自《起风了》宫崎骏</b>
+  description: 纵有疾风起，人生不言弃！<br />风立ちぬ、いざ生きめやも！<br /><b>-by 宫崎骏「起风了」</b>
   link: '/'
   language: cn
   multi_language: true
-  logo: /img/favicon-32x32-jay.ico
+  logo: /img/favicon-32x32-jay.png
   avatar: /img/jaychou.JPG
   beian:
     number: ''
@@ -51,7 +51,7 @@ menu:
     name: '邮件'
     path: 'wylu@zkjg.com'
   Aurora:
-    name: 'Github'
+    name: 'Aurora'
     children:
       warehouse:
         name: '仓库'
@@ -100,9 +100,9 @@ socials:
   #   icon: far fa-address-book
   #   link: https://live.bilibili.com/22619211
   github: 'https://github.com/luwy5180'
-  twitter: ''
-  stackoverflow: ''
-  weibo: 'https://weibo.com/u/7318914058'
+  #twitter: ''
+  #stackoverflow: ''
+  #weibo: 'https://weibo.com/u/7318914058'
   zhihu: 'https://www.zhihu.com/people/tridiamond'
   csdn: 'https://blog.csdn.net/TriDiamond6'
   juejin: 'https://juejin.cn/user/1873223546578589'
@@ -114,7 +114,7 @@ socials:
 site_meta:
   cdn: cn
   favicon:
-  description: 'z纵有疾风起，人生不言弃！'
+  description: '纵有疾风起，人生不言弃！'
   keywords: 'Backend、Frontend、Java、Go、Vue、Database'
   author: 'Mr.Lu'
 
@@ -125,8 +125,8 @@ site_meta:
 
 # For local development only!
 gitalk:
-  enable: true
-  autoExpand: true
+  enable: false
+  autoExpand: false
   clientID: ''
   clientSecret: ''
   repo: 'dev-blog-comments'
@@ -141,17 +141,17 @@ gitalk:
 # Valine comment plugin (recommended!)
 # see https://valine.js.org/quickstart.html
 valine:
-  enable: false
-  app_id:
-  app_key:
+  enable: true
+  app_id: J6SB9gzJ7yCQgSR14fUcN3gw-9Nh9j0Va
+  app_key: NY8UBWfAKgM2YBffpI4T4TDi
   avatar: ''
   placeholder: Leave your thoughts behind~
   visitor: true
-  lang: zh-Hans
+  lang: zh-CN
   avatarForce: false
   meta: ['nick', 'mail']
   requiredFields: []
-  admin: 'TriDiamond'
+  admin: 'MrLu'
   recentComment: true
 
 # Enable Busuanzi statistic plugin

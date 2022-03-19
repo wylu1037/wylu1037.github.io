@@ -1,5 +1,5 @@
 ---
-title: Hexo Aurora主题博客搭建
+title: Aurora主题博客搭建
 date: 2022-03-19 11:56:19
 tags:
 	- hexo
@@ -7,6 +7,7 @@ tags:
 categories:
 	- 博客
 cover: http://puui.qpic.cn/vcover_hz_pic/0/mzc00200gw2ez0b1627357509889/0
+feature: true
 ---
 
 ## 1.准备环境
@@ -14,9 +15,11 @@ cover: http://puui.qpic.cn/vcover_hz_pic/0/mzc00200gw2ez0b1627357509889/0
 ### 1.1 建站
 
 :::tip
+
 基于Hexo搭建主题为Aurora的博客，依赖环境如下：
-Hexo 5.4+
-Yarn or NPM installed
++ Hexo 5.4+
++ Yarn or NPM installed
+
 :::
 
 安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。 
@@ -186,7 +189,9 @@ hexo clean & hexo g & hexo server
 ```
 
 :::warning
+
 改变了任何配置都需要重新生成 Hexo 的静态文件！
+
 :::
 
 当文件都生成完毕之后，就可以通过 [https://localhost:4000在新窗口打开](https://localhost:4000/) 访问博客了。 
@@ -195,13 +200,23 @@ hexo clean & hexo g & hexo server
 
 ## 3.aurora配置
 
+:::tips
 
+链接：https://aurora.tridiamond.tech/zh/guide/configuration.html
+
+:::
 
 ## 4.部署到GitLab Pages
 
-+ 新建一个 repository。如果你希望你的站点能通过 `<你的 GitLab 用户名>.gitlab.io` 域名访问，你的 repository 应该直接命名为 `<你的 GitLab 用户名>.gitlab.io`。
-+ 将你的 Hexo 站点文件夹推送到 repository 中。默认情况下 `public` 目录将不会（并且不应该）被推送到 repository 中，建议你检查 `.gitignore` 文件中是否包含 `public` 一行，如果没有请加上。
-+ 在你的站点文件夹中新建 `.gitlab-ci.yml` 文件：
+:::tips
+
+链接：https://hexo.io/zh-cn/docs/gitlab-pages
+
+:::
+
++ 新建一个 repository。如果希望站点能通过 `<GitLab 用户名>.gitlab.io` 域名访问，repository 应该直接命名为 `<GitLab 用户名>.gitlab.io`。
++ 将 Hexo 站点文件夹推送到 repository 中。默认情况下 `public` 目录将不会（并且不应该）被推送到 repository 中，建议检查 `.gitignore` 文件中是否包含 `public` 一行，如果没有请加上。
++ 在站点文件夹中新建 `.gitlab-ci.yml` 文件：
 
 ```yaml
 image: node:12.22.5
@@ -223,11 +238,10 @@ pages:
       - public
   only:
     - main
-
 ```
 
-+ GitLab CI 应该会自动开始运行，构建成功以后你应该可以在 `https://<你的 GitLab 用户名>.gitlab.io` 查看你的网站。
-+ (可选) 如果你需要查看生成的文件，可以在 [job artifact](https://docs.gitlab.com/ee/user/project/pipelines/job_artifacts.html) 中找到。
++ GitLab CI 应该会自动开始运行，构建成功以后可以在 `https://<GitLab 用户名>.gitlab.io` 查看网站。
++ 如果你需要查看生成的文件，可以在 [job artifact](https://docs.gitlab.com/ee/user/project/pipelines/job_artifacts.html) 中找到。
 
-> 在 GitLab.com 上，GitLab CI 是默认启用的。如果你使用的是自托管的 GitLab，你可能需要在 `Settings -> CI / CD -> Shared Runners` 启用 GitLab CI。
+> 在 GitLab.com 上，GitLab CI 是默认启用的。如果使用的是自托管的 GitLab，可能需要在 `Settings -> CI / CD -> Shared Runners` 启用 GitLab CI。
 
