@@ -47,11 +47,20 @@ menu:
   About: true
   Tags: true
   Archives: true
-  Email:
-    name: '邮件'
-    path: 'wylu@zkjg.com'
+  Quotes:
+    name: '金句'
+    i18n:
+      cn: '金句'
+      en: 'Quotes'
+    children:
+      People'sDaily:
+        name: '人民日报'
+        path: '/page/daily'
   Aurora:
     name: 'Aurora主题'
+    i18n:
+      cn: 'Aurora主题'
+      en: 'Aurora Theme'
     children:
       warehouse:
         name: '仓库地址'
