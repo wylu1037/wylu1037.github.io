@@ -81,7 +81,7 @@ comments: false
 
 ### 4.2 [中科晶格](https://www.zkjg.com/)
 
-因为地域原因，想回家乡发展，中科晶格是工作生涯的第二站。在这里，有新奇的技术 「区块链」，还有高度的技术自由度，同样没有996。未来寄语：<font style="font-family:华文中宋;color:green;font-size:25px">观海听澜凭风起 扶摇直上九万里！</font>
+因为地域原因，想回家乡发展，中科晶格是工作生涯的第二站。在这里，有新奇的技术 「区块链」，还有高度的技术自由度，同样没有996。未来寄语：<font style="font-family:华文中宋;color:green;font-size:25px">观海听澜凭风起，扶摇直上九万里！</font>
 
 
 

@@ -16,8 +16,8 @@ site:
   link: '/'
   language: cn
   multi_language: true
-  logo: /img/favicon-32x32-jay.png
-  avatar: /img/jaychou.JPG
+  logo: /images/favicon-32x32-jay.png
+  avatar: /images/jaychou.JPG
   beian:
     number: ''
     link: ''
@@ -66,7 +66,7 @@ menu:
 #! ---------------------------------------------------------------
 theme:
   # true-强制改为默认深色模式; false-强制改为默认浅色模式; 'auto'-自动识别系统的模式
-  dark_mode: false
+  dark_mode: 'auto'
   # 头像形状配置
   profile_shape: circle # support `circle`, `diamond`, `rounded`
   # 推荐布局模式：根据 markdown 的 Front-Meta 中的 feature 属性来选择文章，为true则推荐
