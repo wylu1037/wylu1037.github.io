@@ -17,12 +17,13 @@ feature: true
 :::tip
 
 基于Hexo搭建主题为Aurora的博客，依赖环境如下：
++ Git
 + Hexo 5.4+
 + Yarn or NPM installed
 
 :::
 
-安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。 
+安装 Hexo 完成后，执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。 
 
 ```bash
 $ hexo init <folder>
@@ -30,7 +31,7 @@ $ cd <folder>
 $ npm install
 ```
 
-新建完成后，指定文件夹的目录如下：
+新建完成后，指定文件夹的目录如下，外层文件夹一般是 `blog`，不要随意更改：
 
 ```
 .
@@ -45,7 +46,9 @@ $ npm install
 
 ### 1.2 配置
 
-可以在 `_config.yml` 中修改大部分的配置。 
+可以在 `_config.yml` 中修改大部分的配置，可参考 ***hexo*** 官方文档：https://hexo.io/zh-cn/docs/
+
+
 
 #### 1.2.1 网站
 
@@ -59,7 +62,7 @@ $ npm install
 | `language`    | 网站使用的语言。对于简体中文用户来说，使用不同的主题可能需要设置成不同的值，请参考你的主题的文档自行设置，常见的有 `zh-Hans`和 `zh-CN`。 |
 | `timezone`    | 网站时区。Hexo 默认使用您电脑的时区。请参考 [时区列表](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 进行设置，如 `America/New_York`, `Japan`, 和 `UTC` 。一般的，对于中国大陆地区可以使用 `Asia/Shanghai`。 |
 
-其中，`description`主要用于SEO，告诉搜索引擎一个关于您站点的简单描述，通常建议在其中包含您网站的关键词。`author`参数用于主题显示文章的作者。
+其中，`description`主要用于***SEO***，告诉搜索引擎一个关于您站点的简单描述，通常建议在其中包含您网站的关键词。`author`参数用于主题显示文章的作者。
 
 
 
@@ -115,11 +118,15 @@ $ npm install
 
 
 
+---
+
 ## 2.使用aurora主题
+
+可参考 Hexo Aurora 官方文档：https://aurora.tridiamond.tech/zh/guide
 
 ### 2.1 安装主题包
 
-> 在控制台中，进入 Hexo 项目的根目录，然后运行以下命令安装主题
+> 在 Git Bash 控制台中，进入 Hexo 项目的根目录，一般是 blog，然后运行以下命令安装主题
 
 ```npm
 npm install hexo-theme-aurora --save
@@ -144,7 +151,7 @@ cp -rf ./node_modules/hexo-theme-aurora/_config.yml ./_config.aurora.yml
 
 >  **因为使用了 Vue-router，Hexo 默认生成的页面和文章的 permalink 与我们 Vue router 中的 path 是不相符的，那么就会出现无法访问的问题。所以我们需要修改 Hexo 默认配置文件里面的 `permalink` 参数。** 
 
-+  修改 Hexo 根目录下的 `_config.yml` 的 `permalink` 参数为 `/post/:title.html` 
++  修改 *Hexo* 根目录下的 `_config.yml` 的 `permalink` 参数为 `/post/:title.html`，说明：因为 *aurora* 是基于 `Vue3` 重构的，这里的路由类似于 ***Vue*** 中的路由传参（*params*）。
 
 ```yaml
 # URL
@@ -185,7 +192,6 @@ prismjs:
 
 ```bash
 hexo clean & hexo g & hexo server
-
 ```
 
 :::warning
@@ -197,6 +203,8 @@ hexo clean & hexo g & hexo server
 当文件都生成完毕之后，就可以通过 [https://localhost:4000在新窗口打开](https://localhost:4000/) 访问博客了。 
 
 
+
+---
 
 ## 3.aurora配置
 
@@ -217,6 +225,10 @@ hexo clean & hexo g & hexo server
 + 新建一个 repository。如果希望站点能通过 `<GitLab 用户名>.gitlab.io` 域名访问，repository 应该直接命名为 `<GitLab 用户名>.gitlab.io`。
 + 将 Hexo 站点文件夹推送到 repository 中。默认情况下 `public` 目录将不会（并且不应该）被推送到 repository 中，建议检查 `.gitignore` 文件中是否包含 `public` 一行，如果没有请加上。
 + 在站点文件夹中新建 `.gitlab-ci.yml` 文件：
+
+> 注意：
+>
+> 这里的image，官网给出的是版本是 node:10-alpine，gitlab实际执行 deploy 中是有版本兼容问题的，请根据构建报错提示修改。only: -main 中的 main 是gitlab 仓库的分支名，官网给出的值是 master，随着美国 “Black Lives Matter”运动愈演愈烈，为避免不必要的奴隶制联想，master 已替换为 main。
 
 ```yaml
 image: node:12.22.5
@@ -241,7 +253,7 @@ pages:
 ```
 
 + GitLab CI 应该会自动开始运行，构建成功以后可以在 `https://<GitLab 用户名>.gitlab.io` 查看网站。
-+ 如果你需要查看生成的文件，可以在 [job artifact](https://docs.gitlab.com/ee/user/project/pipelines/job_artifacts.html) 中找到。
++ 如果需要查看生成的文件，可以在 [job artifact](https://docs.gitlab.com/ee/user/project/pipelines/job_artifacts.html) 中找到。
 
-> 在 GitLab.com 上，GitLab CI 是默认启用的。如果使用的是自托管的 GitLab，可能需要在 `Settings -> CI / CD -> Shared Runners` 启用 GitLab CI。
+> 在 GitLab.com 上，GitLab CI 是默认启用的。如果使用的是自托管的 GitLab，需要在 `Settings -> CI / CD -> Shared Runners` 启用 GitLab CI。
 

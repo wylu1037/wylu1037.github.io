@@ -12,7 +12,7 @@ site:
   subtitle: '认真工作，努力生活！'
   author: 卢文扬
   nick: Mr.Lu
-  description: 纵有疾风起，人生不言弃！<br />风立ちぬ、いざ生きめやも！<br /><b>-by 宫崎骏「起风了」</b>
+  description: 纵有疾风起，人生不言弃！<br />风立ちぬ、いざ生きめやも！<br /><b>-- 宫崎骏「起风了」</b>
   link: '/'
   language: cn
   multi_language: true
@@ -51,13 +51,13 @@ menu:
     name: '邮件'
     path: 'wylu@zkjg.com'
   Aurora:
-    name: 'Aurora'
+    name: 'Aurora主题'
     children:
       warehouse:
-        name: '仓库'
+        name: '仓库地址'
         path: 'https://github.com/auroral-ui/hexo-theme-aurora'
       document:
-        name: '文档'
+        name: '文档地址'
         path: 'https://aurora.tridiamond.tech/'
 
 #! ---------------------------------------------------------------
@@ -103,9 +103,9 @@ socials:
   #twitter: ''
   #stackoverflow: ''
   #weibo: 'https://weibo.com/u/7318914058'
-  zhihu: 'https://www.zhihu.com/people/tridiamond'
-  csdn: 'https://blog.csdn.net/TriDiamond6'
-  juejin: 'https://juejin.cn/user/1873223546578589'
+  zhihu: 'https://www.zhihu.com/people/lu-wen-yang-19'
+  csdn: 'https://blog.csdn.net/qq_42139464?type=blog'
+  juejin: 'https://juejin.cn/user/651364347948414'
 
 #! ---------------------------------------------------------------
 #! Site Meta Configs
