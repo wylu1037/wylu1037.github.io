@@ -6,11 +6,11 @@ date: 2022-03-20 21:21:04
 <img src="/images/People's_Daily_logo.png" alt="人民日报" style="zoom:35%;margin:auto;" />
 <br/><br/>
 
-## 2022 Year
+# 2022 Year
 
-###  March 
+##  March 
 
-#### 致自己
+### 致自己
 
 <font style="color:red;font-family:华文中宋;font-size:20px">其实结不结婚，都会后悔</font>。<font style="font-family:华文中宋;font-size:20px">巷子里的猫，很自由却没有归宿；围墙里的狗，有归宿终身都得低头。人生这道选择题，怎么选都会有遗憾。</font>
 
@@ -50,7 +50,7 @@ date: 2022-03-20 21:21:04
 
 ---
 
-#### 真正厉害的人
+### 真正厉害的人
 
 <font style="font-family:华文中宋;font-size:20px">真正厉害的人从来不说难听的话，因为人性不需要听真话，只需要听好听的话。所以一定要做到“万物不为我所有，万物为我所用”。</font>
 

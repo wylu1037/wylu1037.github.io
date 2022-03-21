@@ -56,6 +56,9 @@ menu:
       People'sDaily:
         name: '人民日报'
         path: '/page/daily'
+      WeChatReading:
+        name: '微信读书'
+        path: '/page/weChatReading'
   Aurora:
     name: 'Aurora主题'
     i18n:
