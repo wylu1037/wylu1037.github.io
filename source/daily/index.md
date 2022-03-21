@@ -3,6 +3,9 @@ title: daily
 date: 2022-03-20 21:21:04
 ---
 
+<img src="/images/People's_Daily_logo.png" alt="人民日报" style="zoom:35%;margin:auto;" />
+<br/><br/>
+
 ## 2022 Year
 
 ###  March 
@@ -18,50 +21,34 @@ date: 2022-03-20 21:21:04
 <font style="color:red;font-family:华文中宋;font-size:20px">谋爱前先谋生，爱人前先爱己。</font>
 
 <font style="color:red;font-family:华文中宋;font-size:20px">一个人没有经济能力，才是万劫不复。</font>
-
 <br/>
+<img src="/images/People's_Daily_logo.png" alt="人民日报" style="zoom:20%;float:right" />
+<br/><br/><br/><br/><br/>
 
-<font style="font-family:华文行楷;font-size:55px;color:red;float:right">——人民日报</font>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
+---
 
 <font style="font-family:华文中宋;font-size:20px">得到未必是福，失去未必是祸，人生各有渡口，各有各舟，</font><font style="color:red;font-family:华文中宋;font-size:20px">你以为的遗憾，其实有可能是躲过了一劫！</font>
 
 <font style="font-family:华文中宋;font-size:20px">摆弄好手里的柴米油盐，保护好心中的诗与远方，平庸如我，无趣如我，孤独如我，芸芸众生也只一个我，你路过便路过吧。</font>
 
 <font style="font-family:华文中宋;font-size:20px">很喜欢一段话：有缘躲不开，无缘碰不到，缘起则聚，缘尽则散，随缘而至，烦恼自去！</font>
-
 <br/>
+<img src="/images/People's_Daily_logo.png" alt="人民日报" style="zoom:20%;float:right" />
+<br/><br/><br/><br/><br/>
 
-<font style="font-family:华文行楷;font-size:55px;color:red;float:right">——人民日报</font>
+---
 
+<font style="font-family:华文中宋;font-size:20px">一个真正强大的人，不会把太多心思花在取悦和亲附别人上面。所谓的圈子、资源都只是衍生品。</font>
 <br/>
-
+<font style="font-family:华文中宋;font-size:20px">自己是梧桐，凤凰才会来栖；</font><br/>
+<font style="font-family:华文中宋;font-size:20px">自己是大海，百川才会来归。</font>
 <br/>
-
+<font style="font-family:华文中宋;font-size:20px">你要默默做好你该做的事情。等你变得足够好，自然会有配得上你的人，拉你进更好的圈子。到那时，你会站在新的高度，拥抱更美的风景。</font>
 <br/>
+<img src="/images/People's_Daily_logo.png" alt="人民日报" style="zoom:20%;float:right" />
+<br/><br/><br/><br/><br/>
 
-<br/>
-
-<br/>
-
-<br/>
+---
 
 #### 真正厉害的人
 
@@ -70,25 +57,6 @@ date: 2022-03-20 21:21:04
 <font style="font-family:华文中宋;font-size:20px">正所谓言布施，就是福报。而有些人他就喜欢跟别人辩论嘲讽甚至恶语相向，跟别人抱怨；要理解祸从口出，说人是非者，便是是非。</font>
 
 <font style="font-family:华文中宋;font-size:20px;color:red">你要学着做一个有温度且睿智的人，不和为谋我照样能心平气和，冷眼相待我依旧可以风生水起。</font>
-
 <br/>
-
-<font style="font-family:华文行楷;font-size:55px;color:red;float:right">——人民日报</font>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
-
-<br/>
+<img src="/images/People's_Daily_logo.png" alt="人民日报" style="zoom:20%;float:right" />
+<br/><br/><br/><br/><br/>
