@@ -127,7 +127,7 @@ public class NacosConfigApplication {
 
 + 界面
 
-![releaseConfiguration](/images\nacos\releaseConfiguration.png)
+![releaseConfiguration](/images/nacos/releaseConfiguration.png)
 
 + curl
 
