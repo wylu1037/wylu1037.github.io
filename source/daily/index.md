@@ -60,3 +60,18 @@ date: 2022-03-20 21:21:04
 <br/>
 <img src="/images/People's_Daily_logo.png" alt="人民日报" style="zoom:20%;float:right" />
 <br/><br/><br/><br/><br/>
+
+---
+
+### 时间
+
+<font style="font-family:华文中宋;font-size:20px">时间从来不语，却回答了所有问题，岁月从来不言，却鉴证了所有真心！谁在乎谁，谁说了都不算，时间说了算。</font>
+<br/><font style="font-family:华文中宋;font-size:20px">时间是个庸医，却包治百病；</font>
+<font style="font-family:华文中宋;font-size:20px">时间不是解药，但解药在时间里。</font>
+<br/><font style="font-family:华文中宋;font-size:20px">所以，请给时间一点时间，</font>
+ <font style="font-family:华文中宋;font-size:20px">让开始开始，让过去过去。</font>  
+ <br/><img src="/images/People's_Daily_logo.png" alt="人民日报" style="zoom:20%;float:right" />
+<br/><br/><br/><br/><br/>
+
+---
+
