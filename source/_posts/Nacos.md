@@ -33,19 +33,19 @@ Nacos 帮助您更敏捷和容易地构建、交付和管理微服务平台。 N
 
 ```
 .
-|--bin
-|	|--logs
-|	|--work
-|	|--shutdown.cmd
-|	|--shutdosn.sh
-|	|--startup.cmd
-|	└--startup.sh
-|--conf
-|--data
-|--logs
-|--target
-|--LICENSE
-└--NOTICE
+|──bin
+|	|──logs
+|	|──work
+|	|──shutdown.cmd
+|	|──shutdosn.sh
+|	|──startup.cmd
+|	└──startup.sh
+|──conf
+|──data
+|──logs
+|──target
+|──LICENSE
+└──NOTICE
 ```
 
 编辑 `startup.cmd`，修改配置项 MODE 值：
@@ -72,9 +72,214 @@ cmd startup.cmd -m standalone
 
 ## 2.Nacos Spring Boot
 
+### 2.1 启动配置管理
+
+#### 2.1.1 添加依赖
+
++ ***Maven***
+
+```xml
+<dependency>
+    <groupId>com.alibaba.boot</groupId>
+    <artifactId>nacos-config-spring-boot-starter</artifactId>
+    <version>${latest.version}</version>
+</dependency>
+```
+
++ ***Gradle***
+
+```groovy
+implementation 'com.alibaba.boot:nacos-config-spring-boot-starter:0.2.10'
+```
 
 
 
+#### 2.1.2 application.yaml
+
+在 `application.yaml` 中配置 Nacos server 的地址：
+
+```yaml
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848
+```
+
+
+
+#### 2.1.3 配置启动类
+
+添加注解：使用 `@NacosPropertySource` 加载 `dataId` 为 `example` 的配置源，并开启自动更新：
+
+```java
+@SpringBootApplication
+@NacosPropertySource(dataId = "example", autoRefreshed = true)
+public class NacosConfigApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(NacosConfigApplication.class, args);
+    }
+}
+```
+
+
+
+#### 2.1.4 配置值
+
++ 界面
+
+![releaseConfiguration](/images\nacos\releaseConfiguration.png)
+
++ curl
+
+```bash
+curl -X POST "http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=example&group=DEFAULT_GROUP&content=message=Hello"
+```
+
+
+
+#### 2.1.5 读取值
+
+通过 Nacos 的 `@NacosValue` 注解设置属性值。
+
+```java
+@Slf4j
+@RestController
+@RequestMapping(value = "/user")
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+public class UserController {
+    @NacosValue(value = "${message:Hello}", autoRefreshed = true)
+    private String message;
+
+    @GetMapping("getNacos")
+    public BaseResult<Object> getNacosConfigHandler() {
+        BaseResult<Object> baseResult = new BaseResult<>(false);
+        try {
+            baseResult.setSuccess(true);
+            baseResult.setCode(200);
+            baseResult.setData(message);
+        } catch (Exception e) {
+            log.error("[UserController] getNacosConfigHandler() occurred exception! ", e);
+        }
+        return baseResult;
+    }
+}
+```
+
+
+
+---
+
+### 2.2 启动服务发现
+
+:::tip
+
+官方代码参考：[nacos-spring-boot-discovery-example](https://github.com/nacos-group/nacos-examples/tree/master/nacos-spring-boot-example/nacos-spring-boot-discovery-example)
+
+:::
+
+
+
+#### 2.2.1 添加依赖
+
++ ***Maven***:
+
+```xml
+<dependency>
+    <groupId>com.alibaba.boot</groupId>
+    <artifactId>nacos-discovery-spring-boot-starter</artifactId>
+    <version>${latest.version}</version>
+</dependency>
+```
+
++ ***Gradle***:
+
+```groovy
+// https://mvnrepository.com/artifact/com.alibaba.boot/nacos-discovery-spring-boot-starter
+implementation 'com.alibaba.boot:nacos-discovery-spring-boot-starter:0.2.10'
+```
+
+
+
+#### 2.2.2 application.yaml
+
+在 `application.yaml` 中配置 Nacos server 的地址：
+
+```yaml
+nacos:
+	discovery:
+		server-addr: 127.0.0.1:8848
+```
+
+
+
+#### 2.2.3 注入实例
+
+使用 `@NacosInjected` 注入 Nacos 的 `NamingService` 实例：
+
+```java
+@Controller
+@RequestMapping("discovery")
+public class DiscoveryController {
+
+    @NacosInjected
+    private NamingService namingService;
+
+    @RequestMapping(value = "/get", method = GET)
+    @ResponseBody
+    public List<Instance> get(@RequestParam String serviceName) throws NacosException {
+        return namingService.getAllInstances(serviceName);
+    }
+}
+
+@SpringBootApplication
+public class NacosDiscoveryApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(NacosDiscoveryApplication.class, args);
+    }
+}
+```
+
+
+
+#### 2.2.4 注册服务
+
+通过调用 [Nacos Open API](https://nacos.io/zh-cn/docs/open-api.html) 向 Nacos server 注册一个名称为 `example` 服务
+
+```bash
+curl -X PUT 'http://127.0.0.1:8848/nacos/v1/ns/instance?serviceName=example&ip=127.0.0.1&port=8080'
+```
+
+
+
+#### 2.2.5 调用接口
+
+访问 `curl http://localhost:8080/discovery/get?serviceName=example`，此时返回内容为：
+
+```json
+[
+  {
+    "instanceId": "127.0.0.1-8080-DEFAULT-example",
+    "ip": "127.0.0.1",
+    "port": 8080,
+    "weight": 1.0,
+    "healthy": true,
+    "cluster": {
+      "serviceName": null,
+      "name": "",
+      "healthChecker": {
+        "type": "TCP"
+      },
+      "defaultPort": 80,
+      "defaultCheckPort": 80,
+      "useIPPort4Check": true,
+      "metadata": {}
+    },
+    "service": null,
+    "metadata": {}
+  }
+]
+```
 
 
 
@@ -100,7 +305,15 @@ cmd startup.cmd -m standalone
 
 ---
 
-## 5.Nacos k8s
+## 5.Nacos Dubbo
+
+
+
+
+
+---
+
+## 6.Nacos k8s
 
 
 
@@ -110,7 +323,7 @@ cmd startup.cmd -m standalone
 
 ---
 
-## 6.Nacos Sync
+## 7.Nacos Sync
 
 
 
@@ -120,7 +333,7 @@ cmd startup.cmd -m standalone
 
 ---
 
-## 7.运维指南
+## 8.运维指南
 
 :::tip
 
