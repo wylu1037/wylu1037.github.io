@@ -307,7 +307,109 @@ curl -X PUT 'http://127.0.0.1:8848/nacos/v1/ns/instance?serviceName=example&ip=1
 
 ## 5.Nacos Dubbo
 
+### 5.1 添加依赖
 
++ ***Maven***
+
+```xml
+<dependencies>
+
+    ...
+
+    <!-- Dubbo dependency -->
+    <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>dubbo</artifactId>
+        <version>[latest version]</version>
+    </dependency>
+    
+    <!-- 使用Spring装配方式时可选: -->
+    <dependency>
+        <groupId>com.alibaba.spring</groupId>
+        <artifactId>spring-context-support</artifactId>
+        <version>[latest version]</version>
+    </dependency>
+
+    ...
+    
+</dependencies>
+```
+
+
+
++ ***Gradle***
+
+```groovy
+// https://mvnrepository.com/artifact/com.alibaba/dubbo
+implementation 'com.alibaba:dubbo:2.6.12'
+```
+
+
+
+:::tip
+
+dubbo 与 nacos 存在版本兼容问题，各依赖最终版本如下所示，仅做参考：
+
++ [Nacos server](https://github.com/alibaba/nacos/releases/tag/2.0.0-bugfix): `2.0.1-bugfix(Mar 30th, 2021)`
++ nacos-config-spring-boot-starter: `0.2.1`
++ nacos-config-spring-boot-actuator: `0.2.1`
++ dubbo: `2.6.5`
++ dubbo-registry-nacos: `2.6.7`
++ nacos-client: `1.1.3`
+
+:::
+
+
+
+### 5.2 配置注册中心
+
+>Dubbo官方文档：https://dubbo.apache.org/zh/docs/
+
+采用 Dubbo Spring 外部化配置，需要是 `Dubbo 2.5.8` 之后的版本。通过 Spring Environment 属性自动地生成并绑定 Dubbo 配置 Bean，实现配置简化，并且降低微服务开发门槛。
+
+
+
+#### 5.2.1 application.yaml
+
+```yaml
+dubbo:
+  # 指定应用名称，一般为项目名
+  application:
+    name: kec-dubbo
+  # 指定注册中心地址
+  registry:
+    address: nacos://192.168.1.79:8848
+```
+
+
+
+dubbo application配置项说明
+
+应用信息配置。对应的配置类：`org.apache.dubbo.config.ApplicationConfig`
+
+| 属性         | 对应URL参数         | 类型   | 是否必填 | 缺省值    | 作用     | 描述                                                         | 兼容性         |
+| ------------ | ------------------- | ------ | -------- | --------- | -------- | ------------------------------------------------------------ | -------------- |
+| name         | application         | string | **必填** |           | 服务治理 | 当前应用名称，用于注册中心计算应用间依赖关系，注意：消费者和提供者应用名不要一样，此参数不是匹配条件，你当前项目叫什么名字就填什么，和提供者消费者角色无关，比如：kylin应用调用了morgan应用的服务，则kylin项目配成kylin，morgan项目配成morgan，可能kylin也提供其它服务给别人使用，但kylin项目永远配成kylin，这样注册中心将显示kylin依赖于morgan | 1.0.16以上版本 |
+| version      | application.version | string | 可选     |           | 服务治理 | 当前应用的版本                                               | 2.2.0以上版本  |
+| owner        | owner               | string | 可选     |           | 服务治理 | 应用负责人，用于服务治理，请填写负责人公司邮箱前缀           | 2.0.5以上版本  |
+| organization | organization        | string | 可选     |           | 服务治理 | 组织名称(BU或部门)，用于注册中心区分服务来源，此配置项建议不要使用autoconfig，直接写死在配置中，比如china,intl,itu,crm,asc,dw,aliexpress等 | 2.0.0以上版本  |
+| architecture | architecture        | string | 可选     |           | 服务治理 | 用于服务分层对应的架构。如，intl、china。不同的架构使用不同的分层。 | 2.0.7以上版本  |
+| environment  | environment         | string | 可选     |           | 服务治理 | 应用环境，如：develop/test/product，不同环境使用不同的缺省值，以及作为只用于开发测试功能的限制条件 | 2.0.0以上版本  |
+| compiler     | compiler            | string | 可选     | javassist | 性能优化 | Java字节码编译器，用于动态类的生成，可选：jdk或javassist     | 2.1.0以上版本  |
+| logger       | logger              | string | 可选     | slf4j     | 性能优化 | 日志输出方式，可选：slf4j,jcl,log4j,log4j2,jdk               | 2.2.0以上版本  |
+
+#### 5.2.2 示例
+
+[点击](http://localhost:8848/nacos)去服务端查看详情：
+
+<img src="/images/nacos/serviceList.png" alt="服务列表" />
+<br/>
+
+<img src="/images/nacos/ServiceInfoDetails.png" alt="服务详情" />
+
+
+
+### 5.3 注解使用
 
 
 
