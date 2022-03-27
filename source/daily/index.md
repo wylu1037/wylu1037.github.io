@@ -75,3 +75,12 @@ date: 2022-03-20 21:21:04
 
 ---
 
+### 保持自信法则
+
+<font style="font-family:华文中宋;font-size:20px">告诉你一个秘密：只要你担心别人会怎么看你，他们就能奴役你；只有你再也不从自身之外寻求肯定，那你才能真正成为自己的主人。</font>
+<br/><font style="font-family:华文中宋;font-size:20px;color:red;">当你真的内心强大且富足的时候，别人冷落你，拒绝你，不回应你，你都不会轻易上升到自我否定和不被爱这个层面。</font>
+<br/><font style="font-family:华文中宋;font-size:20px">其实自信，就是自我允许自己被否定，你可以认为我不好，但不代表我不好。那是你的评判，我无需认同。</font>
+ <br/><img src="/images/People's_Daily_logo.png" alt="人民日报" style="zoom:20%;float:right" />
+<br/><br/><br/><br/><br/>
+
+---
