@@ -50,6 +50,7 @@ comments: false
 + Mysql、Oracle、Redis
 + ActiveMQ、MQTT
 + Gin、Go fiber
++ gorm
 
 :::
 
