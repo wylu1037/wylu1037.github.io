@@ -106,3 +106,6 @@ deploy:
   # repo: https://github.com/luwy5180/luwy5180.github.io.git
   repo: git@gitlab.com:wylu/wylu.gitlab.io.git
   branch: main
+
+  type: 'git'
+  repo: git@github.com:wylu1037/wylu1037.github.io.git
