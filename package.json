@@ -24,6 +24,6 @@
     "hexo-server": "^3.0.0",
     "hexo-theme-aurora": "^1.5.5",
     "hexo-theme-landscape": "^0.0.3",
-    "valine": "^1.4.16"
+    "valine": "^1.5.1"
   }
 }
