@@ -4,7 +4,7 @@
 
 # Site
 title: CodeCat
-subtitle: '认证工作，努力生活！'
+subtitle: '认真工作，努力生活！'
 description: ''
 keywords:
 author: 卢文扬
@@ -103,9 +103,6 @@ theme: aurora
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  # repo: https://github.com/luwy5180/luwy5180.github.io.git
-  repo: git@gitlab.com:wylu/wylu.gitlab.io.git
-  branch: main
-
-  type: 'git'
   repo: git@github.com:wylu1037/wylu1037.github.io.git
+  branch: gh-pages
+  message: 'docs: site update'
