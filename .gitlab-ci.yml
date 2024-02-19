@@ -27,7 +27,7 @@ pages:
     - docker
     - linux
   script:
-    - hugo --gc
+    - hugo --gc --minify
   artifacts:
     paths:
       - public
