@@ -1,10 +1,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Welcome to wylu blog site – </title>
+    <title>Welcome to wylu blog – </title>
     <link>https://wylu.gitlab.io/</link>
-    <description>Recent content on Welcome to wylu blog site</description>
+    <description>Recent content on Welcome to wylu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Sun, 18 Feb 2024 14:30:52 +0800</lastBuildDate>
     
 	  <atom:link href="https://wylu.gitlab.io/index.xml" rel="self" type="application/rss+xml" />
@@ -15,33 +15,15 @@
     
     
     <item>
-      <title>Test</title>
-      <link>https://wylu.gitlab.io/blog/test/</link>
-      <pubDate>Sun, 18 Feb 2024 16:26:59 +0800</pubDate>
+      <title>CGO</title>
+      <link>https://wylu.gitlab.io/blog/cgo/</link>
+      <pubDate>Mon, 19 Feb 2024 13:35:53 +0800</pubDate>
       
-      <guid>https://wylu.gitlab.io/blog/test/</guid>
+      <guid>https://wylu.gitlab.io/blog/cgo/</guid>
       <description>
         
         
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>How to Deploy a Personal Blog</title>
-      <link>https://wylu.gitlab.io/blog/how-to-deploy-a-personal-blog/</link>
-      <pubDate>Sun, 18 Feb 2024 16:24:15 +0800</pubDate>
-      
-      <guid>https://wylu.gitlab.io/blog/how-to-deploy-a-personal-blog/</guid>
-      <description>
-        
-        
-        &lt;h2&gt;Prerequisites&lt;span class=&#34;absolute -mt-20&#34; id=&#34;prerequisites&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#prerequisites&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;hugo&lt;/li&gt;
-&lt;li&gt;git&lt;/li&gt;
-&lt;li&gt;node&lt;/li&gt;
-&lt;/ul&gt;
+        &lt;p&gt;CGO&lt;/p&gt;
 
       </description>
     </item>

@@ -1,10 +1,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Welcome to wylu blog site – </title>
+    <title>Welcome to wylu blog – </title>
     <link>https://wylu.gitlab.io/about/</link>
-    <description>Recent content on Welcome to wylu blog site</description>
+    <description>Recent content on Welcome to wylu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Sun, 18 Feb 2024 17:06:54 +0800</lastBuildDate>
     
 	  <atom:link href="https://wylu.gitlab.io/about/index.xml" rel="self" type="application/rss+xml" />

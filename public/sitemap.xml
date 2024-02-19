@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://wylu.gitlab.io/about/</loc>
-    <lastmod>2024-02-18T17:06:54+08:00</lastmod>
-  </url><url>
-    <loc>https://wylu.gitlab.io/blog/test/</loc>
-    <lastmod>2024-02-18T16:26:59+08:00</lastmod>
-  </url><url>
-    <loc>https://wylu.gitlab.io/blog/how-to-deploy-a-personal-blog/</loc>
-    <lastmod>2024-02-18T16:24:15+08:00</lastmod>
-  </url><url>
-    <loc>https://wylu.gitlab.io/blog/</loc>
-    <lastmod>2024-02-18T16:23:00+08:00</lastmod>
-  </url><url>
-    <loc>https://wylu.gitlab.io/</loc>
-    <lastmod>2024-02-18T14:30:52+08:00</lastmod>
-  </url><url>
-    <loc>https://wylu.gitlab.io/docs/</loc>
-    <lastmod>2024-02-18T14:30:52+08:00</lastmod>
-  </url><url>
-    <loc>https://wylu.gitlab.io/categories/</loc>
-  </url><url>
-    <loc>https://wylu.gitlab.io/tags/</loc>
-  </url>
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <sitemap>
+    <loc>https://wylu.gitlab.io/en/sitemap.xml</loc>
+    
+      <lastmod>2024-02-19T13:35:53+08:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://wylu.gitlab.io/zh-cn/sitemap.xml</loc>
+    
+  </sitemap>
+  
+</sitemapindex>
