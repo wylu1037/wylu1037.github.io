@@ -1,0 +1,19 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Welcome to wylu blog site – Docs</title>
+    <link>https://wylu.gitlab.io/docs/</link>
+    <description>Recent content in Docs on Welcome to wylu blog site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Feb 2024 14:30:52 +0800</lastBuildDate>
+    
+	  <atom:link href="https://wylu.gitlab.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

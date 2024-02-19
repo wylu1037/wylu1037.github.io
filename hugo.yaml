@@ -1,6 +1,6 @@
 baseURL: https://wylu.gitlab.io
 languageCode: en-us
-title: Welcome to wylu blog site
+title: Welcome to wylu blog
 
 module:
   imports:
@@ -12,15 +12,29 @@ markup:
     renderer:
       unsafe: true
 
+enableInlineShortcodes: true
+
+defaultContentLanguage: en
+languages:
+  en:
+    languageName: English
+    weight: 1
+  zh-cn:
+    languageName: 简体中文
+    weight: 2
+
 menu:
   main:
-    - name: 📚 Documentation
+    - identifier: documentation
+      name: 📚 Documentation
       pageRef: /docs
       weight: 1
-    - name: 💻 Blog
+    - identifier: blog
+      name: 📝 Blog
       pageRef: /blog
       weight: 2
-    - name: 🪂 About
+    - identifier: about
+      name: 👨🏻‍🎓 About
       pageRef: /about
       weight: 3
     - name: Search
@@ -34,6 +48,17 @@ menu:
         icon: github
 
 params:
+  # Search
+  search:
+    enable: true
+    type: flexsearch
+    flexsearch:
+      # index page by: content | summary | heading | title
+      index: content
+  theme:
+    # light | dark | system
+    default: system
+    displayToggle: true
   page:
     # full (100%), wide (90rem), normal (1280px)
     width: full
