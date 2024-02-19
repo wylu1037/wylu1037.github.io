@@ -48,6 +48,17 @@ menu:
         icon: github
 
 params:
+  blog:
+    list:
+      displayTags: true
+
+  footer:
+    displayCopyright: true
+    displayPoweredBy: false
+    width: normal
+
+  displayUpdatedDate: true
+
   # Search
   search:
     enable: true
