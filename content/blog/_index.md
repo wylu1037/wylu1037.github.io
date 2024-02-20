@@ -5,6 +5,7 @@ draft: false
 type: docs
 ---
 
+<!-- 太阳 -->
 <div>
     <style>
         .container {
@@ -117,7 +118,7 @@ type: docs
     </div>
 </div>
 
-{{< hextra/hero-badge link="index.xml" style="align:center">}}
+{{< hextra/hero-badge link="index.xml" style="position: relative; left: 50%">}}
   Feed
   {{< icon name="rss" attributes="height=14" >}}
 {{< /hextra/hero-badge >}}

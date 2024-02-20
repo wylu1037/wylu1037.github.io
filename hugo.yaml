@@ -1,6 +1,6 @@
 baseURL: https://wylu1037.github.io
 languageCode: en-us
-title: Blog
+title: Blog website
 
 module:
   imports:
@@ -77,8 +77,8 @@ params:
     displayTitle: true
     displayLogo: true
     logo:
-      path: images/meebits.png
-      dark: images/meebits.png
+      path: images/meebits_radius.png
+      dark: images/meebits_radius.png
       link: /
       width: 40
       height: 20
