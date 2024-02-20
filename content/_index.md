@@ -277,12 +277,12 @@ for creating beautiful static websites<br></font>
 </div>
 
 {{< cards >}}
-{{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?landscape" subtitle="Unsplash Landscape" >}}
-{{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?nature" subtitle="Unsplash Landscape" >}}
-{{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?animals" subtitle="Unsplash Landscape" >}}
-{{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?people" subtitle="Unsplash Landscape" >}}
-{{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?food" subtitle="Unsplash Landscape" >}}
-{{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?drink" subtitle="Unsplash Landscape" >}}
+{{< card link="/" title="Landscape" image="https://source.unsplash.com/featured/800x600?landscape" subtitle="Unsplash Landscape" >}}
+{{< card link="/" title="Nature" image="https://source.unsplash.com/featured/800x600?nature" subtitle="Unsplash Nature" >}}
+{{< card link="/" title="Animals" image="https://source.unsplash.com/featured/800x600?animals" subtitle="Unsplash Animals" >}}
+{{< card link="/" title="People" image="https://source.unsplash.com/featured/800x600?people" subtitle="Unsplash People" >}}
+{{< card link="/" title="Food" image="https://source.unsplash.com/featured/800x600?food" subtitle="Unsplash Food" >}}
+{{< card link="/" title="Drink" image="https://source.unsplash.com/featured/800x600?drink" subtitle="Unsplash Drink" >}}
 {{< /cards >}}
 
 <br>
