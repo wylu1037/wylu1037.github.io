@@ -190,7 +190,7 @@ toc = false
     </div>
 </div>
 
-<font style="font-size:50px;font-weight:bold;line-height:1.2;">Build modern websites<br> with Markdown and Hugo<br></font>
+<font style="font-size:50px;font-weight:bold;line-height:1.2;">Record personal blog<br> use Markdown and Hugo<br></font>
 
 <font style="font-size:20px;font-weight:270">Fast, batteries-included Hugo theme<br>
 for creating beautiful static websites<br></font>
