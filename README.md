@@ -11,7 +11,7 @@
     <a href="https://github.com/wylu1037" target="_blank">🧑🏽‍💻 Author</a>
     </p>
     <br>
-    <p align="center" style="margin-top:20px; margin-bottom:50px;"><img src="./assets/images/index.png"alt="" /></p>
+    <p align="center" style="margin-top:20px; margin-bottom:50px;border:bold"><img src="./assets/images/index.png"alt="" /></p>
 </body>
 </html>
 
