@@ -197,6 +197,14 @@ for creating beautiful static websites<br></font>
 
 <div>
     <style>
+        .btn-container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .btn-container .btn {
+            display: inline-block;
+            margin: 8px 3px;
+        }
         .primary-button {
             width: 150px;
             height: 60px;
@@ -209,8 +217,6 @@ for creating beautiful static websites<br></font>
             font-size: 1.2em;
             font-weight: 550;
             font-family: 'Montserrat', sans-serif;
-            margin-top: 50px;
-            margin-bottom: 50px;
         }
         .primary-button:hover {
             background: #315cfd;
@@ -230,10 +236,6 @@ for creating beautiful static websites<br></font>
             font-size: 1.2em;
             font-weight: 550;
             font-family: 'Montserrat', sans-serif;
-            margin-left: 8px;
-            margin-right: 8px;
-            margin-top: 50px;
-            margin-bottom: 50px;
         }
         .second-button:hover {
             background: #86198f;
@@ -254,8 +256,6 @@ for creating beautiful static websites<br></font>
             font-size: 1.2em;
             font-weight: 550;
             font-family: 'Montserrat', sans-serif;
-            margin-top: 50px;
-            margin-bottom: 50px;
         }
         .third-button:hover {
             background: #047857;
@@ -264,10 +264,10 @@ for creating beautiful static websites<br></font>
         }
         /**/
     </style>
-    <div>
-        <button class="primary-button" onclick="skip('blog')">View Blog</button>
-        <button class="second-button" onclick="skip('docs')">View Docs</button>
-        <button class="third-button" onclick="skip('about')">View About</button>
+    <div class="btn-container">
+        <div class="btn"><button class="primary-button" onclick="skip('docs')">View Docs</button></div>
+        <div class="btn"><button class="second-button" onclick="skip('blog')">View Blog</button></div>
+        <div class="btn"><button class="third-button" onclick="skip('about')">View About</button></div>
     </div>
     <script>
         function skip(path) {
