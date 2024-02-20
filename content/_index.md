@@ -278,7 +278,7 @@ for creating beautiful static websites<br></font>
 
 {{< cards >}}
 {{< card link="/" title="Landscape" image="https://source.unsplash.com/featured/800x600?landscape" subtitle="Unsplash Landscape" >}}
-{{< card link="/" title="Nature" image="https://source.unsplash.com/featured/800x600?nature" subtitle="Unsplash Nature" >}}
+{{< card link="/" title="Nature" image="https://source.unsplash.com/featured/800x600?nature" subtitle="Nature's wonders take center stage in this category, where photographers capture the breathtaking landscapes, diverse flora and fauna, and mesmerizing natural phenomena that adorn our planet. From grand vistas to macro shots, these images transport viewers into the heart of the great outdoors." >}}
 {{< card link="/" title="Animals" image="https://source.unsplash.com/featured/800x600?animals" subtitle="Unsplash Animals" >}}
 {{< card link="/" title="People" image="https://source.unsplash.com/featured/800x600?people" subtitle="Unsplash People" >}}
 {{< card link="/" title="Food" image="https://source.unsplash.com/featured/800x600?food" subtitle="Unsplash Food" >}}
