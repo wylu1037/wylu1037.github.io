@@ -54,7 +54,7 @@ params:
 
   footer:
     displayCopyright: true
-    displayPoweredBy: false
+    displayPoweredBy: true
     width: normal
 
   displayUpdatedDate: true
