@@ -278,11 +278,11 @@ for creating beautiful static websites<br></font>
 
 {{< cards >}}
 {{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?landscape" subtitle="Unsplash Landscape" >}}
-{{< card link="/" title="Local Image" image="/images/meebits.png" subtitle="Raw image under static directory." >}}
-{{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?landscape" subtitle="Unsplash Landscape" >}}
-{{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?landscape" subtitle="Unsplash Landscape" >}}
-{{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?landscape" subtitle="Unsplash Landscape" >}}
-{{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?landscape" subtitle="Unsplash Landscape" >}}
+{{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?nature" subtitle="Unsplash Landscape" >}}
+{{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?animals" subtitle="Unsplash Landscape" >}}
+{{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?people" subtitle="Unsplash Landscape" >}}
+{{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?food" subtitle="Unsplash Landscape" >}}
+{{< card link="/" title="Image Card" image="https://source.unsplash.com/featured/800x600?drink" subtitle="Unsplash Landscape" >}}
 {{< /cards >}}
 
 <br>
