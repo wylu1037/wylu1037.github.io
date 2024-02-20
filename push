@@ -13,9 +13,11 @@ git add .
 git commit -m "$commit_message"
 
 # 推送代码到 GitHub
-git push origin main
+if git push origin main; then 
+    echo "🎉 代码推送完成"
+else
+    echo "❌ 推送失败，请检查错误信息"
+fi
 
 # 推送代码到 GitLab
 # git push gitlab main
-
-echo "🎉 代码推送完成"
