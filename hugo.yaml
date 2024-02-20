@@ -1,6 +1,6 @@
-baseURL: https://wylu.gitlab.io
+baseURL: https://wylu1037.github.io
 languageCode: en-us
-title: Welcome to wylu blog
+title: Blog
 
 module:
   imports:
