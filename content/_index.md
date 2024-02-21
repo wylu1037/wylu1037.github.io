@@ -263,11 +263,31 @@ for creating beautiful static websites<br></font>
             font-size: 1.3em;
         }
         /**/
+        .fourth-button {
+            width: 150px;
+            height: 60px;
+            color: #ea580c;
+            border: 3px solid #ea580c;
+            border-radius: 33px;
+            transition: all 0.3s;
+            cursor: pointer;
+            background: white;
+            font-size: 1.2em;
+            font-weight: 550;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .fourth-button:hover {
+            background: #ea580c;
+            color: white;
+            font-size: 1.3em;
+        }
+        /**/
     </style>
     <div class="btn-container">
         <div class="btn"><button class="primary-button" onclick="skip('docs')">View Docs</button></div>
         <div class="btn"><button class="second-button" onclick="skip('blog')">View Blog</button></div>
-        <div class="btn"><button class="third-button" onclick="skip('about')">View About</button></div>
+        <div class="btn"><button class="third-button" onclick="skip('essay')">View Essay</button></div>
+        <div class="btn"><button class="fourth-button" onclick="skip('about')">View About</button></div>
     </div>
     <script>
         function skip(path) {
