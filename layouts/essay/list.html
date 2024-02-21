@@ -39,21 +39,122 @@
                     {{- end -}}
                 </a>
               </h4>
-              <a
-              href="{{ .RelPermalink }}"
-              class="opacity-50 text-sm text-gray-800 dark:text-gray-300 no-underline">{{/* Show date */}}
-                {{ .Date | time.Format "2006-01-02 15:04" }}
-              </a>
-              {{- if site.Params.blog.list.displayTags -}} {{/* Show tags */}}
+
+              <!-- 开始展示tag -->
+              <div style="margin:6px 0 2px 0">
+                {{- if site.Params.blog.list.displayTags -}} {{/* Show tags */}}
                 {{ with .Params.tags }}
                   <span class="opacity-75 text-sm ml-1">
-                    <strong class="text-red-900">Tag: </strong>
-                    {{- range . }}
-                      <a class="mx-1 font-medium text-blue-900 dark:text-blue-200">{{ . }}</a>
+                    {{ $last_index := 0}}
+                    {{ $index := index (seq 6 | shuffle) 0 }}
+                    {{- range $tag :=  . }}
+                      <!-- 生成随机数 -->
+                      {{ if (eq $last_index $index) }}
+                        {{ $index = index (seq 6 | shuffle) 0 }}
+                      {{end}}
+                      {{ if (eq $last_index $index) }}
+                        {{ $index = index (seq 6 | shuffle) 0 }}
+                      {{end}}
+                      {{ if (eq $last_index $index) }}
+                        {{ $index = index (seq 6 | shuffle) 0 }}
+                      {{end}}
+                      {{ $last_index = $index}}
+                      <!-- 第一个tag -->
+                      {{ with (eq $index 1) }}
+                        <div class="diytag text-xs inline-flex items-center font-bold leading-sm px-3 py-0"
+                            style="text-transform:lowercase; background-color: #bfdbfe; color: #1d4ed8; border-radius: 10px; margin-left: -4px; margin-right: 4px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bookmark mr-2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                          {{ $tag }}
+                        </div>
+                      {{ end }}
+                      <!-- 第二个tag -->
+                      {{ with (eq $index 2) }}
+                        <div class="diytag text-xs inline-flex items-center font-bold leading-sm px-3 py-0"
+                            style="text-transform:lowercase; background-color: #a7f3d0; color: #047857; border-radius: 10px; margin-left: -4px; margin-right: 4px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-flag mr-2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+                          {{ $tag }}
+                        </div>                      
+                      {{ end }}
+                      <!-- 第三个tag -->
+                      {{ with (eq $index 3) }}
+                        <div class="diytag text-xs inline-flex items-center font-bold leading-sm px-3 py-0"
+                            style="text-transform:lowercase; background-color: #fed7aa; color: #c2410c; border-radius: 10px; margin-left: -4px; margin-right: 4px;">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="feather feather-activity mr-2"
+                          >
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                          </svg>
+                          {{ $tag }}
+                        </div>
+                      {{ end }}
+                      <!-- 第四个tag -->
+                      {{ with (eq $index 4) }}
+                        <div class="diytag text-xs inline-flex items-center font-bold leading-sm px-3 py-0"
+                            style="text-transform:lowercase; background-color: #fecaca; color: #b91c1c; border-radius: 10px; margin-left: -4px; margin-right: 4px;">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="feather feather-archive mr-2"
+                          >
+                            <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                            <rect x="1" y="3" width="22" height="5"></rect>
+                            <line x1="10" y1="12" x2="14" y2="12"></line>
+                          </svg>
+                          {{ $tag }}
+                        </div>
+                      {{ end }}
+                      {{ with (eq $index 5) }}
+                        <div class="diytag text-xs inline-flex items-center font-bold leading-sm px-3 py-0"
+                            style="text-transform:lowercase; background-color: #f3f4f6; color: #374151; border-radius: 10px; margin-left: -4px; margin-right: 4px;">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="feather feather-hard-drive mr-2"
+                          >
+                            <line x1="22" y1="12" x2="2" y2="12"></line>
+                            <path
+                              d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+                            ></path>
+                            <line x1="6" y1="16" x2="6.01" y2="16"></line>
+                            <line x1="10" y1="16" x2="10.01" y2="16"></line>
+                          </svg>
+                          {{ $tag }}
+                        </div>
+                      {{ end }}
                     {{ end -}}
                   </span>
                 {{ end -}}
               {{- end -}}
+              </div>
+              <!-- 结束展示tag -->
+              <a
+              href="{{ .RelPermalink }}"
+              class="opacity-50 text-xs text-gray-800 dark:text-gray-300 no-underline">{{/* Show date */}}
+              Created on {{ .Date | time.Format "2006-01-02 15:04" }}
+              </a>
             </div>
           {{ end }}
         {{ end }}

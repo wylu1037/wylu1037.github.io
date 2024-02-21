@@ -118,11 +118,6 @@ type: docs
     </div>
 </div>
 
-{{< hextra/hero-badge link="index.xml" style="position: relative; left: 50%">}}
-  Feed
-  {{< icon name="rss" attributes="height=14" >}}
-{{< /hextra/hero-badge >}}
-
 ## Frameworks
 
 {{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
