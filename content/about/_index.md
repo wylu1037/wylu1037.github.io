@@ -1,9 +1,10 @@
-+++
-title = ''
-date = 2024-02-18T17:06:54+08:00
-draft = false
-toc = false
-+++
+---
+title: 
+date: 2024-02-18T17:06:54+08:00
+draft: false
+toc: false
+width: full
+---
 
 <!-- 仓鼠 -->
 <div>
@@ -11,10 +12,11 @@ toc = false
         .wheel-and-hamster {
           --dur: 1s;
           position: relative;
-          left: 50%;
+          left: 40%;
           width: 12em;
           height: 12em;
           font-size: 14px;
+          margin-bottom: 30px;
         }
         .wheel,
         .hamster,
@@ -263,9 +265,27 @@ toc = false
     </div>
 </div>
 
-## 💻 Intro
-
-## 🛹 Tech stack
-{{< cards >}}
-    {{< card link="/" title="Hugo" icon="hugo-full" >}} 
-{{< /cards >}}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- 导入 Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 整体 -->
+    <div class="flex flex-row">
+      <!--Sidebar-->
+      <div class="border-2 border-gray-300 rounded-lg h-screen w-1/3 shadow-lg shadow-slate-500">
+        <div class="flex flex-col gap-y-2 p-4">
+          <div class="border-2 border-black-900">profile</div>
+          <div class="border-2 border-black-900">info</div>
+          <div class="border-2 border-black-900">social</div>
+        </div>
+      </div>
+      <!--Main-->
+      <div class="ml-7 border-2 border-gray-300 h-screen w-full rounded-lg shadow-lg shadow-slate-500">
+        <div class="p-4">Main</div>
+      </div>
+    </div>
+</body>
+</html>

@@ -22,4 +22,5 @@
 
 ## 🕸️ Website
 
-[Click me to view blog](https://wylu1037.github.io/)
+- [x] [Click me to view blog](https://wylu1037.github.io/)
+- [x] [See my resume](https://wylu1037.github.io/about/)
