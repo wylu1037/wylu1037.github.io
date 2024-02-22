@@ -12,7 +12,7 @@ width: full
         .wheel-and-hamster {
           --dur: 1s;
           position: relative;
-          left: 40%;
+          /*left: 40%;*/
           width: 12em;
           height: 12em;
           font-size: 14px;
@@ -265,16 +265,13 @@ width: full
     </div>
 </div>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
-    <!-- 导入 Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- 整体 -->
     <div class="flex flex-row">
-      <!--Sidebar-->
       <div class="border-2 border-gray-300 rounded-lg h-screen w-1/3 shadow-lg shadow-slate-500">
         <div class="flex flex-col gap-y-2 p-4">
           <div class="border-2 border-black-900">profile</div>
@@ -282,10 +279,69 @@ width: full
           <div class="border-2 border-black-900">social</div>
         </div>
       </div>
-      <!--Main-->
       <div class="ml-7 border-2 border-gray-300 h-screen w-full rounded-lg shadow-lg shadow-slate-500">
         <div class="p-4">Main</div>
       </div>
     </div>
 </body>
 </html>
+-->
+
+## Github
+{{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
+  Awesome resume preview
+{{< /hextra/hero-subtitle >}}
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+  <div>
+  {{< cards >}}
+    <div style="grid-column: 1 / span 3">
+    {{< card 
+        link="https://github.com/wylu1037/resume" 
+        title="view my resume" 
+        subtitle= "This is a online resume generate by react and next.js. You can view it on my github repository" 
+        icon="eye" >}}
+    </div>
+  {{< /cards >}}
+  </div>
+  <div>
+  {{< cards >}}
+    <div style="grid-column: 1 / span 3">  
+    {{< card 
+        link="https://github.com/wylu1037/resume" 
+        title="resume repository" 
+        subtitle= "This is a online resume generate by react and next.js. You can view it on my github repository" 
+        icon="github" >}}
+    </div>
+  {{< /cards >}}
+  </div>
+</div>
+
+## Template
+{{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
+  Awesome resume preview
+{{< /hextra/hero-subtitle >}}
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+  <div>
+  {{< cards >}}
+    <div style="grid-column: 1 / span 3">
+      {{< card 
+        link="https://preview.themeforest.net/item/vcard-resume-cv-portfolio/full_screen_preview/24217972" 
+        title="Food" 
+        image="https://source.unsplash.com/featured/800x600?food" 
+        subtitle="From simple home-cooked dinners at home, to tasting new dishes while traveling — food connects us all. This category examines the world of food photography, with shots of everything from summer picnics in the park to decadent deserts." >}}
+    </div>
+  {{< /cards >}}
+  </div>
+  <div>
+  {{< cards >}}
+    <div style="grid-column: 1 / span 3">  
+      {{< card 
+        link="https://preview.themeforest.net/item/leven-cv-resume-template/full_screen_preview/26318548" 
+        title="Nature" 
+        image="https://source.unsplash.com/featured/800x600?nature" 
+        subtitle="Nature's wonders take center stage in this category, where photographers capture the breathtaking landscapes, diverse flora and fauna, and mesmerizing natural phenomena that adorn our planet. From grand vistas to macro shots, these images transport viewers into the heart of the great outdoors." >}}
+    </div>
+  {{< /cards >}}
+  </div>
+</div>
