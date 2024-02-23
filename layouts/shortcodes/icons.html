@@ -1,32 +1,35 @@
 {{- $names := split (.Get "names") "," -}}
 {{- $attributes := .Get "attributes" | default "height=1em"}}
 {{- $scroll := .Get "scroll" | default "false" -}}
+{{- $style := .Get "style" | default "--time:10s" -}}
 
-{{ if eq $scroll "true" }}
-    {{ "<div class='scroll-container-true'>" | safeHTML }}
-{{ else }}
-    {{ "<div class='scroll-container-false'>" | safeHTML }}
-{{ end }}
+{{ printf "<div class=\"scroll-container-%s\">" $scroll | safeHTML }}
 
+    {{ $times := 1}}
     {{ if eq $scroll "true" }}
-        {{ "<div icons style='margin-top: 25px; margin-bottom: 10px;'>" | safeHTML }}
+        {{ with $times }}{{ $times = 2 }}{{ end }}
+        {{ printf "<div icons style=\"display: flex; margin-top: 25px; margin-bottom: 10px; %s\">" $style | safeHTML }}
     {{ else }}
-        {{ "<div style='margin-top: 25px; margin-bottom: 10px;'>" | safeHTML }}
+        <div style="display: flex; margin-top: 25px; margin-bottom: 10px;">
     {{ end }}
-        {{ range $v := $names }}
-        
-            {{- $icon := index site.Data.icons $v -}}
-            {{- $icon = replaceRE "<svg " (printf "<svg icon %s" $attributes) $icon -}}
-            {{- if not $icon -}}
-                {{ errorf "icon %q not found" $v }}
-            {{- end -}}
-            <span icon class="inline-block align-text-bottom icon">
-                {{- $icon | safeHTML -}}
-            </span>
-        {{ end }}
-    {{ "</div>" | safeHTML }}
     
-{{ "</div>" | safeHTML }}
+        {{ range seq $times}}
+            <div>
+                {{ range $v := $names }}
+                    {{- $icon := index site.Data.icons $v -}}
+                    {{- $icon = replaceRE "<svg " (printf "<svg icon %s" $attributes) $icon -}}
+                    {{- if not $icon -}}
+                        {{ errorf "icon %q not found" $v }}
+                    {{- end -}}
+                    <span icon class="inline-block align-text-bottom icon">
+                        {{- $icon | safeHTML -}}
+                    </span>
+                {{ end }}
+            </div>
+        {{ end }}
+    </div>
+    
+</div>
 
 <style>
     svg[icon] {
@@ -43,16 +46,30 @@
         width: 100%;
         overflow: hidden; /* 隐藏溢出内容 */
     }
-    div[icons] {
+    div[icons] div {
         white-space: nowrap; /* 让图标水平排列 */
-        animation: scrollIcons 10s linear infinite; /* 设置动画 */
+        animation: scrollIcons var(--time) linear infinite; /* 设置动画 */
+        animation-delay: calc(var(--time)*-1);
     }
     @keyframes scrollIcons {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%); /* 水平滚动 */
+        }
+    }
+    div[icons] div:nth-child(2) {
+        white-space: nowrap; /* 让图标水平排列 */
+        animation: scrollIcons2 var(--time) linear infinite; /* 设置动画 */
+        animation-delay: calc(var(--time)/-2);
+    }
+    @keyframes scrollIcons2 {
         0% {
           transform: translateX(0);
         }
         100% {
-          transform: translateX(-100%); /* 水平滚动 */
+          transform: translateX(-200%); /* 水平滚动 */
         }
     }
     svg[icon]:hover {
@@ -70,4 +87,5 @@
         border-radius: 4px;
         color: white;
     }
+}
 </style>
