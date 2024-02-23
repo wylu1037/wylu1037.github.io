@@ -1,0 +1,39 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog website – new</title>
+    <link>https://wylu1037.github.io/categories/new/</link>
+    <description>Recent content in new on Blog website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 20 Jan 2024 12:54:59 +0800</lastBuildDate>
+    
+	  <atom:link href="https://wylu1037.github.io/categories/new/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>What is the differences between edge function and runtime?</title>
+      <link>https://wylu1037.github.io/essay/2024-01-01-test/</link>
+      <pubDate>Sat, 20 Jan 2024 12:54:59 +0800</pubDate>
+      
+      <guid>https://wylu1037.github.io/essay/2024-01-01-test/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This is the repo that goes along with my Fullstack E-Commerce app tutorial. Check it out here &lt;a href=&#34;https://youtu.be/hURUMwdCWuI?si=YxSO5hpRAESz6rEU&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://youtu.be/hURUMwdCWuI?si=YxSO5hpRAESz6rEU&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Things you may want to cover:&lt;/p&gt;
+&lt;p&gt;Ruby version 3.2.2&lt;/p&gt;
+&lt;p&gt;Configuration Add your env variables to the config/credentials.yml.enc file. You can do this by running bin/rails credentials:edit&lt;/p&gt;
+&lt;p&gt;Database creation Locally we use sqlite3 as our database. This is already set up for you. In production make sure your DATABASE_URL env variable is set. We use PostgreSQL in production.&lt;/p&gt;
+&lt;p&gt;Database initialization run bin/rails db:migrate to create the tables&lt;/p&gt;
+&lt;p&gt;Deployment instructions We deploy on Render create a free account here render.com&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
