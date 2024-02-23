@@ -160,7 +160,9 @@ width: wide
         .scroll {
             position: relative;
             display: flex;
-            width: 700px;
+            width: 100%;
+            min-width: 200px;
+            max-width: 750px;
             overflow: hidden;
             -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent)
         }
