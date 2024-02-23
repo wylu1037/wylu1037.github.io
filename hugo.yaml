@@ -60,6 +60,11 @@ menu:
       url: "https://wylu.pages.dev"
       params:
         icon: globe-alt
+    - name: Twitter
+      weight: 8
+      url: "https://twitter.com/wylu1037"
+      params:
+        icon: x-twitter
 
 params:
   blog:

@@ -12,6 +12,10 @@ authors:
 description: CGO
 ---
 
+
+{{< hextra/hero-button text="Home" link="/" >}}
+
+
 ## 启用CGO特性
 ```go
 package main
@@ -78,7 +82,6 @@ type QkdService interface {
 	ReadKey() error
 }
 ```
-
 {{< icon "go" >}}定义结构体，实现接口并通过`C.`调用C代码
 ```go {filename="qkd.go",hl_lines=[34,36,48,59]}
 type qkdService struct {
