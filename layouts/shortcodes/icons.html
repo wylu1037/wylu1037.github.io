@@ -1,0 +1,44 @@
+{{- $names := split (.Get "names") "," -}}
+{{- $attributes := .Get "attributes" | default "height=1em"}}
+
+{{ "<div style='margin-top: 25px; margin-bottom: 10px;'>" | safeHTML }}
+{{ range $v := $names }}
+ 
+    {{- $icon := index site.Data.icons $v -}}
+    {{- $icon = replaceRE "<svg " (printf "<svg icon %s" $attributes) $icon -}}
+    {{- if not $icon -}}
+        {{ errorf "icon %q not found" $v }}
+    {{- end -}}
+    <span icon class="inline-block align-text-bottom icon">
+        {{- $icon | safeHTML -}}
+    </span>
+{{ end }}
+{{ "</div>" | safeHTML }}
+
+<style>
+    svg[icon] {
+        width: 40px;
+        height: 40px;
+    }
+    span[icon] {
+        box-shadow: 2px 5px 10px #e5e7eb;
+        border-radius: 20%;
+        margin: 10px 10px 10px 10px;
+        padding: 10px 10px 10px 10px;
+    }
+    svg[icon]:hover {
+        width: 50px;
+        height: 50px;
+    }
+    span[icon]:hover {
+        box-shadow: 2px 5px 10px #d1d5db;
+        padding: 12px 12px 12px 12px;
+    }
+    span[icon]:hover::after {
+        background-color: darkgoldenrod;
+        padding: 1px 4px 1px 4px;
+        position: absolute;
+        border-radius: 4px;
+        color: white;
+    }
+</style>

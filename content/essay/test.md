@@ -1,12 +1,6 @@
 ---
 title: What is the differences between edge function and runtime?
 date: 2024-01-20T12:54:59+08:00
-categories:
-  - new
-tags:
-  - addons
-  - applications
-  - platform
 excludeSearch: true
 ---
 
