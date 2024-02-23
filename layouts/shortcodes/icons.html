@@ -1,18 +1,31 @@
 {{- $names := split (.Get "names") "," -}}
 {{- $attributes := .Get "attributes" | default "height=1em"}}
+{{- $scroll := .Get "scroll" | default "false" -}}
 
-{{ "<div style='margin-top: 25px; margin-bottom: 10px;'>" | safeHTML }}
-{{ range $v := $names }}
- 
-    {{- $icon := index site.Data.icons $v -}}
-    {{- $icon = replaceRE "<svg " (printf "<svg icon %s" $attributes) $icon -}}
-    {{- if not $icon -}}
-        {{ errorf "icon %q not found" $v }}
-    {{- end -}}
-    <span icon class="inline-block align-text-bottom icon">
-        {{- $icon | safeHTML -}}
-    </span>
+{{ if eq $scroll "true" }}
+    {{ "<div class='scroll-container-true'>" | safeHTML }}
+{{ else }}
+    {{ "<div class='scroll-container-false'>" | safeHTML }}
 {{ end }}
+
+    {{ if eq $scroll "true" }}
+        {{ "<div icons style='margin-top: 25px; margin-bottom: 10px;'>" | safeHTML }}
+    {{ else }}
+        {{ "<div style='margin-top: 25px; margin-bottom: 10px;'>" | safeHTML }}
+    {{ end }}
+        {{ range $v := $names }}
+        
+            {{- $icon := index site.Data.icons $v -}}
+            {{- $icon = replaceRE "<svg " (printf "<svg icon %s" $attributes) $icon -}}
+            {{- if not $icon -}}
+                {{ errorf "icon %q not found" $v }}
+            {{- end -}}
+            <span icon class="inline-block align-text-bottom icon">
+                {{- $icon | safeHTML -}}
+            </span>
+        {{ end }}
+    {{ "</div>" | safeHTML }}
+    
 {{ "</div>" | safeHTML }}
 
 <style>
@@ -25,6 +38,22 @@
         border-radius: 20%;
         margin: 10px 10px 10px 10px;
         padding: 10px 10px 10px 10px;
+    }
+    .scroll-container-true {
+        width: 100%;
+        overflow: hidden; /* 隐藏溢出内容 */
+    }
+    div[icons] {
+        white-space: nowrap; /* 让图标水平排列 */
+        animation: scrollIcons 10s linear infinite; /* 设置动画 */
+    }
+    @keyframes scrollIcons {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%); /* 水平滚动 */
+        }
     }
     svg[icon]:hover {
         width: 50px;
