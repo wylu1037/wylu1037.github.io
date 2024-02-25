@@ -1,7 +1,10 @@
 ---
-title: 🦋 Interactive Hexagon Grid
+title: ✨ Interactive Hexagon Grid
 date: 2024-02-24T10:18:14+08:00
-draft: true
+authors:
+  - name: wylu
+    link: https://github.com/wylu1037
+    image: https://github.com/wylu1037.png?size=40
 ---
 
 <!DOCTYPE html>
