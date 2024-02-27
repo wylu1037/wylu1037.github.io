@@ -14,37 +14,43 @@ type: docs
 
 ### Go
 {{< cards >}}
-  {{< card link="/guides/python-django-sample" title="Go" subtitle= "Configure your Django application to run on Clever Cloud" icon="go" >}}
+  {{< card link="https://go.dev/" title="Go" subtitle= "Configure your Django application to run on Clever Cloud" icon="go" >}}
 {{< /cards >}}
 
 ### Ruby On Rails
 {{< cards >}}
-  {{< card link="/guides/python-django-sample" title="Rails" subtitle= "Configure your Django application to run on Clever Cloud" icon="ruby" >}}
+  {{< card link="https://rubyonrails.org/" title="Rails" subtitle= "Configure your Django application to run on Clever Cloud" icon="ruby" >}}
 {{< /cards >}}
 
 ### Rust
 {{< cards >}}
-  {{< card link="/guides/python-django-sample" title="Rust" subtitle= "Configure your Django application to run on Clever Cloud" icon="rust" >}}
+  {{< card link="https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/getting-started.html" title="Rust" subtitle= "Configure your Django application to run on Clever Cloud" icon="rust" >}}
+{{< /cards >}}
+
+### Kotlin
+{{< cards >}}
+  {{< card link="https://kotlinlang.org/docs/home.html" title="Kotlin" subtitle= "Configure your Django application to run on Clever Cloud" icon="kotlin" >}}
+  {{< card link="https://gradle.org/" title="Gradle" subtitle= "Configure your Django application to run on Clever Cloud" icon="gradle" >}}
 {{< /cards >}}
 
 ## Front End
 ### CSS
 {{< cards >}}
-  {{< card link="https://tailwindcss.com/" title="CSS" subtitle= "Configure your Django application to run on Clever Cloud" icon="css" >}}
+  {{< card link="https://developer.mozilla.org/en-US/docs/Web/CSS" title="CSS" subtitle= "Configure your Django application to run on Clever Cloud" icon="css" >}}
   {{< card link="https://tailwindcss.com/" title="Tailwind" subtitle= "Configure your Django application to run on Clever Cloud" icon="tailwind" >}}
 {{< /cards >}}
 
 ### Frameworks
 {{< cards >}}
-  {{< card link="/guides/python-django-sample" title="Next.js" subtitle= "Configure your Django application to run on Clever Cloud" icon="nextjs" >}}
-  {{< card link="/guides/python-django-sample" title="NestJS" subtitle= "Configure your Django application to run on Clever Cloud" icon="nestjs" >}}
+  {{< card link="https://nextjs.org/" title="Next.js" subtitle= "Configure your Django application to run on Clever Cloud" icon="nextjs" >}}
+  {{< card link="https://nestjs.com/" title="NestJS" subtitle= "Configure your Django application to run on Clever Cloud" icon="nestjs" >}}
   {{< card link="https://www.solidjs.com/" title="SolidJS" subtitle= "Configure node-statsd package on your Node.js application to push custom metrics" icon="solidjs" >}}
 {{< /cards >}}
 
 ### Lang
 {{< cards >}}
-  {{< card link="/guides/python-django-sample" title="TypeScript" subtitle= "Configure your Django application to run on Clever Cloud" icon="ts" >}}
-  {{< card link="/guides/python-django-sample" title="JavaScript" subtitle= "Configure your Django application to run on Clever Cloud" icon="js" >}}
+  {{< card link="https://www.typescriptlang.org/" title="TypeScript" subtitle= "Configure your Django application to run on Clever Cloud" icon="ts" >}}
+  {{< card link="https://www.javascript.com/" title="JavaScript" subtitle= "Configure your Django application to run on Clever Cloud" icon="js" >}}
 {{< /cards >}}
 
 ## DevOps
@@ -70,21 +76,15 @@ type: docs
 ## Blockchain
 ### Ethereum
 {{< cards >}}
-  {{< card link="/guides/python-django-sample" title="Ethereum" subtitle= "Configure your Django application to run on Clever Cloud" icon="eth" >}}
+  {{< card link="https://ethereum.org/" title="Ethereum" subtitle= "Configure your Django application to run on Clever Cloud" icon="eth" >}}
 {{< /cards >}}
 
 ### Bitcoin
 {{< cards >}}
-  {{< card link="/guides/python-django-sample" title="Bitcoin" subtitle= "Configure your Django application to run on Clever Cloud" icon="btc" >}}
+  {{< card link="https://bitcoin.org/en/" title="Bitcoin" subtitle= "Configure your Django application to run on Clever Cloud" icon="btc" >}}
 {{< /cards >}}
 
 ### Hyperledger
 {{< cards >}}
-  {{< card link="/guides/python-django-sample" title="Hyperledger" subtitle= "Configure your Django application to run on Clever Cloud" icon="hyperledger" >}}
-  {{< card link="/guides/python-django-sample" title="Windows" subtitle= "Configure your Django application to run on Clever Cloud" icon="windows" >}}
-  {{< card link="/guides/python-django-sample" title="Mac" subtitle= "Configure your Django application to run on Clever Cloud" icon="mac" >}}
-  {{< card link="/guides/python-django-sample" title="Network" subtitle= "Configure your Django application to run on Clever Cloud" icon="network" >}}
-  {{< card link="/guides/python-django-sample" title="sass" subtitle= "Configure your Django application to run on Clever Cloud" icon="sass" >}}
-  {{< card link="/guides/python-django-sample" title="Ansible" subtitle= "Configure your Django application to run on Clever Cloud" icon="ansible" >}}
-  {{< card link="/guides/python-django-sample" title="Apple" subtitle= "Configure your Django application to run on Clever Cloud" icon="apple" >}}
+  {{< card link="https://www.hyperledger.org/" title="Hyperledger" subtitle= "Configure your Django application to run on Clever Cloud" icon="hyperledger" >}}
 {{< /cards >}}
