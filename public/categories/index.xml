@@ -1,13 +1,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog website – Categories</title>
-    <link>https://wylu1037.github.io/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on Blog website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Jan 2024 12:54:59 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 23 Feb 2024 10:47:48 +0800</lastBuildDate>
     
-	  <atom:link href="https://wylu1037.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
       

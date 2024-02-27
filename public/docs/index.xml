@@ -1,13 +1,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog website – </title>
-    <link>https://wylu1037.github.io/docs/</link>
+    <link>http://localhost:1313/docs/</link>
     <description>Recent content on Blog website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 18 Feb 2024 14:30:52 +0800</lastBuildDate>
     
-	  <atom:link href="https://wylu1037.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="http://localhost:1313/docs/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -17,10 +17,10 @@
     
     <item>
       <title>Cgo</title>
-      <link>https://wylu1037.github.io/docs/golang/cgo/</link>
+      <link>http://localhost:1313/docs/golang/cgo/</link>
       <pubDate>Tue, 20 Feb 2024 13:04:46 +0800</pubDate>
       
-      <guid>https://wylu1037.github.io/docs/golang/cgo/</guid>
+      <guid>http://localhost:1313/docs/golang/cgo/</guid>
       <description>
         
         
@@ -30,10 +30,10 @@
     
     <item>
       <title>Rails</title>
-      <link>https://wylu1037.github.io/docs/ruby/rails/</link>
+      <link>http://localhost:1313/docs/ruby/rails/</link>
       <pubDate>Tue, 20 Feb 2024 12:54:59 +0800</pubDate>
       
-      <guid>https://wylu1037.github.io/docs/ruby/rails/</guid>
+      <guid>http://localhost:1313/docs/ruby/rails/</guid>
       <description>
         
         

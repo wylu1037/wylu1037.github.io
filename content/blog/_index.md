@@ -52,14 +52,14 @@ type: docs
   DevOps is the combination of cultural philosophies, practices, and tools that increases an organization's ability to deliver applications and services at high velocity: evolving and improving products at a faster pace than organizations using traditional software development and infrastructure management processes.
 {{< /hextra/hero-subtitle >}}
 
-### [Docker-Compose](https://docs.docker.com/compose/networking/)
+### <a href="https://docs.docker.com/compose/networking/" style="text-decoration:none;">Docker-Compose</a>
 {{< cards >}}
   {{< card link="/blog/docker-compose-network" title="Network" subtitle= "By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by the service's name." icon="docker" >}}
 {{< /cards >}}
 
-### [Docker Swarm](https://docs.docker.com/engine/swarm/) 
+### <a href="https://docs.docker.com/engine/swarm/" style="text-decoration:none;">Docker Swarm</a> 
 {{< cards >}}
-  {{< card link="/blog/docker-compose-network" title="Network" subtitle= "By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by the service's name." icon="docker" >}}
+  {{< card link="/blog/docker-compose-network" title="Network" subtitle= "By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by the service's name." icon="network" >}}
 {{< /cards >}}
 
 ### Kubernetes
@@ -81,4 +81,9 @@ type: docs
 ### Hyperledger
 {{< cards >}}
   {{< card link="/guides/python-django-sample" title="Hyperledger" subtitle= "Configure your Django application to run on Clever Cloud" icon="hyperledger" >}}
+  {{< card link="/guides/python-django-sample" title="Windows" subtitle= "Configure your Django application to run on Clever Cloud" icon="windows" >}}
+  {{< card link="/guides/python-django-sample" title="Mac" subtitle= "Configure your Django application to run on Clever Cloud" icon="mac" >}}
+  {{< card link="/guides/python-django-sample" title="Network" subtitle= "Configure your Django application to run on Clever Cloud" icon="network" >}}
+  {{< card link="/guides/python-django-sample" title="sass" subtitle= "Configure your Django application to run on Clever Cloud" icon="sass" >}}
+  {{< card link="/guides/python-django-sample" title="Ansible" subtitle= "Configure your Django application to run on Clever Cloud" icon="ansible" >}}
 {{< /cards >}}

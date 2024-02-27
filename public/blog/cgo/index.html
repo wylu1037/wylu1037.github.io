@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="noindex, nofollow" />
   <link rel="icon shortcut" href="/favicon.ico" sizes="32x32" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
@@ -11,36 +11,34 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
-  <title>CGO – Blog website</title>
+  <title>😀 CGO – Blog website</title>
   <meta name="description" content="CGO" />
   
   
-    <link rel="canonical" href="https://wylu1037.github.io/blog/cgo/" itemprop="url" />
+    <link rel="canonical" href="http://localhost:1313/blog/cgo/" itemprop="url" />
   
 
   
 
-<meta property="og:title" content="CGO" />
+<meta property="og:title" content="😀 CGO" />
 <meta property="og:description" content="CGO" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wylu1037.github.io/blog/cgo/" /><meta property="article:section" content="blog" />
+<meta property="og:url" content="http://localhost:1313/blog/cgo/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2024-02-19T13:35:53+08:00" />
 <meta property="article:modified_time" content="2024-02-19T13:35:53+08:00" />
 
-  <meta itemprop="name" content="CGO">
+  <meta itemprop="name" content="😀 CGO">
 <meta itemprop="description" content="CGO"><meta itemprop="datePublished" content="2024-02-19T13:35:53+08:00" />
 <meta itemprop="dateModified" content="2024-02-19T13:35:53+08:00" />
-<meta itemprop="wordCount" content="1">
-<meta itemprop="keywords" content="go," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="CGO"/>
+<meta itemprop="wordCount" content="473">
+<meta itemprop="keywords" content="go,cgo," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="😀 CGO"/>
 <meta name="twitter:description" content="CGO"/>
 
-    <link rel="preload" href="/css/compiled/main.min.5a06ca26e024c4f511f45ee6c33a2a1faefaebe6be8a38d36e100f40a4c59c06.css" as="style" integrity="sha256-WgbKJuAkxPUR9F7mwzoqH6766&#43;a&#43;ijjTbhAPQKTFnAY=" />
-    <link href="/css/compiled/main.min.5a06ca26e024c4f511f45ee6c33a2a1faefaebe6be8a38d36e100f40a4c59c06.css" rel="stylesheet" integrity="sha256-WgbKJuAkxPUR9F7mwzoqH6766&#43;a&#43;ijjTbhAPQKTFnAY=" />
+    <link href="/css/compiled/main.css" rel="stylesheet" />
 
 
 
-  <link href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" rel="stylesheet" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" />
+  <link href="/css/custom.css" rel="stylesheet" />
 
 
 
@@ -138,6 +136,8 @@
 <span class="sr-only">GitHub</span>
           </a>
           <a class="p-2 text-current" target="_blank" rel="noreferer" href="https://wylu.pages.dev" title="Website"><svg height=24 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg><span class="sr-only">Website</span>
+          </a>
+          <a class="p-2 text-current" target="_blank" rel="noreferer" href="https://twitter.com/wylu1037" title="Twitter"><svg height=24 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg><span class="sr-only">Twitter</span>
           </a><button type="button" aria-label="Menu" class="hamburger-menu -mr-2 rounded p-2 active:bg-gray-400/20 md:hidden"><svg height=24 fill="none" viewBox="0 0 24 24" stroke="currentColor"><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8H20"></path></g><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16H20"></path></g></svg></button>
   </nav>
 </div>
@@ -179,6 +179,32 @@
           <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/essay/"
+    
+  >Eassy
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg></span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class='relative flex flex-col gap-1 before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] ltr:ml-3 ltr:pl-3 ltr:before:left-0 rtl:mr-3 rtl:pr-3 rtl:before:right-0 dark:before:bg-neutral-800'><li class="flex flex-col "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/essay/icons-preview/"
+    
+  >Icons Preview
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/essay/test/"
+    
+  >What is the differences between edge function and runtime?
+    </a>
+              
+            </li></ul>
+      </div></li>
+          <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/about/"
     
   >
@@ -191,13 +217,63 @@
   >
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg></span>
     </a><div class="ltr:pr-0 overflow-hidden">
-        <ul class='relative flex flex-col gap-1 before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] ltr:ml-3 ltr:pl-3 ltr:before:left-0 rtl:mr-3 rtl:pr-3 rtl:before:right-0 dark:before:bg-neutral-800'><li class="flex flex-col open"><a
+        <ul class='relative flex flex-col gap-1 before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] ltr:ml-3 ltr:pl-3 ltr:before:left-0 rtl:mr-3 rtl:pr-3 rtl:before:right-0 dark:before:bg-neutral-800'><li class="flex flex-col "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/docker-compose-network/"
+    
+  >🛜 Docker-compose Network
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/interactive-hexagon-grid/"
+    
+  >🎉 Interactive Hexagon Grid
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/how-to-achive-infinite-horizontal-scroll-animation-css-only/"
+    
+  >🥳 Infinite horizontal scroll animation
+    </a>
+              
+            </li><li class="flex flex-col open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/blog/cgo/"
     
-  >CGO
+  >😀 CGO
     </a>
+  
+    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
+              <a
+                href="#%e5%90%af%e7%94%a8cgo%e7%89%b9%e6%80%a7"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >启用CGO特性</a>
+            </li>
+          <li>
+              <a
+                href="#go-%e8%b0%83%e7%94%a8-c"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Go 调用 C</a>
+            </li>
+          <li>
+              <a
+                href="#c-%e8%b0%83%e7%94%a8-go"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >C 调用 Go</a>
+            </li>
+          <li>
+              <a
+                href="#%e7%bc%96%e8%af%91%e9%80%89%e9%a1%b9"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >编译选项</a>
+            </li>
+          </ul>
   
               
             </li></ul>
@@ -258,24 +334,6 @@
               
             </li></ul>
       </div></li>
-          <li class=""><a
-    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
-    href="/essay/"
-    
-  >Eassy
-        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg></span>
-    </a><div class="ltr:pr-0 overflow-hidden">
-        <ul class='relative flex flex-col gap-1 before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] ltr:ml-3 ltr:pl-3 ltr:before:left-0 rtl:mr-3 rtl:pr-3 rtl:before:right-0 dark:before:bg-neutral-800'><li class="flex flex-col "><a
-    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
-    href="/essay/2024-01-01-test/"
-    
-  >What is the differences between edge function and runtime?
-    </a>
-              
-            </li></ul>
-      </div></li>
     </ul>
 
     <div class="max-xl:hidden h-0 w-64 shrink-0"></div></div>
@@ -324,8 +382,28 @@
 </div></aside>
     
 <nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
-    <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4">
-      <div class=" sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
+    <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#%e5%90%af%e7%94%a8cgo%e7%89%b9%e6%80%a7">启用CGO特性
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#go-%e8%b0%83%e7%94%a8-c">Go 调用 C
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#c-%e8%b0%83%e7%94%a8-go">C 调用 Go
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#c-references-to-go">C references to Go
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#%e7%bc%96%e8%af%91%e9%80%89%e9%a1%b9">编译选项
+        </a>
+      </li></ul>
+      <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
           <span>Scroll to top</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline ml-1 h-3.5 w-3.5 border rounded-full border-gray-500 hover:border-gray-900 dark:border-gray-400 dark:hover:border-gray-100 contrast-more:border-gray-800 contrast-more:dark:border-gray-50">
@@ -341,11 +419,11 @@
       <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
         <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400 contrast-more:text-current">
       <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
-        <a href="https://wylu1037.github.io/blog/"></a>
-      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">CGO</div>
+        <a href="http://localhost:1313/blog/"></a>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">😀 CGO</div>
 </div>
 
-        <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">CGO</h1>
+        <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">😀 CGO</h1>
         <div class="mt-4 mb-16 text-gray-500 text-sm flex items-center flex-wrap gap-y-2"><span class="mr-1">February 19, 2024</span><span class="mx-1">·</span><a
                   href="https://github.com/wylu1037" target="_blank"
                   class="group inline-flex items-center text-current gap-x-1.5 mx-1"
@@ -354,13 +432,361 @@
                   <div class="group-hover:underline">wylu</div>
                 </a></div>
         <div class="content">
-          <p>CGO</p>
+          <a
+  href="/"
+  class="not-prose font-medium cursor-pointer px-6 py-3 rounded-full text-center text-white inline-block bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 transition-all ease-in duration-200"
+  
+  >Home</a>
+
+<h2>启用CGO特性<span class="absolute -mt-20" id="启用cgo特性"></span>
+    <a href="#%e5%90%af%e7%94%a8cgo%e7%89%b9%e6%80%a7" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;C&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<blockquote>
+<ul>
+<li>通过<code>import &quot;C&quot;</code>启用 CGO 特性，在<code>go build</code>时在编译和连接阶段启动 gcc 编译器。</li>
+<li>CGO 会将<code>import &quot;C&quot;</code>语句上一行代码所处注释块的内容视为 C 代码块，被称为序文（preamble）。</li>
+</ul>
+</blockquote>
+<h2>Go 调用 C<span class="absolute -mt-20" id="go-调用-c"></span>
+    <a href="#go-%e8%b0%83%e7%94%a8-c" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">qkd.go</div><div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-go" data-lang="go"><span style="display:flex; background-color:#3c3d38"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex; background-color:#3c3d38"><span><span style="color:#75715e">#cgo CFLAGS: -I./include
+</span></span></span><span style="display:flex; background-color:#3c3d38"><span><span style="color:#75715e">#cgo LDFLAGS: -L/app/lib -lkeyout -lstdc++ -lm
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include &#34;KeyReadAPI.h&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">void callbackFunc(uint32_t command, void *data); // 定义的 C 函数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;C&#34;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="overflow-x-auto mt-6 flex rounded-lg border py-2 ltr:pr-4 rtl:pl-4 contrast-more:border-current contrast-more:dark:border-current border-blue-200 bg-blue-100 text-blue-900 dark:border-blue-200/30 dark:bg-blue-900/30 dark:text-blue-200">
+  <div class="ltr:pl-3 ltr:pr-2 rtl:pr-3 rtl:pl-2"><div class="select-none text-xl" style="font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';">
+        ℹ️
+      </div></div>
+
+  <div class="w-full min-w-0 leading-7">
+    <div class="mt-6 leading-7 first:mt-0">
+      <ol>
+<li><code>#cgo CFLAGS: -I./include</code>: 编译参数，主要是头文件的检索路径。</li>
+<li><code>#cgo LDFLAGS: -L/app/lib -lkeyout -lstdc++ -lm</code>: 链接参数：指定要链接库（静态库<code>.a文件</code>或动态库<code>.so文件</code>）的检索目录和要链接库的名字（注意是否区分大小写），不支持相对路径。</li>
+<li><code>#include &quot;KeyReadAPI.h&quot;</code>: 包含的头文件，查找位置通过 <code>cgo CFLAGS: -I./include</code>指定</li>
+</ol>
+
+    </div>
+  </div>
+</div>
+
+<details class="last-of-type:mb-0 rounded-lg bg-neutral-50 dark:bg-neutral-800 p-2 mt-4 group" >
+  <summary class="flex items-center cursor-pointer select-none list-none p-1 rounded transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800 before:mr-1 before:inline-block before:transition-transform before:content-[''] dark:before:invert rtl:before:rotate-180 group-open:before:rotate-90">
+    <strong class="text-lg">查看KeyReadAPI.h</strong>
+  </summary>
+  <div class="p-2 overflow-hidden">
+    <div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">KeyReadAPI.h</div><div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">auth_login</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>config_path);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">register_data_func</span>(pfunc_process_data p_user_function);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">read_key</span>(<span style="color:#66d9ef">uint32_t</span> peer_dev_info,<span style="color:#66d9ef">uint32_t</span> key_read_id, <span style="color:#66d9ef">uint32_t</span> key_apply_len,
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">uint8_t</span> <span style="color:#f92672">*</span>quantum_key,<span style="color:#66d9ef">uint32_t</span> <span style="color:#f92672">*</span>quantum_key_len);
+</span></span><span style="display:flex;"><span>              
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#a6e22e">void</span> (<span style="color:#f92672">*</span>pfunc_process_data)(<span style="color:#66d9ef">uint32_t</span> command, <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>data); <span style="color:#75715e">// 定义的回调函数，register_data_func注册该回调函数
+</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+  </div>
+</details>
+<p><code>void callbackFunc(uint32_t command, void *data)</code>中<code>void *data</code>对应的 c++ 中定义的结构体。</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename"> KeyReadAPI.h</div><div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">uint32_t</span> key_read_id;                     <span style="color:#75715e">//密钥读取标示
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">uint32_t</span> key_len; 						  <span style="color:#75715e">//本次输出的密钥量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">uint8_t</span>  key_data[<span style="color:#ae81ff">512</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1024</span>];              <span style="color:#75715e">//密钥数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>} st_key_push_data;</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<p><span class="inline-block align-text-bottom icon"><svg height=1em xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="currentColor" d="M128.464 166.858c-11.63 0-21.059 10.206-21.059 22.796s9.428 22.796 21.059 22.796s21.059-10.206 21.059-22.796s-9.429-22.796-21.059-22.796zm9.553 33.869c-2.757 0-4.994-2.625-4.994-5.862s2.236-5.862 4.994-5.862c2.758 0 4.994 2.625 4.994 5.862s-2.236 5.862-4.994 5.862zm166.432-39.498c-11.391 0-20.625 10.206-20.625 22.796s9.234 22.796 20.625 22.796s20.625-10.206 20.625-22.796s-9.234-22.796-20.625-22.796zm9.552 33.868c-2.638 0-4.776-2.625-4.776-5.862s2.139-5.862 4.776-5.862s4.776 2.625 4.776 5.862c0 3.238-2.139 5.862-4.776 5.862zm156.698-89.596c-15.197-4.125-31.697-1.085-47.546 9.552c-14.112-11.941-30.395-21.059-48.632-28.007c-32.349-11.941-70.017-16.5-121.036-16.5c-54.493 4.342-94.983 12.809-128.418 29.092c-13.46 6.513-25.401 14.329-35.822 23.448c-16.066-9.987-32.783-12.375-48.197-7.599c-14.329 4.342-26.704 14.546-34.086 27.789s-9.118 28.441-4.125 41.467c4.994 13.026 16.5 23.231 33.651 29.526c-5.428 21.928-8.25 45.158-8.684 70.776c-1.57 57.604 7.998 135.389 8.853 156.405h455.512c.115-19.254 4.075-91.488-4.752-171.385c-2.388-23.013-6.079-44.29-11.289-64.263c17.586-6.731 29.092-17.803 33.651-32.131c4.342-13.244 2.171-28.224-5.211-41.467c-7.599-13.026-19.757-22.796-33.868-26.704zM92.208 202.464c-4.559-23.013.434-42.987 13.46-58.185c11.724-13.678 29.526-22.362 48.849-24.967c19.322-2.388 38.862 1.519 53.625 11.507c16.5 11.072 26.487 28.658 27.79 51.237c4.776 80.981-123.316 100.303-143.724 20.408zM245.75 317.382c-.217 3.908-.434 5.428-.651 7.599c-.434 8.033-.403 10.918.248 16.998c-10.546 11.166-18.61 12.283-23 4.817c-5.21-9.118-6.404-21.69-4.915-32.733l28.287-8.933s.465 7.259.031 12.252zm36.807 15.577c0 4.125-.217 7.816-.868 11.289c-1.519 2.606-5.466 7.548-12.784 7.556s-10.401-4.245-12.789-9.673c-.651-5.862.043-23.788.478-27.695c.434-4.993.478-7.683.478-10.505c0 0 22.92 5.73 24.353 7.64s1.135 17.914 1.135 21.387zm20.94-31.747c-4.125 4.559-8.25 6.079-13.243 5.862c-3.908-.217-6.513-1.303-15.197-4.776c-8.684-3.691-13.461-4.993-19.106-5.211c-5.428-.651-11.334.74-22.796 4.776c-17.061 6.008-24.75 5.428-29.96-4.125c-7.227-13.048 2.442-30.356 16.812-34.093c-.727-1.408-1.253-2.8-1.427-4.653c-.609-13.802 10.315-24.608 27.845-27.343c16.178-2.524 35.571 2.892 39.647 17.886c1.296 4.882.286 9.467-2.862 13.418c8.495 4.155 15.904 9.541 20.504 15.245c6.513 7.816 6.731 15.632-.217 23.013zm96.044-82.016c-11.072 13.46-28.007 22.579-46.895 25.835c-41.467 6.947-79.026-14.546-86.191-56.665v-.217c-5.211-85.323 125.053-108.118 144.375-24.967c5.211 21.71.868 41.033-11.289 56.013zm-119.002 31.827c1.003 3.787-.099 7.078-3.368 10.059c-8.736 7.967-30.468 10.959-43.869 6.04c-3.754-1.377-8.346-3.99-9.012-8.627c-.314-8.481 5.565-18.46 23.019-21.184c18.379-2.865 30.834 4.923 33.23 13.712z"/></svg></span>定义接口</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">qkd.go</div><div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">QkdService</span> <span style="color:#66d9ef">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// AuthLogin 设备入网
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">AuthLogin</span>() <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// RegisterDataFunc 被动端用户函数注册
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">RegisterDataFunc</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// ReadKey 主动端密钥申请
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">ReadKey</span>() <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<p><span class="inline-block align-text-bottom icon"><svg height=1em xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="currentColor" d="M128.464 166.858c-11.63 0-21.059 10.206-21.059 22.796s9.428 22.796 21.059 22.796s21.059-10.206 21.059-22.796s-9.429-22.796-21.059-22.796zm9.553 33.869c-2.757 0-4.994-2.625-4.994-5.862s2.236-5.862 4.994-5.862c2.758 0 4.994 2.625 4.994 5.862s-2.236 5.862-4.994 5.862zm166.432-39.498c-11.391 0-20.625 10.206-20.625 22.796s9.234 22.796 20.625 22.796s20.625-10.206 20.625-22.796s-9.234-22.796-20.625-22.796zm9.552 33.868c-2.638 0-4.776-2.625-4.776-5.862s2.139-5.862 4.776-5.862s4.776 2.625 4.776 5.862c0 3.238-2.139 5.862-4.776 5.862zm156.698-89.596c-15.197-4.125-31.697-1.085-47.546 9.552c-14.112-11.941-30.395-21.059-48.632-28.007c-32.349-11.941-70.017-16.5-121.036-16.5c-54.493 4.342-94.983 12.809-128.418 29.092c-13.46 6.513-25.401 14.329-35.822 23.448c-16.066-9.987-32.783-12.375-48.197-7.599c-14.329 4.342-26.704 14.546-34.086 27.789s-9.118 28.441-4.125 41.467c4.994 13.026 16.5 23.231 33.651 29.526c-5.428 21.928-8.25 45.158-8.684 70.776c-1.57 57.604 7.998 135.389 8.853 156.405h455.512c.115-19.254 4.075-91.488-4.752-171.385c-2.388-23.013-6.079-44.29-11.289-64.263c17.586-6.731 29.092-17.803 33.651-32.131c4.342-13.244 2.171-28.224-5.211-41.467c-7.599-13.026-19.757-22.796-33.868-26.704zM92.208 202.464c-4.559-23.013.434-42.987 13.46-58.185c11.724-13.678 29.526-22.362 48.849-24.967c19.322-2.388 38.862 1.519 53.625 11.507c16.5 11.072 26.487 28.658 27.79 51.237c4.776 80.981-123.316 100.303-143.724 20.408zM245.75 317.382c-.217 3.908-.434 5.428-.651 7.599c-.434 8.033-.403 10.918.248 16.998c-10.546 11.166-18.61 12.283-23 4.817c-5.21-9.118-6.404-21.69-4.915-32.733l28.287-8.933s.465 7.259.031 12.252zm36.807 15.577c0 4.125-.217 7.816-.868 11.289c-1.519 2.606-5.466 7.548-12.784 7.556s-10.401-4.245-12.789-9.673c-.651-5.862.043-23.788.478-27.695c.434-4.993.478-7.683.478-10.505c0 0 22.92 5.73 24.353 7.64s1.135 17.914 1.135 21.387zm20.94-31.747c-4.125 4.559-8.25 6.079-13.243 5.862c-3.908-.217-6.513-1.303-15.197-4.776c-8.684-3.691-13.461-4.993-19.106-5.211c-5.428-.651-11.334.74-22.796 4.776c-17.061 6.008-24.75 5.428-29.96-4.125c-7.227-13.048 2.442-30.356 16.812-34.093c-.727-1.408-1.253-2.8-1.427-4.653c-.609-13.802 10.315-24.608 27.845-27.343c16.178-2.524 35.571 2.892 39.647 17.886c1.296 4.882.286 9.467-2.862 13.418c8.495 4.155 15.904 9.541 20.504 15.245c6.513 7.816 6.731 15.632-.217 23.013zm96.044-82.016c-11.072 13.46-28.007 22.579-46.895 25.835c-41.467 6.947-79.026-14.546-86.191-56.665v-.217c-5.211-85.323 125.053-108.118 144.375-24.967c5.211 21.71.868 41.033-11.289 56.013zm-119.002 31.827c1.003 3.787-.099 7.078-3.368 10.059c-8.736 7.967-30.468 10.959-43.869 6.04c-3.754-1.377-8.346-3.99-9.012-8.627c-.314-8.481 5.565-18.46 23.019-21.184c18.379-2.865 30.834 4.923 33.23 13.712z"/></svg></span>定义结构体，实现接口并通过<code>C.</code>调用C代码</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">qkd.go</div><div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">qkdService</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">config</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">Config</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">configPath</span> = <span style="color:#e6db74">&#34;/app/KeyOutLibConfig.xml&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">keyBufferLen</span> = <span style="color:#ae81ff">0</span>    <span style="color:#75715e">// 量子密钥缓存实际长度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">keyApplyLen</span>  = <span style="color:#ae81ff">1024</span> <span style="color:#75715e">// 一次请求的密钥量，单位Byte，只支持1024的整数倍，上限512*1024
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">keyQueue</span> = <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">KeyQueue</span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">key</span>: make([]<span style="color:#66d9ef">string</span>, <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">KeyQueue</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">key</span> []<span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">k</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">KeyQueue</span>) <span style="color:#a6e22e">Enqueue</span>(<span style="color:#a6e22e">key</span> <span style="color:#66d9ef">string</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Debug</span>().<span style="color:#a6e22e">Msgf</span>(<span style="color:#e6db74">&#34;Qkd密钥入队列，key is %s&#34;</span>, <span style="color:#a6e22e">key</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">k</span>.<span style="color:#a6e22e">key</span> = append(<span style="color:#a6e22e">k</span>.<span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">key</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">k</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">KeyQueue</span>) <span style="color:#a6e22e">Dequeue</span>() (<span style="color:#a6e22e">key</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">k</span>.<span style="color:#a6e22e">key</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">key</span> = <span style="color:#a6e22e">k</span>.<span style="color:#a6e22e">key</span>[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">k</span>.<span style="color:#a6e22e">key</span> = <span style="color:#a6e22e">k</span>.<span style="color:#a6e22e">key</span>[<span style="color:#ae81ff">1</span>:]
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">key</span>, <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">svc</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">qkdService</span>) <span style="color:#a6e22e">AuthLogin</span>() <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex; background-color:#3c3d38"><span>	<span style="color:#a6e22e">path</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">CString</span>(<span style="color:#a6e22e">configPath</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//defer C.free(unsafe.Pointer(path))
+</span></span></span><span style="display:flex; background-color:#3c3d38"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">code</span> <span style="color:#f92672">:=</span> int(<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">auth_login</span>(<span style="color:#a6e22e">path</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">code</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">Success</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">errMsg</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">qkdErrMsgGroup</span>[<span style="color:#a6e22e">qkdErrorCode</span>(<span style="color:#a6e22e">code</span>)]
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">ok</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#a6e22e">errMsg</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#e6db74">&#34;QKD Auth Login接口未知异常&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">svc</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">qkdService</span>) <span style="color:#a6e22e">RegisterDataFunc</span>() {
+</span></span><span style="display:flex; background-color:#3c3d38"><span>	<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">register_data_func</span>(<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">pfunc_process_data</span>(<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">callbackFunc</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">svc</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">qkdService</span>) <span style="color:#a6e22e">ReadKey</span>() <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">peerDevId</span> = <span style="color:#a6e22e">svc</span>.<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">Qkd</span>.<span style="color:#a6e22e">DevId</span> <span style="color:#75715e">// 被动端应用设备ID，配置文件值KSP ID
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">keyReadId</span> = <span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Uint32</span>()        <span style="color:#75715e">// 密钥读取标示，可用于标识读取次数，每次密钥申请此参数不能重复。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">keyBuffer</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">uint8</span>, <span style="color:#ae81ff">512</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1024</span>) <span style="color:#75715e">// 量子密钥数据缓存
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">cKeyBuffer</span> <span style="color:#f92672">:=</span> (<span style="color:#f92672">*</span><span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">uint8_t</span>)(<span style="color:#a6e22e">unsafe</span>.<span style="color:#a6e22e">Pointer</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">keyBuffer</span>[<span style="color:#ae81ff">0</span>]))
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">cKeyBufferLen</span> <span style="color:#f92672">:=</span> new(<span style="color:#66d9ef">uint32</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">*</span><span style="color:#a6e22e">cKeyBufferLen</span> = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">cKeyBufferLenPtr</span> <span style="color:#f92672">:=</span> (<span style="color:#f92672">*</span><span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">uint32_t</span>)(<span style="color:#a6e22e">unsafe</span>.<span style="color:#a6e22e">Pointer</span>(<span style="color:#a6e22e">cKeyBufferLen</span>))
+</span></span><span style="display:flex; background-color:#3c3d38"><span>	<span style="color:#a6e22e">code</span> <span style="color:#f92672">:=</span> int(<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">read_key</span>(<span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">uint32_t</span>(<span style="color:#a6e22e">peerDevId</span>), <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">uint32_t</span>(<span style="color:#a6e22e">keyReadId</span>), <span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">uint32_t</span>(<span style="color:#a6e22e">keyApplyLen</span>), <span style="color:#a6e22e">cKeyBuffer</span>, <span style="color:#a6e22e">cKeyBufferLenPtr</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">code</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">msg</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">qkdErrMsgGroup</span>[<span style="color:#a6e22e">qkdErrorCode</span>(<span style="color:#a6e22e">code</span>)]
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">ok</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span>		} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#e6db74">&#34;未知异常&#34;</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>C 调用 Go<span class="absolute -mt-20" id="c-调用-go"></span>
+    <a href="#c-%e8%b0%83%e7%94%a8-go" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>C references to Go<span class="absolute -mt-20" id="c-references-to-go"></span>
+    <a href="#c-references-to-go" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Go functions can be exported for use by C code in the following way:</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//export MyFunction
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">MyFunction</span>(<span style="color:#a6e22e">arg1</span>, <span style="color:#a6e22e">arg2</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">arg3</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">int64</span> {<span style="color:#f92672">...</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//export MyFunction2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">MyFunction2</span>(<span style="color:#a6e22e">arg1</span>, <span style="color:#a6e22e">arg2</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">arg3</span> <span style="color:#66d9ef">string</span>) (<span style="color:#66d9ef">int64</span>, <span style="color:#f92672">*</span><span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">char</span>) {<span style="color:#f92672">...</span>}</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<p>They will be available in the C code as:</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">extern</span> GoInt64 <span style="color:#a6e22e">MyFunction</span>(<span style="color:#66d9ef">int</span> arg1, <span style="color:#66d9ef">int</span> arg2, GoString arg3);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">struct</span> MyFunction2_return <span style="color:#a6e22e">MyFunction2</span>(<span style="color:#66d9ef">int</span> arg1, <span style="color:#66d9ef">int</span> arg2, GoString arg3);</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<p>Not all Go types can be mapped to C types in a useful way. Go struct types are not supported; use a C struct type. Go array types are not supported; use a C pointer.</p>
+<h2>编译选项<span class="absolute -mt-20" id="编译选项"></span>
+    <a href="#%e7%bc%96%e8%af%91%e9%80%89%e9%a1%b9" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>目录结构
+<div class="hextra-filetree mt-6 select-none text-sm text-gray-800 dark:text-gray-300 not-prose">
+  <div class="inline-block rounded-lg border px-4 py-2 dark:border-neutral-800">
+  
+
+<li class="group flex list-none flex-col">
+  <button class="hextra-filetree-folder inline-flex cursor-pointer items-center py-1 hover:opacity-60">
+    <span data-state="open" class="data-[state=open]:hidden"><svg width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg></span>
+    <span data-state="open" class="data-[state=closed]:hidden"><svg width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z"/></svg></span>
+    <span class="ml-1">qkd</span>
+  </button>
+  <ul data-state="open" class="pl-5 data-[state=closed]:hidden">
+    <li class="flex list-none">
+      <span class="inline-flex cursor-default items-center py-1"><svg width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span class="ml-1">qkd.go</span>
+      </span>
+    </li>
+
+    
+
+<li class="group flex list-none flex-col">
+  <button class="hextra-filetree-folder inline-flex cursor-pointer items-center py-1 hover:opacity-60">
+    <span data-state="open" class="data-[state=open]:hidden"><svg width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg></span>
+    <span data-state="open" class="data-[state=closed]:hidden"><svg width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z"/></svg></span>
+    <span class="ml-1">include</span>
+  </button>
+  <ul data-state="open" class="pl-5 data-[state=closed]:hidden">
+      <li class="flex list-none">
+        <span class="inline-flex cursor-default items-center py-1"><svg width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span class="ml-1">KeyReadAPI.h</span>
+        </span>
+      </li>
+
+    </ul>
+</li>
+
+  </ul>
+</li>
+
+  
+
+<li class="group flex list-none flex-col">
+  <button class="hextra-filetree-folder inline-flex cursor-pointer items-center py-1 hover:opacity-60">
+    <span data-state="open" class="data-[state=open]:hidden"><svg width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg></span>
+    <span data-state="open" class="data-[state=closed]:hidden"><svg width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z"/></svg></span>
+    <span class="ml-1">app</span>
+  </button>
+  <ul data-state="open" class="pl-5 data-[state=closed]:hidden">
+    
+
+<li class="group flex list-none flex-col">
+  <button class="hextra-filetree-folder inline-flex cursor-pointer items-center py-1 hover:opacity-60">
+    <span data-state="open" class="data-[state=open]:hidden"><svg width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg></span>
+    <span data-state="open" class="data-[state=closed]:hidden"><svg width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z"/></svg></span>
+    <span class="ml-1">lib</span>
+  </button>
+  <ul data-state="open" class="pl-5 data-[state=closed]:hidden">
+      <li class="flex list-none">
+        <span class="inline-flex cursor-default items-center py-1"><svg width=1em xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span class="ml-1">libkeyout.a</span>
+        </span>
+      </li>
+
+    </ul>
+</li>
+
+  </ul>
+</li>
+
+</div>
+</div>
+</p>
+<p><code>qkd.go</code>代码</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">qkd.go</div><div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#cgo CFLAGS: -I./include
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#cgo LDFLAGS: -L/app/lib -lkeyout -lstdc++ -lm
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include &#34;KeyReadAPI.h&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">void callbackFunc(uint32_t command, void *data); // 定义的 C 函数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;C&#34;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<blockquote>
+<ul>
+<li><code>-lstdc++</code>表示链接 C++ 标准库；</li>
+<li><code>-lm</code>表示链接数学库（libm.a 或 libm.so）；</li>
+</ul>
+</blockquote>
 
         </div>
         
     <div class="mt-12 mb-8 block text-xs text-gray-500 ltr:text-right rtl:text-left dark:text-gray-400">Last updated on <time datetime="2024-02-19T13:35:53.000Z">February 19, 2024</time></div>
         
-        
+        <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
+        href="/blog/how-to-achive-infinite-horizontal-scroll-animation-css-only/"
+        title="🥳 Infinite horizontal scroll animation"
+        class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:ml-auto ltr:pl-4 ltr:text-right rtl:mr-auto rtl:pr-4 rtl:text-left"
+      >🥳 Infinite horizontal scroll animation<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>
@@ -417,11 +843,11 @@
 </footer>
     
   </body>
-  <script defer src="/js/main.min.5250a01f9a9cabefdb65e77efc7c04221397882cded9c5c058a5504e730b11b3.js" integrity="sha256-UlCgH5qcq&#43;/bZed&#43;/HwEIhOXiCze2cXAWKVQTnMLEbM="></script>
+  <script defer src="/js/main.js" integrity=""></script>
 
 
 <script defer src="/lib/flexsearch/flexsearch.bundle.min.0425860527cc9968f9f049421c7a56b39327d475e2e3a8f550416be3a9134327.js" integrity="sha256-BCWGBSfMmWj58ElCHHpWs5Mn1HXi46j1UEFr46kTQyc="></script>
-    <script defer src="/en.search.min.9afdc7c586c6f971dd94df10b989f10faaf38e5702571fd8cfc9ff9135c2d495.js" integrity="sha256-mv3HxYbG&#43;XHdlN8QuYnxD6rzjlcCVx/Yz8n/kTXC1JU="></script>
+    <script defer src="/en.search.js" integrity=""></script>
 
 
 </html>
