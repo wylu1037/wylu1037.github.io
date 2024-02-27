@@ -1,5 +1,5 @@
 ---
-title: ✨ Interactive Hexagon Grid
+title: 🎉 Interactive Hexagon Grid
 date: 2024-02-24T10:18:14+08:00
 authors:
   - name: wylu
