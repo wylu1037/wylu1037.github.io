@@ -86,4 +86,5 @@ type: docs
   {{< card link="/guides/python-django-sample" title="Network" subtitle= "Configure your Django application to run on Clever Cloud" icon="network" >}}
   {{< card link="/guides/python-django-sample" title="sass" subtitle= "Configure your Django application to run on Clever Cloud" icon="sass" >}}
   {{< card link="/guides/python-django-sample" title="Ansible" subtitle= "Configure your Django application to run on Clever Cloud" icon="ansible" >}}
+  {{< card link="/guides/python-django-sample" title="Apple" subtitle= "Configure your Django application to run on Clever Cloud" icon="apple" >}}
 {{< /cards >}}
