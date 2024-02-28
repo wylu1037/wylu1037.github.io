@@ -1,0 +1,377 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog website – Cgo</title>
+    <link>http://localhost:1313/tags/cgo/</link>
+    <description>Recent content in Cgo on Blog website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 19 Feb 2024 13:35:53 +0800</lastBuildDate>
+    
+	  <atom:link href="http://localhost:1313/tags/cgo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>😀 CGO</title>
+      <link>http://localhost:1313/blog/cgo/</link>
+      <pubDate>Mon, 19 Feb 2024 13:35:53 +0800</pubDate>
+      
+      <guid>http://localhost:1313/blog/cgo/</guid>
+      <description>
+        
+        
+        &lt;a
+  href=&#34;http://localhost:1313/&#34;
+  class=&#34;not-prose font-medium cursor-pointer px-6 py-3 rounded-full text-center text-white inline-block bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 transition-all ease-in duration-200&#34;
+  
+  &gt;Home&lt;/a&gt;
+
+&lt;h2&gt;启用CGO特性&lt;span class=&#34;absolute -mt-20&#34; id=&#34;启用cgo特性&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%90%af%e7%94%a8cgo%e7%89%b9%e6%80%a7&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;//
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;通过&lt;code&gt;import &amp;quot;C&amp;quot;&lt;/code&gt;启用 CGO 特性，在&lt;code&gt;go build&lt;/code&gt;时在编译和连接阶段启动 gcc 编译器。&lt;/li&gt;
+&lt;li&gt;CGO 会将&lt;code&gt;import &amp;quot;C&amp;quot;&lt;/code&gt;语句上一行代码所处注释块的内容视为 C 代码块，被称为序文（preamble）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Go 调用 C&lt;span class=&#34;absolute -mt-20&#34; id=&#34;go-调用-c&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#go-%e8%b0%83%e7%94%a8-c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div class=&#34;filename&#34;&gt;qkd.go&lt;/div&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#cgo CFLAGS: -I./include
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#cgo LDFLAGS: -L/app/lib -lkeyout -lstdc++ -lm
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include &amp;#34;KeyReadAPI.h&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;void callbackFunc(uint32_t command, void *data); // 定义的 C 函数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;div class=&#34;overflow-x-auto mt-6 flex rounded-lg border py-2 ltr:pr-4 rtl:pl-4 contrast-more:border-current contrast-more:dark:border-current border-blue-200 bg-blue-100 text-blue-900 dark:border-blue-200/30 dark:bg-blue-900/30 dark:text-blue-200&#34;&gt;
+  &lt;div class=&#34;ltr:pl-3 ltr:pr-2 rtl:pr-3 rtl:pl-2&#34;&gt;&lt;div class=&#34;select-none text-xl&#34; style=&#34;font-family: &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;&#34;&gt;
+        ℹ️
+      &lt;/div&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;w-full min-w-0 leading-7&#34;&gt;
+    &lt;div class=&#34;mt-6 leading-7 first:mt-0&#34;&gt;
+      &lt;ol&gt;
+&lt;li&gt;&lt;code&gt;#cgo CFLAGS: -I./include&lt;/code&gt;: 编译参数，主要是头文件的检索路径。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;#cgo LDFLAGS: -L/app/lib -lkeyout -lstdc++ -lm&lt;/code&gt;: 链接参数：指定要链接库（静态库&lt;code&gt;.a文件&lt;/code&gt;或动态库&lt;code&gt;.so文件&lt;/code&gt;）的检索目录和要链接库的名字（注意是否区分大小写），不支持相对路径。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;#include &amp;quot;KeyReadAPI.h&amp;quot;&lt;/code&gt;: 包含的头文件，查找位置通过 &lt;code&gt;cgo CFLAGS: -I./include&lt;/code&gt;指定&lt;/li&gt;
+&lt;/ol&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;details class=&#34;last-of-type:mb-0 rounded-lg bg-neutral-50 dark:bg-neutral-800 p-2 mt-4 group&#34; &gt;
+  &lt;summary class=&#34;flex items-center cursor-pointer select-none list-none p-1 rounded transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800 before:mr-1 before:inline-block before:transition-transform before:content-[&#39;&#39;] dark:before:invert rtl:before:rotate-180 group-open:before:rotate-90&#34;&gt;
+    &lt;strong class=&#34;text-lg&#34;&gt;查看KeyReadAPI.h&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;p-2 overflow-hidden&#34;&gt;
+    &lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div class=&#34;filename&#34;&gt;KeyReadAPI.h&lt;/div&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;auth_login&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;config_path);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;register_data_func&lt;/span&gt;(pfunc_process_data p_user_function);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;read_key&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;uint32_t&lt;/span&gt; peer_dev_info,&lt;span style=&#34;color:#66d9ef&#34;&gt;uint32_t&lt;/span&gt; key_read_id, &lt;span style=&#34;color:#66d9ef&#34;&gt;uint32_t&lt;/span&gt; key_apply_len,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#66d9ef&#34;&gt;uint8_t&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;quantum_key,&lt;span style=&#34;color:#66d9ef&#34;&gt;uint32_t&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;quantum_key_len);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;void&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;pfunc_process_data)(&lt;span style=&#34;color:#66d9ef&#34;&gt;uint32_t&lt;/span&gt; command, &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;data); &lt;span style=&#34;color:#75715e&#34;&gt;// 定义的回调函数，register_data_func注册该回调函数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;&lt;code&gt;void callbackFunc(uint32_t command, void *data)&lt;/code&gt;中&lt;code&gt;void *data&lt;/code&gt;对应的 c++ 中定义的结构体。&lt;/p&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div class=&#34;filename&#34;&gt; KeyReadAPI.h&lt;/div&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;uint32_t&lt;/span&gt; key_read_id;                     &lt;span style=&#34;color:#75715e&#34;&gt;//密钥读取标示
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;uint32_t&lt;/span&gt; key_len; 						  &lt;span style=&#34;color:#75715e&#34;&gt;//本次输出的密钥量
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;uint8_t&lt;/span&gt;  key_data[&lt;span style=&#34;color:#ae81ff&#34;&gt;512&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1024&lt;/span&gt;];              &lt;span style=&#34;color:#75715e&#34;&gt;//密钥数据
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;} st_key_push_data;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;span class=&#34;inline-block align-text-bottom icon&#34;&gt;&lt;svg height=1em xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path fill=&#34;currentColor&#34; d=&#34;M128.464 166.858c-11.63 0-21.059 10.206-21.059 22.796s9.428 22.796 21.059 22.796s21.059-10.206 21.059-22.796s-9.429-22.796-21.059-22.796zm9.553 33.869c-2.757 0-4.994-2.625-4.994-5.862s2.236-5.862 4.994-5.862c2.758 0 4.994 2.625 4.994 5.862s-2.236 5.862-4.994 5.862zm166.432-39.498c-11.391 0-20.625 10.206-20.625 22.796s9.234 22.796 20.625 22.796s20.625-10.206 20.625-22.796s-9.234-22.796-20.625-22.796zm9.552 33.868c-2.638 0-4.776-2.625-4.776-5.862s2.139-5.862 4.776-5.862s4.776 2.625 4.776 5.862c0 3.238-2.139 5.862-4.776 5.862zm156.698-89.596c-15.197-4.125-31.697-1.085-47.546 9.552c-14.112-11.941-30.395-21.059-48.632-28.007c-32.349-11.941-70.017-16.5-121.036-16.5c-54.493 4.342-94.983 12.809-128.418 29.092c-13.46 6.513-25.401 14.329-35.822 23.448c-16.066-9.987-32.783-12.375-48.197-7.599c-14.329 4.342-26.704 14.546-34.086 27.789s-9.118 28.441-4.125 41.467c4.994 13.026 16.5 23.231 33.651 29.526c-5.428 21.928-8.25 45.158-8.684 70.776c-1.57 57.604 7.998 135.389 8.853 156.405h455.512c.115-19.254 4.075-91.488-4.752-171.385c-2.388-23.013-6.079-44.29-11.289-64.263c17.586-6.731 29.092-17.803 33.651-32.131c4.342-13.244 2.171-28.224-5.211-41.467c-7.599-13.026-19.757-22.796-33.868-26.704zM92.208 202.464c-4.559-23.013.434-42.987 13.46-58.185c11.724-13.678 29.526-22.362 48.849-24.967c19.322-2.388 38.862 1.519 53.625 11.507c16.5 11.072 26.487 28.658 27.79 51.237c4.776 80.981-123.316 100.303-143.724 20.408zM245.75 317.382c-.217 3.908-.434 5.428-.651 7.599c-.434 8.033-.403 10.918.248 16.998c-10.546 11.166-18.61 12.283-23 4.817c-5.21-9.118-6.404-21.69-4.915-32.733l28.287-8.933s.465 7.259.031 12.252zm36.807 15.577c0 4.125-.217 7.816-.868 11.289c-1.519 2.606-5.466 7.548-12.784 7.556s-10.401-4.245-12.789-9.673c-.651-5.862.043-23.788.478-27.695c.434-4.993.478-7.683.478-10.505c0 0 22.92 5.73 24.353 7.64s1.135 17.914 1.135 21.387zm20.94-31.747c-4.125 4.559-8.25 6.079-13.243 5.862c-3.908-.217-6.513-1.303-15.197-4.776c-8.684-3.691-13.461-4.993-19.106-5.211c-5.428-.651-11.334.74-22.796 4.776c-17.061 6.008-24.75 5.428-29.96-4.125c-7.227-13.048 2.442-30.356 16.812-34.093c-.727-1.408-1.253-2.8-1.427-4.653c-.609-13.802 10.315-24.608 27.845-27.343c16.178-2.524 35.571 2.892 39.647 17.886c1.296 4.882.286 9.467-2.862 13.418c8.495 4.155 15.904 9.541 20.504 15.245c6.513 7.816 6.731 15.632-.217 23.013zm96.044-82.016c-11.072 13.46-28.007 22.579-46.895 25.835c-41.467 6.947-79.026-14.546-86.191-56.665v-.217c-5.211-85.323 125.053-108.118 144.375-24.967c5.211 21.71.868 41.033-11.289 56.013zm-119.002 31.827c1.003 3.787-.099 7.078-3.368 10.059c-8.736 7.967-30.468 10.959-43.869 6.04c-3.754-1.377-8.346-3.99-9.012-8.627c-.314-8.481 5.565-18.46 23.019-21.184c18.379-2.865 30.834 4.923 33.23 13.712z&#34;/&gt;&lt;/svg&gt;&lt;/span&gt;定义接口&lt;/p&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div class=&#34;filename&#34;&gt;qkd.go&lt;/div&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;QkdService&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// AuthLogin 设备入网
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;AuthLogin&lt;/span&gt;() &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// RegisterDataFunc 被动端用户函数注册
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;RegisterDataFunc&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// ReadKey 主动端密钥申请
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;ReadKey&lt;/span&gt;() &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;span class=&#34;inline-block align-text-bottom icon&#34;&gt;&lt;svg height=1em xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path fill=&#34;currentColor&#34; d=&#34;M128.464 166.858c-11.63 0-21.059 10.206-21.059 22.796s9.428 22.796 21.059 22.796s21.059-10.206 21.059-22.796s-9.429-22.796-21.059-22.796zm9.553 33.869c-2.757 0-4.994-2.625-4.994-5.862s2.236-5.862 4.994-5.862c2.758 0 4.994 2.625 4.994 5.862s-2.236 5.862-4.994 5.862zm166.432-39.498c-11.391 0-20.625 10.206-20.625 22.796s9.234 22.796 20.625 22.796s20.625-10.206 20.625-22.796s-9.234-22.796-20.625-22.796zm9.552 33.868c-2.638 0-4.776-2.625-4.776-5.862s2.139-5.862 4.776-5.862s4.776 2.625 4.776 5.862c0 3.238-2.139 5.862-4.776 5.862zm156.698-89.596c-15.197-4.125-31.697-1.085-47.546 9.552c-14.112-11.941-30.395-21.059-48.632-28.007c-32.349-11.941-70.017-16.5-121.036-16.5c-54.493 4.342-94.983 12.809-128.418 29.092c-13.46 6.513-25.401 14.329-35.822 23.448c-16.066-9.987-32.783-12.375-48.197-7.599c-14.329 4.342-26.704 14.546-34.086 27.789s-9.118 28.441-4.125 41.467c4.994 13.026 16.5 23.231 33.651 29.526c-5.428 21.928-8.25 45.158-8.684 70.776c-1.57 57.604 7.998 135.389 8.853 156.405h455.512c.115-19.254 4.075-91.488-4.752-171.385c-2.388-23.013-6.079-44.29-11.289-64.263c17.586-6.731 29.092-17.803 33.651-32.131c4.342-13.244 2.171-28.224-5.211-41.467c-7.599-13.026-19.757-22.796-33.868-26.704zM92.208 202.464c-4.559-23.013.434-42.987 13.46-58.185c11.724-13.678 29.526-22.362 48.849-24.967c19.322-2.388 38.862 1.519 53.625 11.507c16.5 11.072 26.487 28.658 27.79 51.237c4.776 80.981-123.316 100.303-143.724 20.408zM245.75 317.382c-.217 3.908-.434 5.428-.651 7.599c-.434 8.033-.403 10.918.248 16.998c-10.546 11.166-18.61 12.283-23 4.817c-5.21-9.118-6.404-21.69-4.915-32.733l28.287-8.933s.465 7.259.031 12.252zm36.807 15.577c0 4.125-.217 7.816-.868 11.289c-1.519 2.606-5.466 7.548-12.784 7.556s-10.401-4.245-12.789-9.673c-.651-5.862.043-23.788.478-27.695c.434-4.993.478-7.683.478-10.505c0 0 22.92 5.73 24.353 7.64s1.135 17.914 1.135 21.387zm20.94-31.747c-4.125 4.559-8.25 6.079-13.243 5.862c-3.908-.217-6.513-1.303-15.197-4.776c-8.684-3.691-13.461-4.993-19.106-5.211c-5.428-.651-11.334.74-22.796 4.776c-17.061 6.008-24.75 5.428-29.96-4.125c-7.227-13.048 2.442-30.356 16.812-34.093c-.727-1.408-1.253-2.8-1.427-4.653c-.609-13.802 10.315-24.608 27.845-27.343c16.178-2.524 35.571 2.892 39.647 17.886c1.296 4.882.286 9.467-2.862 13.418c8.495 4.155 15.904 9.541 20.504 15.245c6.513 7.816 6.731 15.632-.217 23.013zm96.044-82.016c-11.072 13.46-28.007 22.579-46.895 25.835c-41.467 6.947-79.026-14.546-86.191-56.665v-.217c-5.211-85.323 125.053-108.118 144.375-24.967c5.211 21.71.868 41.033-11.289 56.013zm-119.002 31.827c1.003 3.787-.099 7.078-3.368 10.059c-8.736 7.967-30.468 10.959-43.869 6.04c-3.754-1.377-8.346-3.99-9.012-8.627c-.314-8.481 5.565-18.46 23.019-21.184c18.379-2.865 30.834 4.923 33.23 13.712z&#34;/&gt;&lt;/svg&gt;&lt;/span&gt;定义结构体，实现接口并通过&lt;code&gt;C.&lt;/code&gt;调用C代码&lt;/p&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div class=&#34;filename&#34;&gt;qkd.go&lt;/div&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;qkdService&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;config&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;config&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;configPath&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/app/KeyOutLibConfig.xml&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;keyBufferLen&lt;/span&gt; = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// 量子密钥缓存实际长度
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;keyApplyLen&lt;/span&gt;  = &lt;span style=&#34;color:#ae81ff&#34;&gt;1024&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 一次请求的密钥量，单位Byte，只支持1024的整数倍，上限512*1024
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;keyQueue&lt;/span&gt; = &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;KeyQueue&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;: make([]&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;KeyQueue&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt; []&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;k&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;KeyQueue&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;Enqueue&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Debug&lt;/span&gt;().&lt;span style=&#34;color:#a6e22e&#34;&gt;Msgf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Qkd密钥入队列，key is %s&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;k&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt; = append(&lt;span style=&#34;color:#a6e22e&#34;&gt;k&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;k&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;KeyQueue&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;Dequeue&lt;/span&gt;() (&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; len(&lt;span style=&#34;color:#a6e22e&#34;&gt;k&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;errors&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;New&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;k&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;k&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;k&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;:]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;svc&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;qkdService&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;AuthLogin&lt;/span&gt;() &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;path&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;C&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;CString&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;configPath&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//defer C.free(unsafe.Pointer(path))
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;code&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; int(&lt;span style=&#34;color:#a6e22e&#34;&gt;C&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;auth_login&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;path&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;code&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Success&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;errMsg&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;ok&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;qkdErrMsgGroup&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;qkdErrorCode&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;code&lt;/span&gt;)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ok&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;errors&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;New&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;errMsg&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;errors&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;New&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;QKD Auth Login接口未知异常&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;svc&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;qkdService&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;RegisterDataFunc&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;C&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;register_data_func&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;C&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;pfunc_process_data&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;C&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;callbackFunc&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;svc&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;qkdService&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;ReadKey&lt;/span&gt;() &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;peerDevId&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;svc&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;config&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Qkd&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;DevId&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 被动端应用设备ID，配置文件值KSP ID
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;keyReadId&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;rand&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Uint32&lt;/span&gt;()        &lt;span style=&#34;color:#75715e&#34;&gt;// 密钥读取标示，可用于标识读取次数，每次密钥申请此参数不能重复。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;keyBuffer&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make([]&lt;span style=&#34;color:#66d9ef&#34;&gt;uint8&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;512&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1024&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;// 量子密钥数据缓存
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;cKeyBuffer&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;C&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;uint8_t&lt;/span&gt;)(&lt;span style=&#34;color:#a6e22e&#34;&gt;unsafe&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Pointer&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;keyBuffer&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;cKeyBufferLen&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; new(&lt;span style=&#34;color:#66d9ef&#34;&gt;uint32&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;cKeyBufferLen&lt;/span&gt; = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;cKeyBufferLenPtr&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;C&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;uint32_t&lt;/span&gt;)(&lt;span style=&#34;color:#a6e22e&#34;&gt;unsafe&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Pointer&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;cKeyBufferLen&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;code&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; int(&lt;span style=&#34;color:#a6e22e&#34;&gt;C&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;read_key&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;C&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;uint32_t&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;peerDevId&lt;/span&gt;), &lt;span style=&#34;color:#a6e22e&#34;&gt;C&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;uint32_t&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;keyReadId&lt;/span&gt;), &lt;span style=&#34;color:#a6e22e&#34;&gt;C&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;uint32_t&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;keyApplyLen&lt;/span&gt;), &lt;span style=&#34;color:#a6e22e&#34;&gt;cKeyBuffer&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;cKeyBufferLenPtr&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;code&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;ok&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;qkdErrMsgGroup&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;qkdErrorCode&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;code&lt;/span&gt;)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ok&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;errors&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;New&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;errors&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;New&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;未知异常&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;C 调用 Go&lt;span class=&#34;absolute -mt-20&#34; id=&#34;c-调用-go&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#c-%e8%b0%83%e7%94%a8-go&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;C references to Go&lt;span class=&#34;absolute -mt-20&#34; id=&#34;c-references-to-go&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#c-references-to-go&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Go functions can be exported for use by C code in the following way:&lt;/p&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//export MyFunction
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MyFunction&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;arg1&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;arg2&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;arg3&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;int64&lt;/span&gt; {&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//export MyFunction2
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MyFunction2&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;arg1&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;arg2&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;arg3&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;) (&lt;span style=&#34;color:#66d9ef&#34;&gt;int64&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;C&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;char&lt;/span&gt;) {&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;They will be available in the C code as:&lt;/p&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;extern&lt;/span&gt; GoInt64 &lt;span style=&#34;color:#a6e22e&#34;&gt;MyFunction&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; arg1, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; arg2, GoString arg3);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;extern&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; MyFunction2_return &lt;span style=&#34;color:#a6e22e&#34;&gt;MyFunction2&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; arg1, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; arg2, GoString arg3);&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Not all Go types can be mapped to C types in a useful way. Go struct types are not supported; use a C struct type. Go array types are not supported; use a C pointer.&lt;/p&gt;
+&lt;h2&gt;编译选项&lt;span class=&#34;absolute -mt-20&#34; id=&#34;编译选项&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%bc%96%e8%af%91%e9%80%89%e9%a1%b9&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;目录结构
+&lt;div class=&#34;hextra-filetree mt-6 select-none text-sm text-gray-800 dark:text-gray-300 not-prose&#34;&gt;
+  &lt;div class=&#34;inline-block rounded-lg border px-4 py-2 dark:border-neutral-800&#34;&gt;
+  
+
+&lt;li class=&#34;group flex list-none flex-col&#34;&gt;
+  &lt;button class=&#34;hextra-filetree-folder inline-flex cursor-pointer items-center py-1 hover:opacity-60&#34;&gt;
+    &lt;span data-state=&#34;open&#34; class=&#34;data-[state=open]:hidden&#34;&gt;&lt;svg width=1em xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z&#34;/&gt;&lt;/svg&gt;&lt;/span&gt;
+    &lt;span data-state=&#34;open&#34; class=&#34;data-[state=closed]:hidden&#34;&gt;&lt;svg width=1em xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z&#34;/&gt;&lt;/svg&gt;&lt;/span&gt;
+    &lt;span class=&#34;ml-1&#34;&gt;qkd&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul data-state=&#34;open&#34; class=&#34;pl-5 data-[state=closed]:hidden&#34;&gt;
+    &lt;li class=&#34;flex list-none&#34;&gt;
+      &lt;span class=&#34;inline-flex cursor-default items-center py-1&#34;&gt;&lt;svg width=1em xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z&#34;/&gt;&lt;/svg&gt;&lt;span class=&#34;ml-1&#34;&gt;qkd.go&lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/li&gt;
+
+    
+
+&lt;li class=&#34;group flex list-none flex-col&#34;&gt;
+  &lt;button class=&#34;hextra-filetree-folder inline-flex cursor-pointer items-center py-1 hover:opacity-60&#34;&gt;
+    &lt;span data-state=&#34;open&#34; class=&#34;data-[state=open]:hidden&#34;&gt;&lt;svg width=1em xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z&#34;/&gt;&lt;/svg&gt;&lt;/span&gt;
+    &lt;span data-state=&#34;open&#34; class=&#34;data-[state=closed]:hidden&#34;&gt;&lt;svg width=1em xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z&#34;/&gt;&lt;/svg&gt;&lt;/span&gt;
+    &lt;span class=&#34;ml-1&#34;&gt;include&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul data-state=&#34;open&#34; class=&#34;pl-5 data-[state=closed]:hidden&#34;&gt;
+      &lt;li class=&#34;flex list-none&#34;&gt;
+        &lt;span class=&#34;inline-flex cursor-default items-center py-1&#34;&gt;&lt;svg width=1em xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z&#34;/&gt;&lt;/svg&gt;&lt;span class=&#34;ml-1&#34;&gt;KeyReadAPI.h&lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/li&gt;
+
+    &lt;/ul&gt;
+&lt;/li&gt;
+
+  &lt;/ul&gt;
+&lt;/li&gt;
+
+  
+
+&lt;li class=&#34;group flex list-none flex-col&#34;&gt;
+  &lt;button class=&#34;hextra-filetree-folder inline-flex cursor-pointer items-center py-1 hover:opacity-60&#34;&gt;
+    &lt;span data-state=&#34;open&#34; class=&#34;data-[state=open]:hidden&#34;&gt;&lt;svg width=1em xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z&#34;/&gt;&lt;/svg&gt;&lt;/span&gt;
+    &lt;span data-state=&#34;open&#34; class=&#34;data-[state=closed]:hidden&#34;&gt;&lt;svg width=1em xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z&#34;/&gt;&lt;/svg&gt;&lt;/span&gt;
+    &lt;span class=&#34;ml-1&#34;&gt;app&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul data-state=&#34;open&#34; class=&#34;pl-5 data-[state=closed]:hidden&#34;&gt;
+    
+
+&lt;li class=&#34;group flex list-none flex-col&#34;&gt;
+  &lt;button class=&#34;hextra-filetree-folder inline-flex cursor-pointer items-center py-1 hover:opacity-60&#34;&gt;
+    &lt;span data-state=&#34;open&#34; class=&#34;data-[state=open]:hidden&#34;&gt;&lt;svg width=1em xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z&#34;/&gt;&lt;/svg&gt;&lt;/span&gt;
+    &lt;span data-state=&#34;open&#34; class=&#34;data-[state=closed]:hidden&#34;&gt;&lt;svg width=1em xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z&#34;/&gt;&lt;/svg&gt;&lt;/span&gt;
+    &lt;span class=&#34;ml-1&#34;&gt;lib&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul data-state=&#34;open&#34; class=&#34;pl-5 data-[state=closed]:hidden&#34;&gt;
+      &lt;li class=&#34;flex list-none&#34;&gt;
+        &lt;span class=&#34;inline-flex cursor-default items-center py-1&#34;&gt;&lt;svg width=1em xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z&#34;/&gt;&lt;/svg&gt;&lt;span class=&#34;ml-1&#34;&gt;libkeyout.a&lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/li&gt;
+
+    &lt;/ul&gt;
+&lt;/li&gt;
+
+  &lt;/ul&gt;
+&lt;/li&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;qkd.go&lt;/code&gt;代码&lt;/p&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div class=&#34;filename&#34;&gt;qkd.go&lt;/div&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#cgo CFLAGS: -I./include
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#cgo LDFLAGS: -L/app/lib -lkeyout -lstdc++ -lm
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include &amp;#34;KeyReadAPI.h&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;void callbackFunc(uint32_t command, void *data); // 定义的 C 函数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-lstdc++&lt;/code&gt;表示链接 C++ 标准库；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-lm&lt;/code&gt;表示链接数学库（libm.a 或 libm.so）；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

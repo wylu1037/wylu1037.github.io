@@ -2,91 +2,100 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://wylu1037.github.io/docs/golang/cgo/</loc>
+    <loc>http://localhost:1313/blog/docker-compose-network/</loc>
+    <lastmod>2024-02-27T10:47:42+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/interactive-hexagon-grid/</loc>
+    <lastmod>2024-02-24T10:18:14+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/how-to-achive-infinite-horizontal-scroll-animation-css-only/</loc>
+    <lastmod>2024-02-23T21:42:14+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2024-02-23T10:47:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/zh-cn/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/categories/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/essay/</loc>
+    <lastmod>2024-02-23T10:47:48+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/icons/</loc>
+    <lastmod>2024-02-23T10:47:48+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/essay/icons-preview/</loc>
+    <lastmod>2024-02-23T10:47:48+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/new/</loc>
+    <lastmod>2024-02-23T10:47:48+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-02-23T10:47:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/zh-cn/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/docs/golang/cgo/</loc>
     <lastmod>2024-02-20T13:04:46+08:00</lastmod>
   </url><url>
-    <loc>https://wylu1037.github.io/docs/golang/</loc>
+    <loc>http://localhost:1313/docs/golang/</loc>
     <lastmod>2024-02-20T12:56:33+08:00</lastmod>
   </url><url>
-    <loc>https://wylu1037.github.io/docs/ruby/rails/</loc>
+    <loc>http://localhost:1313/docs/ruby/rails/</loc>
     <lastmod>2024-02-20T12:54:59+08:00</lastmod>
   </url><url>
-    <loc>https://wylu1037.github.io/docs/ruby/</loc>
+    <loc>http://localhost:1313/docs/ruby/</loc>
     <lastmod>2024-02-20T12:53:36+08:00</lastmod>
   </url><url>
-    <loc>https://wylu1037.github.io/docs/rust/</loc>
+    <loc>http://localhost:1313/docs/rust/</loc>
     <lastmod>2024-02-20T12:51:49+08:00</lastmod>
   </url><url>
-    <loc>https://wylu1037.github.io/blog/cgo/</loc>
+    <loc>http://localhost:1313/blog/cgo/</loc>
     <lastmod>2024-02-19T13:35:53+08:00</lastmod>
   </url><url>
-    <loc>https://wylu1037.github.io/tags/go/</loc>
+    <loc>http://localhost:1313/tags/cgo/</loc>
     <lastmod>2024-02-19T13:35:53+08:00</lastmod>
   </url><url>
-    <loc>https://wylu1037.github.io/tags/</loc>
+    <loc>http://localhost:1313/tags/go/</loc>
     <lastmod>2024-02-19T13:35:53+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://wylu1037.github.io/zh-cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://wylu1037.github.io/tags/"
-                />
   </url><url>
-    <loc>https://wylu1037.github.io/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
     <lastmod>2024-02-18T17:06:54+08:00</lastmod>
   </url><url>
-    <loc>https://wylu1037.github.io/blog/</loc>
+    <loc>http://localhost:1313/blog/</loc>
     <lastmod>2024-02-18T16:23:00+08:00</lastmod>
   </url><url>
-    <loc>https://wylu1037.github.io/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2024-02-18T14:30:52+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://wylu1037.github.io/zh-cn/"
+                href="http://localhost:1313/zh-cn/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://wylu1037.github.io/"
+                href="http://localhost:1313/"
                 />
   </url><url>
-    <loc>https://wylu1037.github.io/docs/</loc>
+    <loc>http://localhost:1313/docs/</loc>
     <lastmod>2024-02-18T14:30:52+08:00</lastmod>
   </url><url>
-    <loc>https://wylu1037.github.io/tags/addons/</loc>
-    <lastmod>2024-01-20T12:54:59+08:00</lastmod>
-  </url><url>
-    <loc>https://wylu1037.github.io/tags/applications/</loc>
-    <lastmod>2024-01-20T12:54:59+08:00</lastmod>
-  </url><url>
-    <loc>https://wylu1037.github.io/categories/</loc>
-    <lastmod>2024-01-20T12:54:59+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://wylu1037.github.io/zh-cn/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://wylu1037.github.io/categories/"
-                />
-  </url><url>
-    <loc>https://wylu1037.github.io/essay/</loc>
-    <lastmod>2024-01-20T12:54:59+08:00</lastmod>
-  </url><url>
-    <loc>https://wylu1037.github.io/categories/new/</loc>
-    <lastmod>2024-01-20T12:54:59+08:00</lastmod>
-  </url><url>
-    <loc>https://wylu1037.github.io/tags/platform/</loc>
-    <lastmod>2024-01-20T12:54:59+08:00</lastmod>
-  </url><url>
-    <loc>https://wylu1037.github.io/essay/2024-01-01-test/</loc>
+    <loc>http://localhost:1313/essay/test/</loc>
     <lastmod>2024-01-20T12:54:59+08:00</lastmod>
   </url>
 </urlset>
