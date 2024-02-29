@@ -1,9 +1,6 @@
 ---
 title: Icons Preview
 date: 2024-02-23T10:47:48+08:00
-draft: false
-categories:
-  - new
 tags:
   - icons
 authors:
