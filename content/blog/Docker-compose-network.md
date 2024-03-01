@@ -1,5 +1,5 @@
 ---
-title: 🛜 Docker-compose Network
+title: 🔥 Docker-compose Network
 date: 2024-02-27T10:47:42+08:00
 authors:
   - name: wylu
@@ -95,3 +95,4 @@ services:
   db:
     image: postgres
 ```
+> web 服务可以使用db或database(alias)作为hostname访问db服务。

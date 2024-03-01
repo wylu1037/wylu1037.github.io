@@ -1,0 +1,25 @@
+{{- $text := .Get "text" -}}
+{{- $type := .Get "type" -}}
+{{- $colorMap := dict "orange" "#ff8a00,#e52e71" "blue" "#6d28d9,#8b5cf6" "red" "#b91c1c,#ef4444" "green" "#047857,#10b981" -}}
+{{ if eq $type "" }}
+    {{ $colorSlice := slice "orange" "blue" "red" "green" }}
+    {{ $index := index (seq 3 | shuffle) 0 }}
+    {{ $type = index $colorSlice $index }}
+    {{ if eq $type nil }}
+        {{ $type = "orange" }}
+    {{ end }}
+{{ end }}
+{{ $color := index $colorMap $type}}
+{{ if eq $color nil }}
+    {{ $color = index $colorMap "orange" }}
+{{ end }}
+{{ $colors := split $color ","}}
+{{ $startColor := index $colors 0}}
+{{ $endColor := index $colors 1}}
+{{ $background := printf "background: linear-gradient(45deg, %s, %s);font-weight: bolder;background-clip: text;color: transparent;" $startColor $endColor | safeCSS}}
+
+
+<font class="myfont" {{ with $background }}style="{{ . | safeCSS }}"{{ end }}>
+    {{ $text }}
+</font>
+

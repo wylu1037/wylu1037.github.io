@@ -14,7 +14,11 @@ type: docs
 
 ### Go
 {{< cards >}}
-  {{< card link="https://go.dev/" title="Go" subtitle= "Configure your Django application to run on Clever Cloud" icon="go" >}}
+  {{< card link="/blog/goroutines-and-channels" title="Goroutines and channels" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="go" >}}
+  {{< card link="/blog/goroutines-and-channels" title="Context" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="go" >}}
+  {{< card link="/blog/goroutines-and-channels" title="Closure" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="go" >}}
+  {{< card link="/blog/goroutines-and-channels" title="Sync package" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="go" >}}
+  {{< card link="/blog/goroutines-and-channels" title="Named type Versus unnamed type" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="go" >}}
 {{< /cards >}}
 
 ### Ruby On Rails
@@ -36,8 +40,8 @@ type: docs
 ## Front End
 ### CSS
 {{< cards >}}
-  {{< card link="https://developer.mozilla.org/en-US/docs/Web/CSS" title="CSS" subtitle= "Configure your Django application to run on Clever Cloud" icon="css" >}}
-  {{< card link="https://tailwindcss.com/" title="Tailwind" subtitle= "Configure your Django application to run on Clever Cloud" icon="tailwind" >}}
+  {{< card link="/blog/how-to-achive-infinite-horizontal-scroll-animation-css-only" title="Infinite horizontal scroll animation" subtitle= "Infinite horizontal scroll animation css only." icon="css" >}}
+  {{< card link="/blog/interactive-hexagon-grid" title="Interactive hexagon grid" subtitle= "Configure your Django application to run on Clever Cloud" icon="tailwind" >}}
 {{< /cards >}}
 
 ### Frameworks
