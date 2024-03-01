@@ -14,8 +14,8 @@ type: docs
 
 ### Go
 {{< cards >}}
-  {{< card link="/blog/goroutines-and-channels" title="Goroutines and channels" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="go" >}}
-  {{< card link="/blog/goroutines-and-channels" title="Context" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="go" >}}
+  {{< card link="/blog/go/goroutines-and-channels" title="Goroutines and channels" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="go" >}}
+  {{< card link="/blog/go/context" title="Context" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="go" >}}
   {{< card link="/blog/goroutines-and-channels" title="Closure" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="go" >}}
   {{< card link="/blog/goroutines-and-channels" title="Sync package" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="go" >}}
   {{< card link="/blog/goroutines-and-channels" title="Named type Versus unnamed type" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="go" >}}

@@ -277,7 +277,7 @@ func main(){
 ```
 
 #### Timer & Ticker
-{{< tabs items="Timer, Ticker">}}
+{{< tabs items="🫐 Timer, 🍑 Ticker">}}
   {{< tab >}}
     Timer 是一个定时器，代表未来的一个单一事件。time.NewTimer会接收一个时间，返回一个 channel。
 

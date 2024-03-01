@@ -1,10 +1,7 @@
 ---
 title: 🧹 Clear Jetbrains Cache
 date: 2024-02-28T12:28:17+08:00
-categories:
-  - new
-tags:
-  - jetbrains
+tags: [jetbrains, ide]
 authors:
   - name: wylu
     link: https://github.com/wylu1037

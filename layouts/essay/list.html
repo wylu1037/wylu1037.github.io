@@ -16,37 +16,50 @@
         {{ $paginator := .Paginate (where .Data.Pages "Type" "essay") }}
         {{ range $paginator.Pages.GroupByDate "January, 2006" }}
         <h3 style="text-decoration: none;"
-        class="block font-semibold flex items-center gap-1 mt-8 text-2xl text-gray-700 dark:text-gray-300">
-          <span
-          class="inline-block align-text-bottom icon">
+        class="block font-semibold flex items-center gap-1 mt-8 text-2xl text-gray-900 dark:text-gray-300">
+          <!--<span class="inline-block align-text-bottom icon">
             {{- partial "utils/icon.html" (dict "name" "calendar" "attributes" "height=24") -}}
-          </span>
+          </span>-->
+          🗓️
           <span>&nbsp;</span>{{ .Key }}
         </h3>
           {{ range .Pages }}
             <div class="mb-6 ml-4 pl-5">
               <style>
+                .title {
+                  text-decoration: underline;
+                  text-decoration-thickness: 1px;
+                  text-decoration-color: #a5b4fc;
+                  background: linear-gradient(90deg, #2563eb, #60a5fa);
+                  background-clip: text;
+                  color: transparent;
+                }
                 .title:hover {
-                  color: #4f46e5;
-                  font-weight: bolder;
+                  color: #3b82f6;
+                  font-weight: bold;
+                }
+                .title:hover::after {
+                  content: "📚";
                 }
               </style>
-              <h4>
-                <a style="text-decoration: none;"
-                   class="title block font-medium mt-2"
-                   href="{{ .RelPermalink }}">
-                  <!--<span class="inline-block align-text-bottom icon"></span>-->
+              <h4 class="flex">
+                <p style="font-weight: 500; color: #1c2530">
                   {{ .Title }}
-                  {{ if in .Params.categories "new" }} {{/* Show a label "new" if category is set to "new"*/}}
+                    {{ if in .Params.categories "new" }} {{/* Show a label "new" if category is set to "new"*/}}
                     <span class="ml-4 not-prose inline-flex items-center gap-2 px-1 py-0 text-xs text-white" style="background: linear-gradient(90deg, #A51050 0%, #CB1C42 50.48%, #F57461 100%);border-radius:3px;">
                       {{- $newFeature -}}
                     </span>
                   {{- end -}}
+                </p>
+                <a class="title inline-block font-normal font-medium ml-4"
+                   href="{{ .RelPermalink }}">
+                  <!--<span class="inline-block align-text-bottom icon"></span>-->
+                  Read more →
                 </a>
               </h4>
 
               <!-- 展示.Content -->
-              <div style="color: #9ca3af; font-size: medium; margin-top: 5px; margin-bottom: 10px;">{{ .Content | truncate 100 }}</div>
+              <!--<div style="color: #9ca3af; font-size: medium; margin-top: 5px; margin-bottom: 10px;">{{ .Content | truncate 100 }}</div>-->
 
               <!-- 开始展示tag -->
               <div style="margin:6px 0 2px 0;">
@@ -136,7 +149,7 @@
                       <!-- 第五个tag -->
                       {{ with (eq $index 5) }}
                         <div class="diytag text-xs inline-flex items-center font-bold leading-sm px-2 py-0"
-                            style="text-transform:lowercase; background-color: #f3f4f6; color: #374151; border-radius: 10px; margin-right: 3px;">
+                            style="text-transform:lowercase; background-color: #fcd34d; color: #b45309; border-radius: 10px; margin-right: 3px;">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"

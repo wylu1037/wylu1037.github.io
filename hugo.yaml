@@ -66,6 +66,10 @@ menu:
       params:
         icon: x-twitter
 
+taxonomies:
+  tag: tags
+  category: categories
+
 params:
   blog:
     list:

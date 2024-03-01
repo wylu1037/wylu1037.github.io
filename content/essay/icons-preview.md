@@ -1,8 +1,7 @@
 ---
-title: Icons Preview
+title: 🍃 Icons Preview
 date: 2024-02-23T10:47:48+08:00
-tags:
-  - icons
+tags: [icons, css, animation]
 authors:
   - name: wylu
     link: https://github.com/wylu1037
