@@ -11,18 +11,18 @@ authors:
 
 {{< tabs items="🎉 npm, 🎊 yarn">}}
   {{< tab >}}
-    {{< font type="orange" text="查看所有配置：" >}}
+    {{< font type="orange" text="1.查看所有配置：" >}}
 
     ```shell
     npm config list --json
     ```
-    {{< font type="yellow" text="查看 registry：" >}}
+    {{< font type="yellow" text="2.查看 registry：" >}}
 
     ```shell
     npm config get registry
     # https://registry.npmjs.org/
     ```
-    {{< font type="blue" text="配置 registry：" >}}
+    {{< font type="blue" text="3.配置 registry：" >}}
 
     ```shell
     # 淘宝镜像源
@@ -32,25 +32,25 @@ authors:
   {{< /tab >}}
 
   {{< tab >}}
-    {{< font type="orange" text="查看所有配置：" >}}
+    {{< font type="orange" text="1.查看所有配置：" >}}
 
     ```shell
     yarn config list --json
     ```
-    {{< font type="yellow" text="查看 registry：" >}}
+    {{< font type="yellow" text="2.查看 registry：" >}}
 
     ```shell
     yarn config get registry
     # https://registry.yarnpkg.com
     ```
-    {{< font type="blue" text="配置 registry：" >}}
+    {{< font type="blue" text="3.配置 registry：" >}}
 
     ```shell
     # 淘宝镜像源
     npm config set registry https://registry.npmmirror.com
     ```
 
-    {{< font type="blue" text="yarn镜像管理工具 yrm：" >}}
+    {{< font type="blue" text="4.yarn镜像管理工具 yrm：" >}}
 
     ```shell
     yarn global add yrm

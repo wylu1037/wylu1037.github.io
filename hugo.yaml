@@ -55,9 +55,9 @@ menu:
       url: "https://github.com/wylu1037"
       params:
         icon: github
-    - name: Website
+    - name: Portfolio
       weight: 7
-      url: "https://wylu.pages.dev"
+      url: "https://modernportfolios.vercel.app/"
       params:
         icon: globe-alt
     - name: Twitter
