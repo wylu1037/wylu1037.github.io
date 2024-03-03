@@ -19,7 +19,7 @@ width: full
     <div style="grid-column: 1 / span 3">
     {{< card 
         link="https://github.com/wylu1037/resume" 
-        title="view my resume" 
+        title="View Resume" 
         subtitle= "This is a online resume generate by react and next.js. You can view it on my github repository" 
         icon="eye" >}}
     </div>
@@ -30,7 +30,7 @@ width: full
     <div style="grid-column: 1 / span 3">  
     {{< card 
         link="https://github.com/wylu1037/resume" 
-        title="resume repository" 
+        title="My Portfolio" 
         subtitle= "This is a online resume generate by react and next.js. You can view it on my github repository" 
         icon="github" >}}
     </div>
@@ -38,6 +38,7 @@ width: full
   </div>
 </div>
 
+<!--
 ## Template
 {{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
   Awesome resume preview
@@ -67,3 +68,4 @@ width: full
   {{< /cards >}}
   </div>
 </div>
+-->
