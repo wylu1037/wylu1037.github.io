@@ -1,7 +1,6 @@
 ---
 title: "🌱 Arm64 Aarch64 Amd64 x86_64: What's the Difference?"
 date: 2024-03-01T20:05:09+08:00
-categories: new
 tags: [arm64, aarch64, amd64, x86_64, linux]
 authors:
   - name: wylu
