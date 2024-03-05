@@ -47,7 +47,7 @@ authors:
 
     ```shell
     # 淘宝镜像源
-    npm config set registry https://registry.npmmirror.com
+    yarn config set registry https://registry.npmmirror.com
     ```
 
     {{< font type="blue" text="4.yarn镜像管理工具 yrm：" >}}
