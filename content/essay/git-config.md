@@ -1,7 +1,7 @@
 ---
 title: 🐡 Git Config
 date: 2024-03-06T14:49:17+08:00
-tags: [git, github, gitlab]
+tags: [git, github, gitlab, SSH Keys]
 ---
 
 ## 多git仓库配置
