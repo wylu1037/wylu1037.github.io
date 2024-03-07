@@ -5,9 +5,8 @@ width: full
 ---
 
 <br>
-{{< hextra/hero-subtitle >}}
-  Rust 程序设计语言：https://rustwiki.org/zh-CN/book/
-{{< /hextra/hero-subtitle >}}
+<font style="font-size:20px;">Rust 程序设计语言：<a href="https://rustwiki.org/zh-CN/book/">https://rustwiki.org/zh-CN/book/</a></font>
+<br>
 <br>
 
 {{< cards >}}
