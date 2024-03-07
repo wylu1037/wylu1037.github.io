@@ -1,6 +1,7 @@
 ---
 title: 🧑🏽‍💻 Interview
 date: 2024-03-02T11:17:45+08:00
+width: full
 ---
 
 {{< callout >}}

@@ -3,6 +3,7 @@ title:
 date: 2024-02-18T16:23:00+08:00
 draft: false
 type: docs
+width: full
 ---
 
 {{< animation type="sun" >}}

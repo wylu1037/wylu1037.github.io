@@ -1,8 +1,8 @@
 ---
 title: ''
 date: 2024-02-18T14:30:52+08:00
-draft: false
 toc: false
+width: full
 ---
 
 {{< animation type="main">}}
