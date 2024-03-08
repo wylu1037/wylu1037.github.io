@@ -19,7 +19,7 @@ markup:
 
 enableInlineShortcodes: true
 
-defaultContentLanguage: en
+defaultContentLanguage: zh-cn
 languages:
   en:
     languageName: English
