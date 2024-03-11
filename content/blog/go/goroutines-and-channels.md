@@ -28,7 +28,7 @@ The idea is to send a value to a channel, and have part of our code listen to va
 Go语言的并发模型是CSP（Communicating Sequential Processes），提倡通过通信共享内存而不是通过共享内存而实现通信。channel是go携程之间通信的载体，可以连接不同的go携程，是让一个go携程发送特定值到另一个go携程的通信机制。
 
 ### Creating a channel
-To create a channel, you need the keyword {{< font index="1" text="chan">}} and the data type of the messages you are about to send into it. Here’s an example:
+To create a channel, you need the keyword {{< font "orange" "chan">}} and the data type of the messages you are about to send into it. Here’s an example:
 ```go
 ch := make(chan int)
 ```
@@ -122,7 +122,7 @@ func main() {
     fmt.Println(result)
 }
 ```
-> {{< font text="Output" >}}<br>
+> {{< font "orange" "Output" >}}<br>
 > 1<br>
 > 2<br>
 
@@ -159,7 +159,7 @@ func main() {
     fmt.Println(result)
 }
 ```
-> At this point, your code will deadlock, like so: {{< font index="0" text="fatal error: all goroutines are asleep - deadlock!">}}. Your code will never finish as that value will never arrive.
+> At this point, your code will deadlock, like so: {{< font "ornage" "fatal error: all goroutines are asleep - deadlock!">}}. Your code will never finish as that value will never arrive.
 
 There’s another way to receive values, and that’s by using a select like so:
 ```go
