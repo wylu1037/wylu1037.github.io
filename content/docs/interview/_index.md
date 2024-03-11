@@ -5,7 +5,7 @@ width: full
 ---
 
 {{< callout >}}
-  {{< font type="yellow" text="Interview series" >}}
+  {{< font type="yellow" text="面试系列" >}}
 {{< /callout >}}
 
 ## Go
@@ -16,13 +16,31 @@ width: full
   {{< card link="" title="Context" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="go" >}}
 {{< /cards >}}
 
-## Network
+## Interview
+### Network
 {{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
   Interview questions about TCP & HTTP
 {{< /hextra/hero-subtitle >}}
 {{< cards >}}
-  {{< card link="/docs/interview/proficient-in-http" title="Proficient in http" subtitle= "HTTP stands for Hypertext Transfer Protocol. It is an application layer protocol used for transmitting and receiving information on the World Wide Web. HTTP is the foundation of data communication on the web and is an essential protocol for the functioning of websites and web applications." icon="academic-cap" >}}
-  {{< card link="/docs/interview/proficient-in-tcp" title="Proficient in tcp" subtitle= "TCP provides reliable, connection-oriented communication between two devices over a network. TCP stands for Transmission Control Protocol. It is one of the main protocols in the Internet Protocol (IP) suite and operates at the transport layer (Layer 4) of the OSI model." icon="banknotes" >}}
+  {{< card link="/docs/interview/network/proficient-in-http" title="Proficient in http" subtitle= "HTTP stands for Hypertext Transfer Protocol. It is an application layer protocol used for transmitting and receiving information on the World Wide Web. HTTP is the foundation of data communication on the web and is an essential protocol for the functioning of websites and web applications." icon="endpoints" >}}
+  {{< card link="/docs/interview/network/proficient-in-tcp" title="Proficient in tcp" subtitle= "TCP provides reliable, connection-oriented communication between two devices over a network. TCP stands for Transmission Control Protocol. It is one of the main protocols in the Internet Protocol (IP) suite and operates at the transport layer (Layer 4) of the OSI model." icon="tcp-ip-service" >}}
+  {{< card link="/docs/interview/network/proficient-in-ip" title="Proficient in ip" subtitle= "TCP provides reliable, connection-oriented communication between two devices over a network. TCP stands for Transmission Control Protocol. It is one of the main protocols in the Internet Protocol (IP) suite and operates at the transport layer (Layer 4) of the OSI model." icon="network" >}}
+{{< /cards >}}
+
+### Operating System
+{{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
+  Interview questions about TCP & HTTP
+{{< /hextra/hero-subtitle >}}
+{{< cards >}}
+  {{< card link="" title="硬件结构" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
+  {{< card link="" title="操作系统结构" subtitle="Get ready to deploy and app in 5 minutes" icon="linux" >}}
+  {{< card link="" title="内存管理" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
+  {{< card link="" title="进程管理" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
+  {{< card link="" title="调度算法" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
+  {{< card link="" title="文件系统" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
+  {{< card link="" title="设备管理" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
+  {{< card link="" title="网络系统" subtitle="Get ready to deploy and app in 5 minutes" icon="network" >}}
+  {{< card link="" title="Linux命令" subtitle="Get ready to deploy and app in 5 minutes" icon="code" >}}
 {{< /cards >}}
 
 ## DevOps
