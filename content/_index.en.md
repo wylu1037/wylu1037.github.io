@@ -7,7 +7,7 @@ width: full
 
 {{< animation type="main">}}
 
-<font style="font-size:50px;font-weight:bold;line-height:1.2;">记录个人博客<br> 使用 Markdown & Hugo<br></font>
+<font style="font-size:50px;font-weight:bold;line-height:1.2;">Record personal blog<br> use Markdown and Hugo<br></font>
 
 <font style="font-size:20px;font-weight:270">Fast, batteries-included Hugo theme<br>
 for creating beautiful static websites<br></font>
@@ -101,10 +101,10 @@ for creating beautiful static websites<br></font>
         /**/
     </style>
     <div class="btn-container">
-        <div class="btn"><button class="primary-button" onclick="skip('docs')">查看文档</button></div>
-        <div class="btn"><button class="second-button" onclick="skip('blog')">查看博客</button></div>
-        <div class="btn"><button class="third-button" onclick="skip('essay')">查看随笔</button></div>
-        <div class="btn"><button class="fourth-button" onclick="skip('about')">查看关于</button></div>
+        <div class="btn"><button class="primary-button" onclick="skip('docs')">View Docs</button></div>
+        <div class="btn"><button class="second-button" onclick="skip('blog')">View Blog</button></div>
+        <div class="btn"><button class="third-button" onclick="skip('essay')">View Essay</button></div>
+        <div class="btn"><button class="fourth-button" onclick="skip('about')">View About</button></div>
     </div>
     <script>
         function skip(path) {
