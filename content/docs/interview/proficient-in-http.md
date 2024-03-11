@@ -39,18 +39,18 @@ width: wide
 👨🏻‍🏫 如何优化HTTP<font style="color:#f59e0b;">1.1</font>
 {{< tabs items="🤔避免发送HTTP请求, 🧐 减少请求次数, 🤯 减小响应数据大小">}}
   {{< tab >}}
-    ### 缓存
+    {{< font "red" "缓存" >}}
 
     在请求静态文件的时候，由于这些文件不经常变化，因此把静态文件储起来是一种优化用户浏览体验的方法，同时也可以释放链路资源，缓解网络压力。客户端会把第一次请求以及响应的数据保存在本地磁盘上，其中将请求的 URL 作为 key，而响应作为 value，两者形成映射关系。确认缓存的有效时间通常是通过响应头的`Expires`、`Cache-Control`、`Last-Modified / If-Modified-Since`、`Etag / If-None-Match`来控制。
 
-    #### 1.Expires
+    **1.Expires**
 
     Expires指定文件缓存的过期时间，是一个绝对时间。
     ```
     Expires: Mon, 1 Aug 2016 22:43:02 GMT
     ```
 
-    #### 2.Cache-Control
+    **2.Cache-Control**
 
     Cache-Control是http/1.1中引入的，指定缓存过期的相对时间，可以防止客户端的系统时间被客户修改，导致设置的 Expires 时间失效。
     ```
@@ -60,7 +60,7 @@ width: wide
 
     > 同时存在Expires和Cache-Control时，浏览器会优先以Cache-Control为主。
 
-    #### 3.Last-Modified / If-Modified-Since
+    **3.Last-Modified / If-Modified-Since**
 
     服务端某个文件可能会发生更新，希望客户端时不时请求服务端获取这个文件的过期状态。没有过期，不返回数据给浏览器，只返回304状态码，告诉浏览器缓存还没过期。
     这个实现就是条件请求。
@@ -76,14 +76,39 @@ width: wide
     ```
     服务端对比文件的最后修改时间和If-Modified-Since的时间，没有修改返回304，否则返回200并携带新的资源内容。
 
-    #### 4.Etag / If-None-Match
+    **4.Etag / If-None-Match**
 
     条件请求的另一种实现，使用Etag。首次请求服务响应头携带`Etag`作为时间标签，下次请求时携带key为`If-None-Match`，value为`Etag`的请求头。
     服务器对比`If-None-Match`的值，没有修改返回304，否则返回200并携带新的资源内容。
+
+    **示例**
+
+    Response Headers
+    ```yaml
+    Cache-Control:private, max-age=10
+    Connection:keep-alive
+    Content-Encoding:gzip
+    Content-Type:text/html; charset=utf-8
+    Date:Mon, 01 Aug 2016 13:48:44 GMT
+    Expires:Mon, 01 Aug 2016 13:48:54 GMT
+    Last-Modified:Mon, 01 Aug 2016 13:48:44 GMT
+    Transfer-Encoding:chunked
+    Vary:Accept-Encoding
+    X-UA-Compatible:IE=10
+    ```
+
+    + 第1行的Cache-Control:private, max-age=10，表示有效时间为10s，且其优先级高于Expires。响应头中出现了private，其作用是通知浏览器只针对单个用户进行缓存，且可以具体指定某个字段，如private–"username"。
+    + 第2行的Keep-Alive功能使客户端到服务器端的连接持续有效。当出现对服务器的后继请求时，Keep-Alive功能避免了重新建立连接，即认为之前的连接还是有效的。
+    + 第3行表示响应的压缩方式，压缩后再传输可以提高效率。
+    + 第4行表示响应的文件类型和字符编码方式。
+    + 第5行的Date表示生成文件的绝对时间。
+    + 第6行Expires表示文件过期的绝对时间。同时上面也提到了，其优先级低于Cache-Control。
+    + 第7行的Last-Modified是服务器告诉浏览器该文件的最后修改时间。
+    + 综上可以看出，该页面的缓存有效时间是10秒。如果不清空缓存，在2016.08.01的13:48:44~13:48:54这个时间段中再次访问服务器，则不会再得到新的页面，而是直接呈现本地缓存。
   {{< /tab >}}
 
   {{< tab >}}
-    ### 减少请求次数
+    {{< font "red" "减少请求次数" >}}
 
     + 减少重定向次数
     + 合并请求
@@ -91,7 +116,7 @@ width: wide
   {{< /tab >}}
 
   {{< tab >}}
-    ### 压缩
+    {{< font "red" "压缩" >}}
     + 无损压缩
     + 有损压缩  
   {{< /tab >}}
@@ -498,9 +523,9 @@ Session ID 和 Session Ticket 方式都需要在 1 RTT 才能恢复会话。对�
 ### 6.2 兼容 HTTP/1.1
 HTTP/2 出来的目的是为了改善 HTTP 的性能。协议升级有一个很重要的地方，就是要兼容老版本的协议，否则新协议推广起来就相当困难，所幸 HTTP/2 做到了兼容 HTTP/1.1。
 HTTP/2 是怎么做的呢？
-{{< tabs items="第一步,第二步">}}
+{{< tabs items="🫠 第一步,🙄 第二步">}}
   {{< tab >}}
-    HTTP/2 没有在 URI 里引入新的协议名，仍然用 ***http://*** 表示明文协议，用 ***https://*** 表示加密协议，于是只需要浏览器和服务器在背后自动升级协议，这样可以让用户意识不到协议的升级，很好的实现了协议的平滑升级。
+    HTTP/2 没有在 URI 里引入新的协议名，仍然用 ***http://*** 表示明文协议，用 ***https://*** 表示加密协议，于是只需要 <u>浏览器</u> 和 <u>服务器</u> 在背后自动升级协议，这样可以让用户意识不到协议的升级，很好的实现了协议的平滑升级。
   {{< /tab >}}
 
   {{< tab >}}
@@ -512,10 +537,10 @@ HTTP/2 是怎么做的呢？
   但是，HTTP/2 在 **语法** 层面做了很多改造，基本改变了 HTTP 报文的传输格式。
 {{< /callout >}}
 ### 6.3 头部压缩
-HTTP 协议的报文是由 `Header` + `Body` 构成的，对于 **Body** 部分，HTTP/1.1 协议可以使用头字段 ***Content-Encoding*** 指定 Body 的压缩方式，比如用 gzip 压缩，这样可以节约带宽，但报文中的另外一部分 Header，是没有针对它的优化手段。
+HTTP 协议的报文是由 `Header` + `Body` 构成的，对于 **Body** 部分，HTTP/1.1 协议可以使用头字段 ***Content-Encoding*** 指定 Body 的压缩方式，比如用 {{< font "green" "gzip">}} 压缩，这样可以节约带宽，但报文中的另外一部分 Header，是没有针对它的优化手段。
 
 HTTP/1.1 报文中 Header 部分存在的问题：
-{{< tabs items="问题1,问题2,问题3">}}
+{{< tabs items="😪 问题1,😮‍💨 问题2,🥱 问题3">}}
   {{< tab >}}
     含很多固定的字段，比如 `Cookie`、`User Agent`、`Accept` 等，这些字段加起来也高达几百字节甚至上千字节，所以有必要压缩；
   {{< /tab >}}
@@ -533,11 +558,11 @@ HTTP/1.1 报文中 Header 部分存在的问题：
   HTTP/2 对 ***Header*** 部分做了大改造，把以上的问题都解决了。
 {{< /callout >}}
 
-HTTP/2 没使用常见的 gzip 压缩方式来压缩头部，而是开发了 HPACK 算法，HPACK 算法主要包含三个组成部分：
+HTTP/2 没使用常见的 {{< font "red" "gzip">}} 压缩方式来压缩头部，而是开发了 {{< font "green" "HPACK">}} 算法，HPACK 算法主要包含三个组成部分：
+{{< font "orange" "静态字典">}}、
+{{< font "red" "动态字典">}}、
+{{< font "green" "Huffman 编码（压缩算法）">}}；
 
-+ 静态字典；
-+ 动态字典；
-+ Huffman 编码（压缩算法）；
 客户端和服务器两端都会建立和维护 {{< font type="blue" text="字典">}}，用长度较小的索引号表示重复的字符串，再用 Huffman 编码压缩数据，{{< font type="blue" text="可达到 50%~90% 的高压缩率。">}}
 
 #### 6.3.1 静态表编码
@@ -569,7 +594,7 @@ HTTP/2 为高频出现在头部的字符串和字段建立了一张 {{< font typ
 {{< /callout >}}
 
 以 server  头部字段为例，在 HTTP/1.1 的形式如下：
-```
+```yaml
 server: nghttpx\r\n
 ```
 算上冒号空格和末尾的\r\n，共占用了 **17** 字节，而 {{< font type="blue" text="使用了静态表和 Huffman 编码，可以将它压缩成 8 字节，压缩率大概 47%。" >}}
@@ -583,11 +608,83 @@ server: nghttpx\r\n
 {{< image "/images/docs/interview/http/http2头部字段静态范围格式.webp" "http2头部字段静态范围格式" >}}
 
 HTTP/2 头部由于基于二进制编码，就不需要冒号空格和末尾的\r\n作为分隔符，于是改用表示字符串长度（Value Length）来分割 Index 和 Value。
-> 
+> 为什么基于二进制编码就不需要冒号空格和末尾的\r\n作为分隔符？
+
+接下来，根据这个头部格式来分析上面抓包的 server 头部的二进制数据。
+{{< tabs "items"="🐶 首先,🐯 然后,🦁 最后" >}}
+  {{< tab >}}
+    从静态表中能查到 server 头部字段的 Index 为 54，二进制为 110110，再加上固定 01，头部格式第 1 个字节就是 01110110，这正是上面抓包标注的红色部分的二进制数据。
+  {{< /tab >}}
+
+  {{< tab >}}
+    第二个字节的首个比特位表示 Value 是否经过 Huffman 编码，剩余的 7 位表示 Value 的长度，比如这次例子的第二个字节为 10000110，首位比特位为 1 就代表 Value 字符串是经过 Huffman 编码的，经过 Huffman 编码的 Value 长度为 6。
+  {{< /tab >}}
+
+  {{< tab >}}
+    字符串 nghttpx 经过 Huffman 编码后压缩成了 6 个字节，Huffman 编码的原理是将高频出现的信息用「较短」的编码表示，从而缩减字符串长度。
+  {{< /tab >}}
+{{< /tabs >}}
+
+于是，在统计大量的 HTTP 头部后，HTTP/2 根据出现频率将 ASCII 码编码为了 Huffman 编码表，可以在 RFC7541 文档找到这张静态 Huffman 表，就不把表的全部内容列出来了，只列出字符串 nghttpx 中每个字符对应的 Huffman 编码，如下图：
+|原字符|Huffman编码|
+|---|---|
+|n|101010|
+|g|100110|
+|h|100111|
+|t|01001|
+|p|101011|
+|x|1111001|
+
+通过查表后，字符串 nghttpx 的 Huffman 编码在下图看到，共 6 个字节，每一个字符的 Huffman 编码，用相同的颜色将他们对应起来了，最后的 7 位是补位的。
+{{< image "/images/docs/interview/http/nghttpx-huffman.webp" "nghttpx huffman编码" >}}
+
+最终，server 头部的二进制数据对应的静态头部格式如下：
+{{< image "/images/docs/interview/http/nghttpx-server-header.webp" "nghttpx-server-header" >}}
 
 #### 6.3.2 动态表编码
+静态表只包含了 61 种高频出现在头部的字符串，不在静态表范围内的头部字符串就要自行构建 **动态表**，它的 Index 从 62 起步，会在编码解码的时候随时更新。
+
+比如，第一次发送时头部中的 **User-Agent** 字段数据有上百个字节，经过 Huffman 编码发送出去后，客户端和服务器双方都会更新自己的动态表，添加一个新的 Index 号 62。那么在下一次发送的时候，就不用重复发这个字段的数据了，只用发 1 个字节的 Index 号就好了，因为双方都可以根据自己的动态表获取到字段的数据。
+
+所以，使得动态表生效有一个前提：必须同一个连接上，重复传输完全相同的 HTTP 头部。如果消息字段在 1 个连接上只发送了 1 次，或者重复传输时，字段总是略有变化，动态表就无法被充分利用了。因此，随着在同一 HTTP/2 连接上发送的报文越来越多，客户端和服务器双方的「字典」积累的越来越多，理论上最终每个头部字段都会变成 1 个字节的 Index，这样便避免了大量的冗余数据的传输，大大节约了带宽。
+
+理想很美好，现实很骨感。动态表越大，占用的内存也就越大，如果占用了太多内存，是会影响服务器性能的，因此 Web 服务器都会提供类似 http2_max_requests 的配置，用于限制一个连接上能够传输的请求数量，避免动态表无限增大，请求数量到达上限后，就会关闭 HTTP/2 连接来释放内存。
+
+综上，HTTP/2 头部的编码通过「静态表、动态表、Huffman 编码」共同完成的。
+{{< image "/images/docs/interview/http/http2-动态表.webp" "Http2 动态表" >}}
 
 ### 6.4 二进制帧
+HTTP/2 厉害的地方在于将 HTTP/1 的文本格式改成二进制格式传输数据，极大提高了 HTTP 传输效率，而且二进制数据使用位运算能高效解析。
+{{< image "/images/docs/interview/http/http1-vs-http2-response.webp" "HTTP/1.1 响应和 HTTP/2 的区别" >}}
+
+HTTP/2 把响应报文划分成了两类帧（Frame），图中的 HEADERS（首部）和 DATA（消息负载） 是帧的类型，也就是说一条 HTTP 响应，划分成了两类帧来传输，并且采用二进制来编码。
+
+比如状态码 200 ，在 HTTP/1.1 是用 '2''0''0' 三个字符来表示（二进制：00110010 00110000 00110000），共用了 3 个字节，如下图
+{{< image "/images/docs/interview/http/http1-状态码.webp" "Http1 状态码" >}}
+
+在 HTTP/2 对于状态码 200 的二进制编码是 10001000，只用了 1 字节就能表示，相比于 HTTP/1.1 节省了 2 个字节，如下图：
+{{< image "/images/docs/interview/http/http2-状态码.webp" "Http2 状态码" >}}
+
+Header: :status: 200 OK 的编码内容为：1000 1000，那么表达的含义是什么呢？
+{{< image "/images/docs/interview/http/http2-status-二进制编码.webp" "Http2 Status-200 二进制编码" >}}
+> + 最前面的 1 标识该 Header 是静态表中已经存在的 KV。
+> + 回顾一下之前的静态表内容，“:status: 200 OK”其静态表编码是 8，即 1000。
+
+因此，整体加起来就是 1000 1000。
+
+{{< image "/images/docs/interview/http/HTTP:2二进制帧的结构.webp" "HTTP/2二进制帧的结构图" >}}
+
+帧头（Frame Header）很小，只有 9 个字节，帧开头的前 3 个字节表示帧数据（Frame Playload）的长度。帧长度后面的一个字节是表示帧的类型，HTTP/2 总共定义了 10 种类型的帧，一般分为数据帧和控制帧两类，如下表格：
+{{< image "/images/docs/interview/http/帧的类型.webp" "帧的类型" >}}
+
+帧类型后面的一个字节是 {{< font "blue" "标志位" >}}，可以保存 8 个标志位，用于携带简单的控制信息，比如：
++ {{< font "blue" "END_HEADERS" >}}：表示头数据结束标志，相当于 HTTP/1 里头后的空行（“\r\n”）；
++ {{< font "blue" "END_Stream" >}}：表示单方向数据发送结束，后续不会再有数据帧。
++ {{< font "blue" "PRIORITY" >}}：表示流的优先级；
+
+帧头的最后 4 个字节是 {{< font "blue" "流标识符" >}}（Stream ID），但最高位被保留不用，只有 31 位可以使用，因此流标识符的最大值是 2^31，大约是 21 亿，它的作用是用来标识该 Frame 属于哪个 Stream，接收方可以根据这个信息从乱序的帧里找到相同 Stream ID 的帧，从而有序组装信息。
+
+最后面就是 {{< font "blue" "帧数据" >}} 了，它存放的是通过 {{< font "blue" "HPACK 算法" >}} 压缩过的 HTTP 头部和包体。
 
 ### 6.5 并发传输
 
@@ -597,6 +694,120 @@ HTTP/2 头部由于基于二进制编码，就不需要冒号空格和末尾的\
 ### 6.7 总结
 
 ## 7.HTTP<font style="color:#f59e0b;">3</font>
+HTTP/3 现在（2022 年 5 月）还没正式推出，不过自 2017 年起，HTTP/3 已经更新到 34 个草案了，基本的特性已经确定下来了，对于包格式可能后续会有变化。所以，这次介绍只涉及特性。
+{{< image "/images/docs/interview/http/http3特性.webp" "Http3特性" >}}
+
+### 7.1 美中不足的HTTP<font style="color:#f59e0b;">2</font>
+HTTP/2 通过头部压缩、二进制编码、多路复用、服务器推送等新特性大幅度提升了 HTTP/1.1 的性能，而美中不足的是 HTTP/2 协议是基于 TCP 实现的，于是存在的缺陷有三个。
+
++ 队头阻塞；
++ TCP 与 TLS 的握手时延迟；
++ 网络迁移需要重新连接；
+
+#### 7.1.1 队头阻塞
+HTTP/2 多个请求是跑在一个 TCP 连接中的，那么当 TCP 丢包时，整个 TCP 都要等待重传，那么就会阻塞该 TCP 连接中的所有请求。
+
+如下图，Stream 2 有一个 TCP 报文丢失了，那么即使收到了 Stream 3 和 Stream 4 的 TCP 报文，应用层也是无法读取的，相当于阻塞了 Stream 3 和 Stream 4 请求。
+{{< image "/images/docs/interview/http/http2-队头阻塞.webp" "http2-队头阻塞" >}}
+
+因为 TCP 是字节流协议，TCP 层必须保证收到的字节数据是完整且有序的，如果序列号较低的 TCP 段在网络传输中丢失了，即使序列号较高的 TCP 段已经被接收了，应用层也无法从内核中读取到这部分数据，从 HTTP 视角看，就是请求被阻塞了。
+
+举个例子，如下图：
+{{< image "/images/docs/interview/http/http2-队头阻塞示例.webp" "http2-队头阻塞示例" >}}
+
+图中发送方发送了很多个 Packet，每个 Packet 都有自己的序号，你可以认为是 TCP 的序列号，其中 Packet 3 在网络中丢失了，即使 Packet 4-6 被接收方收到后，由于内核中的 TCP 数据不是连续的，于是接收方的应用层就无法从内核中读取到，只有等到 Packet 3 重传后，接收方的应用层才可以从内核中读取到数据，这就是 HTTP/2 的队头阻塞问题，是在 TCP 层面发生的。
+
+#### 7.1.2 TCP 与 TLS 的握手延迟
+发起 HTTP 请求时，需要经过 TCP 三次握手和 TLS 四次握手（TLS 1.2）的过程，因此共需要 3 个 RTT 的时延才能发出请求数据。
+{{< image "/images/docs/interview/http/tcp与tls的握手延迟.webp" "tcp与tls的握手延迟" >}}
+另外，TCP 由于具有 {{< font "orange" "拥塞控制" >}} 的特性，所以刚建立连接的 TCP 会有个{{< font "red" "慢启动" >}} 的过程，它会对 TCP 连接产生 <u>减速</u> 效果。
+
+#### 7.1.2 网络迁移需要重新链接
+一个 TCP 连接是由四元组（源 IP 地址，源端口，目标 IP 地址，目标端口）确定的，这意味着如果 IP 地址或者端口变动了，就会导致需要 TCP 与 TLS 重新握手，这不利于移动设备切换网络的场景，比如 4G 网络环境切换成 WiFi。
+
+这些问题都是 TCP 协议固有的问题，无论应用层的 HTTP/2 在怎么设计都无法逃脱。要解决这个问题，就必须 {{< font "blue" "把传输层协议替换成 UDP" >}}，这个大胆的决定，HTTP/3 做了！
+
+### 7.2 QUIC 协议的特点
+UDP 是一个简单、不可靠的传输协议，而且是 UDP 包之间是无序的，也没有依赖关系。而且，UDP 是不需要连接的，也就不需要握手和挥手的过程，所以天然的就比 TCP 快。
+
+当然，HTTP/3 不仅仅只是简单将传输协议替换成了 UDP，还基于 UDP 协议在 **应用层** 实现了 QUIC 协议，它具有类似 TCP 的连接管理、拥塞窗口、流量控制的网络特性，相当于将不可靠传输的 UDP 协议变成“可靠”的了，所以不用担心数据包丢失的问题。
+
+{{< callout >}}
+  QUIC 协议的优点有很多，比如：
+  + 无队头阻塞；
+  + 更快的连接建立；
+  + 连接迁移；
+{{< /callout >}}
+
+#### 7.2.1 无队头阻塞
+QUIC 协议也有类似 HTTP/2 Stream 与多路复用的概念，也是可以在同一条连接上并发传输多个 Stream，Stream 可以认为就是一条 HTTP 请求。
+
+由于 QUIC 使用的传输协议是 UDP，UDP 不关心数据包的顺序，如果数据包丢失，UDP 也不关心。不过 QUIC 协议会保证数据包的可靠性，每个数据包都有一个序号唯一标识。当某个流中的一个数据包丢失了，即使该流的其他数据包到达了，数据也无法被 HTTP/3 读取，直到 QUIC 重传丢失的报文，数据才会交给 HTTP/3。
+
+而其他流的数据报文只要被完整接收，HTTP/3 就可以读取到数据。这与 HTTP/2 不同，HTTP/2 只要某个流中的数据包丢失了，其他流也会因此受影响。所以，QUIC 连接上的多个 Stream 之间并没有依赖，都是独立的，某个流发生丢包了，只会影响该流，其他流不受影响。
+{{< image "/images/docs/interview/http/http3-无队头阻塞.webp" "Http3 无队头阻塞" >}}
+
+#### 7.2.2 更快的连接建立
+对于 HTTP/1 和 HTTP/2 协议，TCP 和 TLS 是分层的，分别属于内核实现的传输层、OpenSSL 库实现的表示层，因此它们难以合并在一起，需要分批次来握手，先 TCP 握手，再 TLS 握手。
+
+HTTP/3 在传输数据前虽然需要 QUIC 协议握手，这个握手过程只需要 1 RTT，握手的目的是为确认双方的 **连接 ID**，连接迁移就是基于连接 ID 实现的。
+
+但是 HTTP/3 的 QUIC 协议并不是与 TLS 分层，而是 <u>QUIC 内部包含了 TLS，它在自己的帧会携带 TLS 里的“记录”，再加上 QUIC 使用的是 TLS 1.3，因此仅需 1 个 RTT 就可以 **同时** 完成建立连接与密钥协商，甚至在第二次连接的时候，应用数据包可以和 QUIC 握手信息（连接信息 + TLS 信息）一起发送，达到 0-RTT 的效果。</u>
+
+如下图右边部分，HTTP/3 当会话恢复时，有效负载数据与第一个数据包一起发送，可以做到 0-RTT：
+{{< image "/images/docs/interview/http/http3-quic.gif" "Http3 建立连接" >}}
+
+#### 7.2.3 连接迁移
+前面提到，基于 TCP 传输协议的 HTTP 协议，由于是通过 **四元组**（源 IP、源端口、目的 IP、目的端口）确定一条 TCP 连接。
+
+那么当移动设备的网络从 4G 切换到 WiFi 时，意味着 IP 地址变化了，那么就必须要断开连接，然后重新建立连接，而建立连接的过程包含 TCP 三次握手和 TLS 四次握手的时延，以及 TCP 慢启动的减速过程，给用户的感觉就是网络突然卡顿了一下，因此连接的迁移成本是很高的。
+
+而 QUIC 协议没有用四元组的方式来“绑定”连接，而是通过连接 ID 来标记通信的两个端点，客户端和服务器可以各自选择一组 ID 来标记自己，因此即使移动设备的网络变化后，导致 IP 地址变化了，只要仍保有上下文信息（比如连接 ID、TLS 密钥等），就可以“无缝”地复用原连接，消除重连的成本，没有丝毫卡顿感，达到了连接迁移的功能
+
+### 7.3 HTTP<font style="color:#f59e0b;">/3协议</font>
+HTTP/3 同 HTTP/2 一样采用二进制帧的结构，不同的地方在于 HTTP/2 的二进制帧里需要定义 Stream，而 HTTP/3 自身不需要再定义 Stream，直接使用 QUIC 里的 Stream，于是 HTTP/3 的帧的结构也变简单了。
+{{< image "/images/docs/interview/http/http2-vs-http3-帧格式.webp" "Http2 vs Http3 帧格式" >}}
+HTTP/3 帧头只有两个字段：类型和长度。根据帧类型的不同，大体上分为数据帧和控制帧两大类，Headers 帧（HTTP 头部）和 DATA 帧（HTTP 包体）属于数据帧。
+
+HTTP/3 在头部压缩算法这一方面也做了升级，升级成了 QPACK。与 HTTP/2 中的 HPACK 编码方式相似，HTTP/3 中的 QPACK 也采用了静态表、动态表及 Huffman 编码。
+
+对于静态表的变化，HTTP/2 中的 HPACK 的静态表只有 61 项，而 HTTP/3 中的 QPACK 的静态表扩大到 91 项。
+
+HTTP/2 和 HTTP/3 的 Huffman 编码并没有多大不同，但是动态表编解码方式不同。所谓的动态表，在首次请求-响应后，双方会将未包含在静态表中的 Header 项更新各自的动态表，接着后续传输时仅用 1 个数字表示，然后对方可以根据这 1 个数字从动态表查到对应的数据，就不必每次都传输长长的数据，大大提升了编码效率。
+
+可以看到，动态表是具有时序性的，如果首次出现的请求发生了丢包，后续的收到请求，对方就无法解码出 HPACK 头部，因为对方还没建立好动态表，因此后续的请求解码会阻塞到首次请求中丢失的数据包重传过来。
+
+HTTP/3 的 QPACK 解决了这一问题，那它是如何解决的呢？
+
+QUIC 会有两个特殊的单向流，所谓的单向流只有一端可以发送消息，双向则指两端都可以发送消息，传输 HTTP 消息时用的是双向流，这两个单向流的用法：
+
++ 一个叫 QPACK Encoder Stream，用于将一个字典（Key-Value）传递给对方，比如面对不属于静态表的 HTTP 请求头部，客户端可以通过这个 Stream 发送字典；
++ 一个叫 QPACK Decoder Stream，用于响应对方，告诉它刚发的字典已经更新到自己的本地动态表了，后续就可以使用这个字典来编码了。
+
+这两个特殊的单向流是用来同步双方的动态表，编码方收到解码方更新确认的通知后，才使用动态表编码 HTTP 头部。
+
+
+### 7.4 总结
+{{< tabs items="🧐 HTTP/2缺陷,🤪 QUIC协议特点" >}}
+  {{< tab >}}
+HTTP/2 虽然具有多个流并发传输的能力，但是传输层是 TCP 协议，于是存在以下缺陷：
++ <font style="color:blue;font-weight:bold;">队头阻塞</font>，HTTP/2 多个请求跑在一个 TCP 连接中，如果序列号较低的 TCP 段在网络传输中丢失了，即使序列号较高的 TCP 段已经被接收了，应用层也无法从内核中读取到这部分数据，从 HTTP 视角看，就是多个请求被阻塞了；
++ <font style="color:blue;font-weight:bold;">TCP 和 TLS 握手时延</font>，TCP 三次握手和 TLS 四次握手，共有 3-RTT 的时延；
++ <font style="color:blue;font-weight:bold;">连接迁移需要重新连接</font>，移动设备从 4G 网络环境切换到 WiFi 时，由于 TCP 是基于四元组来确认一条 TCP 连接的，那么网络环境变化后，就会导致 IP 地址或端口变化，于是 TCP 只能断开连接，然后再重新建立连接，切换网络环境的成本高；
+
+HTTP/3 就将传输层从 TCP 替换成了 UDP，并在 UDP 协议上开发了 QUIC 协议，来保证数据的可靠传输。
+  {{< /tab >}}
+
+  {{< tab >}}
+QUIC 协议的特点：
+
++ <font style="color:blue;font-weight:bold;">无队头阻塞</font>，QUIC 连接上的多个 Stream 之间并没有依赖，都是独立的，也不会有底层协议限制，某个流发生丢包了，只会影响该流，其他流不受影响；
++ <font style="color:blue;font-weight:bold;">建立连接速度快</font>，因为 QUIC 内部包含 TLS 1.3，因此仅需 1 个 RTT 就可以「同时」完成建立连接与 TLS 密钥协商，甚至在第二次连接的时候，应用数据包可以和 QUIC 握手信息（连接信息 + TLS 信息）一起发送，达到 0-RTT 的效果。
++ <font style="color:blue;font-weight:bold;">连接迁移</font>，QUIC 协议没有用四元组的方式来“绑定”连接，而是通过「连接 ID 」来标记通信的两个端点，客户端和服务器可以各自选择一组 ID 来标记自己，因此即使移动设备的网络变化后，导致 IP 地址变化了，只要仍保有上下文信息（比如连接 ID、TLS 密钥等），就可以“无缝”地复用原连接，消除重连的成本；
+
+另外 HTTP/3 的 QPACK 通过两个特殊的单向流来同步双方的动态表，解决了 HTTP/2 的 HPACK 队头阻塞问题。
+  {{< /tab >}}
+{{< /tabs >}}
 
 ## 8.HTTP Versus <font style="color:#f59e0b;">RPC</font>
 
