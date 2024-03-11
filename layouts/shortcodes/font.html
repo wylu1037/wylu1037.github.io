@@ -1,5 +1,5 @@
-{{- $text := .Get "text" -}}
-{{- $type := .Get "type" -}}
+{{- $type := .Get "type" | default (.Get 0) -}}
+{{- $text := .Get "text" | default (.Get 1) -}}
 {{- $colorMap := dict "orange" "#ff8a00,#e52e71" "blue" "#6d28d9,#8b5cf6" "red" "#b91c1c,#ef4444" "green" "#047857,#10b981" -}}
 {{ if eq $type "" }}
     {{ $colorSlice := slice "orange" "blue" "red" "green" }}

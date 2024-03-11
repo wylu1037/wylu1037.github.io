@@ -74,12 +74,12 @@ width: full
 
 {{< cards >}}
   {{< card link="" title="硬件结构" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
-  {{< card link="" title="操作系统结构" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
+  {{< card link="" title="操作系统结构" subtitle="Get ready to deploy and app in 5 minutes" icon="linux" >}}
   {{< card link="" title="内存管理" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
   {{< card link="" title="进程管理" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
   {{< card link="" title="调度算法" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
   {{< card link="" title="文件系统" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
   {{< card link="" title="设备管理" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
-  {{< card link="" title="网络系统" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
-  {{< card link="" title="Linux命令" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
+  {{< card link="" title="网络系统" subtitle="Get ready to deploy and app in 5 minutes" icon="network" >}}
+  {{< card link="" title="Linux命令" subtitle="Get ready to deploy and app in 5 minutes" icon="code" >}}
 {{< /cards >}}
