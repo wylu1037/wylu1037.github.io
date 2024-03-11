@@ -672,7 +672,7 @@ Header: :status: 200 OK 的编码内容为：1000 1000，那么表达的含义�
 
 因此，整体加起来就是 1000 1000。
 
-{{< image "/images/docs/interview/http/HTTP:2二进制帧的结构.webp" "HTTP/2二进制帧的结构图" >}}
+{{< image "/images/docs/interview/http/HTTP-2二进制帧的结构.webp" "HTTP/2二进制帧的结构图" >}}
 
 帧头（Frame Header）很小，只有 9 个字节，帧开头的前 3 个字节表示帧数据（Frame Playload）的长度。帧长度后面的一个字节是表示帧的类型，HTTP/2 总共定义了 10 种类型的帧，一般分为数据帧和控制帧两类，如下表格：
 {{< image "/images/docs/interview/http/帧的类型.webp" "帧的类型" >}}
