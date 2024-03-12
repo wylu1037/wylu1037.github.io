@@ -7,7 +7,8 @@ authors:
     image: https://github.com/wylu1037.png?size=40
 ---
 {{< cards >}}
-  {{< card link="https://xiaolincoding.com/network/3_tcp/tcp_interview.html" title="原文出处" subtitle="Get ready to deploy and app in 5 minutes" icon="academic-cap" >}}
+  {{< card link="https://xiaolincoding.com/network/3_tcp/tcp_interview.html" title="原文出处" subtitle="小林coding图解网络系列之TCP篇" icon="academic-cap" >}}
+  {{< card link="https://xiaolincoding.com/network/3_tcp/tcp_interview.html" title="治国优选" subtitle="二次加工版本" icon="bookmark-square" >}}
 {{< /cards >}}
 
 本文将深入探讨TCP/IP协议中的高级特性和行为，从三次握手与四次挥手的基本概念，到TCP重传、滑动窗口、流量控制及拥塞控制等复杂机制。我们将解析TCP抓包技术，讨论TCP半连接队列和全连接队列的区别，以及如何优化TCP性能。文章还将探讨面向字节流的TCP协议特性，包括建立连接时的初始化序列号，以及在特定情况下如何处理SYN报文和FIN包。
