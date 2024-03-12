@@ -1,7 +1,6 @@
 ---
 title: 🪞 Config Npm and Yarn Mirror
 date: 2024-03-03T16:26:56+08:00
-categories: new
 tags: [yarn, npm]
 authors:
   - name: wylu
