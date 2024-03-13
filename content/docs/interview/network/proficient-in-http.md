@@ -251,19 +251,21 @@ HTTPS是应用层协议，需要先完成 TCP 连接建立，然后走 TLS 握�
 
 对于这种三级层级关系的证书的验证过程如下：
 
-{{< tabs items="第一步,第二步,第三步" >}}
-{{< tab >}}
+{{% steps %}}
+
+<h5>第一步</h5>
+
 客户端收到 baidu.com 的证书后，发现这个证书的签发者不是根证书，就无法根据本地已有的根证书中的公钥去验证 baidu.com 证书是否可信。于是，客户端根据 baidu.com 证书中的签发者，找到该证书的颁发机构是 “GlobalSign Organization Validation CA - SHA256 - G2”，然后向 CA 请求该中间证书。
-{{< /tab >}}
 
-{{< tab >}}
+<h5>第二步</h5>
+
 请求到证书后发现 “GlobalSign Organization Validation CA - SHA256 - G2” 证书是由 “GlobalSign Root CA” 签发的，由于 “GlobalSign Root CA” 没有再上级签发机构，说明它是根证书，也就是自签证书。应用软件会检查此证书有否已预载于根证书清单上，如果有，则可以利用根证书中的公钥去验证 “GlobalSign Organization Validation CA - SHA256 - G2” 证书，如果发现验证通过，就认为该中间证书是可信的。
-{{< /tab >}}
 
-{{< tab >}}
+<h5>第三步</h5>
+
 “GlobalSign Organization Validation CA - SHA256 - G2” 证书被信任后，可以使用 “GlobalSign Organization Validation CA - SHA256 - G2” 证书中的公钥去验证 baidu.com 证书的可信性，如果验证通过，就可以信任 baidu.com 证书。
-{{< /tab >}}
-{{< /tabs >}}
+
+{{% /steps %}}
 
 总括来说，由于用户信任 GlobalSign，所以由 GlobalSign 所担保的 baidu.com 可以被信任，另外由于用户信任操作系统或浏览器的软件商，所以由软件商预载了根证书的 GlobalSign 都可被信任。
 
@@ -558,15 +560,17 @@ Session ID 和 Session Ticket 方式都需要在 1 RTT 才能恢复会话。对�
 
 HTTP/2 出来的目的是为了改善 HTTP 的性能。协议升级有一个很重要的地方，就是要兼容老版本的协议，否则新协议推广起来就相当困难，所幸 HTTP/2 做到了兼容 HTTP/1.1。
 HTTP/2 是怎么做的呢？
-{{< tabs items="🫠 第一步,🙄 第二步">}}
-{{< tab >}}
-HTTP/2 没有在 URI 里引入新的协议名，仍然用 **_http://_** 表示明文协议，用 **_https://_** 表示加密协议，于是只需要 <u>浏览器</u> 和 <u>服务器</u> 在背后自动升级协议，这样可以让用户意识不到协议的升级，很好的实现了协议的平滑升级。
-{{< /tab >}}
 
-{{< tab >}}
+{{% steps %}}
+
+<h5>第一步</h5>
+
+HTTP/2 没有在 URI 里引入新的协议名，仍然用 **_http://_** 表示明文协议，用 **_https://_** 表示加密协议，于是只需要 <u>浏览器</u> 和 <u>服务器</u> 在背后自动升级协议，这样可以让用户意识不到协议的升级，很好的实现了协议的平滑升级。
+
+<h5>第二步</h5>
+
 只在应用层做了改变，还是基于 TCP 协议传输，应用层方面为了保持功能上的兼容，HTTP/2 把 HTTP 分解成了 **语义** 和 **语法** 两个部分，**语义** 层不做改动，与 HTTP/1.1 完全一致，比如请求方法、状态码、头字段等规则保留不变。
-{{< /tab >}}
-{{< /tabs>}}
+{{% /steps %}}
 
 {{< callout type="warning" >}}
 但是，HTTP/2 在 **语法** 层面做了很多改造，基本改变了 HTTP 报文的传输格式。
