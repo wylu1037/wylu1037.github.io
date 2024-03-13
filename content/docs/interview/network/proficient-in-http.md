@@ -662,7 +662,11 @@ server: nghttpx\r\n
 
 HTTP/2 头部由于基于二进制编码，就不需要冒号空格和末尾的\r\n 作为分隔符，于是改用表示字符串长度（Value Length）来分割 Index 和 Value。
 
-> 为什么基于二进制编码就不需要冒号空格和末尾的\r\n 作为分隔符？
+{{< callout type="info" >}}
+**为什么基于二进制编码就不需要冒号空格和末尾的\r\n 作为分隔符？**
+
+Http1.1 头部采用 `冒号空格` 和 `\r\n` 来分割不同的 key-value 以及正确读取 key 和 value，而在 Http2 中改用 Value Length 来分割 Index 和 Value，可以根据 Index 去静态表 或者 动态表检索到 key，根据 Value Length 可以读取指定长度的 value。
+{{< /callout >}}
 
 接下来，根据这个头部格式来分析上面抓包的 server 头部的二进制数据。
 
@@ -973,4 +977,241 @@ QUIC 协议的特点：
 
 ## 8.HTTP Versus <font style="color:#f59e0b;">RPC</font>
 
+### 8.1 TCP
+
+作为一个程序员，假设我们需要在 A 电脑的进程发一段数据到 B 电脑的进程，我们一般会在代码里使用 Socket 进行编程。可选项一般也就 TCP 和 UDP 二选一。TCP 可靠，UDP 不可靠。
+
+类似下面这样
+
+```c
+fd = socket(AF_INET,SOCK_STREAM,0);
+```
+
+其中 SOCK_STREAM，是指使用字节流传输数据，说白了就是 TCP 协议。在定义了 Socket 之后，就可以愉快的对这个 Socket 进行操作，比如用 `bind()` 绑定 IP 端口，用 `connect()` 发起建连。
+{{< image "/images/docs/interview/http/tcp-build-connection-process.gif" "TCP 建立连接过程" >}}
+
+在连接建立之后，就可以使用 send() 发送数据，recv() 接收数据。光这样一个纯裸的 TCP 连接，就可以做到收发数据了，那是不是就够了？不行，这么用会有问题。
+
+### 8.2 裸 TCP 的问题
+
+TCP 是有三个特点，面向连接、可靠、基于字节流。
+
+{{< image "/images/docs/interview/http/tcp-features.webp" "TCP 特点" >}}
+
+字节流可以理解为一个双向的通道里流淌的数据，这个数据其实就是我们常说的二进制数据，简单来说就是一大堆 01 串。纯裸 TCP 收发的这些 01 串之间是没有任何边界的，根本不知道到哪个地方才算一条完整消息。
+{{< image "/images/docs/interview/http/binary-byte-stream.webp" "二进制字节流" >}}
+
+正因为这个没有任何边界的特点，所以当使用 TCP 发送"夏洛"和"特烦恼"的时候，接收端收到的就是"夏洛特烦恼"，这时候接收端没发区分你是想要表达"夏洛"+"特烦恼"还是"夏洛特"+"烦恼"。
+这就是所谓的粘包问题，这里有<a href="https://xiaolincoding.com/network/3_tcp/tcp_stream.html">文章</a>介绍。
+
+纯裸 TCP 是不能直接拿来用的，需要在这个基础上加入一些自定义的规则，用于区分消息边界。于是我们会把每条要发送的数据都包装一下，比如加入消息头，消息头里写清楚一个完整的包长度是多少，根据这个长度可以继续接收数据，截取出来后它们就是真正要传输的消息体。
+
+{{< font "blue" "消息头" >}} 还可以放各种东西，比如消息体是否被压缩过和消息体格式之类的，只要上下游都约定好了，互相都认就可以了，这就是所谓的 {{< font "blue" "协议" >}}。
+
+每个使用 TCP 的项目都可能会定义一套类似这样的协议解析标准，他们可能有区别，但原理都类似。于是基于 TCP，就衍生了非常多的协议，比如 **HTTP** 和 **RPC**。
+
+### 8.3 HTTP 和 RPC
+
+{{< image "/images/docs/interview/http/http-and-rpc.webp" "Http协议 RPC协议" >}}
+
+TCP 是传输层的协议，而基于 TCP 造出来的 HTTP 和各类 RPC 协议，它们都只是定义了不同消息格式的应用层协议而已。
+
+{{< tabs items="HTTP,RPC" >}}
+{{< tab >}}
+
+HTTP 协议（Hyper Text Transfer Protocol），又叫做超文本传输协议，用的比较多，平时上网在浏览器上敲个网址就能访问网页，这里用到的就是 HTTP 协议。
+{{< image "/images/docs/interview/http/http-invoke.webp" "HTTP 调用" >}}
+
+{{< /tab >}}
+
+{{< tab >}}
+
+RPC（Remote Procedure Call），又叫做远程过程调用。它本身并不是一个具体的协议，而是一种调用方式。
+
+远端服务器暴露出来一个方法 `remoteFunc`，如果能像调用本地方法那样去调用它，这样就可以屏蔽掉一些网络细节，用起来更方便。
+
+```c
+res = remoteFunc(req)
+```
+
+{{< image "/images/docs/interview/http/rpc-invoke.webp" "RPC 调用" >}}
+
+基于这个思路，出现了非常多款式的 RPC 协议，比如比较有名的 gRPC，thrift。值得注意的是，虽然大部分 RPC 协议底层使用 TCP，但实际上它们不一定非得使用 TCP，改用 UDP 或者 HTTP，其实也可以做到类似的功能。
+{{< /tab >}}
+
+{{< /tabs >}}
+
+#### 8.3.1 既然有 HTTP 协议，为什么还要有 RPC
+
+TCP 是 70 年代出来的协议，而 HTTP 是 90 年代才开始流行的。而直接使用裸 TCP 会有问题，可想而知，这中间这么多年有多少自定义的协议，而这里面就有 80 年代出来的 RPC。
+
+所以该问的不是既然有 HTTP 协议为什么要有 RPC，而是为什么有 RPC 还要有 HTTP 协议。
+
+#### 8.3.2 既然有 RPC 协议，为什么还要有 HTTP
+
+现在电脑上装的各种联网软件，比如 xx 管家，xx 卫士，它们都作为客户端（Client）需要跟服务端（Server）建立连接收发消息，此时都会用到应用层协议，在这种 Client/Server (C/S) 架构下，它们可以使用自家造的 RPC 协议，因为它只管连自己公司的服务器就 ok 了。
+
+但有个软件不同，浏览器（Browser），不管是 Chrome 还是 IE，它们不仅要能访问自家公司的服务器（Server），还需要访问其他公司的网站服务器，因此它们需要有个统一的标准，不然大家没法交流。于是，HTTP 就是那个时代用于统一 Browser/Server (B/S) 的协议。
+
+也就是说在多年以前，HTTP 主要用于 B/S 架构，而 RPC 更多用于 C/S 架构。但现在其实已经没分那么清了，B/S 和 C/S 在慢慢融合。很多软件同时支持多端，比如某度云盘，既要支持网页版，还要支持手机端和 PC 端，如果通信协议都用 HTTP 的话，那服务器只用同一套就够了。而 RPC 就开始退居幕后，一般用于公司内部集群里，各个微服务之间的通讯。
+
+<u>**如此，都用 HTTP 还用什么 RPC？**</u>
+
+### 8.4 HTTP 和 RPC 的区别
+
+#### 8.4.1 服务发现
+
+首先要向某个服务器发起请求，你得先建立连接，而建立连接的前提是，你得知道 <font style="color:blue;font-weight:bold;">IP 地址和端口</font>。这个找到服务对应的 IP 端口的过程，其实就是<font style="color:blue;font-weight:bold;">服务发现</font>。
+
+在 <font style="color:blue;font-weight:bold;">HTTP</font> 中，你知道服务的域名，就可以通过 <font style="color:blue;font-weight:bold;">DNS 服务</font>去解析得到它背后的 IP 地址，默认 80 端口。
+
+而 <font style="color:blue;font-weight:bold;">RPC</font> 的话，就有些区别，一般会有专门的<font style="color:blue;font-weight:bold;">中间服务</font>去保存服务名和 IP 信息，比如 <font style="color:blue;font-weight:bold;">Consul 或者 Etcd，甚至是 Redis</font>。想要访问某个服务，就去这些中间服务去获得 IP 和端口信息。由于 DNS 也是服务发现的一种，所以也有基于 DNS 去做服务发现的组件，比如 <font style="color:blue;font-weight:bold;">CoreDNS</font>。
+
+可以看出服务发现这一块，两者是有些区别，但不太能分高低。
+
+#### 8.4.2 底层连接形式
+
+以主流的 <font style="color:blue;font-weight:bold;">HTTP/1.1</font> 协议为例，其默认在建立底层 TCP 连接之后会一直保持这个连接（<font style="color:blue;font-weight:bold;">Keep Alive</font>），之后的请求和响应都会复用这条连接。
+
+而 <font style="color:blue;font-weight:bold;">RPC</font> 协议，也跟 HTTP 类似，也是通过建立 TCP 长链接进行数据交互，但不同的地方在于，RPC 协议一般还会再建个<font style="color:blue;font-weight:bold;">连接池</font>，在请求量大的时候，建立多条连接放在池内，要发数据的时候就从池里取一条连接出来，<font style="color:blue;font-weight:bold;">用完放回去，下次再复用</font>，可以说非常环保。
+
+{{< image "/images/docs/interview/http/rpc-connection-pool.webp" "RPC 连接池" >}}
+
+由于连接池有利于提升网络请求性能，所以不少编程语言的网络库里都会给 HTTP 加个连接池，比如 Go 就是这么干的。
+
+可以看出这一块两者也没太大区别，所以也不是关键。
+
+#### 8.4.3 传输的内容
+
+基于 TCP 传输的消息，说到底，无非都是<font style="color:blue;font-weight:bold;">消息头 Header 和消息体 Body</font>。
+
+<font style="color:blue;font-weight:bold;">Header</font> 是用于标记一些特殊信息，其中最重要的是<font style="color:blue;font-weight:bold;">消息体长度</font>。
+
+<font style="color:blue;font-weight:bold;">Body</font> 则是放我们真正需要传输的内容，而这些内容只能是二进制 01 串，毕竟计算机只认识这玩意。所以 TCP 传字符串和数字都问题不大，因为字符串可以转成编码再变成 01 串，而数字本身也能直接转为二进制。但结构体呢，我们得想个办法将它也转为二进制 01 串，这样的方案现在也有很多现成的，比如 <font style="color:blue;font-weight:bold;">Json，Protobuf</font>。
+
+这个将结构体转为二进制数组的过程就叫<font style="color:blue;font-weight:bold;">序列化</font>，反过来将二进制数组复原成结构体的过程叫<font style="color:blue;font-weight:bold;">反序列化</font>。
+{{< image "/images/docs/interview/http/struct-serialization.webp" "结构体序列化" >}}
+
+对于主流的 HTTP/1.1，虽然它现在叫<font style="color:blue;font-weight:bold;">超文本</font>协议，支持音频视频，但 HTTP 设计初是用于做网页<font style="color:blue;font-weight:bold;">文本</font>展示的，所以它传的内容以字符串为主。Header 和 Body 都是如此。在 Body 这块，它使用 <font style="color:blue;font-weight:bold;">Json</font> 来<font style="color:blue;font-weight:bold;">序列化</font>结构体数据。
+
+{{< image "/images/docs/interview/http/http-json-message-example.webp" "Http消息示例">}}
+
+可以看到这里面的内容非常多的<font style="color:blue;font-weight:bold;">冗余</font>，显得<font style="color:blue;font-weight:bold;">非常啰嗦</font>。最明显的，像 Header 里的那些信息，其实如果约定好头部的第几位是 Content-Type，就<font style="color:blue;font-weight:bold;">不需要每次都真的把"Content-Type"这个字段都传过来</font>，类似的情况其实在 body 的 Json 结构里也特别明显。
+
+而 RPC，因为它定制化程度更高，可以采用体积更小的 Protobuf 或其他序列化协议去保存结构体数据，同时也不需要像 HTTP 那样考虑各种浏览器行为，比如 302 重定向跳转啥的。<font style="color:blue;font-weight:bold;">因此性能也会更好一些，这也是在公司内部微服务中抛弃 HTTP，选择使用 RPC 的最主要原因。</font>
+
+{{< image "/images/docs/interview/http/http-invoke-flow-diagram.webp" "HTTP" >}}
+{{< image "/images/docs/interview/http/rpc-invoke-flow-diagram.webp" "RPC" >}}
+
+当然上面说的 HTTP，其实<font style="color:blue;font-weight:bold;">特指的是现在主流使用的 HTTP/1.1</font>，HTTP/2 在前者的基础上做了很多改进，所以<font style="color:blue;font-weight:bold;">性能可能比很多 RPC 协议还要好</font>，甚至连 gRPC 底层都直接用的 HTTP/2。
+
+### 8.5 总结
+
+{{% steps %}}
+
+<h5></h5>
+
+纯裸 TCP 是能收发数据，但它是个<font style="color:blue;font-weight:bold;">无边界</font>的数据流，上层需要定义<font style="color:blue;font-weight:bold;">消息格式</font>用于定义<font style="color:blue;font-weight:bold;">消息边界</font>。于是就有了各种协议，HTTP 和各类 RPC 协议就是在 TCP 之上定义的应用层协议。
+
+<h5></h5>
+
+<font style="color:blue;font-weight:bold;">RPC 本质上不算是协议，而是一种调用方式</font>，而像 gRPC 和 Thrift 这样的具体实现，才是协议，它们是实现了 RPC 调用的协议。目的是希望程序员能像调用本地方法那样去调用远端的服务方法。同时 RPC 有很多种实现方式，<font style="color:blue;font-weight:bold;">不一定非得基于 TCP 协议。</font>
+
+<h5></h5>
+
+从发展历史来说，<font style="color:blue;font-weight:bold;">HTTP 主要用于 B/S 架构，而 RPC 更多用于 C/S 架构。但现在其实已经没分那么清了，B/S 和 C/S 在慢慢融合。</font>很多软件同时支持多端，所以对外一般用 HTTP 协议，而内部集群的微服务之间则采用 RPC 协议进行通讯。
+
+<h5></h5>
+
+RPC 其实比 HTTP 出现的要早，且比目前主流的 HTTP/1.1 <font style="color:blue;font-weight:bold;">性能</font> 要更好，所以大部分公司内部都还在使用 RPC。
+
+<h5></h5>
+
+<font style="color:blue;font-weight:bold;">HTTP/2.0</font> 在 <font style="color:blue;font-weight:bold;">HTTP/1.1</font> 的基础上做了优化，性能可能比很多 RPC 协议都要好，但由于是这几年才出来的，所以也不太可能取代掉 RPC。
+
+{{% /steps %}}
+
 ## 9.HTTP Versus <font style="color:#f59e0b;">Websocket</font>
+
+### 9.1 使用 HTTP 不断轮询
+
+### 9.2 长轮询
+
+### 9.3 什么是 WebSocket
+
+TCP 连接的两端，同一时间里，双方都可以主动向对方发送数据。这就是所谓的全双工。
+
+而现在使用最广泛的 HTTP/1.1，也是基于 TCP 协议的，同一时间里，客户端和服务器只能有一方主动发数据，这就是所谓的半双工。
+
+这是由于 HTTP 协议设计之初，考虑的是看看网页文本的场景，能做到客户端发起请求再由服务器响应，就够了，根本就没考虑网页游戏这种，客户端和服务器之间都要互相主动发大量数据的场景。
+
+所以，为了更好的支持这样的场景，需要另外一个基于 TCP 的新协议。于是新的应用层协议 WebSocket 就被设计出来了。
+
+#### 9.3.1 建立 WebSocket 连接
+
+平时刷网页，一般都是在浏览器上刷的，一会刷刷图文，这时候用的是 HTTP 协议，一会打开网页游戏，这时候就得切换成 WebSocket 协议。
+
+为了兼容这些使用场景。浏览器在 TCP 三次握手建立连接之后，都统一使用 HTTP 协议先进行一次通信。
+
+- 如果此时是普通的 HTTP 请求，那后续双方就还是老样子继续用普通 HTTP 协议进行交互，这点没啥疑问。
+- 如果这时候是想建立 WebSocket 连接，就会在 HTTP 请求里带上一些特殊的 header 头，如下：
+
+```yaml
+Connection: Upgrade
+Upgrade: WebSocket
+Sec-WebSocket-Key: T2a6wZlAwhgQNqruZ2YUyg==\r\n
+```
+
+这些 header 头的意思是，浏览器想升级协议（Connection: Upgrade），并且想升级成 WebSocket 协议（Upgrade: WebSocket）。同时带上一段随机生成的 base64 码（Sec-WebSocket-Key），发给服务器。
+
+如果服务器正好支持升级成 WebSocket 协议。就会走 WebSocket 握手流程，同时根据客户端生成的 base64 码，用某个公开的算法变成另一段字符串，放在 HTTP 响应的 Sec-WebSocket-Accept 头里，同时带上 101 状态码，发回给浏览器。HTTP 的响应如下：
+
+```
+HTTP/1.1 101 Switching Protocols\r\n
+Sec-WebSocket-Accept: iBJKv/ALIW2DobfoA4dmr3JHBCY=\r\n
+Upgrade: WebSocket\r\n
+Connection: Upgrade\r\n
+```
+
+> HTTP 状态码=200（正常响应）的情况，大家见得多了。101 确实不常见，它其实是指协议切换。
+
+#### 9.3.2 WebSocket 抓包
+
+#### 9.3.3 WebSocket 的消息格式
+
+数据包在 WebSocket 中被叫做帧，我们来看下它的数据格式长什么样子。
+{{< image "/images/docs/interview/http/websocket-data.webp" "WebSocket数据格式" >}}
+
+#### 9.3.4 WebSocket 的使用场景
+
+WebSocket 完美继承了 TCP 协议的全双工能力，并且还贴心的提供了解决粘包的方案。
+
+它适用于需要服务器和客户端（浏览器）频繁交互的大部分场景，比如网页/小程序游戏，网页聊天室，以及一些类似飞书这样的网页协同办公软件。
+
+在使用 WebSocket 协议的网页游戏里，怪物移动以及攻击玩家的行为是服务器逻辑产生的，对玩家产生的伤害等数据，都需要由服务器主动发送给客户端，客户端获得数据后展示对应的效果。
+{{< image "/images/docs/interview/http/websocket-in-games.webp" "游戏中的WebSocket" >}}
+
+### 9.4 总结
+
+{{% steps %}}
+
+<h5></h5>
+
+TCP 协议本身是<font style="color:blue;font-weight:bold;">全双工</font>的，但我们最常用的 HTTP/1.1，虽然是基于 TCP 的协议，但它是<font style="color:blue;font-weight:bold;">半双工</font>的，对于大部分需要服务器主动推送数据到客户端的场景，都不太友好，因此我们需要使用支持全双工的 WebSocket 协议。
+
+<h5></h5>
+
+在 HTTP/1.1 里，只要客户端不问，服务端就不答。基于这样的特点，对于登录页面这样的简单场景，可以使用<font style="color:blue;font-weight:bold;">定时轮询</font>或者<font style="color:blue;font-weight:bold;">长轮询</font>的方式实现<font style="color:blue;font-weight:bold;">服务器推送</font>(comet)的效果。
+
+<h5></h5>
+
+对于客户端和服务端之间需要频繁交互的复杂场景，比如网页游戏，都可以考虑使用 WebSocket 协议。
+
+<h5></h5>
+
+WebSocket 和 socket 几乎没有任何关系，只是叫法相似。
+
+<h5></h5>
+
+正因为各个浏览器都支持 HTTP 协 议，所以 WebSocket 会先利用 HTTP 协议加上一些特殊的 header 头进行握手升级操作，升级成功后就跟 HTTP 没有任何关系了，之后就用 WebSocket 的数据格式进行收发数据。
+{{% /steps %}}
