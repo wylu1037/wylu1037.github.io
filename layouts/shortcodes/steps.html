@@ -1,3 +1,31 @@
 <div class="steps ml-4 mb-12 border-l border-gray-200 pl-6 dark:border-neutral-800 [counter-reset:step]">
   {{- .Inner -}}
 </div>
+
+<style>
+.steps h5 {
+  counter-increment: step-counter; /* 对每个步骤计数 */
+}
+
+.steps h5:before {
+  content: counter(step-counter); /* 显示步骤编号 */
+  position: absolute;
+  width: 33px;
+  height: 33px;
+  border: 4px solid #fff; /* 白色边框 */
+  background-color: #f3f4f6; /* 浅灰背景，暗色模式下使用深色背景 */
+  border-radius: 50%; /* 圆形 */
+  color: #9ca3af; /* 淡灰色文字 */
+  font-size: 16px; /* 文字大小 */
+  text-align: center; /* 文字居中 */
+  line-height: 25px; /* 调整行高以垂直居中文字 */
+  margin-top: 3px;
+  margin-left: -41px; /* 调整位置，确保圆圈位于标题左侧 */
+}
+
+/* 针对使用右到左语言（如波斯语）的样式调整 */
+:lang(fa) .steps h5:before {
+  content: counter(step-counter, persian); /* 使用波斯语数字 */
+}
+
+</style>
