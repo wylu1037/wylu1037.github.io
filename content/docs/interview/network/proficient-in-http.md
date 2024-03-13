@@ -43,79 +43,88 @@ width: wide
 {{< tab >}}
 {{< font "red" "缓存" >}}
 
-    在请求静态文件的时候，由于这些文件不经常变化，因此把静态文件储起来是一种优化用户浏览体验的方法，同时也可以释放链路资源，缓解网络压力。客户端会把第一次请求以及响应的数据保存在本地磁盘上，其中将请求的 URL 作为 key，而响应作为 value，两者形成映射关系。确认缓存的有效时间通常是通过响应头的`Expires`、`Cache-Control`、`Last-Modified / If-Modified-Since`、`Etag / If-None-Match`来控制。
+在请求静态文件的时候，由于这些文件不经常变化，因此把静态文件储起来是一种优化用户浏览体验的方法，同时也可以释放链路资源，缓解网络压力。客户端会把第一次请求以及响应的数据保存在本地磁盘上，其中将请求的 URL 作为 key，而响应作为 value，两者形成映射关系。确认缓存的有效时间通常是通过响应头的`Expires`、`Cache-Control`、`Last-Modified / If-Modified-Since`、`Etag / If-None-Match`来控制。
 
-    **1.Expires**
+**1.Expires**
 
-    Expires指定文件缓存的过期时间，是一个绝对时间。
-    ```
-    Expires: Mon, 1 Aug 2016 22:43:02 GMT
-    ```
+Expires 指定文件缓存的过期时间，是一个绝对时间。
 
-    **2.Cache-Control**
+```
+Expires: Mon, 1 Aug 2016 22:43:02 GMT
+```
 
-    Cache-Control是http/1.1中引入的，指定缓存过期的相对时间，可以防止客户端的系统时间被客户修改，导致设置的 Expires 时间失效。
-    ```
-    Cache-Control: max-age=3600
-    ```
-    上面设置缓存的有效期为3600秒。客户端收到带有max-age指令的响应后，会将该资源及其接收时间记录下来。在后续请求相同资源时，客户端会检查本地缓存中的资源是否仍在max-age定义的新鲜时间内。如果是，客户端会直接使用缓存中的资源，而不是向服务器发送请求。
+**2.Cache-Control**
 
-    > 同时存在Expires和Cache-Control时，浏览器会优先以Cache-Control为主。
+Cache-Control 是 http/1.1 中引入的，指定缓存过期的相对时间，可以防止客户端的系统时间被客户修改，导致设置的 Expires 时间失效。
 
-    **3.Last-Modified / If-Modified-Since**
+```
+Cache-Control: max-age=3600
+```
 
-    服务端某个文件可能会发生更新，希望客户端时不时请求服务端获取这个文件的过期状态。没有过期，不返回数据给浏览器，只返回304状态码，告诉浏览器缓存还没过期。
-    这个实现就是条件请求。
-    + Last-Modified (response header)
-    + If-Modified-Since (request header)
-    首次请求时，服务端返回携带响应头：
-    ```
-    Last-Modified:Mon, 01 Aug 2016 13:48:44 GMT
-    ```
-    下次请求时（没有设置Expires和Cache-Control），请求携带头：
-    ```
-    If-Modified-Since:Mon, 01 Aug 2016 13:48:44 GMT
-    ```
-    服务端对比文件的最后修改时间和If-Modified-Since的时间，没有修改返回304，否则返回200并携带新的资源内容。
+上面设置缓存的有效期为 3600 秒。客户端收到带有 max-age 指令的响应后，会将该资源及其接收时间记录下来。在后续请求相同资源时，客户端会检查本地缓存中的资源是否仍在 max-age 定义的新鲜时间内。如果是，客户端会直接使用缓存中的资源，而不是向服务器发送请求。
 
-    **4.Etag / If-None-Match**
+> 同时存在 Expires 和 Cache-Control 时，浏览器会优先以 Cache-Control 为主。
 
-    条件请求的另一种实现，使用Etag。首次请求服务响应头携带`Etag`作为时间标签，下次请求时携带key为`If-None-Match`，value为`Etag`的请求头。
-    服务器对比`If-None-Match`的值，没有修改返回304，否则返回200并携带新的资源内容。
+**3.Last-Modified / If-Modified-Since**
 
-    **示例**
+服务端某个文件可能会发生更新，希望客户端时不时请求服务端获取这个文件的过期状态。没有过期，不返回数据给浏览器，只返回 304 状态码，告诉浏览器缓存还没过期。
+这个实现就是条件请求。
 
-    Response Headers
-    ```yaml
-    Cache-Control:private, max-age=10
-    Connection:keep-alive
-    Content-Encoding:gzip
-    Content-Type:text/html; charset=utf-8
-    Date:Mon, 01 Aug 2016 13:48:44 GMT
-    Expires:Mon, 01 Aug 2016 13:48:54 GMT
-    Last-Modified:Mon, 01 Aug 2016 13:48:44 GMT
-    Transfer-Encoding:chunked
-    Vary:Accept-Encoding
-    X-UA-Compatible:IE=10
-    ```
+- Last-Modified (response header)
+- If-Modified-Since (request header)
+  首次请求时，服务端返回携带响应头：
 
-    + 第1行的Cache-Control:private, max-age=10，表示有效时间为10s，且其优先级高于Expires。响应头中出现了private，其作用是通知浏览器只针对单个用户进行缓存，且可以具体指定某个字段，如private–"username"。
-    + 第2行的Keep-Alive功能使客户端到服务器端的连接持续有效。当出现对服务器的后继请求时，Keep-Alive功能避免了重新建立连接，即认为之前的连接还是有效的。
-    + 第3行表示响应的压缩方式，压缩后再传输可以提高效率。
-    + 第4行表示响应的文件类型和字符编码方式。
-    + 第5行的Date表示生成文件的绝对时间。
-    + 第6行Expires表示文件过期的绝对时间。同时上面也提到了，其优先级低于Cache-Control。
-    + 第7行的Last-Modified是服务器告诉浏览器该文件的最后修改时间。
-    + 综上可以看出，该页面的缓存有效时间是10秒。如果不清空缓存，在2016.08.01的13:48:44~13:48:54这个时间段中再次访问服务器，则不会再得到新的页面，而是直接呈现本地缓存。
+```
+Last-Modified:Mon, 01 Aug 2016 13:48:44 GMT
+```
+
+下次请求时（没有设置 Expires 和 Cache-Control），请求携带头：
+
+```
+If-Modified-Since:Mon, 01 Aug 2016 13:48:44 GMT
+```
+
+服务端对比文件的最后修改时间和 If-Modified-Since 的时间，没有修改返回 304，否则返回 200 并携带新的资源内容。
+
+**4.Etag / If-None-Match**
+
+条件请求的另一种实现，使用 Etag。首次请求服务响应头携带`Etag`作为时间标签，下次请求时携带 key 为`If-None-Match`，value 为`Etag`的请求头。
+服务器对比`If-None-Match`的值，没有修改返回 304，否则返回 200 并携带新的资源内容。
+
+**示例**
+
+Response Headers
+
+```yaml
+Cache-Control:private, max-age=10
+Connection:keep-alive
+Content-Encoding:gzip
+Content-Type:text/html; charset=utf-8
+Date:Mon, 01 Aug 2016 13:48:44 GMT
+Expires:Mon, 01 Aug 2016 13:48:54 GMT
+Last-Modified:Mon, 01 Aug 2016 13:48:44 GMT
+Transfer-Encoding:chunked
+Vary:Accept-Encoding
+X-UA-Compatible:IE=10
+```
+
+- 第 1 行的 Cache-Control:private, max-age=10，表示有效时间为 10s，且其优先级高于 Expires。响应头中出现了 private，其作用是通知浏览器只针对单个用户进行缓存，且可以具体指定某个字段，如 private–"username"。
+- 第 2 行的 Keep-Alive 功能使客户端到服务器端的连接持续有效。当出现对服务器的后继请求时，Keep-Alive 功能避免了重新建立连接，即认为之前的连接还是有效的。
+- 第 3 行表示响应的压缩方式，压缩后再传输可以提高效率。
+- 第 4 行表示响应的文件类型和字符编码方式。
+- 第 5 行的 Date 表示生成文件的绝对时间。
+- 第 6 行 Expires 表示文件过期的绝对时间。同时上面也提到了，其优先级低于 Cache-Control。
+- 第 7 行的 Last-Modified 是服务器告诉浏览器该文件的最后修改时间。
+- 综上可以看出，该页面的缓存有效时间是 10 秒。如果不清空缓存，在 2016.08.01 的 13:48:44~13:48:54 这个时间段中再次访问服务器，则不会再得到新的页面，而是直接呈现本地缓存。
 
 {{< /tab >}}
 
 {{< tab >}}
 {{< font "red" "减少请求次数" >}}
 
-    + 减少重定向次数
-    + 合并请求
-    + 延迟发送请求
+- 减少重定向次数
+- 合并请求
+- 延迟发送请求
 
 {{< /tab >}}
 
