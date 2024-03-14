@@ -48,6 +48,35 @@ TCP & HTTP & IP
 {{< card link="" title="Linux命令" subtitle="5分钟了解Linux命令" icon="code" >}}
 {{< /cards >}}
 
+## Database
+{{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
+数据库
+{{< /hextra/hero-subtitle >}}
+{{< cards >}}
+{{< card link="" title="MySql" subtitle="10分钟了解硬件结构" icon="table" >}}
+{{< card link="" title="PostgreSQL" subtitle="10分钟了解硬件结构" icon="table" >}}
+{{< card link="" title="Redis" subtitle="10分钟了解硬件结构" icon="table" >}}
+{{< /cards >}}
+
+## Middleware
+{{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
+中间件
+{{< /hextra/hero-subtitle >}}
+{{< cards >}}
+{{< card link="" title="消息队列" subtitle="10分钟了解硬件结构" icon="table" >}}
+{{< card link="" title="Nginx" subtitle="10分钟了解硬件结构" icon="table" >}}
+{{< card link="" title="API网关" subtitle="10分钟了解硬件结构" icon="table" >}}
+{{< /cards >}}
+
+## System Design
+https://github.com/Sairyss/system-design-patterns?tab=readme-ov-file#system-design-patterns
+https://github.com/donnemartin/system-design-primer
+
+## System Architecture
+{{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
+🎯建设中
+{{< /hextra/hero-subtitle >}}
+
 ## DevOps
 
 {{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}

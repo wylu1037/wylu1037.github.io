@@ -5,6 +5,7 @@ authors:
   - name: wylu
     link: https://github.com/wylu1037
     image: https://github.com/wylu1037.png?size=40
+weight: 5
 ---
 
 ## 1.包和crate
