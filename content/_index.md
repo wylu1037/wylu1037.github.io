@@ -1,5 +1,5 @@
 ---
-title: ''
+title: ""
 date: 2024-02-18T14:30:52+08:00
 toc: false
 width: full
@@ -113,6 +113,7 @@ for creating beautiful static websites<br></font>
     </script>
 </div>
 
+<!--
 {{< cards >}}
     {{< card link="/" title="Travel" image="https://source.unsplash.com/featured/800x600?travel" subtitle="Embark on a visual journey around the globe with this category, as photographers capture the essence of exploration and wanderlust. Through vibrant street scenes and immersive cultural experiences, the Travel category showcases the beauty and diversity of destinations near and far." >}}
     {{< card link="/" title="Nature" image="https://source.unsplash.com/featured/800x600?nature" subtitle="Nature's wonders take center stage in this category, where photographers capture the breathtaking landscapes, diverse flora and fauna, and mesmerizing natural phenomena that adorn our planet. From grand vistas to macro shots, these images transport viewers into the heart of the great outdoors." >}}
@@ -121,6 +122,7 @@ for creating beautiful static websites<br></font>
     {{< card link="/" title="Food" image="https://source.unsplash.com/featured/800x600?food" subtitle="From simple home-cooked dinners at home, to tasting new dishes while traveling — food connects us all. This category examines the world of food photography, with shots of everything from summer picnics in the park to decadent deserts." >}}
     {{< card link="/" title="Sports" image="https://source.unsplash.com/featured/800x600?sports" subtitle="From adrenaline-fueled moments of victory to the camaraderie among athletes, this category celebrates the captivating world of sports photography. Showcasing both intensity and emotion, photographers freeze-frame the essence of competition, highlighting the dedication and spirit that define sports worldwide." >}}
 {{< /cards >}}
+-->
 
 <!--
 {{< feature-grid >}}
@@ -151,7 +153,7 @@ for creating beautiful static websites<br></font>
     imageClass="top-[40%] left-[36px] w-[110%] sm:w-[110%] dark:opacity-80"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(245, 116, 97, 0.1),hsla(0,0%,100%,0));"
   >}}
-  
+
   {{< feature-card
     title="Steps by Steps Guides"
     subtitle="Find detailed tutorials to deploy your favorite framework on Clever Cloud"
@@ -170,7 +172,7 @@ for creating beautiful static websites<br></font>
     link="/doc/addons"
     style="text-decoration: none;"
   >}}
-  
+
 {{< /feature-grid >}}
 -->
 

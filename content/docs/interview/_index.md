@@ -16,6 +16,20 @@ Go 是一种静态类型、编译型的编程语言，Go 提供了垃圾收集�
 {{< /hextra/hero-subtitle >}}
 {{< cards >}}
 {{< card link="" title="Context" subtitle= "Gooutine是由Go运行时管理的轻量级线程。通道是在程序之间进行通信的方式。" icon="go" >}}
+{{< card link="/docs/interview/go/quiz-defer" title="defer" subtitle= "defer" icon="go" >}}
+{{< card link="/docs/interview/go/quiz-string" title="string" subtitle= "字符串" icon="go" >}}
+{{< card link="/docs/interview/go/quiz-slice" title="slice" subtitle= "切片" icon="go" >}}
+{{< card link="/docs/interview/go/quiz-memory-alignment" title="memory alignment" subtitle= "内存对齐" icon="go" >}}
+{{< card link="/docs/interview/go/quiz-map" title="map" subtitle= "map" icon="go" >}}
+{{< card link="/docs/interview/go/quiz-closure" title="closure" subtitle= "闭包" icon="go" >}}
+{{< card link="/docs/interview/go/quiz-panic-and-recover" title="panic and recover" subtitle= "panic 和 recover" icon="go" >}}
+{{< card link="/docs/interview/go/quiz-reflect" title="reflect" subtitle= "反射" icon="go" >}}
+{{< card link="/docs/interview/go/quiz-type-assertion" title="type assertion" subtitle= "类型断言" icon="go" >}}
+{{< card link="/docs/interview/go/quiz-interface" title="interface" subtitle= "接口" icon="go" >}}
+{{< card link="/docs/interview/go/quiz-gc" title="GC" subtitle= "垃圾回收" icon="go" >}}
+{{< card link="/docs/interview/go/quiz-mutex" title="mutex" subtitle= "mutex" icon="go" >}}
+{{< card link="/docs/interview/go/quiz-memory-escape" title="memory escape" subtitle= "内存逃逸" icon="go" >}}
+{{< card link="/docs/interview/go/quiz-generic" title="generic" subtitle= "范型" icon="go" >}}
 {{< /cards >}}
 
 ## Network
@@ -49,6 +63,7 @@ TCP & HTTP & IP
 {{< /cards >}}
 
 ## Database
+
 {{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
 数据库
 {{< /hextra/hero-subtitle >}}
@@ -59,6 +74,7 @@ TCP & HTTP & IP
 {{< /cards >}}
 
 ## Middleware
+
 {{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
 中间件
 {{< /hextra/hero-subtitle >}}
@@ -69,12 +85,15 @@ TCP & HTTP & IP
 {{< /cards >}}
 
 ## System Design
+
 https://github.com/Sairyss/system-design-patterns?tab=readme-ov-file#system-design-patterns
+
 https://github.com/donnemartin/system-design-primer
 
 ## System Architecture
+
 {{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
-🎯建设中
+🎯 建设中
 {{< /hextra/hero-subtitle >}}
 
 ## DevOps
