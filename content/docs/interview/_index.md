@@ -103,4 +103,6 @@ Interview questions about DevOps
 {{< /hextra/hero-subtitle >}}
 {{< cards >}}
 {{< card link="" title="Kubernetes" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="kubernetes" >}}
+{{< card link="https://kuboard.cn/" title="Kuboard for K8S" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="kubernetes" >}}
+{{< card link="https://github.com/derailed/k9s" title="K9S" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="kubernetes" >}}
 {{< /cards >}}
