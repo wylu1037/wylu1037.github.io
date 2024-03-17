@@ -23,6 +23,7 @@
                     {{- end -}}
                     <span icon class="inline-block align-text-bottom icon">
                         {{- $icon | safeHTML -}}
+                        <span class="tooltiptext">{{- $v -}}</span>
                     </span>
                 {{ end }}
             </div>
@@ -37,6 +38,7 @@
         height: 40px;
     }
     span[icon] {
+        position: relative;
         box-shadow: 2px 5px 10px #e5e7eb;
         border-radius: 20%;
         margin: 10px 10px 10px 10px;
@@ -87,6 +89,24 @@
         position: absolute;
         border-radius: 4px;
         color: white;
+    }
+
+    span[icon] .tooltiptext  {
+        visibility: hidden;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+    }
+
+    span[icon]:hover .tooltiptext {
+        visibility: visible;
     }
 }
 </style>

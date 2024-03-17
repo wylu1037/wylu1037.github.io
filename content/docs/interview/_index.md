@@ -16,20 +16,20 @@ Go 是一种静态类型、编译型的编程语言，Go 提供了垃圾收集�
 {{< /hextra/hero-subtitle >}}
 {{< cards >}}
 {{< card link="" title="Context" subtitle= "Gooutine是由Go运行时管理的轻量级线程。通道是在程序之间进行通信的方式。" icon="go" >}}
-{{< card link="/docs/interview/go/quiz-defer" title="defer" subtitle= "defer" icon="go" >}}
-{{< card link="/docs/interview/go/quiz-string" title="string" subtitle= "字符串" icon="go" >}}
-{{< card link="/docs/interview/go/quiz-slice" title="slice" subtitle= "切片" icon="go" >}}
-{{< card link="/docs/interview/go/quiz-memory-alignment" title="memory alignment" subtitle= "内存对齐" icon="go" >}}
-{{< card link="/docs/interview/go/quiz-map" title="map" subtitle= "map" icon="go" >}}
-{{< card link="/docs/interview/go/quiz-closure" title="closure" subtitle= "闭包" icon="go" >}}
-{{< card link="/docs/interview/go/quiz-panic-and-recover" title="panic and recover" subtitle= "panic 和 recover" icon="go" >}}
-{{< card link="/docs/interview/go/quiz-reflect" title="reflect" subtitle= "反射" icon="go" >}}
-{{< card link="/docs/interview/go/quiz-type-assertion" title="type assertion" subtitle= "类型断言" icon="go" >}}
-{{< card link="/docs/interview/go/quiz-interface" title="interface" subtitle= "接口" icon="go" >}}
-{{< card link="/docs/interview/go/quiz-gc" title="GC" subtitle= "垃圾回收" icon="go" >}}
-{{< card link="/docs/interview/go/quiz-mutex" title="mutex" subtitle= "mutex" icon="go" >}}
-{{< card link="/docs/interview/go/quiz-memory-escape" title="memory escape" subtitle= "内存逃逸" icon="go" >}}
-{{< card link="/docs/interview/go/quiz-generic" title="generic" subtitle= "范型" icon="go" >}}
+{{< card link="/docs/interview/go/quiz-defer" title="defer" subtitle= "defer" icon="clock" >}}
+{{< card link="/docs/interview/go/quiz-string" title="string" subtitle= "字符串" icon="minus" >}}
+{{< card link="/docs/interview/go/quiz-slice" title="slice" subtitle= "切片" icon="copy" >}}
+{{< card link="/docs/interview/go/quiz-memory-alignment" title="memory alignment" subtitle= "内存对齐" icon="chip" >}}
+{{< card link="/docs/interview/go/quiz-map" title="map" subtitle= "map" icon="table" >}}
+{{< card link="/docs/interview/go/quiz-closure" title="closure" subtitle= "闭包" icon="archive" >}}
+{{< card link="/docs/interview/go/quiz-panic-and-recover" title="panic and recover" subtitle= "panic 和 recover" icon="play" >}}
+{{< card link="/docs/interview/go/quiz-reflect" title="reflect" subtitle= "反射" icon="banknotes" >}}
+{{< card link="/docs/interview/go/quiz-type-assertion" title="type assertion" subtitle= "类型断言" icon="terminal" >}}
+{{< card link="/docs/interview/go/quiz-interface" title="interface" subtitle= "接口" icon="api" >}}
+{{< card link="/docs/interview/go/quiz-gc" title="GC" subtitle= "垃圾回收" icon="trash" >}}
+{{< card link="/docs/interview/go/quiz-mutex" title="mutex" subtitle= "mutex" icon="lock-closed" >}}
+{{< card link="/docs/interview/go/quiz-memory-escape" title="memory escape" subtitle= "内存逃逸" icon="logout" >}}
+{{< card link="/docs/interview/go/quiz-generic" title="generic" subtitle= "范型" icon="selector" >}}
 {{< /cards >}}
 
 ## Network
