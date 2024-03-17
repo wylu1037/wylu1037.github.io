@@ -41,6 +41,35 @@ authors:
 
 
 ### 1.4 Socket编程
+#### 1.4.1 针对 TCP 应该进行 Socket 编程
+{{< image "/images/docs/interview/network/tcp/socket编程.webp" "socket编程" >}}
+
+{{% steps %}}
+<h5></h5>
+
+服务端和客户端初始化 socket，得到文件描述符；
+<h5></h5>
+
+服务端调用 bind，将 socket 绑定在指定的 IP 地址和端口;
+<h5></h5>
+
+服务端调用 listen，进行监听；
+<h5></h5>
+
+服务端调用 accept，等待客户端连接；
+<h5></h5>
+
+客户端调用 connect，向服务端的地址和端口发起连接请求；
+<h5></h5>
+
+服务端 accept 返回用于传输的 socket 的文件描述符；
+<h5></h5>
+
+客户端调用 write 写入数据；服务端调用 read 读取数据；
+<h5></h5>
+
+客户端断开连接时，会调用 close，那么服务端 read 读取数据的时候，就会读取到了 EOF，待处理完数据后，服务端调用 close，表示连接关闭。
+{{% /steps %}}
 ## 2.TCP 重传、滑动窗口、流量控制、拥塞控制
 
 ## 3.TCP 抓包

@@ -59,7 +59,7 @@ TCP & HTTP & IP
 {{< card link="" title="调度算法" subtitle="操作系统的调度算法是指操作系统内核根据不同的调度策略，决定如何安排和分配CPU资源给各个进程或线程。常见的调度算法包括以下几种：先来先服务（First Come, First Served，FCFS）、短作业优先（Shortest Job First，SJF）、优先级调度（Priority Scheduling）、轮转调度（Round Robin）、多级反馈队列调度（Multilevel Feedback Queue，MLFQ）、最高响应比优先调度（Highest Response Ratio Next，HRRN）、最短剩余时间优先（Shortest Remaining Time First，SRTF）。" icon="key" >}}
 {{< card link="" title="文件系统" subtitle="操作系统的文件系统是一种组织和管理计算机存储数据的机制。它通常包含以下几个重要的部分：文件和目录结构、文件访问方式、存储管理、文件系统类型、文件系统操作。" icon="folder" >}}
 {{< card link="" title="设备管理" subtitle="操作系统的设备管理是指操作系统对计算机系统中各种硬件设备的管理和控制。它涉及到设备的初始化、分配、调度、中断处理、驱动程序等方面，以确保各种硬件设备能够协调工作，为应用程序提供所需的服务。" icon="server" >}}
-{{< card link="" title="网络系统" subtitle="操作系统的网络系统是指操作系统提供的网络通信功能和管理网络资源的部分。它包括了操作系统中的网络协议栈、网络设备驱动程序、网络连接管理、数据传输控制等功能。" icon="network" >}}
+{{< card link="/docs/interview/os/network-system" title="网络系统" subtitle="操作系统的网络系统是指操作系统提供的网络通信功能和管理网络资源的部分。它包括了操作系统中的网络协议栈、网络设备驱动程序、网络连接管理、数据传输控制等功能。" icon="network" >}}
 {{< card link="" title="Linux命令" subtitle="Linux操作系统提供了丰富的命令行工具，用于执行各种系统管理和操作任务。" icon="code" >}}
 {{< /cards >}}
 
