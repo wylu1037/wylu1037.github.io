@@ -40,8 +40,8 @@ TCP & HTTP & IP
 {{< /hextra/hero-subtitle >}}
 
 {{< cards >}}
-{{< card link="/docs/interview/network/proficient-in-http" title="精通HTTP" subtitle= "HTTP代表超文本传输协议。它是用于在万维网上发送和接收信息的应用层协议。HTTP是web上数据通信的基础，是网站和web应用程序运行的基本协议。" icon="endpoints" >}}
-{{< card link="/docs/interview/network/proficient-in-tcp" title="精通TCP" subtitle= "TCP在网络上的两个设备之间提供可靠的、面向连接、基于字节流的通信。TCP代表传输控制协议。它是Internet协议(IP)套件中的主要协议之一，在OSI模型的传输层(第4层)运行。" icon="tcp-ip-service" >}}
+{{< card link="/docs/interview/network/proficient-in-http" title="精通 HTTP" subtitle= "HTTP代表超文本传输协议。它是用于在万维网上发送和接收信息的应用层协议。HTTP是web上数据通信的基础，是网站和web应用程序运行的基本协议。" icon="endpoints" >}}
+{{< card link="/docs/interview/network/proficient-in-tcp" title="精通 TCP" subtitle= "TCP在网络上的两个设备之间提供可靠的、面向连接、基于字节流的通信。TCP代表传输控制协议。它是Internet协议(IP)套件中的主要协议之一，在OSI模型的传输层(第4层)运行。" icon="tcp-ip-service" >}}
 {{< card link="/docs/interview/network/proficient-in-ip" title="精通 IP" subtitle= "IP（Internet Protocol）地址是一个用于标识网络中设备位置的数字标签。在互联网上，IP 地址允许数据从源传输到目的地，确保网络上的设备，比如计算机、移动设备、服务器等能够彼此通信。IP 地址是互联网工作的基础之一，它分为两个主要版本：IPv4 和 IPv6。" icon="network" >}}
 {{< /cards >}}
 
@@ -69,9 +69,9 @@ TCP & HTTP & IP
 数据库
 {{< /hextra/hero-subtitle >}}
 {{< cards >}}
-{{< card link="" title="MySql" subtitle="10分钟了解硬件结构" icon="table" >}}
-{{< card link="" title="PostgreSQL" subtitle="10分钟了解硬件结构" icon="table" >}}
-{{< card link="" title="Redis" subtitle="10分钟了解硬件结构" icon="table" >}}
+{{< card link="" title="MySql" subtitle="MySQL是一种流行的关系型数据库管理系统（RDBMS），它提供了可靠的数据存储、管理和检索功能。" icon="mysql" >}}
+{{< card link="" title="PostgreSQL" subtitle="PostgreSQL是一个强大的开源关系型数据库管理系统（RDBMS），具有丰富的功能和可扩展性。" icon="pg" >}}
+{{< card link="" title="Redis" subtitle="Redis是一个开源的基于内存的数据存储系统，它可以用作数据库、缓存和消息队列等多种用途。" icon="redis" >}}
 {{< /cards >}}
 
 ## Middleware
@@ -80,22 +80,10 @@ TCP & HTTP & IP
 中间件
 {{< /hextra/hero-subtitle >}}
 {{< cards >}}
-{{< card link="" title="消息队列" subtitle="10分钟了解硬件结构" icon="table" >}}
-{{< card link="" title="Nginx" subtitle="10分钟了解硬件结构" icon="table" >}}
-{{< card link="" title="API网关" subtitle="10分钟了解硬件结构" icon="table" >}}
+{{< card link="" title="消息队列" subtitle="消息队列是一种用于在应用程序之间传递消息的通信机制。它通常由三部分组成：生产者、消费者和队列。生产者负责生成消息并将其发送到队列中，而消费者则从队列中获取消息并处理它们。消息队列通常用于解耦应用程序的不同部分，使它们能够异步地通信，从而提高系统的可伸缩性和可靠性。" icon="pulsar" >}}
+{{< card link="" title="Nginx" subtitle="Nginx是一个高性能的开源Web服务器，也可以用作反向代理服务器、负载均衡器、HTTP缓存和作为IMAP/POP3/SMTP代理服务器。" icon="status-online" >}}
+{{< card link="" title="API网关" subtitle="API网关是一个中间层服务器，用于管理、控制和保护微服务架构中的API。它充当了前端应用程序和后端服务之间的门户，负责处理所有的API请求和响应。" icon="shield-check" >}}
 {{< /cards >}}
-
-## System Design
-
-https://github.com/Sairyss/system-design-patterns?tab=readme-ov-file#system-design-patterns
-
-https://github.com/donnemartin/system-design-primer
-
-## System Architecture
-
-{{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
-🎯 建设中
-{{< /hextra/hero-subtitle >}}
 
 ## DevOps
 
@@ -106,4 +94,22 @@ Interview questions about DevOps
 {{< card link="" title="Kubernetes" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="kubernetes" >}}
 {{< card link="https://kuboard.cn/" title="Kuboard for K8S" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="kubernetes" >}}
 {{< card link="https://github.com/derailed/k9s" title="K9S" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="kubernetes" >}}
+{{< /cards >}}
+
+## System Design
+{{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
+系统设计
+{{< /hextra/hero-subtitle >}}
+{{< cards >}}
+{{< card link="https://github.com/Sairyss/system-design-patterns?tab=readme-ov-file#system-design-patterns" title="System design patterns" subtitle="Topics and resources related to distributed systems, system design, microservices, scalability and performance, etc" icon="moodle" >}}
+{{< card link="https://github.com/donnemartin/system-design-primer" title="System design primer" subtitle="学习如何设计可扩展的系统将会有助于你成为一个更好的工程师。" icon="docs" >}}
+{{< /cards >}}
+
+
+## System Architecture
+{{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
+🎯 建设中
+{{< /hextra/hero-subtitle >}}
+{{< cards >}}
+{{< card link="http://icyfenix.cn/" title="凤凰架构" subtitle="这是一部以“如何构建一套可靠的分布式大型软件系统”为叙事主线的开源文档，是一幅帮助开发人员整理现代软件架构各条分支中繁多知识点的技能地图。" icon="fluentd" >}}
 {{< /cards >}}
