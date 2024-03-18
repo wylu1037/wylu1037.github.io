@@ -33,6 +33,15 @@ Go 是一种静态类型、编译型的编程语言，Go 提供了垃圾收集�
 {{< card link="/docs/interview/go/quiz-gc" title="GC" subtitle= "垃圾回收（Garbage Collection）是一种自动内存管理机制，用于检测和回收不再使用的内存对象，以防止内存泄漏和提高程序的性能和稳定性。" icon="trash" >}}
 {{< /cards >}}
 
+## Data structure
+
+{{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
+数据结构
+{{< /hextra/hero-subtitle >}}
+{{< cards >}}
+{{< card link="/docs/interview/data-structure/red-black-tree" title="红黑树" subtitle= "红黑树是一种自平衡二叉搜索树，它在每个节点上增加了一个额外的属性，用于表示节点的颜色，可以是红色或黑色。" icon="endpoints" >}}
+{{< /cards >}}
+
 ## Network
 
 {{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
@@ -97,6 +106,7 @@ Interview questions about DevOps
 {{< /cards >}}
 
 ## System Design
+
 {{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
 系统设计
 {{< /hextra/hero-subtitle >}}
@@ -105,8 +115,8 @@ Interview questions about DevOps
 {{< card link="https://github.com/donnemartin/system-design-primer" title="System design primer" subtitle="学习如何设计可扩展的系统将会有助于你成为一个更好的工程师。" icon="docs" >}}
 {{< /cards >}}
 
-
 ## System Architecture
+
 {{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
 🎯 建设中
 {{< /hextra/hero-subtitle >}}
