@@ -164,4 +164,24 @@ sendfile 配置的具体意思:
 
 ### 3.2 Proactor
 
+Reactor 是非阻塞同步网络模型
+Proactor 是异步网络模型
+
+{{< image "/images/docs/interview/os/network-system/Proactor工作流程.webp" "Proactor 工作流程" >}}
+
+Proactor 模式的工作流程：
+{{< steps >}}
+
+<h5></h5>
+Proactor initiaator 负责创建 Proactor 和 Handler 对象，并将 Proactor 和 Handler 通过 Asynchronous Operation Processor 注册到内核；
+<h5></h5>
+Asynchronous Operation Processor 负责处理注册请求，并处理 I/O 操作（异步）；
+<h5></h5>
+Asynchronous Operation Processor 完成 I/O 操作后通知 Proactor；
+<h5></h5>
+Proactor 根据不同的事件类型回调不同的 Handler 进行业务处理；
+<h5></h5>
+Handler 完成业务处理；
+{{< /steps >}}
+
 ## 4.一致性哈希
