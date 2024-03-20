@@ -11,7 +11,7 @@ width: full
     <div class="dashboard-1">
         <font style="font-size:50px;font-weight:bold;line-height:1.5;">个人技术博客<br> 洞察未来，书写现在！<br></font>
         <br>
-        <font style="font-size:20px;font-weight:270;">在这里，我分享编程知识、<br>技术见解与生活感悟，与君共勉。<br></font>
+        <font style="font-size:20px;font-weight:270;">在这里，我将分享编程知识、<br>技术见解与生活感悟，与君共勉。<br></font>
         <div style="margin-top: 50px;">
             <style>
                 .btn-container {
