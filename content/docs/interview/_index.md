@@ -63,7 +63,7 @@ TCP & HTTP & IP
 {{< cards >}}
 {{< card link="" title="硬件结构" subtitle="硬件结构通常包括以下几个主要部分：中央处理器（CPU）、内存（RAM）、硬盘（磁盘）、输入/输出设备（I/O设备）、总线（Bus）。" icon="table" >}}
 {{< card link="" title="操作系统结构" subtitle="操作系统（OS）的结构通常分为四个主要组成部分：内核（Kernel）、进程管理（Process Management）、内存管理（Memory Management）、文件系统（File System）。" icon="linux" >}}
-{{< card link="" title="内存管理" subtitle="操作系统的内存管理是指操作系统对计算机内存资源的有效利用和管理。它包括以下几个方面：内存分配、内存保护、内存映射、虚拟内存、内存回收。" icon="memory" >}}
+{{< card link="/docs/interview/os/memory-management" title="内存管理" subtitle="操作系统的内存管理是指操作系统对计算机内存资源的有效利用和管理。它包括以下几个方面：内存分配、内存保护、内存映射、虚拟内存、内存回收。" icon="memory" >}}
 {{< card link="" title="进程管理" subtitle="操作系统的进程管理是指操作系统对进程的创建、调度、同步、通信、销毁等管理工作。" icon="terminal" >}}
 {{< card link="" title="调度算法" subtitle="操作系统的调度算法是指操作系统内核根据不同的调度策略，决定如何安排和分配CPU资源给各个进程或线程。常见的调度算法包括以下几种：先来先服务（First Come, First Served，FCFS）、短作业优先（Shortest Job First，SJF）、优先级调度（Priority Scheduling）、轮转调度（Round Robin）、多级反馈队列调度（Multilevel Feedback Queue，MLFQ）、最高响应比优先调度（Highest Response Ratio Next，HRRN）、最短剩余时间优先（Shortest Remaining Time First，SRTF）。" icon="key" >}}
 {{< card link="" title="文件系统" subtitle="操作系统的文件系统是一种组织和管理计算机存储数据的机制。它通常包含以下几个重要的部分：文件和目录结构、文件访问方式、存储管理、文件系统类型、文件系统操作。" icon="folder" >}}
