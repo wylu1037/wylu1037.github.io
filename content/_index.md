@@ -99,9 +99,11 @@ width: full
         .dashboard {
             grid-template-columns: 1fr;
         }
+        .dashboard-1 font {
+            align: center;
+        }
         .dashboard-2 {
-            position: absolute;
-            visibility: hidden;
+            display: none;
         }
         .btn-container {
             margin-top: 10px;
@@ -109,7 +111,7 @@ width: full
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: 2fr;
-            place-items: center; /* 水平和垂直居中 */
+            place-items: center;
         }
     }
 </style>
@@ -302,6 +304,23 @@ width: full
             <div class="tech">
             </div>
         </div>
+        <div class="card-box">
+            <div class="card-container">
+                <div class="card-container-left">
+                    <p class="card-container-title">Collaborate on <strong>Protobuf schemas, dependencies, and SDKs</strong></p>
+                    <p class="card-container-subtitle">
+                        The Buf Schema Registry provides a unified view of your Protobuf schemas across repositories. Discover APIs, browse documentation, manage code generation, and integrate with generated SDKs using package managers like NPM and Maven.
+                    </p>
+                    <div class="card-container-link">
+                        <a href="https://buf.build/solutions/share-schemas-across-repositories" target="_blank">Learn about the BSR</a>
+                        <svg style="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="PJLV"><path d="M6 11L11 6L6 1" stroke="currentColor"></path><path d="M11 6L1 6" stroke="currentColor"></path></svg>
+                    </div>
+                </div>
+                <div class="card-container-right">
+                    <image style="width: 100%; height: 100%; object-fit: cover;" src="/images/icons.png" />
+                </div>
+            </div>
+        </div>
     </div>
     <style>
         .tech-container {
@@ -324,6 +343,50 @@ width: full
             margin: 0 auto;
             width: min(100px, 100%);
         }
+        .card-box {
+            margin: 30px auto;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            border-radius: 20px;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid white;
+            padding: 50px;
+        }
+        .card-container-left {
+            grid-column: 1 / span 5;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-right: 20px;
+        }
+        .card-container-title {
+            font-size: 28px;
+            line-height: 1.3;
+        }
+        .card-container-subtitle {
+            color: #9ca3af;
+        }
+        .card-container-link {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 5px;
+            color: #315cfd;
+        }
+        .card-container-link a {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+        } 
+        .card-container-link a:hover {
+            text-decoration: underline;
+            text-decoration-color: #315cfd;
+        } 
+        .card-container-right {
+            grid-column: 6 / span 2;
+        }
         @media screen and (max-width: 600px) {
             .tech-container {
                 margin-top:30px;
@@ -334,7 +397,25 @@ width: full
                 justify-content: center;
                 align-items: center;
             }
-        }  
+        }
+        @media screen and (max-width: 900px) {
+            .card-container-left {
+                grid-column: 1 / span 7;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .card-container-right {
+                display: none;
+            }
+            .card-container-link {
+                margin-top: 20px;
+            }
+            .card-container {
+                border: 1px solid #2563eb;
+                box-shadow: 1px 1px 10px #2563eb;
+            }
+        }
     </style>
 
 </body>
