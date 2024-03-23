@@ -1,5 +1,5 @@
 ---
-title: Quiz Type Assertion
+title: type assertion
 date: 2024-03-15T08:05:58+08:00
 authors:
   - name: wylu

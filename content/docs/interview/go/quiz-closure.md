@@ -1,5 +1,5 @@
 ---
-title: Quiz Closure
+title: closure
 date: 2024-03-15T08:04:28+08:00
 authors:
   - name: wylu

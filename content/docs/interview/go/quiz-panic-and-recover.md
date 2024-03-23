@@ -1,5 +1,5 @@
 ---
-title: "Quiz Panic and Recover"
+title: panic and recover
 date: 2024-03-15T08:05:02+08:00
 authors:
   - name: wylu

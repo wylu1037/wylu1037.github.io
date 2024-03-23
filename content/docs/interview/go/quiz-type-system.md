@@ -1,5 +1,5 @@
 ---
-title: Quiz Type System
+title: type system
 date: 2024-03-15T12:19:24+08:00
 ---
 
