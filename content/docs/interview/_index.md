@@ -42,6 +42,16 @@ Go 是一种静态类型、编译型的编程语言，Go 提供了垃圾收集�
 {{< card link="/docs/interview/data-structure/red-black-tree" title="红黑树" subtitle= "红黑树是一种自平衡二叉搜索树，它在每个节点上增加了一个额外的属性，用于表示节点的颜色，可以是红色或黑色。" icon="endpoints" >}}
 {{< /cards >}}
 
+## Algorithm
+
+{{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
+算法
+{{< /hextra/hero-subtitle >}}
+{{< cards >}}
+{{< card link="/docs/interview/algorithm/sort" title="排序算法" subtitle= "排序算法广泛应用于各类编程问题和软件开发中，尤其在数据处理、数据库查询优化、统计分析等领域至关重要。" icon="chart-bar" >}}
+{{< card link="/docs/interview/algorithm/dp" title="动态规划" subtitle= "动态规划（Dynamic Programming, DP）是一种用于求解最优化问题的算法思想和数学方法，特别是在处理具有重叠子问题和最优子结构性质的问题时特别有效。" icon="science" >}}
+{{< /cards >}}
+
 ## Network
 
 {{< hextra/hero-subtitle style="margin:.3rem 0 2rem 0">}}
