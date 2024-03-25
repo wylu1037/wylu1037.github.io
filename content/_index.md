@@ -579,6 +579,37 @@ displayPlaceholder: false
             line-height: 24px;
             color: #9c9da7;
         }
+        @media screen and (max-width: 1500px) {
+            .footer-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                padding: 70px 120px 110px 120px;
+            }
+            .footer-left-box {
+                grid-column: 1;
+            }
+            .footer-right-box {
+                grid-column: 2;
+            }
+        }
+        @media screen and (max-width: 1300px) {
+            .footer-container {
+                display: grid;
+                grid-template-columns: 1fr;
+                padding: 70px 120px 110px 120px;
+            }
+            .footer-left-box {
+                display: none;
+            }
+            .footer-right-box {
+                grid-column: 1;
+            }
+        }
+        @media screen and (max-width: 800px) {
+            .footer-container {
+                padding: 70px 30px 110px 30px;
+            }
+        }
     </style>
 
 </body>
