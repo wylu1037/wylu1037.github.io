@@ -1,8 +1,18 @@
 {{- $type := .Get "type" -}}
 
 {{ if eq $type "main"}}
-<div style="margin-top: 70px; margin-bottom: 80px">
+<div class="animation-logo" style="margin-top: 70px; margin-bottom: 80px;">
     <style>
+        @media screen and (min-width: 1300px) {
+          .animation-logo {
+            padding: 0 270px;
+          }
+        }
+        @media screen and (max-width: 1299px) {
+          .animation-logo {
+            padding: 0 20px;
+          }
+        }
         .boxes {
             --size: 32px;
             --duration: 800ms;

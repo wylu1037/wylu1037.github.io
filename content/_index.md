@@ -3,6 +3,8 @@ title: ""
 date: 2024-02-18T14:30:52+08:00
 toc: false
 width: full
+disableSidebar: false
+displayPlaceholder: false
 ---
 
 {{< animation type="main">}}
@@ -91,6 +93,16 @@ width: full
 </div>
 
 <style>
+    @media screen and (min-width: 1300px) {
+        .dashboard {
+            padding: 0 260px;
+        }
+    }
+    @media screen and (max-width: 1299px) {
+        .dashboard {
+            padding: 0 20px;
+        }
+    }
     .dashboard {
         display: grid; 
         grid-template-columns: 4fr 3fr;
@@ -125,8 +137,9 @@ width: full
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="main" style="margin-top:10px">
+    <div class="main" style="margin-top:10px;">
         <p align="center" style="color: #6b7280;font-weight:500;font-size:30px;">我的技术栈</p>
+        <div class="tech-container-box">
         <div class="tech-container">
             <!--Golang-->
             <div class="tech">
@@ -304,6 +317,7 @@ width: full
             <div class="tech">
             </div>
         </div>
+        </div>
         <div class="card-box">
             <div class="card-container">
                 <div class="card-container-left">
@@ -321,8 +335,54 @@ width: full
                 </div>
             </div>
         </div>
+        <div class="footer-box">
+            <div class=footer-container>
+                <div class="footer-left-box">
+                    <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="footer-right-box">
+                    <div>
+                        <strong class="footer-right-title">文档</strong>
+                    </div>
+                    <div>
+                        <strong class="footer-right-title">博客</strong>
+                    </div>
+                    <div>
+                        <strong class="footer-right-title">区块链</strong>
+                    </div>
+                    <div>
+                        <strong class="footer-right-title">最新技术</strong>
+                    </div>
+                    <div>
+                        <strong class="footer-right-title">面试</strong>
+                    </div>
+                    <div class="footer-right-column">
+                        <strong class="footer-right-title">友链</strong>
+                        <p>韩宝国</p>
+                        <p>姚治国</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <style>
+        @media screen and (min-width: 1300px) {
+          .tech-container {
+            padding: 20px 270px;
+          }
+        }
+        @media screen and (max-width: 1299px) {
+          .tech-container, .card-box {
+            padding: 20px;
+          }
+        }
+        .tech-container-box {
+            background: linear-gradient(192deg, rgba(16, 92, 206, 0.60) 0%, rgba(255, 255, 255, 0.70) 50%, rgba(119, 225, 255, 0.15) 100%);
+        }
         .tech-container {
             margin-top:30px;
             display:grid;
@@ -345,17 +405,18 @@ width: full
         }
         .card-box {
             margin: 30px auto;
+            max-width: 1000px;
         }
         .card-container {
             display: grid;
-            grid-template-columns: repeat(7, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             border-radius: 20px;
             box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
             border: 1px solid white;
             padding: 50px;
         }
         .card-container-left {
-            grid-column: 1 / span 5;
+            grid-column: 1 / span 2;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -385,7 +446,7 @@ width: full
             text-decoration-color: #315cfd;
         } 
         .card-container-right {
-            grid-column: 6 / span 2;
+            grid-column: 3 / span 1;
         }
         @media screen and (max-width: 600px) {
             .tech-container {
@@ -400,7 +461,7 @@ width: full
         }
         @media screen and (max-width: 900px) {
             .card-container-left {
-                grid-column: 1 / span 7;
+                grid-column: 1 / span 3;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -415,6 +476,48 @@ width: full
                 border: 1px solid #2563eb;
                 box-shadow: 1px 1px 10px #2563eb;
             }
+        }
+        .footer-box {
+            background: #1D243D;
+            color: white;
+        }
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            padding: 50px 150px 80px 150px;
+        }
+        .footer-left-box {
+            grid-column: 1 / span 3;
+        }
+        .footer-right-box {
+            grid-column: 4 / span 4;
+            display: flex;
+            justify-content: space-around;
+        }
+        .footer-right-title {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            color: #9c9da7;
+        }
+        .footer-right-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+        .footer-right-column p {
+            list-style-type: none;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            color: #f3f4f6;
+            margin-top: 16px;
+            display: block;
+            margin-left: 0;
         }
     </style>
 
