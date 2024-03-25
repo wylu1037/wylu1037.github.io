@@ -338,29 +338,74 @@ displayPlaceholder: false
         <div class="footer-box">
             <div class=footer-container>
                 <div class="footer-left-box">
-                    <div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                    <div class="footer-left-container">
+                        <div style="color:#9c9da7;">
+                            <div style="width:48px">
+                                <img src="/images/meebits_circle.png" />
+                            </div>
+                        </div>
+                        <div class="footer-left-icon-container">
+                            <div class="footer-left-icon">
+                                <img src="/images/icon/github.png"/>
+                                <div>Github</div>
+                            </div>
+                            <div class="footer-left-icon">
+                                <img src="/images/icon/slack.png"/>
+                                <div>Slack</div>
+                            </div>
+                            <div class="footer-left-icon">
+                                <img src="/images/icon/medium.png"/>
+                                <div>Medium</div>
+                            </div>
+                            <div class="footer-left-icon">
+                                <img src="/images/icon/twitter.png"/>
+                                <div>Twitter</div>
+                            </div>
+                            <div class="footer-left-icon">
+                                <img src="/images/icon/linkedIn.png"/>
+                                <div>LinkedIn</div>
+                            </div>
+                            <div class="footer-left-icon">
+                                <img src="/images/icon/reddit.png"/>
+                                <div>Reddit</div>
+                            </div>
+                        </div>
+                        <div style="color:#9c9da7;">
+                        © 2023 Hextra Project. <a style="text-decoration:none;" href="https://github.com/imfing/hextra">由 Hextra 驱动</a>
+                        </div>
                     </div>
                 </div>
                 <div class="footer-right-box">
-                    <div>
+                    <div class="footer-right-title-div">
                         <strong class="footer-right-title">文档</strong>
+                        <p>Rust中文社区</p>
+                        <p>React</p>
                     </div>
-                    <div>
+                    <div class="footer-right-title-div">
                         <strong class="footer-right-title">博客</strong>
+                        <p>微服务化</p>
+                        <p>模块化的道路</p>
                     </div>
-                    <div>
+                    <div class="footer-right-title-div">
                         <strong class="footer-right-title">区块链</strong>
+                        <p>比特币</p>
+                        <p>以太坊</p>
+                        <p>超级账本</p>
                     </div>
-                    <div>
+                    <div class="footer-right-title-div">
                         <strong class="footer-right-title">最新技术</strong>
+                        <p>gRPC</p>
                     </div>
-                    <div>
+                    <div class="footer-right-title-div">
                         <strong class="footer-right-title">面试</strong>
+                        <p>比特币</p>
+                        <p>以太坊</p>
+                        <p>DDD 领域驱动设计模型</p>
+                        <p>设计模式</p>
+                        <p>TCP 三次握手与四次挥手</p>
+                        <p>HTTPS协议</p>
                     </div>
-                    <div class="footer-right-column">
+                    <div class="footer-right-title-div">
                         <strong class="footer-right-title">友链</strong>
                         <p>韩宝国</p>
                         <p>姚治国</p>
@@ -484,40 +529,55 @@ displayPlaceholder: false
         .footer-container {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            padding: 50px 150px 80px 150px;
+            padding: 70px 270px 110px 270px;
         }
         .footer-left-box {
             grid-column: 1 / span 3;
+        }
+        .footer-left-icon-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-items: start;
+        }
+        .footer-left-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-left-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            max-width: 370px;
+        }
+        .footer-left-icon img {
+            margin: 8px 0;
+            width: 32px;
+        }
+        .footer-left-icon div {
+            color: #9c9da7;
         }
         .footer-right-box {
             grid-column: 4 / span 4;
             display: flex;
             justify-content: space-around;
         }
+        .footer-right-title-div p {
+            margin: 12px 0;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 300;
+            font-style: normal;
+        }
         .footer-right-title {
             font-family: 'Inter';
             font-style: normal;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 16px;
             line-height: 24px;
             color: #9c9da7;
-        }
-        .footer-right-column {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-        }
-        .footer-right-column p {
-            list-style-type: none;
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 20px;
-            color: #f3f4f6;
-            margin-top: 16px;
-            display: block;
-            margin-left: 0;
         }
     </style>
 
