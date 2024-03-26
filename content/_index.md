@@ -634,12 +634,14 @@ displayPlaceholder: false
             .footer-right-box {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
             }
         }
         @media screen and (max-width: 375px) {
             .footer-right-box {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
         }
     </style>
