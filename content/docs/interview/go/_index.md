@@ -188,6 +188,28 @@ context.WithCancel 函数能够从 context.Context 中衍生出一个新的子�
 
 因此，context.Context 通过在多个goroutine之间传递，可以实现请求的上下文传播、取消控制以及资源管理的同步，增强了Go语言在并发和分布式系统中的健壮性和可控制性。
 {{< /callout >}}
+
+针对跨服务的调用传递context
+```go {hl_lines=[3,11]}
+func (l *GetUserInfoLogic) GetUserInfo(req *types.UserInfoReq) (resp *types.UserInfoResp, err error) {
+	d := new(depositservice.DepositRequest)
+	context := metadata.NewOutgoingContext(l.ctx, metadata.Pairs("user", url.QueryEscape("葫芦娃")))
+	deposit, err := l.svcCtx.DepositServiceRpc.Deposit(context, d)
+	fmt.Println(deposit)
+	return nil, errors.New("中国人")
+}
+
+func (s *DepositServiceServer) Deposit(ctx context.Context, in *mock.DepositRequest) (*mock.DepositResponse, error) {
+	a, b := logic.NewAwsMsgLogic(ctx, s.svcCtx).GetById("0001e67c-a610-4a73-9404-9ca223e67cc5")
+	md, ok := metadata.FromIncomingContext(ctx)
+	if ok {
+		fmt.Println(url.QueryUnescape(md["user"][0]))
+	}
+
+	fmt.Println(a, b)
+	return &mock.DepositResponse{}, nil
+}
+```
 ## 5.内存管理
 
 ## 6.元编程
