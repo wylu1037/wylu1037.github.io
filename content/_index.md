@@ -413,7 +413,7 @@ displayPlaceholder: false
                     </div>
                     <div class="footer-right-title-div">
                         <strong class="footer-right-title">友链</strong>
-                        <a href="" target="_blank">Baoguo Han</a>
+                        <a href="https://hanbgcn.github.io/" target="_blank">Baoguo Han</a>
                         <a href="https://honey-yogurt.github.io/" target="_blank">Zhiguo Yao</a>
                     </div>
                 </div>
@@ -636,7 +636,7 @@ displayPlaceholder: false
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-        @media screen and (max-width: 320px) {
+        @media screen and (max-width: 375px) {
             .footer-right-box {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
