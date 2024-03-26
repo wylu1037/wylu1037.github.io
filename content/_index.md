@@ -370,45 +370,51 @@ displayPlaceholder: false
                                 <div>Reddit</div>
                             </div>
                         </div>
-                        <div style="color:#9c9da7;">
-                        © 2023 Hextra Project. <a style="text-decoration:none;" href="https://github.com/imfing/hextra">由 Hextra 驱动</a>
+                        <div>
+                            <h6 style="color:#9c9da7; font-size:12px; font-weight: 400;">© 2023 Hextra Project. </h6>
+                            <a style="color:#9c9da7; font-size:12px; font-weight: 400; text-decoration:none;" href="https://github.com/imfing/hextra">由 Hextra 驱动</a>
                         </div>
                     </div>
                 </div>
                 <div class="footer-right-box">
                     <div class="footer-right-title-div">
                         <strong class="footer-right-title">文档</strong>
-                        <p>Rust中文社区</p>
-                        <p>React</p>
+                        <a href="https://rustwiki.org/docs/" target="_blank">Rust中文文档</a>
+                        <a href="https://react.dev/learn" target="_blank">React官网</a>
+                        <a href="https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/9EX8Cp45" target="_blank">Kubernetes快速入门</a>
                     </div>
                     <div class="footer-right-title-div">
                         <strong class="footer-right-title">博客</strong>
-                        <p>微服务化</p>
-                        <p>模块化的道路</p>
+                        <a>微服务化</a>
+                        <a>模块化的道路</a>
                     </div>
                     <div class="footer-right-title-div">
                         <strong class="footer-right-title">区块链</strong>
-                        <p>比特币</p>
-                        <p>以太坊</p>
-                        <p>超级账本</p>
+                        <a>比特币</a>
+                        <a>以太坊</a>
+                        <a>超级账本</a>
                     </div>
                     <div class="footer-right-title-div">
                         <strong class="footer-right-title">最新技术</strong>
-                        <p>gRPC</p>
+                        <a href="https://grpc.io/" target="_blank">gRPC</a>
+                        <a href="https://bun.sh/" target="_blank">Bun</a>
+                        <a href="https://www.solidjs.com/" target="_blank">Solid.js</a>
                     </div>
                     <div class="footer-right-title-div">
                         <strong class="footer-right-title">面试</strong>
-                        <p>比特币</p>
-                        <p>以太坊</p>
-                        <p>DDD 领域驱动设计模型</p>
-                        <p>设计模式</p>
-                        <p>TCP 三次握手与四次挥手</p>
-                        <p>HTTPS协议</p>
+                        <a>排序算法</a>
+                        <a>动态规划</a>
+                        <a>红黑树</a>
+                        <a>DDD 领域驱动设计模型</a>
+                        <a>设计模式</a>
+                        <a>设计原则</a>
+                        <a>TCP 三次握手与四次挥手</a>
+                        <a>HTTPS协议</a>
                     </div>
                     <div class="footer-right-title-div">
                         <strong class="footer-right-title">友链</strong>
-                        <p>韩宝国</p>
-                        <p>姚治国</p>
+                        <a href="" target="_blank">韩宝国</a>
+                        <a href="https://honey-yogurt.github.io/" target="_blank">姚治国</a>
                     </div>
                 </div>
             </div>
@@ -570,6 +576,20 @@ displayPlaceholder: false
             line-height: 20px;
             font-weight: 300;
             font-style: normal;
+        }
+        .footer-right-title-div a {
+            margin: 12px 0;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 300;
+            font-style: normal;
+            text-decoration: none;
+            color: #fafaf9;
+            display: block;
+        }
+        .footer-right-title-div a:hover {
+            text-decoration: underline;
+            color: #3b82f6;
         }
         .footer-right-title {
             font-family: 'Inter';
