@@ -413,8 +413,8 @@ displayPlaceholder: false
                     </div>
                     <div class="footer-right-title-div">
                         <strong class="footer-right-title">友链</strong>
-                        <a href="" target="_blank">韩宝国</a>
-                        <a href="https://honey-yogurt.github.io/" target="_blank">姚治国</a>
+                        <a href="" target="_blank">Baoguo Han</a>
+                        <a href="https://honey-yogurt.github.io/" target="_blank">Zhiguo Yao</a>
                     </div>
                 </div>
             </div>
@@ -628,6 +628,18 @@ displayPlaceholder: false
         @media screen and (max-width: 800px) {
             .footer-container {
                 padding: 70px 30px 110px 30px;
+            }
+        }
+        @media screen and (max-width: 425px) {
+            .footer-right-box {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media screen and (max-width: 320px) {
+            .footer-right-box {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
