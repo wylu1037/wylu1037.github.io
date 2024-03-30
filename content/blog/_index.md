@@ -22,11 +22,6 @@ width: full
   {{< card link="/blog/goroutines-and-channels" title="Named type Versus unnamed type" subtitle= "A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines." icon="go" >}}
 {{< /cards >}}
 
-### Ruby On Rails
-{{< cards >}}
-  {{< card link="https://rubyonrails.org/" title="Rails" subtitle= "Configure your Django application to run on Clever Cloud" icon="ruby" >}}
-{{< /cards >}}
-
 ### Rust
 {{< cards >}}
   {{< card link="https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/getting-started.html" title="Rust" subtitle= "Configure your Django application to run on Clever Cloud" icon="rust" >}}
@@ -36,6 +31,10 @@ width: full
 {{< cards >}}
   {{< card link="https://kotlinlang.org/docs/home.html" title="Kotlin" subtitle= "Configure your Django application to run on Clever Cloud" icon="kotlin" >}}
   {{< card link="https://gradle.org/" title="Gradle" subtitle= "Configure your Django application to run on Clever Cloud" icon="gradle" >}}
+{{< /cards >}}
+### Ruby On Rails
+{{< cards >}}
+  {{< card link="https://rubyonrails.org/" title="Rails" subtitle= "Configure your Django application to run on Clever Cloud" icon="ruby" >}}
 {{< /cards >}}
 
 ## Front End
