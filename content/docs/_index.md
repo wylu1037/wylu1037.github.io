@@ -7,15 +7,14 @@ width: full
 
 {{< animation type="day" >}}
 
-<h3 align="center" style="background: linear-gradient(45deg, #ff8a00, #e52e71);font-weight: bolder;background-clip: text;color: transparent;">编程语言</h3>
+<h3 align="center" style="background: linear-gradient(45deg, #ff8a00, #e52e71);font-weight: bolder;background-clip: text;color: transparent;">编程语言、框架系列</h3>
 {{< cards >}}
-{{< card link="/docs/interview" title="面试系列" subtitle="Get ready to deploy and app in 5 minutes" icon="pencil-square" >}}
-{{< card link="/docs/react" title="React系列" subtitle="Get ready to deploy and app in 5 minutes" icon="react" >}}
 {{< card link="/docs/golang" title="Go系列" subtitle="Get ready to deploy and app in 5 minutes" icon="go" >}}
+{{< card link="/docs/rust" title="Rust系列" subtitle="Get ready to deploy and app in 5 minutes" icon="rust" >}}
+{{< card link="/docs/react" title="React系列" subtitle="Get ready to deploy and app in 5 minutes" icon="react" >}}
+{{< card link="/docs/interview" title="面试系列" subtitle="Get ready to deploy and app in 5 minutes" icon="pencil-square" >}}
 {{< card link="/docs/kotlin" title="Kotlin系列" subtitle="Get ready to deploy and app in 5 minutes" icon="kotlin" >}}
 {{< card link="/docs/ruby" title="Ruby on rails系列" subtitle="Get ready to deploy and app in 5 minutes" icon="ruby" >}}
-{{< card link="/docs/rust" title="Rust系列" subtitle="Get ready to deploy and app in 5 minutes" icon="rust" >}}
-
 {{< /cards >}}
 
 <h3 align="center" style="background: linear-gradient(45deg, #6d28d9, #e52e71);font-weight: bolder;background-clip: text;color: transparent;">区块链 & Web3</h3>
