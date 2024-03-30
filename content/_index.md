@@ -138,8 +138,8 @@ displayPlaceholder: false
 </head>
 <body>
     <div class="main" style="margin-top:10px;">
-        <p align="center" style="color: #6b7280;font-weight:500;font-size:30px;">我的技术栈</p>
         <div class="tech-container-box">
+        <p align="center" style="color: #090a3a;font-weight:500;font-size:30px;padding-top:40px;">我的技术栈</p>
         <div class="tech-container">
             <!--Golang-->
             <div class="tech">
