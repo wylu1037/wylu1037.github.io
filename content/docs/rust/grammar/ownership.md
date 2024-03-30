@@ -1,16 +1,16 @@
 ---
-title: 认识所有权
+title: 所有权
 date: 2024-03-09T15:19:12+08:00
 authors:
   - name: wylu
     link: https://github.com/wylu1037
     image: https://github.com/wylu1037.png?size=40
-weight: 2
+weight: 3
 ---
 
 ## 1.什么是所有权
 ### 1.1 所有权规则
-+ `Rust`中的每一个值都有一个被称为其 **所有者**(*owner*) 的变量；
++ `Rust` 中的每一个值都有一个被称为其 **所有者**(*owner*) 的变量；
 + 值在任一时刻有且只有一个所有者；
 + 当所有者（变量）离开作用域，这个值将被丢弃。
 
