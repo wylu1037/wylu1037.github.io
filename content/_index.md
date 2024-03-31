@@ -339,7 +339,7 @@ displayPlaceholder: false
             <div class=footer-container>
                 <div class="footer-left-box">
                     <div class="footer-left-container">
-                        <div style="color:#9c9da7;">
+                        <div>
                             <div style="width:48px">
                                 <img src="/images/meebits_circle.png" />
                             </div>

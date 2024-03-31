@@ -50,6 +50,11 @@ PoW 要求所有的节点消耗大量的算力来争夺记账权，但在每一�
 
 值得一提的是，EOS 初期的 DPoS 的共识方法才采用的是最长链共识，意味着与 PoW 一样区块没有绝对的最终性，交易的不可逆需要等待多个区块确认。在 18 年时，EOS 使用拜占庭共识代替最长链共识，名为 BFT-DPoS。
 
-## 4.PBFT
+## 4.BFT
+Byzantine Fault Tolerance
+拜占庭将军问题
 
-## 5.FBFT
+## 5.PBFT
+实用拜占庭容错算法（Practical Byzantine Fault Tolerance），
+
+## 6.FBFT

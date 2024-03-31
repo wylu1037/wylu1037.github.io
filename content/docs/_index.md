@@ -30,8 +30,22 @@ width: full
 {{< card link="/docs/fabric" title="Fabric系列" subtitle="Hyperledger Fabric 是企业级分布式账本技术（DLT）的重要代表，由Linux基金会主导的超级账本（Hyperledger）项目下的一个开源区块链框架。Fabric以其模块化、灵活及高度可定制的设计理念，在全球范围内获得了广泛的商业应用和研究关注。" icon="hyperledger" >}}
 {{< /cards >}}
 
+<h3 align="center" style="background: linear-gradient(45deg, #065f46, #34d399);font-weight: bolder;background-clip: text;color: transparent;">系统设计</h3>
 
-<h3 align="center" style="background: linear-gradient(45deg, #6d28d9, #8b5cf6);font-weight: bolder;background-clip: text;color: transparent;">面试</h3>
+{{< cards >}}
+{{< card link="https://github.com/Sairyss/system-design-patterns?tab=readme-ov-file#system-design-patterns" title="System design patterns" subtitle="Topics and resources related to distributed systems, system design, microservices, scalability and performance, etc" icon="moodle" >}}
+{{< card link="https://github.com/donnemartin/system-design-primer" title="System design primer" subtitle="学习如何设计可扩展的系统将会有助于你成为一个更好的工程师。" icon="docs" >}}
+{{< /cards >}}
+
+<h3 align="center" style="background: linear-gradient(45deg, #be185d, #f9a8d4);font-weight: bolder;background-clip: text;color: transparent;">系统架构</h3>
+
+{{< cards >}}
+{{< card link="http://icyfenix.cn/" title="凤凰架构" subtitle="这是一部以“如何构建一套可靠的分布式大型软件系统”为叙事主线的开源文档，是一幅帮助开发人员整理现代软件架构各条分支中繁多知识点的技能地图。" icon="fluentd" >}}
+{{< /cards >}}
+
+
+
+<h3 align="center" style="background: linear-gradient(45deg, #b45309, #fcd34d);font-weight: bolder;background-clip: text;color: transparent;">面试</h3>
 
 {{< cards >}}
 {{< card link="/docs/interview" title="面试系列" subtitle="面试 & 自检 & 总结" icon="pencil-square" >}}
