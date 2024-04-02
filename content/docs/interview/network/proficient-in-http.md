@@ -249,7 +249,12 @@ HTTPS是应用层协议，需要先完成 TCP 连接建立，然后走 TLS 握�
   {{< /tab >}}
 
 {{< tab >}}
-如上图右边部分： + 首先客户端会使用同样的 Hash 算法获取该证书的 Hash 值 H1； + 通常浏览器和操作系统中集成了 CA 的公钥信息，浏览器收到证书后可以使用 CA 的公钥解密 Certificate Signature 内容，得到一个 Hash 值 H2 ； + 最后比较 H1 和 H2，如果值相同，则为可信赖的证书，否则则认为证书不可信。
+如上图右边部分：
+
+- 首先客户端会使用同样的 Hash 算法获取该证书的 Hash 值 H1；
+- 通常浏览器和操作系统中集成了 CA 的公钥信息，浏览器收到证书后可以使用 CA 的公钥解密 Certificate Signature 内容，得到一个 Hash 值 H2 ；
+- 最后比较 H1 和 H2，如果值相同，则为可信赖的证书，否则则认为证书不可信。
+
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -405,14 +410,18 @@ ECDHE 算法是基于椭圆曲线实现的，不同的椭圆曲线性能也不�
 {{< tabs items="Nginx" >}}
 {{< tab >}}
 Nginx 上，可以使用 ssl_ecdh_curve 指令配置想使用的**椭圆曲线**，把优先使用的放在前面：
-`yaml
-    ssl_ecdh_curve X25519:secp384r1;
-    `
 
-    对于**对称加密算法**方面，如果对安全性不是特别高的要求，可以选用 AES_128_GCM，它比 AES_256_GCM 快一些，因为密钥的长度短一些。Nginx 上，可以使用 ssl_ciphers 指令配置想使用的非对称加密算法和对称加密算法，也就是密钥套件，而且把性能最快最安全的算法放在最前面：
-    ```yaml
-    ssl_ciphers 'EECDH+ECDSA+AES128+SHA:RSA+AES128+SHA';
-    ```
+```yaml
+.ssl_ecdh_curve X25519:secp384r1;
+```
+
+对于**对称加密算法**方面，如果对安全性不是特别高的要求，可以选用 AES_128_GCM，它比 AES_256_GCM 快一些，因为密钥的长度短一些。
+
+Nginx 上，可以使用 ssl_ciphers 指令配置想使用的非对称加密算法和对称加密算法，也就是密钥套件，而且把性能最快最安全的算法放在最前面：
+
+```yaml
+ssl_ciphers 'EECDH+ECDSA+AES128+SHA:RSA+AES128+SHA';
+```
 
 {{< /tab >}}
 {{< /tabs >}}
