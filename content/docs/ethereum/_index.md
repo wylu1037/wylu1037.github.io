@@ -1,7 +1,7 @@
 ---
-title: 🛡️ Ethereum
+title: 🔗 Ethereum
 date: 2024-03-19T16:22:12+08:00
-weight: 7
+weight: 9
 ---
 
 <div class="card-container">
