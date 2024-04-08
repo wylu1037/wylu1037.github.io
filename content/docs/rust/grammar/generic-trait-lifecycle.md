@@ -7,3 +7,5 @@ authors:
     image: https://github.com/wylu1037.png?size=40
 weight: 9
 ---
+
+## 1.泛型数据类型
