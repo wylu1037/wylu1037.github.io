@@ -729,7 +729,15 @@ displayPlaceholder: false
             font-weight: 600;
             letter-spacing: -0.025em;
         }
-        .studying-bottom-subtitle {}
+        @media screen and (max-width: 1024px) {
+            .studying-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .studying {
+                max-width: 90%;
+            }
+        }
     </style>
 
 </body>
