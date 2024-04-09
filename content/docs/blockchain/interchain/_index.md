@@ -35,7 +35,7 @@ date: 2024-04-02T16:02:23+08:00
 - 托管模式：是一个由可信任的第三方机构来锁定、监管双方资产的模式
 - SPV 模式：是一种用于证明交易存在的方法，通过少量数据就可以验证某个特定区块中交易是否存在（默克尔树）
 
-{{< image "/images/docs/blockchain/interchain/侧链:中继跨链.jpeg" "侧链/中继链" >}}
+{{< image "/images/docs/blockchain/interchain/侧链-中继跨链.jpeg" "侧链/中继链" >}}
 
 ### 哈希时间锁定合约
 

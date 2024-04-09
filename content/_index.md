@@ -318,25 +318,8 @@ displayPlaceholder: false
             </div>
         </div>
         </div>
-        <!--<div class="card-box">
-            <div class="card-container">
-                <div class="card-container-left">
-                    <p class="card-container-title">Collaborate on <strong>Protobuf schemas, dependencies, and SDKs</strong></p>
-                    <p class="card-container-subtitle">
-                        The Buf Schema Registry provides a unified view of your Protobuf schemas across repositories. Discover APIs, browse documentation, manage code generation, and integrate with generated SDKs using package managers like NPM and Maven.
-                    </p>
-                    <div class="card-container-link">
-                        <a href="https://buf.build/solutions/share-schemas-across-repositories" target="_blank">Learn about the BSR</a>
-                        <svg style="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="PJLV"><path d="M6 11L11 6L6 1" stroke="currentColor"></path><path d="M11 6L1 6" stroke="currentColor"></path></svg>
-                    </div>
-                </div>
-                <div class="card-container-right">
-                    <image style="width: 100%; height: 100%; object-fit: cover;" src="/images/icons.png" />
-                </div>
-            </div>
-        </div>-->
         <div class="studying-box">
-            <p align="center" style="color: #090a3a;font-weight:500;font-size:30px;padding-top:40px;">正在学习</p>
+            <p align="center" style="font-weight:500;font-size:30px;padding-top:40px;">正在学习</p>
             <div class="studying-container">
                 <div class="studying">
                     <div class="studying-top">
@@ -344,10 +327,10 @@ displayPlaceholder: false
                     </div>
                     <div class="studying-bottom">
                         <div class="studying-bottom-title">
-                            <span>Next.js</span>
+                            <a href="#">Next.js</a>
                             <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="PJLV"><path d="M10 0.5H10.5V0H10V0.5ZM1.35355 9.85355L10.3536 0.853553L9.64645 0.146447L0.646447 9.14645L1.35355 9.85355ZM2 1H10V0H2V1ZM9.5 0.5V8.5H10.5V0.5H9.5Z" fill="currentColor"></path></svg>
                         </div>
-                        <div class="studying-bottom-subtitle">The library for web and native user interfaces. Next.js is built on the latest React features, including Server Components and Actions.</div>
+                        <div class="studying-bottom-subtitle">Next.js is an open-source web development framework created by the private company Vercel providing React-based web applications with server-side rendering and static website generation.</div>
                     </div>
                 </div>
                 <div class="studying">
@@ -356,10 +339,10 @@ displayPlaceholder: false
                     </div>
                     <div class="studying-bottom">
                         <div class="studying-bottom-title">
-                            <span>Kubernetes</span>
+                            <a href="#">Kubernetes</a>
                             <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="PJLV"><path d="M10 0.5H10.5V0H10V0.5ZM1.35355 9.85355L10.3536 0.853553L9.64645 0.146447L0.646447 9.14645L1.35355 9.85355ZM2 1H10V0H2V1ZM9.5 0.5V8.5H10.5V0.5H9.5Z" fill="currentColor"></path></svg>
                         </div>
-                        <div class="studying-bottom-subtitle">The library for web and native user interfaces. Next.js is built on the latest React features, including Server Components and Actions.</div>
+                        <div class="studying-bottom-subtitle">Kubernetes is an open-source container orchestration system for automating software deployment, scaling, and management. Originally designed by Google, the project is now maintained by a worldwide community of...</div>
                     </div>
                 </div>
                 <div class="studying">
@@ -368,10 +351,10 @@ displayPlaceholder: false
                     </div>
                     <div class="studying-bottom">
                         <div class="studying-bottom-title">
-                            <span>Rust</span>
+                            <a href="#">Rust</a>
                             <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="PJLV"><path d="M10 0.5H10.5V0H10V0.5ZM1.35355 9.85355L10.3536 0.853553L9.64645 0.146447L0.646447 9.14645L1.35355 9.85355ZM2 1H10V0H2V1ZM9.5 0.5V8.5H10.5V0.5H9.5Z" fill="currentColor"></path></svg>
                         </div>
-                        <div class="studying-bottom-subtitle">The library for web and native user interfaces. Next.js is built on the latest React features, including Server Components and Actions.</div>
+                        <div class="studying-bottom-subtitle">Rust is a multi-paradigm, general-purpose programming language that emphasizes performance, type safety, and concurrency. It enforces memory safety—meaning that all references point to valid memory...</div>
                     </div>
                 </div>
             </div>
@@ -495,51 +478,6 @@ displayPlaceholder: false
             margin: 0 auto;
             width: min(100px, 100%);
         }
-        .card-box {
-            margin: 30px auto;
-            max-width: 1000px;
-        }
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            border-radius: 20px;
-            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-            border: 1px solid white;
-            padding: 50px;
-        }
-        .card-container-left {
-            grid-column: 1 / span 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding-right: 20px;
-        }
-        .card-container-title {
-            font-size: 28px;
-            line-height: 1.3;
-        }
-        .card-container-subtitle {
-            color: #9ca3af;
-        }
-        .card-container-link {
-            display: flex;
-            justify-content: start;
-            align-items: center;
-            gap: 5px;
-            color: #315cfd;
-        }
-        .card-container-link a {
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.2rem;
-        } 
-        .card-container-link a:hover {
-            text-decoration: underline;
-            text-decoration-color: #315cfd;
-        } 
-        .card-container-right {
-            grid-column: 3 / span 1;
-        }
         @media screen and (max-width: 600px) {
             .tech-container {
                 margin-top:30px;
@@ -549,24 +487,6 @@ displayPlaceholder: false
                 margin: 20px auto;
                 justify-content: center;
                 align-items: center;
-            }
-        }
-        @media screen and (max-width: 900px) {
-            .card-container-left {
-                grid-column: 1 / span 3;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-            }
-            .card-container-right {
-                display: none;
-            }
-            .card-container-link {
-                margin-top: 20px;
-            }
-            .card-container {
-                border: 1px solid #2563eb;
-                box-shadow: 1px 1px 10px #2563eb;
             }
         }
         .footer-box {
@@ -685,6 +605,14 @@ displayPlaceholder: false
                 gap: 15px;
             }
         }
+        .studying-box p {
+            --text-gradient: linear-gradient(180deg,#555,#000);
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            font-size: 32px;
+        }
         .studying-container {
             margin: 30px auto;
             display: flex;
@@ -697,10 +625,11 @@ displayPlaceholder: false
             flex-direction: column;
             justify-content: space-between;
             padding: 24px;
-            border: 2px solid #f3f4f6;
+            border: 1px solid #f3f4f6;
             border-radius: 12px; 
             max-width: 400px;
-            min-height: 240px;
+            min-height: 280px;
+            --accents-1: #fafafa;
             box-shadow: 0 1px 0 1px rgba(0,0,0,.02),0 4px 6px rgba(0,0,0,.02),inset 0 0 0 6px var(--accents-1);
             background: linear-gradient(180deg,#fff 0,var(--accents-1) 65.62%);
         }
@@ -722,12 +651,16 @@ displayPlaceholder: false
             gap: 8px;
             align-items: center;
         }
-        .studying-bottom-title span {
+        .studying-bottom-title a {
             color: #000;
             font-size: 20px;
             line-height: 1.5;
             font-weight: 600;
             letter-spacing: -0.025em;
+            text-decoration: none;
+        }
+        .studying-bottom-subtitle {
+            color: #666;
         }
         @media screen and (max-width: 1024px) {
             .studying-container {
@@ -736,6 +669,7 @@ displayPlaceholder: false
             }
             .studying {
                 max-width: 90%;
+                min-height: 220px;
             }
         }
     </style>
