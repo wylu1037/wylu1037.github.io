@@ -339,10 +339,10 @@ displayPlaceholder: false
                     </div>
                     <div class="studying-bottom">
                         <div class="studying-bottom-title">
-                            <a href="#">Kubernetes</a>
+                            <a href="https://kubernetes.io/zh-cn/docs/home/">Kubernetes</a>
                             <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="PJLV"><path d="M10 0.5H10.5V0H10V0.5ZM1.35355 9.85355L10.3536 0.853553L9.64645 0.146447L0.646447 9.14645L1.35355 9.85355ZM2 1H10V0H2V1ZM9.5 0.5V8.5H10.5V0.5H9.5Z" fill="currentColor"></path></svg>
                         </div>
-                        <div class="studying-bottom-subtitle">Kubernetes is an open-source container orchestration system for automating software deployment, scaling, and management. Originally designed by Google, the project is now maintained by a worldwide community of...</div>
+                        <div class="studying-bottom-subtitle">Kubernetes is an open-source container orchestration system for automating software deployment, scaling, and management. Originally designed by Google, the project is now maintained by a worldwide...</div>
                     </div>
                 </div>
                 <div class="studying">
