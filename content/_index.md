@@ -327,7 +327,7 @@ displayPlaceholder: false
                     </div>
                     <div class="studying-bottom">
                         <div class="studying-bottom-title">
-                            <a href="#">Next.js</a>
+                            <a href="https://nextjs.org/">Next.js</a>
                             <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="PJLV"><path d="M10 0.5H10.5V0H10V0.5ZM1.35355 9.85355L10.3536 0.853553L9.64645 0.146447L0.646447 9.14645L1.35355 9.85355ZM2 1H10V0H2V1ZM9.5 0.5V8.5H10.5V0.5H9.5Z" fill="currentColor"></path></svg>
                         </div>
                         <div class="studying-bottom-subtitle">Next.js is an open-source web development framework created by the private company Vercel providing React-based web applications with server-side rendering and static website generation.</div>
@@ -351,7 +351,7 @@ displayPlaceholder: false
                     </div>
                     <div class="studying-bottom">
                         <div class="studying-bottom-title">
-                            <a href="#">Rust</a>
+                            <a href="https://practice.course.rs/">Rust</a>
                             <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="PJLV"><path d="M10 0.5H10.5V0H10V0.5ZM1.35355 9.85355L10.3536 0.853553L9.64645 0.146447L0.646447 9.14645L1.35355 9.85355ZM2 1H10V0H2V1ZM9.5 0.5V8.5H10.5V0.5H9.5Z" fill="currentColor"></path></svg>
                         </div>
                         <div class="studying-bottom-subtitle">Rust is a multi-paradigm, general-purpose programming language that emphasizes performance, type safety, and concurrency. It enforces memory safety—meaning that all references point to valid memory...</div>

@@ -4,7 +4,8 @@ date: 2024-03-14T15:03:09+08:00
 authors:
   - name: wylu
     link: https://github.com/wylu1037
-    image: https://github.com/wylu1037.png?size=40
+    image: https://github.com/wylu1037.png?size=
+weight: 99
 ---
 
 ## 伴生对象
@@ -94,7 +95,7 @@ fun main() {
 
 ## let, with, run, apply, also
 
-在 Kotlin 中，let, with, run, apply, also 是标准库中定义的一组扩展函数，通常用于作用域控制、对象配置、以及非空执行等。
+在 Kotlin 中，`let`, `with`, `run`, `apply`, `also` 是标准库中定义的一组扩展函数，通常用于作用域控制、对象配置、以及非空执行等。
 
 ### let
 
@@ -183,8 +184,8 @@ fun sendTransactionWithGettingReceipt(transaction: Transaction, password: String
 
 ### suspend
 
-- 作用: suspend 关键字用于标记一个函数可以挂起。挂起函数可以在协程中调用，并且它们可以在不阻塞当前线程的情况下暂停和恢复执行。挂起函数通常用于执行长时间运行的操作，如网络请求或数据库操作。
-- 在示例中的应用: 在 sendTransactionWithGettingReceipt 函数内部，tryGetReceipt 被定义为一个挂起的 lambda 表达式。这意味着它可以进行可能耗时的操作（比如网络调用来获取收据），并且在等待网络响应时，不会阻塞当前线程。在此期间，协程可以被挂起，允许其他协程在同一线程上运行。
+- 作用: `suspend` 关键字用于标记一个函数可以挂起。挂起函数可以在协程中调用，并且它们可以在不阻塞当前线程的情况下暂停和恢复执行。挂起函数通常用于执行长时间运行的操作，如网络请求或数据库操作。
+- 在示例中的应用: 在 `sendTransactionWithGettingReceipt` 函数内部，tryGetReceipt 被定义为一个挂起的 lambda 表达式。这意味着它可以进行可能耗时的操作（比如网络调用来获取收据），并且在等待网络响应时，不会阻塞当前线程。在此期间，协程可以被挂起，允许其他协程在同一线程上运行。
 
 ### runBlocking
 
