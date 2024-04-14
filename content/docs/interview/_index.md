@@ -88,9 +88,11 @@ TCP & HTTP & IP
 数据库
 {{< /hextra/hero-subtitle >}}
 {{< cards >}}
-{{< card link="" title="MySql" subtitle="MySQL是一种流行的关系型数据库管理系统（RDBMS），它提供了可靠的数据存储、管理和检索功能。" icon="mysql" >}}
+{{< card link="/docs/interview/database/mysql" title="MySql" subtitle="MySQL是一种流行的关系型数据库管理系统（RDBMS），它提供了可靠的数据存储、管理和检索功能。" icon="mysql" >}}
 {{< card link="" title="PostgreSQL" subtitle="PostgreSQL是一个强大的开源关系型数据库管理系统（RDBMS），具有丰富的功能和可扩展性。" icon="pg" >}}
-{{< card link="" title="Redis" subtitle="Redis是一个开源的基于内存的数据存储系统，它可以用作数据库、缓存和消息队列等多种用途。" icon="redis" >}}
+{{< card link="/docs/interview/database/redis" title="Redis" subtitle="Redis是一个开源的基于内存的数据存储系统，它可以用作数据库、缓存和消息队列等多种用途。" icon="redis" >}}
+{{< card link="" title="MongoDB" subtitle="MongoDB 是一款开源的、面向文档的非关系型数据库管理系统（NoSQL DBMS），由C++编写，专门设计用于轻松处理海量数据，提供高可用性、高性能和易扩展性。MongoDB 采用分布式文件存储，以JSON-like（BSON）格式存储数据，使得数据结构灵活且清晰易读。" icon="mongo" >}}
+{{< card link="" title="TiDB" subtitle="TiDB 结合了传统关系型数据库和 NoSQL 数据库的优点，支持水平扩展、强一致性和实时分析（Hybrid Transactional and Analytical Processing, HTAP）能力，尤其适合于互联网业务场景及大数据量、高并发的在线交易处理。" icon="tidb" >}}
 {{< /cards >}}
 
 ## Middleware
