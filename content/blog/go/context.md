@@ -1,5 +1,5 @@
 ---
-title: 🌴 Context
+title: Context
 date: 2024-03-01T18:36:53+08:00
 authors:
   - name: wylu

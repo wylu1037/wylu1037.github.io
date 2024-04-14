@@ -1,5 +1,5 @@
 ---
-title: 🍃 Goroutines and Channels
+title: Goroutines and Channels
 date: 2024-03-01T09:10:06+08:00
 authors:
   - name: wylu

@@ -1,5 +1,5 @@
 ---
-title: 🥳 Infinite horizontal scroll animation
+title: Infinite horizontal scroll animation
 date: 2024-02-23T21:42:14+08:00
 authors:
   - name: wylu
