@@ -1,5 +1,5 @@
 ---
-title: Red Black Tree
+title: 红黑树
 date: 2024-03-18T12:39:46+08:00
 authors:
   - name: wylu

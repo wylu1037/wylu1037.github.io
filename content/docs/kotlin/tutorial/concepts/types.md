@@ -1,5 +1,5 @@
 ---
-title: Types
+title: 类型
 date: 2024-03-14T14:55:56+08:00
 authors:
   - name: wylu

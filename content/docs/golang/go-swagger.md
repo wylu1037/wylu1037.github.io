@@ -1,5 +1,5 @@
 ---
-title: Go Swagger
+title: Swagger文档
 date: 2024-03-12T14:24:36+08:00
 authors:
   - name: wylu

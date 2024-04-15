@@ -1,5 +1,5 @@
 ---
-title: Basics
+title: 基础
 date: 2024-03-14T14:56:37+08:00
 authors:
   - name: wylu
