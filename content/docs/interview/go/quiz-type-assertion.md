@@ -1,5 +1,5 @@
 ---
-title: type assertion
+title: 类型断言
 date: 2024-03-15T08:05:58+08:00
 authors:
   - name: wylu

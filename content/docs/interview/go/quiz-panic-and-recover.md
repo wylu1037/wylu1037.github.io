@@ -1,5 +1,5 @@
 ---
-title: panic and recover
+title: panic & recover
 date: 2024-03-15T08:05:02+08:00
 authors:
   - name: wylu
@@ -8,6 +8,7 @@ authors:
 ---
 
 ## panic
+
 ```go
 // A _panic holds information about an active panic.
 //
@@ -32,7 +33,9 @@ type _panic struct {
 ```
 
 ## recover
+
 recover 只做一件事，把当前执行的 panic 置为已恢复，即把 recovered 字段值置为 true，移除并跳出当前 panic。
+
 ```go
 fucn A() {
   defer A1()
@@ -48,8 +51,9 @@ func A2() {
 }
 ```
 
-recover 后会保存_defer.sp、_defer.pc。
+recover 后会保存\_defer.sp、\_defer.pc。
 sp 和 pc 是注册 defer 函数时保存的
+
 ```go
 func A() {
   r = runtime.deferproc(0, A1)
@@ -67,5 +71,6 @@ func A() {
     runtime.deferreturn()
 }
 ```
+
 sp 是函数 A 的栈指针
 pc 是调用 deferproc 函数的返回地址

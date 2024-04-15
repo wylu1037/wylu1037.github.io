@@ -1,5 +1,5 @@
 ---
-title: generic
+title: 泛型
 date: 2024-03-15T08:12:14+08:00
 authors:
   - name: wylu

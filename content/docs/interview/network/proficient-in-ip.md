@@ -1,10 +1,11 @@
 ---
-title: 😇 Proficient in Ip
+title: 精通 IP
 date: 2024-03-14T09:13:24+08:00
 authors:
   - name: wylu
     link: https://github.com/wylu1037
     image: https://github.com/wylu1037.png?size=40
+weight: 4
 ---
 
 ## 1.IP 基本认识

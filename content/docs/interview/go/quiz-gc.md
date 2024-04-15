@@ -1,5 +1,5 @@
 ---
-title: GC
+title: 垃圾回收
 date: 2024-03-15T08:06:25+08:00
 authors:
   - name: wylu
@@ -16,11 +16,10 @@ authors:
 ### Mark Compact
 
 ## 分代回收
+
 新生代、老年代
 
-
 ## 引用计数
-
 
 垃圾回收会造成
 Stop The World
