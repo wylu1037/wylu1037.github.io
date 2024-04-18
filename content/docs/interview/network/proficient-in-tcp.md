@@ -134,6 +134,10 @@ int listen (int socketfd, int backlog)
 
 ## 4.TCP 半连接队列和全连接队列
 
+{{< details title="查看图片" closed="true" >}}
+{{< image "/images/docs/interview/network/tcp/tcp半连接队列和全连接队列.webp" "tcp半连接队列和全连接队列">}}
+{{< /details >}}
+
 ## 5.优化 TCP
 
 ## 6.面向字节流协议的 TCP
