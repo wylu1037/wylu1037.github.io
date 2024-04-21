@@ -118,3 +118,38 @@ fn main() {
 ```shell
 cargo run --release
 ```
+
+## Re-exports
+```rust
+pub use ethers_core::abi;
+pub use ethers_core::types;
+pub use ethers_core::utils;
+```
+
+`Re-export`（重导出）是指在一个模块中重新声明并公开另一个模块已经导出的项（比如函数、结构体、枚举、trait、模块等），使得这些项可以通过新的路径被外部模块访问。通过 re-export，你可以隐藏原始模块细节，同时保持其功能对使用者可用，或者将多个来源的功能整合在一起提供统一的接口。
+```rust
+// 模块A.rs
+pub mod inner {
+    pub fn function_a() {
+        println!("Function A from module A");
+    }
+}
+
+// 模块B.rs
+pub mod outer {
+    // Re-exporting 'function_a' from module A's inner module
+    pub use crate::A::inner::function_a;
+}
+
+// main.rs
+mod A;
+mod B;
+
+fn main() {
+    // 直接使用A模块内部的函数
+    A::inner::function_a();
+
+    // 通过B模块re-exported的方式使用函数
+    B::outer::function_a();
+}
+```

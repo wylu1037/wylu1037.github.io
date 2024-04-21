@@ -1,5 +1,5 @@
 ---
-title: Grammar
+title: 语法篇
 date: 2024-03-07T21:21:47+08:00
 width: full
 weight: 1
@@ -28,8 +28,8 @@ weight: 1
 {{< card link="" title="无畏并发" subtitle="安全且高效的处理并发编程是 Rust 的另一个主要目标。并发编程（Concurrent programming），代表程序的不同部分相互独立的执行，而 并行编程（parallel programming）代表程序不同部分于同时执行，这两个概念随着计算机越来越多的利用多处理器的优势时显得愈发重要。" icon="circle-stack" >}}
 {{< card link="" title="Rust 的面向对象特性" subtitle="面向对象编程（Object-Oriented Programming，OOP）是一种模式化编程方式。对象（Object）来源于 20 世纪 60 年代的 Simula 编程语言。这些对象影响了 Alan Kay 的编程架构中对象之间的消息传递。他在 1967 年创造了 面向对象编程 这个术语来描述这种架构。关于 OOP 是什么有很多相互矛盾的定义；在一些定义下，Rust 是面向对象的；在其他定义下，Rust 不是。" icon="cloud-arrow-up" >}}
 {{< card link="" title="模式和匹配" subtitle="模式是 Rust 中特殊的语法，它用来匹配类型中的结构，无论类型是简单还是复杂。结合使用模式和 match 表达式以及其他结构可以提供更多对程序控制流的支配权。" icon="code-bracket" >}}
-{{< card link="" title="高级特征" subtitle="高级特征" icon="cog-6-tooth" >}}
+{{< card link="/docs/rust/grammar/advanced-feature" title="高级特征" subtitle="高级特征包括：不安全的Rust、高级trait、高级类型、高级函数与闭包和宏语法等等。" icon="cog-6-tooth" >}}
 {{< card link="" title="最后的项目: 构建多线程 Web 服务器" subtitle="这是一次漫长的旅途，不过我们到达了本书的结束。在本章中，我们将一同构建另一个项目，来展示最后几章所学，同时复习更早的章节。" icon="command-line" >}}
 {{< card link="" title="附录" subtitle="附录部分包含一些在你的 Rust 之旅中可能用到的参考资料。" icon="cursor-arrow-ripple" >}}
-{{< card link="/docs/rust/grammar/杂项" title="杂项" subtitle="附录部分包含一些在你的 Rust 之旅中可能用到的参考资料。" icon="pencil-square" >}}
+{{< card link="/docs/rust/grammar/misc" title="杂项" subtitle="附录部分包含一些在你的 Rust 之旅中可能用到的参考资料。" icon="pencil-square" >}}
 {{< /cards >}}
