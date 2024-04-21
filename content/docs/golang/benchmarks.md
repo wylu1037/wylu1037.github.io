@@ -1,5 +1,5 @@
 ---
-title: Benchmarks
+title: 基准测试
 date: 2024-03-12T10:14:15+08:00
 authors:
   - name: wylu

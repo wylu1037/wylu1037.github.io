@@ -1,5 +1,5 @@
 ---
-title: channel
+title: 通道
 date: 2024-03-17T16:58:15+08:00
 authors:
   - name: wylu

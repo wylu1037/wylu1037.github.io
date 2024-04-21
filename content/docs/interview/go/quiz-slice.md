@@ -1,5 +1,5 @@
 ---
-title: slice
+title: 切片
 date: 2024-03-15T08:02:46+08:00
 authors:
   - name: wylu
@@ -30,11 +30,13 @@ type slice struct {
 {{< steps >}}
 
 <h5></h5>
-如果期望容量 大于 当前容量的两倍就会使用期望容量；
+
+如果切片当前容量小于 <font style="font-weight:bold;font-style:italic;">1024</font>（或在 Go 1.18 及更高版本中是 256），扩容时会将容量翻倍，即新容量等于原容量的 <font style="font-weight:bold;font-style:italic;">2</font> 倍；
+
 <h5></h5>
-如果切片当前容量小于 1024（或在Go 1.18及更高版本中是256），扩容时会将容量翻倍，即新容量等于原容量的 2 倍；
-<h5></h5>
-当切片当前容量大于等于 1024（或在Go 1.18及更高版本中为256），扩容时会将容量增大大约 25%；
+
+当切片当前容量大于等于 <font style="font-weight:bold;font-style:italic;">1024</font>s（或在 Go 1.18 及更高版本中为 256），扩容时会将容量增大大约 <font style="font-weight:bold;font-style:italic;">25%</font>；
+
 {{< /steps >}}
 
 ### slice 的内存分配？

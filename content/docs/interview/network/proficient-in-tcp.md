@@ -1,10 +1,11 @@
 ---
-title: 🥳 Proficient in Tcp
+title: 精通 TCP
 date: 2024-03-04T08:29:44+08:00
 authors:
   - name: wylu
     link: https://github.com/wylu1037
     image: https://github.com/wylu1037.png?size=40
+weight: 3
 ---
 
 {{< cards >}}
@@ -132,6 +133,10 @@ int listen (int socketfd, int backlog)
 ## 3.TCP 抓包
 
 ## 4.TCP 半连接队列和全连接队列
+
+{{< details title="查看图片" closed="true" >}}
+{{< image "/images/docs/interview/network/tcp/tcp半连接队列和全连接队列.webp" "tcp半连接队列和全连接队列">}}
+{{< /details >}}
 
 ## 5.优化 TCP
 

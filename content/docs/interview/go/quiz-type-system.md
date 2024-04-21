@@ -1,5 +1,5 @@
 ---
-title: type system
+title: 类型系统
 date: 2024-03-15T12:19:24+08:00
 ---
 

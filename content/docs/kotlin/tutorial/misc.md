@@ -1,5 +1,5 @@
 ---
-title: Misc
+title: 杂项
 date: 2024-03-14T15:03:09+08:00
 authors:
   - name: wylu

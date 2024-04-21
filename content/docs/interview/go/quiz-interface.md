@@ -1,5 +1,5 @@
 ---
-title: interface
+title: 接口
 date: 2024-03-15T08:06:08+08:00
 authors:
   - name: wylu
