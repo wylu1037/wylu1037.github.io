@@ -9,3 +9,15 @@ weight: 9
 ---
 
 ## 1.泛型数据类型
+
+泛型参数分为三类：
+
+- 生命周期参数
+- 类型参数
+- 常量参数
+
+常量泛型参数
+
+```rust
+impl<const N: usize> Tokenizable for [u8; N]
+```
