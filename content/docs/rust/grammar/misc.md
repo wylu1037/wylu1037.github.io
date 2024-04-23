@@ -119,7 +119,8 @@ fn main() {
 cargo run --release
 ```
 
-## Re-exports
+## 3.Re-exports
+
 ```rust
 pub use ethers_core::abi;
 pub use ethers_core::types;
@@ -127,6 +128,7 @@ pub use ethers_core::utils;
 ```
 
 `Re-export`（重导出）是指在一个模块中重新声明并公开另一个模块已经导出的项（比如函数、结构体、枚举、trait、模块等），使得这些项可以通过新的路径被外部模块访问。通过 re-export，你可以隐藏原始模块细节，同时保持其功能对使用者可用，或者将多个来源的功能整合在一起提供统一的接口。
+
 ```rust
 // 模块A.rs
 pub mod inner {
@@ -153,3 +155,25 @@ fn main() {
     B::outer::function_a();
 }
 ```
+
+## 4.Box
+
+`Box` 是一种非常有用的**智能指针**，允许你再**堆**上分配内存，而不是在**栈**上。
+
+1. 处理大量数据：
+2. 递归类型
+3. 确保类型大小一致
+
+```rust {hl_lines=[2,6]}
+fn main() {
+    let b = Box::new(10); // 在堆上分配一个整数
+    println!("b = {}", b); // 使用 *b 来访问它的值
+
+    // 使用Box存储一个大数组，这可能会超出栈的容量
+    let large_array = Box::new([0u8; 10000]);
+    println!("large array size = {}", large_array.len());
+}
+```
+
+- **所有权**：`Box` 拥有其所指向的数据。当 `Box` 被销毁时，它的析构函数会自动释放其堆内存；
+- **不可变与可变借用**
