@@ -69,6 +69,27 @@ Includes a UTF-8 encoded file as a string.
 The file is located relative to the current file (similarly to how modules are found). The provided path is interpreted in a platform-specific way at compile time. So, for instance, an invocation with a Windows path containing backslashes would not compile correctly on Unix.
 This macro will yield an expression of type &'static str which is the contents of the file.
 
+`include_str!` 宏用于在编译时将指定文件的内容作为字符串字面量包含到你的程序中。这对于想要在程序中硬编码文件内容，比如读取配置文件、内联文本资源等场景非常有用。下面是一个简单的使用示例：
+
+假设有一个名为 `example.txt` 的文件，内容如下：
+
+```{filename=example.txt}
+Hello, world!
+This is an example file included using include_str! macro.
+```
+
+使用 `include_str!` 来包含这个文件的内容：
+
+```rust
+fn main() {
+    // 使用 include_str! 宏将 example.txt 文件的内容读取为一个字符串
+    let file_content = include_str!("example.txt");
+
+    // 打印出文件内容
+    println!("{}", file_content);
+}
+```
+
 ### 2.2 assert!
 
 #### 2.2.1 assert_eq!
@@ -119,6 +140,49 @@ fn main() {
 cargo run --release
 ```
 
+### 2.3 format!
+
+`format!` 宏在 **_Rust_** 中是非常强大的一个工具，用于构建格式化的字符串。它的用法类似于其他编程语言中的 `printf` 或 `String.format`，但更加类型安全且灵活。`format!` 宏能够自动处理不同类型的变量，并按照指定的格式插入到字符串中。
+
+```rust
+let num = 42;
+let pi = 3.14159;
+println!("Number: {} and Pi: {:.3}", num, pi); // 数字和Pi的值
+println!("Debug: {:?}", (num, pi)); // 调试输出
+println!("Hex: {:x}, Octal: {:o}, Binary: {:b}", num, num, num); // 不同基数
+println!("Width: |{:>5}| Center: |{:^5}| Left: |{:<5}|", num, num, num); // 对齐方式
+```
+
+<h5>占位符</h5>
+
+1. **基本占位符 `{}`**
+
+   - 插入实现了 `Display` 特质的值。这是最通用的形式，用于输出用户可见的格式。
+
+2. **调试占位符 `{:?}`**
+
+   - 插入实现了 `Debug` 特质的值。用于调试输出，通常提供更多的内部结构信息。
+
+3. **格式说明符 `{fmt}`**
+
+   > 其中 fmt 是一个格式字符串，可以控制输出的细节。例如：
+
+   - `{:.2}` 对浮点数保留两位小数。
+   - `{:x}` 将整数转换为十六进制表示。
+   - `{:<10}` 左对齐并在前面填充空格至总宽度 10。
+   - `{:0>5}` 右对齐并在后面填充零至总宽度 5。
+   - `{:^5}` 居中对齐并在两边填充空格至总宽度 5。
+   - 更多组合如：`{:+05}` 表示带符号的整数右对齐，前面填充零至总宽度 5。
+
+4. **命名参数 `{name}` 和 `{name:fmt}`**
+
+   - 使用命名参数可以避免按顺序传递参数，提高代码可读性。name 对应变量名，fmt 是可选的格式说明符。
+
+5. **特殊格式**
+
+   - `{:#?}` 提供更详细的调试格式，对于结构体和枚举，会增加缩进和换行。
+   - `{:.width$}` 控制字符串宽度，`.width$` 中的 `width` 是期望的最小宽度。
+
 ## 3.Re-exports
 
 ```rust
@@ -158,7 +222,7 @@ fn main() {
 
 ## 4.Box
 
-`Box` 是一种非常有用的**智能指针**，允许你再**堆**上分配内存，而不是在**栈**上。
+`Box` 是一种非常有用的**智能指针**，允许你在**堆**上分配内存，而不是在**栈**上。
 
 1. 处理大量数据：
 2. 递归类型
@@ -177,3 +241,85 @@ fn main() {
 
 - **所有权**：`Box` 拥有其所指向的数据。当 `Box` 被销毁时，它的析构函数会自动释放其堆内存；
 - **不可变与可变借用**
+
+## 5.关联类型
+
+`Rust` 中的关联类型是一种特殊机制，它允许在 `traits` 中定义类型占位符，这些类型将在 `trait` 实现时被具体指定。关联类型提供了灵活的泛型抽象能力，使得 `trait` 可以更加抽象和通用。
+
+**定义关联类型**：在 trait 定义中，可以声明一个或多个关联类型。这通常用于表示 trait 方法返回或接收的类型，而这些类型与实现该 trait 的具体类型有关。关联类型声明看起来像这样：
+
+```rust {hl_lines=[3]}
+trait MyTrait {
+    // ItemType 是关联类型
+    type ItemType;
+
+    fn do_something(&self) -> Self::ItemType;
+}
+```
+
+**实现关联类型**：当实现一个包含关联类型的 `trait` 时，需要为这些关联类型指定实际的类型。例如：
+
+```rust
+struct MyStruct {
+    // ...
+}
+
+impl MyTrait for MyStruct {
+    type ItemType = String;
+
+    fn do_something(&self) -> Self::ItemType {
+        // 实现细节
+        String::from("Something")
+    }
+}
+```
+
+### 5.1 与泛型参数的区别
+
+泛型参数是在定义函数、结构体、枚举或特质时用来表示一种待指定的类型。泛型参数**在使用时**需要明确指定所有相关的类型。
+
+```rust
+trait Container<T> {
+    fn get(&self, index: usize) -> Option<&T>;
+}
+
+// 实现这个特质的具体结构体
+struct MyContainer<T> {
+    items: Vec<T>,
+}
+
+impl<T> Container<T> for MyContainer<T> {
+    fn get(&self, index: usize) -> Option<&T> {
+        self.items.get(index)
+    }
+}
+```
+
+## 6.字面量标记
+
+### 6.1 原始标识符
+
+在 Rust 中，`r#` 是一种原始（raw）**字符串字面量** 的标记，它允许你编写包含特殊字符（如引号、反斜杠等）的字符串，而无需对这些字符进行转义。当你在一个字符串中需要多次使用通常需要转义的字符，或者字符串中包含大量的特殊字符时，原始字符串字面量特别有用。
+
+```rust
+let abi_str: &str = r#"[{"anonymous":false,"inputs":[{"indexed":true,"internalType":"uint64","name":"number","type":"uint64"}],"name":"MyEvent","type":"event"},{"inputs":[],"name":"greet","outputs":[],"stateMutability":"nonpayable","type":"function"}]"#
+```
+
+### 6.2 字节字符串
+
+用 `b"..."` 来表示。这将创建一个字节字符串，内容是 ASCII 字符的字节序列。非 ASCII 字符必须使用转义序列。
+
+```rust
+let b: &[u8; 5] = b"hello";
+```
+
+### 6.3 原始字节字符串
+
+用 `br"..."` 或 `br#"..."#` 等形式表示。这结合了原始字符串和字节字符串的特性，允许你创建不需要转义的字节序列。
+
+```rust
+let raw_bytestring = br"\xFF\0";
+println!("{:?}", raw_bytestring);
+
+// 输出： [92, 120, 70, 70, 92, 48]
+```
