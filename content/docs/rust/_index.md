@@ -34,3 +34,7 @@ AI 大模型
 - Llm-chain
 - Llm
 - Qdrant
+
+https://github.com/gakonst/ethers-rs/issues/2667
+
+ethers-rs is in the process of being deprecated in favor of [Alloy](https://github.com/alloy-rs/) and [Foundry](https://github.com/foundry-rs/).
