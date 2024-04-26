@@ -377,3 +377,53 @@ unsafe impl UnsafeTrait for i32 {}
 ### 7.5 使用原则
 
 使用 `unsafe` 代码时，需要格外小心，确保这部分代码不会引入内存不安全的问题，比如悬垂指针、越界访问、数据竞争等。通常建议将 `unsafe` 代码封装在安全的 API 中，让大部分代码仍然保持 **Rust** 的安全特性。在实际开发中，应尽可能减少 `unsafe` 代码的使用，以利用 **Rust** 的内存安全保证。
+
+## 8.dyn 关键字
+
+在 **Rust** 编程语言中，`dyn` 关键字用于处理动态分发的 `trait` 对象。下面是关于如何使用 `dyn` 的几个关键点：
+
+在 **Rust** 语言中，`dyn` 关键字是用来表示一个动态分派的特征对象（`trait object`）。当多种类型共享相同的特征时，`dyn` 允许在运行时决定调用哪个类型的方法。这使得 **Rust** 能够支持某种形式的多态。
+
+### 8.1 动态分发
+
+当需要在运行时确定 `trait` 的具体实现类型时，就要使用 `dyn`。这意味着编译器无法静态地知道所有可能的实现类型，因此需要在运行时通过虚函数表（vtable）来查找和调用正确的方法实现。
+
+```rust
+struct TypeError;
+struct ConvertError;
+
+impl Error for TypeError{}
+impl Error for ConvertError{}
+
+fn handle_error(err: &dyn Error) {
+    // 处理错误
+}
+
+fn main() {
+    let type_error = TypeError;
+    let convert_error = ConvertError;
+
+    handle_error(&type_error); // 传递type_error的引用
+    handle_error(&convert_error); // 传递convert_error的引用
+}
+```
+
+### 8.2 对象安全
+
+只有 **对象安全** 的 `trait` 才能用于创建 `dyn trait` 对象。一个 `trait` 被认为是对象安全的，如果它不包含静态方法、关联常量或具有某些特定签名的方法（比如没有默认实现的 `Self` 类型参数）。
+
+### 8.3 引用语法
+
+使用 `&dyn Trait` 或 `&mut dyn Trait` 来创建指向 `trait` 对象的引用。例如，`&dyn Error` 是指向实现了 `Error trait` 对象的引用。
+
+### 8.4 Boxed trait objects
+
+可以使用 `Box<dyn Trait>` 或 `Rc<RefCell<dyn Trait>>` 等智能指针来存储 `trait` 对象，尤其是在需要在堆上分配内存时。
+
+### 8.5 类型擦除
+
+当使用 `dyn Trait` 时，具体类型的信息被擦除，仅保留了 `trait` 提供的接口信息。因此，可以将多种不同类型的实现视为统一的 `trait` 对象处理。
+
+### 8.6 转换和向下转型
+
+由于类型信息的擦除，不能直接将 `dyn Trait` 转换为具体的类型。但是，可以使用 `downcast` 方法（如果 `trait` 中定义了）或其他类型检查机制来尝试安全地转换类型。
