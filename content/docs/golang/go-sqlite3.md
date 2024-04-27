@@ -47,6 +47,8 @@ sql:
       go:
         package: "database" # go package name
         out: "./" # directory name, same as package
+        emit_json_tags: true
+        json_tags_case_style: camel # pascal, snake
 ```
 
 ### 2.1 Schema and queries
@@ -257,3 +259,7 @@ ALTER TABLE authors ADD COLUMN bio text NOT NULL;
 ALTER TABLE authors DROP COLUMN birth_year;
 ALTER TABLE authors RENAME TO writers;
 ```
+
+{{< callout >}}
+**_sqlc_** 暂不支持删除表。
+{{< /callout >}}
