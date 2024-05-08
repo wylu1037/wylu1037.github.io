@@ -59,3 +59,57 @@ weight: 1
   {{< /tab >}}
 
 {{< /tabs>}}
+
+### 2.2 InnoDB 行格式
+
+行格式就是一条记录的存储结构。InnoDB 提供了 4 种行格式，分别是 **_Redundant_**、**_Compact_**、**_Dynamic_** 和 **_Compressed_** 行格式。
+
+### 2.3 COMPACT 行格式
+
+{{< image "/images/docs/interview/database/mysql/COMPACT.webp" "Compact行格式" >}}
+
+#### 2.3.1 额外数据
+
+##### 2.3.1.1 变长字段长度列表
+
+##### 2.3.1.2 NULL 值列表
+
+表中的某些列可能会存储 `NULL` 值，如果把这些 `NULL` 值都放到记录的真实数据中会比较浪费空间，所以 Compact 行格式把这些值为 `NULL` 的列存储到 `NULL` 值列表中。
+
+如果存在允许 NULL 值的列，则每个列对应一个二进制位（bit），二进制位按照列的顺序{{< font "orange" "逆序排列" >}}。
+
+- 二进制位的值为 **1** 时，代表该列的值为 NULL。
+- 二进制位的值为 **0** 时，代表该列的值不为 NULL。
+
+{{< callout >}}
+另外，NULL 值列表必须用整数个字节的位表示（1 字节 8 位），如果使用的二进制位个数不足整数个字节，则在字节的高位补 0。
+{{< /callout >}}
+
+以 user 表的这三条记录作为例子：
+{{< image "/images/docs/interview/database/mysql/t_user表.webp" "User表" >}}
+
+{{< tabs items="第一行数据Null值列表,第二行数据Null值列表,第三行数据Null值列表" >}}
+{{< tab >}}
+{{< image "/images/docs/interview/database/mysql/user表第一条数据null值列表.webp" "第一条数据null值列表" >}}
+{{< /tab >}}
+
+{{< tab >}}
+{{< image "/images/docs/interview/database/mysql/user表第二条数据null值列表.webp" "第二条数据null值列表" >}}
+{{< /tab >}}
+
+{{< tab >}}
+{{< image "/images/docs/interview/database/mysql/user表第三条数据null值列表.webp" "第三条数据null值列表" >}}
+{{< /tab >}}
+
+{{< /tabs >}}
+
+表行格式如下：
+{{< image "/images/docs/interview/database/mysql/user表Null值列表行格式.webp" "user表Null值列表行格式" >}}
+
+当数据表的字段都定义成 NOT NULL 的时候，这时候表里的行格式就不会有 NULL 值列表了。
+
+#### 2.3.2 真实数据
+
+### 2.4 varchar(n)
+
+### 2.5 行溢出
