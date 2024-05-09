@@ -106,7 +106,7 @@ weight: 1
 表行格式如下：
 {{< image "/images/docs/interview/database/mysql/user表Null值列表行格式.webp" "user表Null值列表行格式" >}}
 
-当数据表的字段都定义成 NOT NULL 的时候，这时候表里的行格式就不会有 NULL 值列表了。
+当数据表的字段都定义成 `NOT NULL` 的时候，这时候表里的行格式就不会有 `NULL` 值列表了。
 
 #### 2.3.2 真实数据
 
