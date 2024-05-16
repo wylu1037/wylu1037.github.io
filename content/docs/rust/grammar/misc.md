@@ -427,3 +427,90 @@ fn main() {
 ### 8.6 转换和向下转型
 
 由于类型信息的擦除，不能直接将 `dyn Trait` 转换为具体的类型。但是，可以使用 `downcast` 方法（如果 `trait` 中定义了）或其他类型检查机制来尝试安全地转换类型。
+
+## 9.pub
+
+`pub`、`pub()`、`pub(crate)` 和 `pub(super)` 用于控制模块中项（如函数、结构体、枚举等）的可见性和访问权限。以下是它们之间的区别：
+
+### 9.1 pub
+
+- 公开的（public），允许任何地方访问该项。
+- 使用场景：你希望某个项在整个项目中都可见。
+
+```rust
+pub fn public_function() {
+    println!("This function is public.");
+}
+```
+
+### 9.3 pub(crate)
+
+- 在整个 crate（包）内可见，但不允许外部访问。
+- 使用场景：你希望项在整个 crate 中可见，但不暴露给其他 crate。
+
+```rust
+pub(crate) fn crate_function() {
+    println!("This function is visible within the crate.");
+}
+```
+
+### 9.4 pub(super)
+
+- 在父模块（super）中可见。
+- 使用场景：你希望项在定义它的模块和父模块中可见。
+
+```rust
+mod parent {
+    pub(super) fn super_function() {
+        println!("This function is visible to the parent module.");
+    }
+
+    mod child {
+        use super::super_function;
+
+        pub fn call_super_function() {
+            super_function();
+        }
+    }
+}
+```
+
+### 9.5 pub(in path)
+
+- 在指定路径的模块中可见。
+- 使用场景：你希望项在特定模块或其子模块中可见，但不在整个 crate 中可见。
+
+```rust
+mod parent {
+    pub(in crate::sibling) fn restricted_function() {
+        println!("This function is visible within the sibling module.");
+    }
+
+    mod child {
+        pub fn call_restricted_function() {
+            super::restricted_function();
+        }
+    }
+}
+
+mod sibling {
+    use crate::parent::restricted_function;
+
+    pub fn access_restricted_function() {
+        restricted_function();
+    }
+}
+```
+
+### 9.6 pub(self)
+
+- 仅在当前模块中可见，实际上与不使用 pub 是等价的。
+- 使用场景：不希望项被模块外部访问。
+
+```rust
+mod my_module {
+    pub(self) fn internal_function() {
+        println!("This function is visible within the module only.");
+    }
+}
+```
