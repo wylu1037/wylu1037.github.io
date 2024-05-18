@@ -293,3 +293,32 @@ println!("{:?}", map);
 `HashMap` 默认使用一种 {{< font "blue" "密码学安全的" >}}（_cryptographically strong_ ）哈希函数，它可以抵抗拒绝服务（_Denial of Service, DoS_）攻击。然而这并不是可用的最快的算法，不过为了更高的安全性值得付出一些性能的代价。如果性能监测显示此哈希函数非常慢，以致于你无法接受，你可以指定一个不同的 hasher 来切换为其它函数。hasher 是一个实现了 `BuildHasher` trait 的类型。
 
 <p align="center" style="color:#9ca3af;"></p>
+
+---
+
+## 4.创建数组的几种方法
+
+### 4.1 字面量
+
+```rust
+let arr: [i32; 5] =  [1, 2, 3, 4, 5];
+```
+
+初始化一个数组，使其所有元素都初始化为相同的值。
+
+```rust
+let zeros = [0; 10]
+```
+
+### 4.2 动态数组
+
+```rust
+let mut vec = Vec::new();
+vec.push(1);
+```
+
+使用宏来初始化一个带有初始值的向量。
+
+```rust
+let vec = vec![1, 2, 3, 4, 5];
+```
