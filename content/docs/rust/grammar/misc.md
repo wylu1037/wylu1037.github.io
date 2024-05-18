@@ -446,7 +446,7 @@ pub fn public_function() {
 ### 9.3 pub(crate)
 
 - 在整个 crate（包）内可见，但不允许外部访问。
-- 使用场景：你希望项在整个 crate 中可见，但不暴露给其他 crate。
+- 使用场景：你希望项在整个 `crate` 中可见，但不暴露给其他 `crate`。
 
 ```rust
 pub(crate) fn crate_function() {
@@ -504,7 +504,7 @@ mod sibling {
 
 ### 9.6 pub(self)
 
-- 仅在当前模块中可见，实际上与不使用 pub 是等价的。
+- 仅在当前模块中可见，实际上与不使用 `pub` 是等价的。
 - 使用场景：不希望项被模块外部访问。
 
 ```rust
