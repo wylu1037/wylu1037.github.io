@@ -197,3 +197,104 @@ Got: from
 Got: the
 Got: thread
 ```
+
+### 2.3 克隆发送者创建多个生产者
+
+```rust {hl_lines=[10]}
+use std::thread;
+use std::sync::mpsc;
+use std::time::Duration;
+
+fn main() {
+// --snip--
+
+let (tx, rx) = mpsc::channel();
+
+let tx1 = tx.clone(); // 克隆通道的发送端
+thread::spawn(move || {
+   let vals = vec![
+       String::from("hi"),
+       String::from("from"),
+       String::from("the"),
+       String::from("thread"),
+   ];
+
+   for val in vals {
+       tx1.send(val).unwrap();
+       thread::sleep(Duration::from_secs(1));
+   }
+});
+
+thread::spawn(move || {
+   let vals = vec![
+       String::from("more"),
+       String::from("messages"),
+       String::from("for"),
+       String::from("you"),
+   ];
+
+   for val in vals {
+       tx.send(val).unwrap();
+       thread::sleep(Duration::from_secs(1));
+   }
+});
+
+for received in rx {
+   println!("Got: {}", received);
+}
+
+// --snip--
+}
+```
+
+## 3.共享状态并发
+
+### 3.1 互斥器
+
+**互斥器**（mutex）是 _mutual exclusion_ 的缩写，也就是说，任意时刻，其只允许一个线程访问某些数据。为了访问互斥器中的数据，线程首先需要通过获取互斥器的 **锁**（_lock_）来表明其希望访问数据。锁是一个作为互斥器一部分的数据结构，它记录谁有数据的排他访问权。因此，互斥器为通过锁系统 **保护**（guarding）其数据。
+
+#### `Mutex<T>的 API`
+
+`Mutex<T>` 是一个智能指针。
+
+```rust
+use std::sync::Mutex;
+
+fn main() {
+    let m = Mutex::new(5);
+
+    {
+        let mut num = m.lock().unwrap();
+        *num = 6;
+    }
+
+    println!("m = {:?}", m);
+}
+```
+
+#### `线程间共享 Mutex<T>`
+
+```rust
+use std::sync::Mutex;
+use std::thread;
+
+fn main() {
+    let counter = Mutex::new(0);
+    let mut handles = vec![];
+
+    for _ in 0..10 {
+        let handle = thread::spawn(move || {
+            let mut num = counter.lock().unwrap();
+
+            *num += 1;
+        });
+        handles.push(handle);
+    }
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    println!("Result: {}", *counter.lock().unwrap());
+}
+```
