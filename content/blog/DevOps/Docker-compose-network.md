@@ -18,7 +18,7 @@ authors:
 version: "2"
 services:
   web:
-    build: .
+    build: ..
     ports:
       - "8000:8000"
   db:

@@ -35,7 +35,7 @@ menu:
       pageRef: /docs
       weight: 1
     - identifier: blog
-      name: 📝 Blog
+      name: 💻 Blog
       pageRef: /blog
       weight: 2
     - identifier: essay
