@@ -62,4 +62,47 @@ async fn main() {
 }
 ```
 
+### async & await
+`async` 和 `await` 是用于编写异步代码的关键字，它们与 Tokio 一起使用。
+
+可以使用 `async` 关键字定义一个异步函数。异步函数在调用时不会立即执行，而是返回一个实现了 `Future` 特性的对象。这个 `Future` 可以被 `.await` 调用，以等待它的完成。
+
+```rust
+async fn say_hello() {
+    println!("Hello, world!");
+}
+```
+
+`await` 关键字用于等待异步操作完成。当一个 `Future` 被 `.await` 调用时，当前任务将被挂起，直到 `Future` 完成。这使得程序可以在等待期间执行其他任务，从而实现高效的并发。
+
+```rust
+async fn main() {
+    say_hello().await;
+}
+```
+
+### Future
+
+`join!` 宏用于并行执行多个异步任务并等待它们完成。
+
+```rust
+use tokio::time::{sleep, Duration};
+
+async fn task1() {
+    sleep(Duration::from_secs(2)).await;
+    println!("Task 1 completed");
+}
+
+async fn task2() {
+    sleep(Duration::from_secs(3)).await;
+    println!("Task 2 completed");
+}
+
+#[tokio::main]
+async fn main() {
+    tokio::join!(task1(), task2());
+    println!("Both tasks completed");
+}
+```
+
 ## 🤖 面试
