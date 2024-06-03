@@ -1,5 +1,5 @@
 ---
-title: 🐡 Git Config
+title: ⚙️ Git配置
 date: 2024-03-06T14:49:17+08:00
 tags: [git, github, gitlab, SSH Keys]
 ---

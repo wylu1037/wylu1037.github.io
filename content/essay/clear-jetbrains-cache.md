@@ -1,5 +1,5 @@
 ---
-title: 🧹 Clear Jetbrains Cache
+title: 🧹 清理Jetbrains安装的软件缓存
 date: 2024-02-28T12:28:17+08:00
 tags: [jetbrains, ide]
 authors:
