@@ -18,20 +18,3 @@ params:
 
 ## 常见的表达式
 See: https://github.com/cdoco/common-regex
-
-This is an inline \(a^*=x-b^*\) equation.
-
-These are block equations:
-
-\[a^*=x-b^*\]
-
-\[ a^*=x-b^* \]
-
-\[
-a^*=x-b^*
-\]
-
-
-$$
-a^*=x-b^*
-$$
