@@ -7,6 +7,8 @@ authors:
     link: https://github.com/wylu1037
     image: https://github.com/wylu1037.png?size=40
 description: regex
+params:
+  math: true
 ---
 
 ## 语法
@@ -16,3 +18,20 @@ description: regex
 
 ## 常见的表达式
 See: https://github.com/cdoco/common-regex
+
+This is an inline \(a^*=x-b^*\) equation.
+
+These are block equations:
+
+\[a^*=x-b^*\]
+
+\[ a^*=x-b^* \]
+
+\[
+a^*=x-b^*
+\]
+
+
+$$
+a^*=x-b^*
+$$

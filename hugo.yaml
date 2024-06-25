@@ -14,6 +14,18 @@ outputs:
 markup:
   # allow raw html
   goldmark:
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+            - - \[
+              - \]
+            - - $$
+              - $$
+          inline:
+            - - \(
+              - \)
+        enable: true
     renderer:
       unsafe: true
 
@@ -71,6 +83,7 @@ taxonomies:
   category: categories
 
 params:
+  math: true
   blog:
     list:
       displayTags: true
