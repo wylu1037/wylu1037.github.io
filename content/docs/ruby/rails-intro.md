@@ -9,6 +9,87 @@ draft: false
 {{< /cards >}}
 
 ## 1.项目结构
+{{< filetree/container >}}
+
+{{< filetree/folder name=".ruby-lsp" state="closed" >}}
+{{< filetree/file name=".gitignore" >}}
+{{< filetree/file name="Gemfile" >}}
+{{< filetree/file name="Gemfile.lock" >}}
+{{< filetree/file name="last_updated" >}}
+{{< filetree/file name="main_lockfile_hash" >}}
+{{< /filetree/folder >}}
+
+{{< filetree/folder name="app" state="closed" >}}
+    {{< filetree/folder name="assets" >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="channels" >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="controllers" >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="helpers" >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="javascript" >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="jobs" >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="mailers" >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="models" >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="views" >}}
+    {{< /filetree/folder >}}
+{{< /filetree/folder >}}
+
+{{< filetree/folder name="bin" state="closed" >}}
+    {{< filetree/file name="bundle" >}}
+    {{< filetree/file name="dev" >}}
+    {{< filetree/file name="docker-entrypoint" >}}
+    {{< filetree/file name="importmap" >}}
+    {{< filetree/file name="rails" >}}
+    {{< filetree/file name="rake" >}}
+    {{< filetree/file name="setup" >}}
+{{< /filetree/folder >}}
+
+{{< filetree/folder name="config" >}}
+{{< /filetree/folder >}}
+
+{{< filetree/folder name="db" >}}
+{{< /filetree/folder >}}
+
+{{< filetree/folder name="lib" >}}
+{{< /filetree/folder >}}
+
+{{< filetree/folder name="log" >}}
+{{< /filetree/folder >}}
+
+{{< filetree/folder name="public" >}}
+{{< /filetree/folder >}}
+
+{{< filetree/folder name="storage" >}}
+{{< /filetree/folder >}}
+
+{{< filetree/folder name="test" >}}
+{{< /filetree/folder >}}
+
+{{< filetree/folder name="tmp" >}}
+{{< /filetree/folder >}}
+
+{{< filetree/folder name="vendor" >}}
+{{< /filetree/folder >}}
+
+{{< filetree/file name=".dockerignore" >}}
+{{< filetree/file name=".gitattributes" >}}
+{{< filetree/file name=".gitignore" >}}
+{{< filetree/file name=".ruby-version" >}}
+{{< filetree/file name="config.ru" >}}
+{{< filetree/file name="Dockerfile" >}}
+{{< filetree/file name="Gemfile" >}}
+{{< filetree/file name="Gemfile.lock" >}}
+{{< filetree/file name="Procfile.dev" >}}
+{{< filetree/file name="Rakefile" >}}
+{{< filetree/file name="README.md" >}}
+
+{{< /filetree/container >}}
 
 ## 2.Controller
 ### 2.1 Action
