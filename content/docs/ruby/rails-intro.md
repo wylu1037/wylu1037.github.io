@@ -154,3 +154,148 @@ render partial: 'form'
 ## 3.Model
 
 ## 4.View
+
+## 5.命令
+### 创建新项目
+```shell
+rails new myapp
+```
+
+```shell
+Usage:
+  rails new APP_PATH [options]
+
+Options:
+                 [--skip-namespace], [--no-skip-namespace]              # Skip namespace (affects only isolated engines)
+                                                                        # Default: false
+                 [--skip-collision-check], [--no-skip-collision-check]  # Skip collision check
+                                                                        # Default: false
+  -r,            [--ruby=PATH]                                          # Path to the Ruby binary of your choice
+                                                                        # Default: /Users/wenyanglu/.rbenv/versions/3.3.0/bin/ruby
+  -n,            [--name=NAME]                                          # Name of the app
+  -m,            [--template=TEMPLATE]                                  # Path to some application template (can be a filesystem path or URL)
+  -d,            [--database=DATABASE]                                  # Preconfigure for selected database (options: mysql/trilogy/postgresql/sqlite3/oracle/sqlserver/jdbcmysql/jdbcsqlite3/jdbcpostgresql/jdbc)
+                                                                        # Default: sqlite3
+  -G,            [--skip-git], [--no-skip-git]                          # Skip git init, .gitignore and .gitattributes
+                 [--skip-docker], [--no-skip-docker]                    # Skip Dockerfile, .dockerignore and bin/docker-entrypoint
+                 [--skip-keeps], [--no-skip-keeps]                      # Skip source control .keep files
+  -M,            [--skip-action-mailer], [--no-skip-action-mailer]      # Skip Action Mailer files
+                 [--skip-action-mailbox], [--no-skip-action-mailbox]    # Skip Action Mailbox gem
+                 [--skip-action-text], [--no-skip-action-text]          # Skip Action Text gem
+  -O,            [--skip-active-record], [--no-skip-active-record]      # Skip Active Record files
+                 [--skip-active-job], [--no-skip-active-job]            # Skip Active Job
+                 [--skip-active-storage], [--no-skip-active-storage]    # Skip Active Storage files
+  -C,            [--skip-action-cable], [--no-skip-action-cable]        # Skip Action Cable files
+  -A,            [--skip-asset-pipeline], [--no-skip-asset-pipeline]    # Indicates when to generate skip asset pipeline
+  -a,            [--asset-pipeline=ASSET_PIPELINE]                      # Choose your asset pipeline [options: sprockets (default), propshaft]
+                                                                        # Default: sprockets
+  -J, --skip-js, [--skip-javascript], [--no-skip-javascript]            # Skip JavaScript files
+                 [--skip-hotwire], [--no-skip-hotwire]                  # Skip Hotwire integration
+                 [--skip-jbuilder], [--no-skip-jbuilder]                # Skip jbuilder gem
+  -T,            [--skip-test], [--no-skip-test]                        # Skip test files
+                 [--skip-system-test], [--no-skip-system-test]          # Skip system test files
+                 [--skip-bootsnap], [--no-skip-bootsnap]                # Skip bootsnap gem
+                 [--skip-dev-gems], [--no-skip-dev-gems]                # Skip development gems (e.g., web-console)
+                 [--dev], [--no-dev]                                    # Set up the application with Gemfile pointing to your Rails checkout
+                 [--edge], [--no-edge]                                  # Set up the application with a Gemfile pointing to the 7-1-stable branch on the Rails repository
+  --master,      [--main], [--no-main]                                  # Set up the application with Gemfile pointing to Rails repository main branch
+                 [--rc=RC]                                              # Path to file containing extra configuration options for rails command
+                 [--no-rc]                                              # Skip loading of extra configuration options from .railsrc file
+                 [--api], [--no-api]                                    # Preconfigure smaller stack for API only apps
+                                                                        # Default: false
+                 [--minimal], [--no-minimal]                            # Preconfigure a minimal rails app
+  -j, --js,      [--javascript=JAVASCRIPT]                              # Choose JavaScript approach [options: importmap (default), bun, webpack, esbuild, rollup]
+                                                                        # Default: importmap
+  -c,            [--css=CSS]                                            # Choose CSS processor [options: tailwind, bootstrap, bulma, postcss, sass] check https://github.com/rails/cssbundling-rails for more options
+  -B,            [--skip-bundle], [--no-skip-bundle]                    # Don't run bundle install
+                 [--skip-decrypted-diffs], [--no-skip-decrypted-diffs]  # Don't configure git to show decrypted diffs of encrypted credentials
+
+Runtime options:
+  -f, [--force]                    # Overwrite files that already exist
+  -p, [--pretend], [--no-pretend]  # Run but do not make any changes
+  -q, [--quiet], [--no-quiet]      # Suppress status output
+  -s, [--skip], [--no-skip]        # Skip files that already exist
+
+Rails options:
+  -h, [--help], [--no-help]        # Show this help message and quit
+  -v, [--version], [--no-version]  # Show Rails version number and quit
+
+Description:
+    The `rails new` command creates a new Rails application with a default
+    directory structure and configuration at the path you specify.
+
+    You can specify extra command-line arguments to be used every time
+    `rails new` runs in the .railsrc configuration file in your home directory,
+    or in $XDG_CONFIG_HOME/rails/railsrc if XDG_CONFIG_HOME is set.
+
+    Note that the arguments specified in the .railsrc file don't affect the
+    default values shown above in this help message.
+
+    You can specify which version to use when creating a new rails application 
+    using `rails _<version>_ new`.
+
+Examples:
+    `rails new ~/Code/Ruby/weblog`
+
+    This generates a new Rails app in ~/Code/Ruby/weblog.
+
+    `rails _<version>_ new weblog`
+
+    This generates a new Rails app with the provided version in ./weblog.
+
+    `rails new weblog --api`
+
+    This generates a new Rails app in API mode in ./weblog.
+
+    `rails new weblog --skip-action-mailer`
+
+    This generates a new Rails app without Action Mailer in ./weblog.
+    Any part of Rails can be skipped during app generation.
+
+```
+
+### 启动服务器
+```shell
+rails server
+```
+Or 
+```shell
+rails s
+```
+
+### 数据库操作
+rails db:create：创建数据库。
++ `rails db:drop`：删除数据库。
++ `rails db:migrate`：运行数据库迁移。
++ `rails db:rollback`：回滚上一个迁移。
++ `rails db:seed`：加载种子数据。
++ `rails db:schema:load`：加载数据库架构。
+
+### 生成器
++ `rails generate` 或 `rails g`：使用生成器生成代码（如控制器、模型、迁移等）。
+
+常见生成器示例：
+
++ `rails generate model User name:string email:string`：生成一个 User 模型以及相应的迁移文件。
++ `rails generate controller Welcome index`：生成一个 Welcome 控制器和一个 index 动作。
++ `rails generate migration AddAgeToUsers age:integer`：生成一个迁移文件，用于向 users 表添加 age 列。
+
+### 控制台
++ `rails console` 或 `rails c` 启动 Rails 控制台，可以在其中与应用程序的上下文进行交互。
+
+### 测试
++ `rails test`：运行测试（适用于 MiniTest）。
++ `rails spec`：运行测试（适用于 RSpec，如果你使用了该库）。
+
+### 任务管理
++ `rails runner 'SomeModel.some_method'`：运行任意的 Rails 代码。
+
+### 清理
++ `rails db:schema:dump`：将当前数据库架构转储到 db/schema.rb 文件中。
++ `rails db:test:prepare`：为测试环境准备数据库。
+
+### 其他命令
++ `rails routes`：列出所有的路由。
++ `rails dbconsole`：启动数据库控制台（如 psql、sqlite3、mysql）。
++ `rails about`：显示应用程序的环境信息。
++ `rails stats`：显示代码统计信息。
