@@ -299,3 +299,28 @@ rails db:create：创建数据库。
 + `rails dbconsole`：启动数据库控制台（如 psql、sqlite3、mysql）。
 + `rails about`：显示应用程序的环境信息。
 + `rails stats`：显示代码统计信息。
+
+
+## Rails stack
+
+### Puma
+默认的 web 服务器，支持多线程和多进程，适合高并发环境。
+
+### Turbo
+Hotwire 的一部分，提供快速、无刷新页面更新功能。
+
+### Sidekiq
+后台任务处理工具，用于处理异步任务和队列。
+
+### Importmap
+Rails 7 引入的工具，用于管理 JavaScript 依赖，不需要 Webpack 等打包工具。
+
+### Stimulus
+Hotwire 的另一部分，轻量级 JavaScript 框架，用于增强 HTML 的交互性。
+
+
+### Devise
+用户认证解决方案，提供注册、登录、密码恢复等功能。
+
+### Pundit
+授权解决方案，管理用户权限和访问控制。
