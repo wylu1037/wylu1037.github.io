@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 
-<html lang="">
+<html>
 <head>
-<title>Blog</title>
 </head>
 <body>
-    <h1 style="text-align: center">Personal blog</h1>
-    <p style="text-align: center">
+    <h1 align="center">Personal blog</h1>
+    <p align="center">
     <a href="#Tech stack">🪂 Tech stack</a> &#xa0; | &#xa0;
     <a href="#Website">🕸️ Website</a> &#xa0; | &#xa0;
     <a href="https://github.com/wylu1037" target="_blank">🧑🏽‍💻 Author</a>
