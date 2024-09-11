@@ -8,7 +8,10 @@ width: full
 
 <!--{{< animation type="sun" >}}-->
 
-<h2 align="center" style="background: linear-gradient(45deg, #ff8a00, #e52e71);font-weight: bolder;background-clip: text;color: transparent;">后端</h2>
+<div style="display: flex; flex-direction: row; justify-content: center">
+<h2>💻&nbsp;&nbsp;</h2>
+<h2 style="background: linear-gradient(45deg, #1d4ed8, #2563eb);font-weight: bolder;background-clip: text;color: transparent;">后端</h2>
+</div>
 
 ### Go
 {{< cards >}}
@@ -17,24 +20,77 @@ width: full
   {{< card link="/blog/goroutines-and-channels" title="闭包" subtitle= "深入理解Go语言中的闭包：函数与环境的完美结合" icon="cube" >}}
   {{< card link="/blog/goroutines-and-channels" title="同步包" subtitle= "高效并发控制：深入探索Go语言的sync包" icon="cloud" >}}
   {{< card link="/blog/goroutines-and-channels" title="命名类型和未命名类型" subtitle= "Go语言类型系统揭秘：命名类型与未命名类型的深度解析" icon="sparkles" >}}
+  {{< card link="/blog/goroutines-and-channels" title="pprof" subtitle= "性能分析工具：轻松获取 CPU 使用率、内存分配情况、堆栈跟踪等信息" icon="beaker" >}}
 {{< /cards >}}
 
 ### Rust
 {{< cards >}}
-  {{< card link="https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/getting-started.html" title="Rust错误集锦" subtitle= "深入探讨Rust编程中的常见错误：从陷阱到解决方案的全面指南" icon="rust" >}}
+  {{< card link="/blog/rust/a-collection-of-common-mistakes" title="Rust错误集锦" subtitle= "深入探讨Rust编程中的常见错误：从陷阱到解决方案的全面指南" icon="rust" >}}
+  {{< card link="/blog/rust/closures" title="闭包" subtitle= "探索Rust闭包：简洁高效的函数式编程利器" icon="cube" >}}
+  {{< card link="/blog/rust/thread" title="线程" subtitle= "掌握Rust线程：安全高效的并发编程指南" icon="chip" >}}
+  {{< card link="/blog/rust/trait" title="trait" subtitle= "深入Rust Trait：解锁多态与代码复用的强大工具" icon="cube-transparent" >}}
+  {{< card link="/blog/rust/error" title="错误" subtitle= "解密Rust错误处理：编写可靠程序的必备技巧" icon="bell" >}}
+  {{< card link="/blog/rust/macro" title="宏" subtitle= "掌握Rust宏：提升代码灵活性与效率的强力工具" icon="rocket-launch" >}}
 {{< /cards >}}
 
 ### Kotlin
 {{< cards >}}
-  {{< card link="https://kotlinlang.org/docs/home.html" title="Kotlin" subtitle= "Configure your Django application to run on Clever Cloud" icon="kotlin" >}}
-  {{< card link="https://gradle.org/" title="Gradle" subtitle= "Configure your Django application to run on Clever Cloud" icon="gradle" >}}
+  {{< card link="https://kotlinlang.org/docs/home.html" title="Kotlin" subtitle= "探索Kotlin魅力：现代开发的优雅与高效兼具" icon="kotlin" >}}
+  {{< card link="https://gradle.org/" title="Gradle" subtitle= "深入Gradle：构建自动化的现代化解决方案" icon="gradle" >}}
 {{< /cards >}}
 ### Ruby On Rails
 {{< cards >}}
-  {{< card link="https://rubyonrails.org/" title="Rails" subtitle= "Configure your Django application to run on Clever Cloud" icon="ruby" >}}
+  {{< card link="https://rubyonrails.org/" title="Rails" subtitle= "揭秘Rails框架：快速构建Web应用的高效利器" icon="ruby" >}}
 {{< /cards >}}
 
-<h2 align="center" style="background: linear-gradient(45deg, #065f46, #34d399);font-weight: bolder;background-clip: text;color: transparent;">前端</h2>
+<div style="display: flex; flex-direction: row; justify-content: center">
+<h2>⛓️&nbsp;&nbsp;</h2>
+<h2 align="center" style="background: linear-gradient(45deg, #047857, #059669);font-weight: bolder;background-clip: text;color: transparent;">区块链</h2>
+</div>
+
+### Ethereum
+{{< cards >}}
+{{< card link="https://ethereum.org/" title="Ethereum" subtitle= "解密以太坊：构建去中心化未来的智能合约平台" icon="eth" >}}
+{{< card link="" title="Beacon" subtitle= "揭开以太坊2.0信标链的面纱：引领共识机制的革新之路" icon="cloud" >}}
+{{< card link="" title="Sharding" subtitle= "揭秘以太坊分片技术：提升区块链扩展性的关键突破" icon="view-boards" >}}
+{{< /cards >}}
+
+### Bitcoin
+{{< cards >}}
+{{< card link="https://bitcoin.org/en/" title="Bitcoin" subtitle= "探索比特币世界：开启数字货币新时代的开创者" icon="btc" >}}
+{{< /cards >}}
+
+### Hyperledger
+{{< cards >}}
+{{< card link="https://www.hyperledger.org/" title="Hyperledger" subtitle= "深入Hyperledger：打造企业级区块链解决方案的引擎" icon="hyperledger" >}}
+{{< /cards >}}
+
+<div style="display: flex; flex-direction: row; justify-content: center">
+<h2>🤖&nbsp;&nbsp;</h2>
+<h2 style="background: linear-gradient(45deg, #b91c1c, #dc2626);font-weight: bolder;background-clip: text;color: transparent;">DevOps</h2>
+</div>
+
+### <a href="https://docs.docker.com/compose/networking/" style="text-decoration:none;">Docker-Compose</a>
+{{< cards >}}
+{{< card link="/blog/docker-compose-network" title="Network" subtitle= "By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by the service's name." icon="docker" >}}
+{{< /cards >}}
+
+### <a href="https://docs.docker.com/engine/swarm/" style="text-decoration:none;">Docker Swarm</a>
+{{< cards >}}
+{{< card link="/blog/docker-compose-network" title="Swarm" subtitle= "By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by the service's name." icon="swarm" >}}
+{{< card link="/blog/docker-compose-network" title="Network" subtitle= "By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by the service's name." icon="network" >}}
+{{< /cards >}}
+
+### Kubernetes
+{{< cards >}}
+{{< card link="https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/9EX8Cp45" title="Network" subtitle= "By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by the service's name." icon="kubernetes" >}}
+{{< /cards >}}
+
+
+<div style="display: flex; flex-direction: row; justify-content: center">
+<h2>🖥️&nbsp;&nbsp;</h2>
+<h2 style="background: linear-gradient(45deg, #b45309, #d97706);font-weight: bolder;background-clip: text;color: transparent;">前端</h2>
+</div>
 
 ### CSS
 {{< cards >}}
@@ -53,39 +109,4 @@ width: full
 {{< cards >}}
   {{< card link="https://www.typescriptlang.org/" title="TypeScript" subtitle= "Configure your Django application to run on Clever Cloud" icon="ts" >}}
   {{< card link="https://www.javascript.com/" title="JavaScript" subtitle= "Configure your Django application to run on Clever Cloud" icon="js" >}}
-{{< /cards >}}
-
-<h2 align="center" style="background: linear-gradient(45deg, #be185d, #f9a8d4);font-weight: bolder;background-clip: text;color: transparent;">DevOps</h2>
-
-### <a href="https://docs.docker.com/compose/networking/" style="text-decoration:none;">Docker-Compose</a>
-{{< cards >}}
-  {{< card link="/blog/docker-compose-network" title="Network" subtitle= "By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by the service's name." icon="docker" >}}
-{{< /cards >}}
-
-### <a href="https://docs.docker.com/engine/swarm/" style="text-decoration:none;">Docker Swarm</a> 
-{{< cards >}}
-  {{< card link="/blog/docker-compose-network" title="Swarm" subtitle= "By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by the service's name." icon="swarm" >}}
-  {{< card link="/blog/docker-compose-network" title="Network" subtitle= "By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by the service's name." icon="network" >}}
-{{< /cards >}}
-
-### Kubernetes
-{{< cards >}}
-  {{< card link="https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/9EX8Cp45" title="Network" subtitle= "By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by the service's name." icon="kubernetes" >}}
-{{< /cards >}}
-
-<h2 align="center" style="background: linear-gradient(45deg, #b45309, #fcd34d);font-weight: bolder;background-clip: text;color: transparent;">区块链</h2>
-
-### Ethereum
-{{< cards >}}
-  {{< card link="https://ethereum.org/" title="Ethereum" subtitle= "Configure your Django application to run on Clever Cloud" icon="eth" >}}
-{{< /cards >}}
-
-### Bitcoin
-{{< cards >}}
-  {{< card link="https://bitcoin.org/en/" title="Bitcoin" subtitle= "Configure your Django application to run on Clever Cloud" icon="btc" >}}
-{{< /cards >}}
-
-### Hyperledger
-{{< cards >}}
-  {{< card link="https://www.hyperledger.org/" title="Hyperledger" subtitle= "Configure your Django application to run on Clever Cloud" icon="hyperledger" >}}
 {{< /cards >}}
