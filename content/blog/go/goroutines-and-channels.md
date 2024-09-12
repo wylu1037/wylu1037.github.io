@@ -11,7 +11,7 @@ authors:
   {{< font type="orange" text="A goroutine is a lightweight thread managed by the Go runtime. Channels is how you communicate between routines.">}}
 {{< /callout >}}
 
-## 👋 Goroutines
+## 1.Goroutines
 
 ### Concurrency, what's the benefit
 Concurrency is the task of running and managing the multiple computations at the same time. While parallelism is the task of running multiple computations simultaneously.
@@ -21,11 +21,34 @@ So what are some benefits:
 + {{< font type="green" index="0" text="Faster processing.">}} The benefit is getting tasks done faster. Imagine that you are searching a computer for files, or processing data, if it’s possible to work on these workloads in parallel, you end up getting the response back faster.
 + {{< font type="blue" text="Responsive apps Another benefit is getting more responsive apps." >}} If you have an app with a UI, imagine it would be great if you can perform some background work without interrupting the responsiveness of the UI.
 
-## 👩🏻‍🎓 Channel
+## 2.Channel
 A channel is how we can communicate cross go routines but also between go routines and the part of our code not using a go routine.
 The idea is to send a value to a channel, and have part of our code listen to values from a channel.
 
 Go语言的并发模型是CSP（Communicating Sequential Processes），提倡通过通信共享内存而不是通过共享内存而实现通信。channel是go携程之间通信的载体，可以连接不同的go携程，是让一个go携程发送特定值到另一个go携程的通信机制。
+
+```go {filename="chan.go"}
+type hchan struct {
+	qcount   uint           // total data in the queue
+	dataqsiz uint           // size of the circular queue
+	buf      unsafe.Pointer // points to an array of dataqsiz elements
+	elemsize uint16
+	closed   uint32
+	elemtype *_type // element type
+	sendx    uint   // send index
+	recvx    uint   // receive index
+	recvq    waitq  // list of recv waiters
+	sendq    waitq  // list of send waiters
+
+	// lock protects all fields in hchan, as well as several
+	// fields in sudogs blocked on this channel.
+	//
+	// Do not change another G's status while holding this lock
+	// (in particular, do not ready a G), as this can deadlock
+	// with stack shrinking.
+	lock mutex
+}
+```
 
 ### Creating a channel
 To create a channel, you need the keyword {{< font "orange" "chan">}} and the data type of the messages you are about to send into it. Here’s an example:

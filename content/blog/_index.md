@@ -17,10 +17,11 @@ width: full
 {{< cards >}}
   {{< card link="/blog/go/goroutines-and-channels" title="携程和通道" subtitle= "高效并发编程：深入理解Go语言的携程与通道机制" icon="annotation" >}}
   {{< card link="/blog/go/context" title="Context" subtitle= "掌握Go语言的Context包：并发编程中的超时与取消控制" icon="go" >}}
-  {{< card link="/blog/goroutines-and-channels" title="闭包" subtitle= "深入理解Go语言中的闭包：函数与环境的完美结合" icon="cube" >}}
-  {{< card link="/blog/goroutines-and-channels" title="同步包" subtitle= "高效并发控制：深入探索Go语言的sync包" icon="cloud" >}}
-  {{< card link="/blog/goroutines-and-channels" title="命名类型和未命名类型" subtitle= "Go语言类型系统揭秘：命名类型与未命名类型的深度解析" icon="sparkles" >}}
-  {{< card link="/blog/goroutines-and-channels" title="pprof" subtitle= "性能分析工具：轻松获取 CPU 使用率、内存分配情况、堆栈跟踪等信息" icon="beaker" >}}
+  {{< card link="/blog/go/closures" title="闭包" subtitle= "深入理解Go语言中的闭包：函数与环境的完美结合" icon="cube" >}}
+  {{< card link="/blog/go/sync-package" title="同步包" subtitle= "高效并发控制：深入探索Go语言的sync包" icon="cloud" >}}
+  {{< card link="/blog/go/" title="命名类型和未命名类型" subtitle= "Go语言类型系统揭秘：命名类型与未命名类型的深度解析" icon="sparkles" >}}
+  {{< card link="/blog/go/pprof" title="pprof" subtitle= "性能分析工具：轻松获取 CPU 使用率、内存分配情况、堆栈跟踪等信息" icon="beaker" >}}
+  {{< card link="/blog/go/GMP-model" title="GMP模型" subtitle= "高效多线程并行：探索GMP模型的架构与应用" icon="science" >}}
 {{< /cards >}}
 
 ### Rust

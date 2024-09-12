@@ -19,7 +19,7 @@
 {{ $background := printf "background: linear-gradient(45deg, %s, %s);font-weight: bolder;background-clip: text;color: transparent;" $startColor $endColor | safeCSS}}
 
 
-<font class="myfont" {{ with $background }}style="{{ . | safeCSS }}"{{ end }}>
+<span class="myfont" {{ with $background }}style="{{ . | safeCSS }}" {{ end }}>
     {{ $text }}
-</font>
+</span>
 
