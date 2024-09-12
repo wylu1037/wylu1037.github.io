@@ -36,7 +36,7 @@ width: full
 
 ### Kotlin
 {{< cards >}}
-  {{< card link="" title="携程" subtitle= "深入Gradle：构建自动化的现代化解决方案" icon="kotlin" >}}
+  {{< card link="" title="线程与协程" subtitle= "深入Gradle：构建自动化的现代化解决方案" icon="kotlin" >}}
   {{< card link="" title="扩展函数" subtitle= "深入Gradle：构建自动化的现代化解决方案" icon="laravel" >}}
   {{< card link="" title="Gradle" subtitle= "深入Gradle：构建自动化的现代化解决方案" icon="gradle" >}}
 
