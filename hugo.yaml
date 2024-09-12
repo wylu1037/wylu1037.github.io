@@ -1,7 +1,8 @@
 baseURL: https://wylu1037.github.io
 languageCode: en-us
 title: Blog website
-paginate: 50 # Number of item to show in the changelog section before pagination
+pagination:
+  pagerSize: 50 # Number of item to show in the changelog section before pagination
 
 module:
   imports:

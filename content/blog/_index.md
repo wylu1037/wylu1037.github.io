@@ -35,8 +35,10 @@ width: full
 
 ### Kotlin
 {{< cards >}}
-  {{< card link="https://kotlinlang.org/docs/home.html" title="Kotlin" subtitle= "探索Kotlin魅力：现代开发的优雅与高效兼具" icon="kotlin" >}}
-  {{< card link="https://gradle.org/" title="Gradle" subtitle= "深入Gradle：构建自动化的现代化解决方案" icon="gradle" >}}
+  {{< card link="" title="携程" subtitle= "深入Gradle：构建自动化的现代化解决方案" icon="kotlin" >}}
+  {{< card link="" title="扩展函数" subtitle= "深入Gradle：构建自动化的现代化解决方案" icon="laravel" >}}
+  {{< card link="" title="Gradle" subtitle= "深入Gradle：构建自动化的现代化解决方案" icon="gradle" >}}
+
 {{< /cards >}}
 ### Ruby On Rails
 {{< cards >}}
