@@ -11,9 +11,9 @@ displayPlaceholder: false
 
 <div class="dashboard">
     <div class="dashboard-1">
-        <font style="font-size:50px;font-weight:bold;line-height:1.5;">个人技术博客<br> 洞察未来，书写现在！<br></font>
+        <span style="font-size:50px;font-weight:bold;line-height:1.5;">个人技术博客<br> 洞察未来，书写现在！<br></span>
         <br>
-        <font style="font-size:20px;font-weight:270;">在这里，我将分享编程知识、<br>技术见解与生活感悟，与君共勉。<br></font>
+        <span style="font-size:20px;font-weight:270;">在这里，我将分享编程知识、<br>技术见解与生活感悟，与君共勉。<br></span>
         <div style="margin-top: 50px;">
             <style>
                 .btn-container {
@@ -32,7 +32,6 @@ displayPlaceholder: false
                     transition: all 0.3s;
                     cursor: pointer;
                     background: #315cfd;
-                    font-size: 1.2em;
                     font-weight: 470;
                     font-family: 'Montserrat', sans-serif;
                     font-size: 1.0em;
@@ -51,7 +50,6 @@ displayPlaceholder: false
                     transition: all 0.3s;
                     cursor: pointer;
                     background: white;
-                    font-size: 1.2em;
                     font-weight: 470;
                     font-family: 'Montserrat', sans-serif;
                     font-size: 1.0em;
@@ -88,7 +86,7 @@ displayPlaceholder: false
         </div>
     </div>
      <div class="dashboard-2">
-        <image src="/images/brand.png" />
+        <image src="/images/brand.png"></image>
     </div>
 </div>
 
@@ -365,32 +363,32 @@ displayPlaceholder: false
                     <div class="footer-left-container">
                         <div>
                             <div style="width:48px">
-                                <img src="/images/meebits_circle.png" />
+                                <img src="/images/meebits_circle.png"  alt=""/>
                             </div>
                         </div>
                         <div class="footer-left-icon-container">
                             <div class="footer-left-icon">
-                                <img src="/images/icon/github.png"/>
+                                <img src="/images/icon/github.png" alt=""/>
                                 <div>Github</div>
                             </div>
                             <div class="footer-left-icon">
-                                <img src="/images/icon/slack.png"/>
+                                <img src="/images/icon/slack.png" alt=""/>
                                 <div>Slack</div>
                             </div>
                             <div class="footer-left-icon">
-                                <img src="/images/icon/medium.png"/>
+                                <img src="/images/icon/medium.png" alt=""/>
                                 <div>Medium</div>
                             </div>
                             <div class="footer-left-icon">
-                                <img src="/images/icon/twitter.png"/>
+                                <img src="/images/icon/twitter.png" alt=""/>
                                 <div>Twitter</div>
                             </div>
                             <div class="footer-left-icon">
-                                <img src="/images/icon/linkedIn.png"/>
+                                <img src="/images/icon/linkedIn.png" alt=""/>
                                 <div>LinkedIn</div>
                             </div>
                             <div class="footer-left-icon">
-                                <img src="/images/icon/reddit.png"/>
+                                <img src="/images/icon/reddit.png" alt=""/>
                                 <div>Reddit</div>
                             </div>
                         </div>
@@ -459,7 +457,6 @@ displayPlaceholder: false
             background: linear-gradient(192deg, rgba(16, 92, 206, 0.60) 0%, rgba(255, 255, 255, 0.70) 50%, rgba(119, 225, 255, 0.15) 100%);
         }
         .tech-container {
-            margin-top:30px;
             display:grid;
             grid-template-columns: repeat(8, 1fr);
             gap: 12px;
@@ -480,7 +477,6 @@ displayPlaceholder: false
         }
         @media screen and (max-width: 600px) {
             .tech-container {
-                margin-top:30px;
                 display:grid;
                 grid-template-columns: repeat(4, 1fr);
                 gap: 12px;
@@ -553,7 +549,7 @@ displayPlaceholder: false
             color: #3b82f6;
         }
         .footer-right-title {
-            font-family: 'Inter';
+            font-family: 'Inter',serif;
             font-style: normal;
             font-weight: 600;
             font-size: 16px;
