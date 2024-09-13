@@ -4,6 +4,7 @@ date: 2024-09-12T20:23:30+08:00
 ---
 
 ## 1.线程
+> 使用 `lambda` 创建线程。
 ```kotlin
 fun main() {
     val thread = Thread {
@@ -15,20 +16,60 @@ fun main() {
 ```
 
 ## 2.协程
-引入依赖
+<br/>
+{{< font "blue" "引入依赖">}}
+
 ```groovy
 implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core"
 ```
 
 ### 2.1 suspend
-- 作用: `suspend` 关键字用于标记一个函数可以挂起。挂起函数可以在协程中调用，并且它们可以在不阻塞当前线程的情况下暂停和恢复执行。挂起函数通常用于执行长时间运行的操作，如网络请求或数据库操作。
-- 在示例中的应用: 在 `sendTransactionWithGettingReceipt` 函数内部，tryGetReceipt 被定义为一个挂起的 lambda 表达式。这意味着它可以进行可能耗时的操作（比如网络调用来获取收据），并且在等待网络响应时，不会阻塞当前线程。在此期间，协程可以被挂起，允许其他协程在同一线程上运行。
+`suspend` 是 **_Kotlin_** 中用于定义挂起函数（`suspend functions`）的关键字。挂起函数是可以被挂起和恢复的函数，它们只能在协程或另一个挂起函数中调用。
 
+**特点**：
++ **非阻塞的异步执行**：挂起函数可以在协程中暂停其执行，并在需要时恢复执行，而不阻塞当前线程。这使得异步编程更加简单和直观。
++ **只能在协程或挂起函数中调用**：挂起函数不能直接在普通函数中调用，必须在协程上下文中调用。
+
+**示例**：
+```kotlin
+import kotlinx.coroutines.*
+
+suspend fun performTask() {
+    delay(1000L)  // 挂起1秒
+    println("Task completed")
+}
+
+fun main() = runBlocking {
+    println("Starting task...")
+    performTask()  // 调用挂起函数
+    println("Task finished")
+}
+```
+> `performTask` 是一个挂起函数，通过 `delay` 模拟了异步任务的执行。它不会阻塞线程，而是挂起并在 1 秒后恢复执行。
 
 ### 2.2 runBlocking
-- **作用**: runBlocking 是一个协程构建器，用于在当前线程启动一个新的协程，并阻塞当前线程直到协程执行完毕。它主要用于桥接阻塞代码和挂起函数，或者在测试中。
-- **在示例中的应用**: runBlocking 用于启动一个协程以循环尝试获取交易收据。因为 tryGetReceipt 是一个挂起函数，它需要在协程中调用。这段代码在协程中循环，尝试最多 10 次获取非空 receipt.tblockHash 的收据。如果在 10 次尝试之后仍然获取不到有效的收据，它会使用 tBlockHash 作为默认值。runBlocking 在这里确保了整个获取收据的过程是同步的，即使它内部调用了挂起函数。
 
+`runBlocking` 是一种用于启动协程并阻塞当前线程的函数。它通常用于非协程环境中（如主函数或测试代码）来启动协程，并等待其完成后再继续执行后续代码。
+
+**特点**：
++ **阻塞当前线程**：runBlocking 会阻塞当前线程，直到它内部的协程执行完成。这与协程的轻量异步并发处理理念有所不同。
++ **常用于主线程或测试环境**：在需要从非协程代码（如 `main` 函数）中调用协程时，使用 `runBlocking` 来启动协程并等待其完成。
+
+**示例**：
+```kotlin
+import kotlinx.coroutines.*
+
+fun main() = runBlocking {
+    // 启动协程
+    launch {
+        delay(1000L)
+        println("Coroutine finished")
+    }
+    println("Main function continues...")
+}
+```
+
+> `runBlocking` 会阻塞主线程，直到内部的协程完成。在上面代码中，虽然主线程被阻塞了，但协程会异步运行。
 
 ### 2.3 async and await
 
