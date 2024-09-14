@@ -1,12 +1,11 @@
 ---
-title: ⚙️ Git配置
+title: Git配置
 date: 2024-03-06T14:49:17+08:00
 tags: [git, github, gitlab, SSH Keys]
 ---
 
 ## 多git仓库配置
-git的config文件内容如下所示：
-```
+``` {filename=".ssh/config"}
 Host github.com
 HostName github.com
 User yourname@gmail.com
@@ -22,7 +21,7 @@ HostName gitlab.com
 User yourname@gmail.com@qq.com
 IdentityFile ~/.ssh/id_ed25519_gitlab
 ```
-{{< tabs items="🐳 Github, 🐋 Gitlab">}}
+{{< tabs items="Github, Gitlab">}}
   {{< tab >}}
 {{% steps %}}
 

@@ -1,5 +1,5 @@
 ---
-title: 🗺️ Git代码控制流程
+title: Git代码控制流程
 date: 2024-03-08T09:09:17+08:00
 categories: new
 tags: [git, standard]

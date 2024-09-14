@@ -1,5 +1,5 @@
 ---
-title: 🥪 Linux 目录功能介绍
+title: Linux 目录功能介绍
 date: 2024-03-19T10:15:51+08:00
 tags: [linux, directory]
 authors:

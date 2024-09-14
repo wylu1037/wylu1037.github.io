@@ -1,5 +1,5 @@
 ---
-title: 🍃 预览图标
+title: 预览图标
 date: 2024-02-23T10:47:48+08:00
 tags: [icons, css, animation]
 authors:
