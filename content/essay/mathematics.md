@@ -15,13 +15,13 @@ params:
 ### 1.1 行内公式
 \(a^*=x-b^*\)
 
-\(\Large\varsigma_2\)
+$\Large\varsigma_2$
 
-\(H_s\)
+$H_s$
 
-\(P(H)_{H_s}\)
+$P(H)_{H_s}$
 
-\( H^{'}_{i} \)
+$H^{'}_{i}$
 
 ### 1.2 块级公式
 
@@ -124,32 +124,133 @@ $$
 
 ### 2.10 希腊字母
 
-| 大写         | 小写 |
-|------------|----|
-| $A$        |    |
-| $B$        |    |
-| $\Gamma$   |    |
-| $\Delta$   |    |
-| $E$        |    |
-|            |    |
-| $Z$        |    |
-| $H$        |    |
-| $\Theta$   |    |
-| $I$        |    |
-| $K$        |    |
-| $\Lambda$  |    |
-| $M$        |    |
-| $N$        |    |
-| $\Xi$      |    |
-| $O$        |    |
-| $\Pi       |    |
-| $P$        |    |
-| $\Sigma$   |    |
-| $T$        |    |
-| $\Upsilon$ |    |
-| $\Phi$     |    |
-|            |    |
-| $X$        |    |
-| $\Psi$     |    |
-| $\Omega$   |    |
+| 大写         | 小写            |
+|------------|---------------|
+| $A$        | $\alpha$      |
+| $B$        | $\beta$       |
+| $\Gamma$   | $\gamma$      |
+| $\Delta$   | $\delta$      |
+| $E$        | $\epsilon$    |
+|            | $\varepsilon$ |
+| $Z$        | $\zeta$       |
+| $H$        | $\eta$        |
+| $\Theta$   | $\theta$      |
+| $I$        | $\iota$       |
+| $K$        | $\kappa$      |
+| $\Lambda$  | $\lambda$     |
+| $M$        | $\mu$         |
+| $N$        | $\nu$         |
+| $\Xi$      | $\xi$         |
+| $O$        | $\omicron$    |
+| $\Pi$      | $\pi$         |
+| $P$        | $\rho$        |
+| $\Sigma$   | $\sigma$      |
+| $T$        | $\tau$        |
+| $\Upsilon$ | $\upsilon$    |
+| $\Phi$     | $\phi$        |
+|            | $\varphi$     |
+| $X$        | $\chi$        |
+| $\Psi$     | $\pi$         |
+| $\Omega$   | $\omega$      |
+
+### 2.11 三角函数
+$$
+\sin{\theta}
+$$
+
+$$
+\cos{\theta}
+$$
+
+$$
+\tan{\theta}
+$$
+
+$$
+\cot{\theta}
+$$
+
+### 2.12 对数函数
+$$
+\ln2
+$$
+
+$$
+\log_28
+$$
+
+$$
+\lg10
+$$
+
+### 2.12 关系运算符
+$$
+\pm
+$$
+
+$$
+\times
+$$
+
+$$
+\cdot
+$$
+
+$$
+\div
+$$
+
+$$
+\neq
+$$
+
+$$
+\equiv
+$$
+
+$$
+\leq
+$$
+
+$$
+\geq
+$$
+
+### 2.13 特殊符号
+
+$$
+\forall
+$$
+
+$$
+\infty
+$$
+
+$$
+\emptyset
+$$
+
+$$
+\exists
+$$
+
+$$
+\nabla
+$$
+
+$$
+\bot
+$$
+
+$$
+\angle
+$$
+
+$$
+\because
+$$
+
+$$
+\therefore
+$$
 
