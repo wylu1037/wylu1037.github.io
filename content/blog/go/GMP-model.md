@@ -1,5 +1,5 @@
 ---
-title: G-M-P 模型
+title: GMP 模型
 date: 2024-04-14T17:54:15+08:00
 authors:
   - name: wylu
@@ -56,5 +56,7 @@ Golang在底层实现了混合型线程模型。M 即系统线程，由系统调
 |数量限制|无限制，受机器内存影响|有限制，默认最多10000|有限制，最多GOMAXPROCS个|
 |创建时机|go func|当没有足够的M来关联P并运行其中的可运行的G时会请求创建新的M|在确定了P的最大数量n后，运行时系统会根据这个数量创建P|
 
+
+### 调度类型
 
 https://go.cyub.vip/gmp/gmp-model/
