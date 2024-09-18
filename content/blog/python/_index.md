@@ -1,5 +1,5 @@
 ---
-title: 🎗 Python
+title: 🧬 Python
 date: 2024-08-05T07:57:08+08:00
 weight: 5
 ---
