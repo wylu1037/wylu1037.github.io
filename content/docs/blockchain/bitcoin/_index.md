@@ -1,7 +1,7 @@
 ---
-title: 💵 Bitcoin
+title: 比特币
 date: 2024-03-19T16:22:35+08:00
-weight: 8
+weight: 1
 ---
 
 <div>

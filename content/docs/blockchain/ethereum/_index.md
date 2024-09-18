@@ -1,7 +1,7 @@
 ---
-title: 🔗 Ethereum
+title: 以太坊
 date: 2024-03-19T16:22:12+08:00
-weight: 9
+weight: 2
 ---
 
 <div class="card-container">
