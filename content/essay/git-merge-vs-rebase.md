@@ -24,3 +24,11 @@ description:
 将一个分支上的提交应用到另一个分支的基础上，重新排列提交历史。不会创建新的合并提交，而是将提交重新放置，使分支历史看起来像是线性的一条直线。
 
 {{< image "/images/essay/git-rebase.png" "git rebase" >}}
+
+**示例**
+> 将 `develop` 分支的最新变更应用到 `release` 分支上。
+```shell
+# 切换到 release 分支上
+git rebase develop
+# Successfully rebased and updated refs/heads/release.
+```
