@@ -1,6 +1,12 @@
 ---
 title: Linux 筛选日志
 date: 2024-09-14T08:30:01+08:00
+tags: [linux, log]
+authors:
+  - name: wylu
+    link: https://github.com/wylu1037
+    image: https://github.com/wylu1037.png?size=40
+description: Linux filter log
 ---
 
 ## tail

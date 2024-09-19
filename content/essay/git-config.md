@@ -2,6 +2,11 @@
 title: Git配置
 date: 2024-03-06T14:49:17+08:00
 tags: [git, github, gitlab, SSH Keys]
+authors:
+  - name: wylu
+    link: https://github.com/wylu1037
+    image: https://github.com/wylu1037.png?size=40
+description: 
 ---
 
 ## 多git仓库配置
