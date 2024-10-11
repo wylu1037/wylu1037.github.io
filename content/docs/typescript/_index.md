@@ -183,7 +183,17 @@ let strLength: number = (someValue as string).length;
 
 ### 1.12 模块 (Modules)
 
-TypeScript 支持模块系统，可以用`export`和`import`来进行模块化开发：
+在 TypeScript 中，模块化依赖于 JavaScript 的模块系统，它基于 `import` 和 `export` 关键字。TypeScript 中的模块化可以使用两种形式：
+
+- **ES Modules (ESM)**：即 ECMAScript 标准的模块系统，使用 `import/export`。
+- **CommonJS**：Node.js 中使用的模块系统，使用 `require/module.exports`。
+
+<h4>ES Modules</h4>
+
+- TypeScript 模块依赖 JavaScript 运行时（如 Node.js、浏览器等）。
+- 模块通过**文件系统**组织，每个 .ts 文件可以作为一个独立的模块。
+- TypeScript 允许通过不同的模块解析策略（moduleResolution）来适应不同环境（如 Node.js 或浏览器）。
+- 支持动态导入，可以在运行时按需加载模块。
 
 ```typescript
 // 导出
