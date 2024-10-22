@@ -62,3 +62,7 @@ const MyComponent = () => {
   return <div>{/* 根据value渲染UI */}</div>;
 };
 ```
+
+## State
+
+{{< shell-card command="npm" args="install zustand@latest" >}}

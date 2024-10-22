@@ -1,9 +1,9 @@
 ---
-title: Getting Started
-date: 2024-04-08T19:48:40+08:00
+title: Architecture
+date: 2024-10-11T20:05:28+08:00
+weight: 4
 authors:
   - name: wylu
     link: https://github.com/wylu1037
     image: https://github.com/wylu1037.png?size=40
-weight: 1
 ---
