@@ -23,3 +23,16 @@
     {{ $text }}
 </span>
 
+<style>
+    .myfont {
+        display: inline-flex;
+        margin-top: 1rem;
+        font-weight: bolder;
+    }
+    .myfont::before {
+        content: "「";
+    }
+    .myfont::after {
+        content: "」";
+    }
+</style>

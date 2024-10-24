@@ -1,0 +1,90 @@
+<button class="search-button" type="button">
+    <span class="search-text-lg">{{ .Get "text" }}</span>
+    <span class="search-text-sm">Search...</span>
+    <kbd class="search-kbd">
+      <span>⌘</span>K
+    </kbd>
+  </button>
+  
+  <style>
+    .search-button {
+      --background: #000000;
+      --color: #ffffff;
+      --muted: #242424;
+      --muted-foreground: #9c9c9c;
+      --border: #2e2e2e;
+      
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      transition: colors 0.3s;
+      border: 1px solid var(--border);
+      background-color: var(--background);
+      color: var(--muted-foreground);
+      padding: 0.5rem 1rem;
+      justify-content: flex-start;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: normal;
+      box-shadow: none;
+      height: 2rem;
+      width: 16rem;
+    }
+  
+    .search-button:hover {
+      background-color: var(--muted);
+      color: var(--color);
+    }
+  
+    .search-button:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--border);
+    }
+  
+    .search-button:disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  
+    .search-text-lg {
+      display: none;
+    }
+  
+    .search-text-sm {
+      display: inline-flex;
+    }
+  
+    .search-kbd {
+      pointer-events: none;
+      position: absolute;
+      right: 0.3rem;
+      top: 0.3rem;
+      display: flex;
+      height: 1.25rem;
+      user-select: none;
+      align-items: center;
+      gap: 0.25rem;
+      border-radius: 0.25rem;
+      border: 1px solid var(--border);
+      background-color: var(--muted);
+      padding: 0 0.375rem;
+      font-family: monospace;
+      font-size: 10px;
+      font-weight: 500;
+      opacity: 1;
+    }
+  
+    .search-kbd span {
+      font-size: 0.75rem;
+    }
+  
+    @media (min-width: 1024px) {
+      .search-text-lg {
+        display: inline-flex;
+      }
+      .search-text-sm {
+        display: none;
+      }
+    }
+  </style>

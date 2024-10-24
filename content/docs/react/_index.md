@@ -5,11 +5,11 @@ width: full
 weight: 1
 ---
 
-## Context
+## 1.Context
 
 在 `React` 中，`Context` 是用于共享一些在组件树中被认为是「全局」的数据，比如当前的用户信息、主题或首选语言。
 
-### 创建 Context
+### 1.1 创建 Context
 
 ```tsx
 import React, { createContext } from "react";
@@ -19,7 +19,7 @@ const MyContext = createContext<string>("defaultValue");
 
 > defaultValue 是在没有匹配到 **Provider** 时的默认值。
 
-### 创建 Provider
+### 1.2 创建 Provider
 
 **Provider** 组件用于将 `Context` 的值传递给组件树中的子组件。
 
@@ -35,11 +35,11 @@ const MyProvider = ({ children }) => {
 };
 ```
 
-### 使用 Consumer 或 useContext Hook
+### 1.3 使用 Consumer 或 useContext Hook
 
 有两种方法来使用 Context 的值：`Consumer` 组件和 `useContext` Hook。
 
-#### Consumer 组件
+#### 1.3.1 Consumer 组件
 
 使用 `MyContext.Consumer` 来访问 Context 的值。
 
@@ -49,7 +49,7 @@ const MyProvider = ({ children }) => {
 </MyContext.Consumer>
 ```
 
-#### useContext Hook
+#### 1.3.2 useContext Hook
 
 在函数组件中，可以使用 `useContext` 来更简便地访问值。
 
@@ -63,17 +63,17 @@ const MyComponent = () => {
 };
 ```
 
-## State
+## 2.State
 
 {{< shell-card command="npm" args="install zustand@latest" >}}
 
 
-## Hook
-Hook是React 16.8引入的新特性，允许你在不编写class的情况下使用state以及其他的React特性。
+## 3.Hook
+`Hook` 是 `React 16.8` 引入的新特性，允许你在不编写 class 的情况下使用 state 以及其他的 React 特性。
 
-在React中，所有的自定义Hook函数名都应该以"use"开头。这是一个约定，让React知道这个函数是一个Hook。
+在 React 中，所有的自定义 `Hook` 函数名都应该以 "use" 开头。这是一个约定，让 React 知道这个函数是一个 `Hook`。
 
-### useState 
+### 3.1 useState 
 用于在函数组件中添加状态
 
 ```tsx
@@ -93,29 +93,64 @@ function Counter() {
 }
 ```
 
-### useEffect
-用于处理副作用，如数据获取、订阅或手动更改 DOM
+### 3.2 useEffect
+用于处理副作用，如数据获取、订阅或手动更改 DOM。
+#### 3.2.1 基本语法
 ```tsx
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
-function DataFetcher() {
-  const [data, setData] = useState(null);
-
+function ExampleComponent() {
   useEffect(() => {
-    fetch('https://api.example.com/data')
-      .then(response => response.json())
-      .then(data => setData(data));
-  }, []); // 空数组表示只在组件挂载时运行
+    // 副作用代码
+    return () => {
+      // 清理函数（可选）
+    };
+  }, [/* 依赖数组 */]);
 
   return (
-    <div>
-      {data ? <p>数据: {JSON.stringify(data)}</p> : <p>加载中...</p>}
-    </div>
+    // 组件JSX
   );
 }
 ```
 
-### useContext
+#### 3.2.2 示例
+{{< font "blue" "组件每次渲染后都会执行" >}}
+```tsx
+useEffect(() => {
+  console.log('组件渲染了');
+});
+```
+
+{{< font "blue" "仅在组件挂载时执行一次" >}}
+```tsx
+useEffect(() => {
+  console.log('组件挂载了');
+}, []);
+```
+
+{{< font "blue" "当依赖项变化时执行" >}}
+```tsx
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+  document.title = `点击了 ${count} 次`;
+}, [count]);
+```
+
+{{< font "blue" "组件卸载时执行" >}}
+```tsx
+useEffect(() => {
+  const timer = setInterval(() => {
+    console.log('定时器运行中');
+  }, 1000);
+
+  return () => {
+    clearInterval(timer);
+  };
+}, []);
+```
+
+### 3.3 useContext
 用于访问 React 的 Context
 
 ```tsx
@@ -129,8 +164,8 @@ function ThemedButton() {
 }
 ```
 
-### useRef
-用于创建一个可变的 ref 对象
+### 3.4 useRef
+用于创建一个可变的 `ref` 对象。
 
 ```tsx
 import React, { useRef, useEffect } from 'react';
@@ -145,8 +180,9 @@ function FocusInput() {
   return <input ref={inputRef} />;
 }
 ```
+> inputRef.current 可以获取到 input 元素的引用，指向实际的 `<input>` DOM元素。
 
-### useMemo
+### 3.5 useMemo
 用于性能优化，缓存计算结果
 ```tsx
 import React, { useMemo, useState } from 'react';
@@ -161,7 +197,7 @@ function ExpensiveComputation({ a, b }) {
 }
 ```
 
-### useCallback
+### 3.6 useCallback
 用于性能优化，缓存函数
 ```tsx
 import React, { useCallback, useState } from 'react';
@@ -182,7 +218,8 @@ function ParentComponent() {
 }
 ```
 
-### 自定义Hook
+### 3.7 自定义Hook
+
 自定义Hook是一个函数，它以"use"开头，并可以调用其他的Hook。自定义Hook可以用于在组件之间共享逻辑。
 
 使用自定义Hook的一些注意事项：
@@ -193,7 +230,9 @@ function ParentComponent() {
 自定义Hook是一种共享逻辑的方式，不是共享状态的方式。
 
 创建自定义Hook：
+
 自定义Hook是一个以"use"开头的JavaScript函数。例如：
+
 ```tsx
 import { useState, useEffect } from 'react';
 
