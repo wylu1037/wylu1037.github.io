@@ -1,13 +1,13 @@
 ---
 title:
-date: 2024-02-18T14:30:52+08:00
+date: 2024-10-24T20:08:52+08:00
 type: docs
 width: full
 ---
 
 {{< animation type="day" >}}
 
-<h3 align="center" style="background: linear-gradient(45deg, #ff8a00, #e52e71);font-weight: bolder;background-clip: text;color: transparent;">编程语言、框架系列</h3>
+{{< components/h3 text="编程语言" >}}
 {{< cards >}}
 {{< card link="/docs/golang" title="Go 系列" subtitle="Go语言，又称Golang，是由Google在2007年推出的一款现代、开源的编程语言。设计之初，Go即着眼于解决大规模系统软件开发中的常见问题，如并发编程、性能效率、可读性以及易于维护等。它的语法简洁明了，借鉴了C语言的表达力和C++的部分思想，同时也引入了函数式语言的一些特点，如闭包，并独创了 goroutine 和 channel 这样的并发原语，使得高并发编程变得直观而高效。" icon="go" >}}
 {{< card link="/docs/rust" title="Rust 系列" subtitle="Rust编程语言是一门专为速度、可靠性和并发性优化设计的现代系统级编程语言。它由 Mozilla 研究院发起，并在全球开发者社区的共同努力下迅速发展。Rust 的核心特性在于其独特的所有权系统和 borrowing 概念，这些设计从根本上消除了空指针异常、数据竞争和其他传统系统编程中常见的内存错误。" icon="rust" >}}
@@ -17,12 +17,13 @@ width: full
 {{< card link="/docs/ruby" title="Ruby on rails 系列" subtitle="Ruby是由日本程序员松本行弘（Matz）在1995年创造的一种简洁易读、面向对象的高级脚本语言，它深受Perl、Python等语言的影响，并以Ruby on Rails这一强大的Web开发框架而闻名于世。" icon="ruby" >}}
 {{< /cards >}}
 
-<h3 align="center" style="background: linear-gradient(45deg, #6d28d9, #e52e71);font-weight: bolder;background-clip: text;color: transparent;">区块链 & Web3</h3>
+{{< components/h3 text="AI" >}}
+
 {{< cards >}}
-<div style="grid-column: 1 / span 2">
-{{< card link="https://yeasy.gitbook.io/blockchain_guide" title="区块链技术指南" subtitle="区块链作为新一代分布式记账（Distributed Ledger Technology，DLT）系统的核心技术，区块链被认为在金融、物联网、商业贸易、征信、资产管理等众多领域都拥有广泛的应用前景。" icon="academic-cap" >}}
-</div>
+{{< card link="https://sdk.vercel.ai/" title="AI系列" subtitle="探索人工智能的无限可能，从基础理论到实际应用，全面解析AI的最新进展和未来趋势" icon="vercel" >}}
 {{< /cards >}}
+
+{{< components/h3 text="Web3" >}}
 
 {{< cards >}}
 {{< card link="/docs/ethereum" title="Ethereum系列" subtitle="欢迎来到以太坊探索之旅！以太坊（Ethereum）不仅仅是一个加密货币平台，它是全球最强大的去中心化应用程序和智能合约开发平台之一。自2013年末由天才青年程序员Vitalik Buterin提出构想以来，以太坊一直在重塑我们对区块链技术的认知边界，引领着Web3.0时代的创新浪潮。" icon="eth" >}}
@@ -30,21 +31,16 @@ width: full
 {{< card link="/docs/fabric" title="Fabric系列" subtitle="Hyperledger Fabric 是企业级分布式账本技术（DLT）的重要代表，由Linux基金会主导的超级账本（Hyperledger）项目下的一个开源区块链框架。Fabric以其模块化、灵活及高度可定制的设计理念，在全球范围内获得了广泛的商业应用和研究关注。" icon="hyperledger" >}}
 {{< /cards >}}
 
-<h3 align="center" style="background: linear-gradient(45deg, #065f46, #34d399);font-weight: bolder;background-clip: text;color: transparent;">系统设计</h3>
+{{< components/h3 text="系统设计" >}}
 
 {{< cards >}}
 {{< card link="https://github.com/Sairyss/system-design-patterns?tab=readme-ov-file#system-design-patterns" title="System design patterns" subtitle="Topics and resources related to distributed systems, system design, microservices, scalability and performance, etc" icon="moodle" >}}
 {{< card link="https://github.com/donnemartin/system-design-primer" title="System design primer" subtitle="学习如何设计可扩展的系统将会有助于你成为一个更好的工程师。" icon="docs" >}}
-{{< /cards >}}
-
-<h3 align="center" style="background: linear-gradient(45deg, #be185d, #f9a8d4);font-weight: bolder;background-clip: text;color: transparent;">系统架构</h3>
-
-{{< cards >}}
 {{< card link="http://icyfenix.cn/" title="凤凰架构" subtitle="这是一部以“如何构建一套可靠的分布式大型软件系统”为叙事主线的开源文档，是一幅帮助开发人员整理现代软件架构各条分支中繁多知识点的技能地图。" icon="fluentd" >}}
 {{< /cards >}}
 
-<h3 align="center" style="background: linear-gradient(45deg, #b45309, #fcd34d);font-weight: bolder;background-clip: text;color: transparent;">面试</h3>
+{{< components/h3 text="面试" >}}
 
 {{< cards >}}
-{{< card link="/docs/interview" title="面试系列" subtitle="面试 & 自检 & 总结" icon="pencil-square" >}}
+{{< card link="/docs/interview" title="面试系列" subtitle="全面覆盖技术面试要点，助力自我提升与职业发展" icon="pencil-square" >}}
 {{< /cards >}}
