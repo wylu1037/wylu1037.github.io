@@ -1,6 +1,7 @@
 ---
 title: 数学公式
 date: 2024-06-25T12:17:25+08:00
+categories: [latex]
 tags: [mathematics]
 authors:
   - name: wylu

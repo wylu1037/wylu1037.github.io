@@ -1,6 +1,8 @@
 ---
 title: docker-compose 网络
-date: 2024-02-27T10:47:42+08:00
+date: 2024-10-25T07:53:42+08:00
+categories: [docker]
+tags: [docker, compose]
 authors:
   - name: wylu
     link: https://github.com/wylu1037

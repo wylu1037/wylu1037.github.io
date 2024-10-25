@@ -1,6 +1,7 @@
 ---
 title: Git配置
 date: 2024-03-06T14:49:17+08:00
+categories: [git]
 tags: [git, github, gitlab, SSH Keys]
 authors:
   - name: wylu

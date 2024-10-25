@@ -1,6 +1,7 @@
 ---
 title: arm64 aarch64 amd64 x86_64系统架构的区别
 date: 2024-03-01T20:05:09+08:00
+categories: [linux]
 tags: [arm64, aarch64, amd64, x86_64, linux]
 authors:
   - name: wylu

@@ -1,6 +1,8 @@
 ---
 title: 定位内存泄露
 date: 2024-03-30T20:35:27+08:00
+categories: [java]
+tags: [java, memory, leak]
 authors:
   - name: wylu
     link: https://github.com/wylu1037

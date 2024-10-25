@@ -1,6 +1,7 @@
 ---
 title: 正则表达式
 date: 2024-06-17T08:52:05+08:00
+categories: [regex]
 tags: [regex]
 authors:
   - name: wylu

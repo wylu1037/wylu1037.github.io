@@ -1,6 +1,8 @@
 ---
-title: Goroutines and Channels
+title: Go语言协程与通道
 date: 2024-03-01T09:10:06+08:00
+categories: [go]
+tags: [goroutines, channels]
 authors:
   - name: wylu
     link: https://github.com/wylu1037

@@ -1,6 +1,12 @@
 ---
-title: 扩展函数
+title: 探索Kotlin扩展函数
 date: 2024-09-12T19:44:12+08:00
+categories: [kotlin]
+tags: [kotlin, extension]
+authors:
+  - name: wylu
+    link: https://github.com/wylu1037
+    image: https://github.com/wylu1037.png?size=40
 ---
 
 ## 1.builtin extension function

@@ -1,6 +1,12 @@
 ---
 title: 线程与协程
 date: 2024-09-12T20:23:30+08:00
+categories: [kotlin]
+tags: [kotlin, thread, coroutine]
+authors:
+  - name: wylu
+    link: https://github.com/wylu1037
+    image: https://github.com/wylu1037.png?size=40
 ---
 
 ## 1.线程

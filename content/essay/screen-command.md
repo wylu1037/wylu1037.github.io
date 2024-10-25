@@ -1,6 +1,7 @@
 ---
 title: screen命令
 date: 2024-06-05T09:15:53+08:00
+categories: [linux]
 tags: [screen, daemon, linux]
 authors:
   - name: wylu

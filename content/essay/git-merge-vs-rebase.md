@@ -1,6 +1,7 @@
 ---
 title: Git中合并与变基的区别
 date: 2024-09-19T10:43:38+08:00
+categories: [git]
 tags: [git, merge, rebase]
 authors:
   - name: wylu

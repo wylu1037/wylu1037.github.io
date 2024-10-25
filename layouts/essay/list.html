@@ -2,6 +2,15 @@
   {{- $newFeature := (T "newFeature") | default "New" -}} {{/* i18n for strings */}}
   {{- $nextPage := (T "nextPage") | default "Next" -}}
   {{- $previousPage := (T "previousPage") | default "Previous" -}}
+
+  {{ $tagColors := slice
+    (dict "bg" "#bfdbfe" "text" "#1d4ed8")
+    (dict "bg" "#a7f3d0" "text" "#047857")
+    (dict "bg" "#fed7aa" "text" "#c2410c")
+    (dict "bg" "#fecaca" "text" "#b91c1c")
+    (dict "bg" "#fcd34d" "text" "#b45309")
+  }}
+
   <div class="mx-auto flex {{ partial `utils/page-width` . }}">
     {{ partial "sidebar.html" (dict "context" . "disableSidebar" true "displayPlaceholder" true) }}
     <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
@@ -17,9 +26,6 @@
         {{ range $paginator.Pages.GroupByDate "January, 2006" }}
         <h3 style="text-decoration: none;"
         class="block font-semibold flex items-center gap-1 mt-8 text-2xl text-gray-900 dark:text-gray-300">
-          <!--<span class="inline-block align-text-bottom icon">
-            {{- partial "utils/icon.html" (dict "name" "calendar" "attributes" "height=24") -}}
-          </span>-->
           🗓️
           <span>&nbsp;</span>{{ .Key }}
         </h3>
@@ -27,22 +33,23 @@
             <div class="mb-6 ml-4 pl-5">
               <style>
                 .title {
-                  text-decoration: underline;
-                  text-decoration-thickness: 1px;
-                  text-decoration-color: #a5b4fc;
-                  background: linear-gradient(90deg, #2563eb, #60a5fa);
-                  background-clip: text;
-                  color: transparent;
+                  font-weight: 500;
+                  text-decoration: none;
+                  color: #2563eb;
                 }
                 .title:hover {
                   color: #3b82f6;
                   font-weight: bold;
                 }
-                .title:hover::after {
-                  content: " 📚";
-                }
               </style>
               <h4 class="flex">
+                {{ with .Params.categories }}
+                {{ $firstCategory := index (first 1 .) 0 }}
+                  <span class="inline-flex items-center px-1 text-xs text-white mr-2" 
+                                      style="background: linear-gradient(90deg, #A51050 0%, #CB1C42 50.48%, #F57461 100%); border-radius:3px;">
+                    {{ $firstCategory }}
+                  </span>
+                {{ end }}
                 <p style="font-weight: 500; color: #1c2530">
                   {{ .Title }}
                     {{ if in .Params.categories "new" }} {{/* Show a label "new" if category is set to "new"*/}}
@@ -53,78 +60,31 @@
                 </p>
                 <a class="title inline-block font-normal font-medium ml-4"
                    href="{{ .RelPermalink }}">
-                  <!--<span class="inline-block align-text-bottom icon"></span>-->
-                  Read more →
+                  Read more
                 </a>
               </h4>
 
-              <!-- 展示.Content -->
-              <!--<div style="color: #9ca3af; font-size: medium; margin-top: 5px; margin-bottom: 10px;">{{ .Content | truncate 100 }}</div>-->
-
               <!-- 开始展示tag -->
               <div style="margin:6px 0 2px 0;">
-                {{- if site.Params.blog.list.displayTags -}} {{/* Show tags */}}
-                {{ with .Params.tags }}
-                  <span class="opacity-75 text-sm">
-                    {{ $last_index := 0}}
-                    {{ $index := index (seq 5 | shuffle) 0 }}
-                    {{- range $tag :=  . }}
-                      <!-- 生成随机数 -->
-                      {{ if (eq $last_index $index) }}
-                        {{ $index = index (seq 5 | shuffle) 0 }}
-                      {{end}}
-                      {{ if (eq $last_index $index) }}
-                        {{ $index = index (seq 5 | shuffle) 0 }}
-                      {{end}}
-                      {{ if (eq $last_index $index) }}
-                        {{ $index = index (seq 5 | shuffle) 0 }}
-                      {{end}}
-                      {{ if (eq $last_index $index) }}
-                        {{ $index = index (seq 5 | shuffle) 0 }}
-                      {{end}}
-                      {{ if (eq $last_index $index) }}
-                        {{ $index = index (seq 5 | shuffle) 0 }}
-                      {{end}}
-                      {{ $last_index = $index}}
-                      <!-- 第一个tag -->
-                      {{ with (eq $index 1) }}
+                {{- if site.Params.blog.list.displayTags -}}
+                  {{ with .Params.tags }}
+                    <span class="opacity-75 text-sm">
+                      {{ $colorIndex := 0 }}
+                      {{- range $tag := . }}
+                        {{ $color := index $tagColors $colorIndex }}
                         <div class="diytag text-xs inline-flex items-center font-bold leading-sm px-2 py-0"
-                            style="text-transform:lowercase; background-color: #bfdbfe; color: #1d4ed8; border-radius: 10px; margin-right: 3px;">
+                             style="--bg: {{ $color.bg }}; --text: {{ $color.text }};
+                             text-transform:lowercase; background-color: var(--bg); color: var(--text); border-radius: 10px; margin-right: 3px;">
                           {{ $tag }}
                         </div>
-                      {{ end }}
-                      <!-- 第二个tag -->
-                      {{ with (eq $index 2) }}
-                        <div class="diytag text-xs inline-flex items-center font-bold leading-sm px-2 py-0"
-                            style="text-transform:lowercase; background-color: #a7f3d0; color: #047857; border-radius: 10px; margin-right: 3px;">
-                          {{ $tag }}
-                        </div>                      
-                      {{ end }}
-                      <!-- 第三个tag -->
-                      {{ with (eq $index 3) }}
-                        <div class="diytag text-xs inline-flex items-center font-bold leading-sm px-2 py-0"
-                            style="text-transform:lowercase; background-color: #fed7aa; color: #c2410c; border-radius: 10px; margin-right: 3px;">
-                          {{ $tag }}
-                        </div>
-                      {{ end }}
-                      <!-- 第四个tag -->
-                      {{ with (eq $index 4) }}
-                        <div class="diytag text-xs inline-flex items-center font-bold leading-sm px-2 py-0"
-                            style="text-transform:lowercase; background-color: #fecaca; color: #b91c1c; border-radius: 10px; margin-right: 3px;">
-                          {{ $tag }}
-                        </div>
-                      {{ end }}
-                      <!-- 第五个tag -->
-                      {{ with (eq $index 5) }}
-                        <div class="diytag text-xs inline-flex items-center font-bold leading-sm px-2 py-0"
-                            style="text-transform:lowercase; background-color: #fcd34d; color: #b45309; border-radius: 10px; margin-right: 3px;">
-                          {{ $tag }}
-                        </div>
-                      {{ end }}
-                    {{ end -}}
-                  </span>
-                {{ end -}}
-              {{- end -}}
+                        {{ $colorIndex = add $colorIndex 1 }}
+                        {{ if ge $colorIndex (len $tagColors) }}
+                          {{ $colorIndex = 0 }}
+                        {{ end }}
+                      {{ end -}}
+                    </span>
+                  {{ end -}}
+                {{- end -}}
               </div>
               <!-- 结束展示tag -->
               <a

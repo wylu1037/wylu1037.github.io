@@ -1,6 +1,7 @@
 ---
 title: 配置npm和yarn镜像
 date: 2024-03-03T16:26:56+08:00
+categories: [npm-yarn]
 tags: [yarn, npm]
 authors:
   - name: wylu

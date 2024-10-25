@@ -1,6 +1,7 @@
 ---
 title: Linux 筛选日志
 date: 2024-09-14T08:30:01+08:00
+categories: [linux]
 tags: [linux, log]
 authors:
   - name: wylu

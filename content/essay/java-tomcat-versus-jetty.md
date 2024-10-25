@@ -1,6 +1,8 @@
 ---
-title: Tomcat vs Jetty
+title: Web容器，Tomcat vs Jetty
 date: 2024-03-30T21:27:08+08:00
+categories: [java]
+tags: [java, tomcat, jetty]
 authors:
   - name: wylu
     link: https://github.com/wylu1037

@@ -1,6 +1,12 @@
 ---
 title: pprof
 date: 2024-07-31T09:53:42+08:00
+categories: [go]
+tags: [go,pprof]
+authors:
+  - name: wylu
+    link: https://github.com/wylu1037
+    image: https://github.com/wylu1037.png?size=40
 ---
 引入依赖
 ```go

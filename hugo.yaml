@@ -47,34 +47,30 @@ menu:
       name: 📚 Documentation
       pageRef: /docs
       weight: 1
-    - identifier: blog
-      name: 💻 Blog
-      pageRef: /blog
-      weight: 2
     - identifier: essay
       name: 💭 Essay
       pageRef: /essay
-      weight: 3
+      weight: 2
     - identifier: about
       name: 👨🏻‍🎓 About
       pageRef: /about
-      weight: 4
+      weight: 3
     - name: Search
-      weight: 5
+      weight: 4
       params:
         type: search
     - name: GitHub
-      weight: 6
+      weight: 5
       url: "https://github.com/wylu1037"
       params:
         icon: github
     - name: Portfolio
-      weight: 7
+      weight: 6
       url: "https://modernportfolios.vercel.app/"
       params:
         icon: globe-alt
     - name: Twitter
-      weight: 8
+      weight: 7
       url: "https://twitter.com/wylu1037"
       params:
         icon: x-twitter

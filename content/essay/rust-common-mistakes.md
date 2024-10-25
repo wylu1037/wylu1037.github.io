@@ -1,6 +1,12 @@
 ---
 title: 常见错误集锦
 date: 2024-06-19T12:23:39+08:00
+categories: [rust]
+tags: [rust, error]
+authors:
+  - name: wylu
+    link: https://github.com/wylu1037
+    image: https://github.com/wylu1037.png?size=40
 ---
 
 ## Value used after being moved [E0382]

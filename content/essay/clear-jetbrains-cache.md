@@ -1,6 +1,7 @@
 ---
 title: 清理Jetbrains安装的软件缓存
 date: 2024-02-28T12:28:17+08:00
+categories: [jetbrains]
 tags: [jetbrains, ide]
 authors:
   - name: wylu
