@@ -34,12 +34,12 @@ enableInlineShortcodes: true
 
 defaultContentLanguage: zh-cn
 languages:
-  en:
-    languageName: English
-    weight: 1
+  #en:
+  #  languageName: English
+  #  weight: 1
   zh-cn:
     languageName: 简体中文
-    weight: 2
+    weight: 1
 
 menu:
   main:
@@ -102,7 +102,7 @@ params:
   theme:
     # light | dark | system
     default: system
-    displayToggle: true
+    displayToggle: false
   page:
     # full (100%), wide (90rem), normal (1280px)
     width: wide

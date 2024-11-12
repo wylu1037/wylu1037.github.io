@@ -1,5 +1,5 @@
 ---
-title: 随想
+title: 博客
 width: normal
 ---
 
