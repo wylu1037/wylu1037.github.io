@@ -2,7 +2,7 @@
 title: 安装go
 date: 2024-08-29T14:16:25+08:00
 categories: [go]
-tags: [go,install]
+tags: [install]
 authors:
   - name: wylu
     link: https://github.com/wylu1037

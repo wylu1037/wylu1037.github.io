@@ -2,7 +2,7 @@
 title: 常见错误集锦
 date: 2024-06-19T12:23:39+08:00
 categories: [rust]
-tags: [rust, error]
+tags: [error]
 authors:
   - name: wylu
     link: https://github.com/wylu1037

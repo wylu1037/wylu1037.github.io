@@ -1,6 +1,7 @@
 ---
 title: 预览图标
 date: 2024-02-23T10:47:48+08:00
+categories: [icons]
 tags: [icons, css, animation]
 authors:
   - name: wylu
