@@ -9,19 +9,6 @@ width: wide
 weight: 2
 ---
 
-{{< cards >}}
-{{< bg-blur >}}
-
-<div style="grid-column: 2">
-{{< card
-            link="https://xiaolincoding.com/network/2_http/http_interview.html#http-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"
-            title="原文出处"
-            image="images/docs/interview/http.jpeg"
-            subtitle="Http面试、优化、协议解析、RPC、Websocket等等。"
-            method="Resize" >}}
-</div>
-{{< bg-blur color="blue" >}}
-{{< /cards >}}
 
 本文旨在全面解析 HTTP 协议及其在现代网络通信中的应用，涵盖了从基本概念、GET 与 POST 请求的差异，到 HTTP 缓存技术和协议特性的深入探讨。文章进一步深入到 HTTP1.1 的优化技术，解析 HTTPS 中 RSA 和 ECDHE 握手过程的细节，以及如何在 HTTPS 环境下进行性能优化。随着网络技术的发展，本文也探讨了 HTTP2 和 HTTP3 这两个协议版本的新特性和改进点，为读者提供了对这些先进协议的深入理解。
 
