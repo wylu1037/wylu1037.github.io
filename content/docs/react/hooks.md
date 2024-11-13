@@ -7,6 +7,11 @@ authors:
     image: https://github.com/wylu1037.png?size=40
 ---
 
+{{< cards >}}
+{{< card link="https://github.com/TanStack/query" title="Query" subtitle="Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query." icon="js" >}}
+{{< card link="https://github.com/vercel/swr" title="SWR" subtitle="React Hooks for Data Fetching" icon="js" >}}
+{{< /cards >}}
+
 ## 1. useState
 
 ## 2. useEffect
