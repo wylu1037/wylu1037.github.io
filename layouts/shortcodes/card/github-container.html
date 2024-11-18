@@ -1,0 +1,52 @@
+<div class="github-cards-container">
+    {{ .Inner }}
+  </div>
+  
+  <style>
+  .github-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    margin: 2rem 0;
+  }
+  
+  /* 确保内部的 github-card 占满容器宽度 */
+  .github-cards-container .github-card {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* 让描述部分自动填充剩余空间 */
+  .github-cards-container .github-card__description {
+    flex: 1;
+  }
+  
+  /* 针对不同屏幕尺寸优化布局 */
+  @media (max-width: 768px) {
+    .github-cards-container {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .github-cards-container {
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+  }
+  
+  /* 添加容器hover效果 */
+  .github-cards-container:hover .github-card {
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+  
+  .github-cards-container .github-card:hover {
+    opacity: 1;
+  }
+  </style>
