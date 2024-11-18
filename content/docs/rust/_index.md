@@ -2,7 +2,7 @@
 title: Rust
 date: 2024-02-20T12:51:49+08:00
 width: full
-weight: 3
+weight: 4
 ---
 
 ## <a href="https://rustwiki.org/zh-CN/book/" style="text-decoration:none;">入门语法</a>

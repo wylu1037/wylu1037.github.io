@@ -2,7 +2,7 @@
 title: TypeScript
 date: 2024-09-23T17:26:02+08:00
 width: full
-weight: 7
+weight: 2
 ---
 
 {{< callout type="info" >}}

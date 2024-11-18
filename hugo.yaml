@@ -105,7 +105,7 @@ params:
     displayToggle: false
   page:
     # full (100%), wide (90rem), normal (1280px)
-    width: wide
+    width: full
   navbar:
     displayTitle: true
     displayLogo: true
