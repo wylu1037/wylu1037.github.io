@@ -169,3 +169,20 @@ weight: 1
 >}}
 
 {{< /card/github-container >}}
+
+## Toast
+
+{{< card/github-container >}}
+
+
+{{<
+  card/github 
+  repo="emilkowalski/sonner"
+  description="An opinionated toast component for React."
+  link="https://github.com/emilkowalski/sonner"
+  language="TypeScript"
+  color="#276dbd"
+  stars="8.8k" 
+>}}
+
+{{< /card/github-container >}}

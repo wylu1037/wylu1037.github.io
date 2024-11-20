@@ -1,0 +1,79 @@
+{{ $text := .Get "text" | default "New Feature" }}
+{{ $icon := .Get "icon" | default "star" }}
+
+<div class="badge-link">
+  <div class="badge">
+    {{ if eq $icon "star" }}
+    <svg viewBox="0 0 24 24" width="20px" height="20px" fill="currentColor">
+        <path d="M17.0007 1.20825 18.3195 3.68108 20.7923 4.99992 18.3195 6.31876 17.0007 8.79159 15.6818 6.31876 13.209 4.99992 15.6818 3.68108 17.0007 1.20825ZM8.00065 4.33325 10.6673 9.33325 15.6673 11.9999 10.6673 14.6666 8.00065 19.6666 5.33398 14.6666.333984 11.9999 5.33398 9.33325 8.00065 4.33325ZM19.6673 16.3333 18.0007 13.2083 16.334 16.3333 13.209 17.9999 16.334 19.6666 18.0007 22.7916 19.6673 19.6666 22.7923 17.9999 19.6673 16.3333Z"></path>
+    </svg>
+    {{ end }}
+    <span class="badge-text">{{ $text }}</span>
+    <svg viewBox="0 0 24 24" width="20px" height="20px" fill="currentColor">
+        <path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path>
+    </svg>
+  </div>
+</div>
+
+<style>
+  .badge-link {
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background-color: var(--badge-bg, #fafaf9);
+    border: 1px solid var(--badge-border, #e0e0e0);
+    border-radius: 20px;
+    transition: all 0.2s ease;
+  }
+
+  .badge:hover {
+    cursor: pointer;
+  }
+
+  .badge-icon {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: var(--badge-icon-color, #666);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .badge-text {
+    font-weight: bolder;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--badge-text-color, #292524);
+  }
+
+  .arrow-icon {
+    width: 12px;
+    height: 12px;
+    fill: none;
+    stroke: var(--badge-arrow-color, #666);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.7;
+  }
+
+  /* Dark theme */
+  [data-theme="dark"] .badge {
+    --badge-bg: rgba(255, 255, 255, 0.1);
+    --badge-border: rgba(255, 255, 255, 0.2);
+    --badge-hover-bg: rgba(255, 255, 255, 0.15);
+    --badge-hover-border: rgba(255, 255, 255, 0.3);
+    --badge-text-color: #fff;
+    --badge-icon-color: #fff;
+    --badge-arrow-color: #fff;
+  }
+</style>

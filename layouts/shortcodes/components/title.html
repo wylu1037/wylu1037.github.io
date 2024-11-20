@@ -1,0 +1,65 @@
+{{ $title := .Get "title" | default "Discover our powerful features" }}
+{{ $subtitle := .Get "subtitle" | default "Astra offers a range of features to help you build a stunning websites in no time" }}
+
+<div class="title-container">
+  <h1 class="title">{{ $title }}</h1>
+  <p class="subtitle">{{ $subtitle }}</p>
+</div>
+
+<style>
+  .title-container {
+    text-align: center;
+    max-width: 748px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(180deg, var(--title-color, #1a1a1a) 0%, var(--title-color-secondary, #333) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--subtitle-color, #666);
+    margin: 0;
+  }
+
+  /* Dark theme */
+  [data-theme="dark"] .title {
+    --title-color: #ffffff;
+    --title-color-secondary: #e0e0e0;
+  }
+
+  [data-theme="dark"] .subtitle {
+    --subtitle-color: #a0a0a0;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2.5rem;
+    }
+    
+    .subtitle {
+      font-size: 1.125rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .title {
+      font-size: 2rem;
+    }
+    
+    .subtitle {
+      font-size: 1rem;
+    }
+  }
+</style>
