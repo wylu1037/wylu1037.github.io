@@ -9,14 +9,17 @@ weight: 7
 ---
 
 ## 1.宏
+宏有两种：
 
-### 1.1 语法
+- `macro_rules!`：声明式宏
+- `macro`：过程宏
 
-#### 1.1.1 Designators
 
-宏的参数以美元符号$为前缀，并以指示符注释类型：
+### 1.1 Designators
 
-```rust
+宏的参数以美元符号 `$` 为前缀，并以指示符注释类型。
+
+```rust {hl_lines=[1,18]}
 macro_rules! create_function {
     // This macro takes an argument of designator `ident` and
     // creates a function named `$func_name`.
@@ -69,11 +72,10 @@ fn main() {
 >
 > "{ let x = 1u32; x _ x + 2 _ x - 1 }" = 2
 
-以下是一些可用的指示符：
 
-##### block
+#### 1.1.1 block
 
-表示一个代码块
+表示一个代码块，专门匹配由花括号`{}`包围的代码块。
 
 ```rust
 macro_rules! repeat_block {
@@ -93,9 +95,16 @@ fn main() {
 }
 ```
 
-##### expr
+#### 1.1.2 expr
 
-表示一个表达式。
+表示一个表达式：
++ 数学运算
++ 函数调用
++ 代码块表达式
++ 字面量
++ 变量
+
+> `expr` 在某种程序上包含了 `block`。
 
 ```rust
 macro_rules! square {
@@ -111,7 +120,7 @@ fn main() {
 }
 ```
 
-##### ident
+#### 1.1.3 ident
 
 表示标识符（变量名或函数名）
 
@@ -133,7 +142,7 @@ fn main() {
 
 is used for variable/function names
 
-##### item
+#### 1.1.4 item
 
 用于匹配和传递任何有效的 Rust 代码项（item），比如函数、结构体、枚举、trait 实现等。
 
@@ -153,7 +162,7 @@ create_test! {
 
 ```
 
-##### literal
+#### 1.1.5 literal
 
 表示字面常量。
 
@@ -170,7 +179,7 @@ fn main() {
 }
 ```
 
-##### pat
+#### 1.1.6 pat
 
 用于模式。
 
@@ -196,7 +205,7 @@ fn main() {
 }
 ```
 
-##### path
+#### 1.1.7 path
 
 用于匹配 Rust 中的路径（path）。路径通常指的是类型、函数、模块、宏或其他项的名称，可能包括多个标识符和双冒号（::），例如 std::collections::HashMap。
 
@@ -219,7 +228,7 @@ fn main() {
 
 ```
 
-##### stmt
+#### 1.1.8 stmt
 
 用于匹配语句（statement）。语句是执行某些操作的指令，比如变量声明、表达式（包括赋值表达式和函数调用）等。
 
@@ -242,7 +251,7 @@ fn main() {
 }
 ```
 
-##### tt
+#### 1.1.9 tt
 
 用于标记树（token tree）。用于匹配几乎任何 Rust 语法结构。它可以匹配单个标记（token），也可以匹配由括号、方括号或花括号及其内容组成的结构。
 
@@ -262,9 +271,9 @@ fn main() {
 
 ```
 
-##### ty
+#### 1.1.10 ty
 
-用于匹配 Rust 中的类型（type）。当你在宏中使用 $variable:ty 时，你可以将任何有效的 Rust 类型作为参数传递给宏。
+用于匹配 Rust 中的类型（type）。当你在宏中使用 `$variable:ty` 时，你可以将任何有效的 Rust 类型作为参数传递给宏。
 
 ```rust
 macro_rules! create_struct {
@@ -279,7 +288,7 @@ create_struct!(Point, x: i32, y: i32);
 
 ```
 
-##### vis
+#### 1.1.11 vis
 
 用于匹配项（item）的可见性修饰符。这允许你在宏中指定项的可见性，例如 pub 或 pub(crate)，以控制项在模块外的可见性。
 
@@ -296,7 +305,7 @@ create_function!(pub hello);
 create_function!(pub(crate) goodbye);
 ```
 
-##### lifetime
+#### 1.1.12 lifetime
 
 用于生命周期标记。
 
@@ -318,7 +327,7 @@ impl_lifetime_trait!(MyStruct<'a>, 'a);
 
 ```
 
-#### 1.1.2 Overload
+### 1.2 Overload
 
 可以重载宏以接受不同的参数组合。在这方面，`macro_rules!` 可以类似于 `match` 块：
 
@@ -353,9 +362,10 @@ fn main() {
 >
 > "true" or "false" is true
 
-#### 1.1.3 Repeat
+### 1.3 Repeat
 
-宏可以在参数列表中使用 `+` 来表示参数至少可以重复一次，或者使用 `*` 来表示参数可以重复零次或多次。
+- `+` 来表示参数可以重复**一次或多次**（至少可以重复一次）
+- `*` 来表示参数可以重复**零次或多次**（可以不重复）
 
 在下面的示例中，在匹配器周围加上 `$(…)`，`+` 将匹配一个或多个以逗号分隔的表达式。还要注意，分号在最后一种情况下是可选的。
 
