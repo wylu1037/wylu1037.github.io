@@ -220,3 +220,36 @@ weight: 2
     stars="22.6k" 
   >}}
 {{< /card/github-container >}}
+
+
+## Motion
+
+{{< card/github-container >}}
+  {{<
+    card/github 
+    repo="motiondivision/motion"
+    description="A modern animation library for React and JavaScript"
+    link="https://github.com/motiondivision/motion"
+    language="TypeScript"
+    color="#276dbd"
+    stars="25.6k" 
+  >}}
+  {{<
+    card/github 
+    repo="romboHQ/tailwindcss-motion"
+    description="Tailwindcss-motion is a Tailwind CSS Plugin made at RomboHQ. It’s a simple, yet powerful, animation library with a simple syntax."
+    link="https://github.com/romboHQ/tailwindcss-motion"
+    language="TypeScript"
+    color="#276dbd"
+    stars="1.5k" 
+  >}}
+  {{<
+    card/github 
+    repo="greensock/GSAP"
+    description="GSAP (GreenSock Animation Platform), a JavaScript animation library for the modern web"
+    link="https://github.com/greensock/GSAP"
+    language="TypeScript"
+    color="#276dbd"
+    stars="19.9k" 
+  >}}
+{{< /card/github-container >}}
