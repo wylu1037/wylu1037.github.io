@@ -1,7 +1,21 @@
-<h3 class="h3-title">{{ .Get "text" }}</h3>
+<div class="h3-container">
+  <div class="h3-icon">{{ .Get "icon" | default "" }}</div>
+  <div class="h3-title">{{ .Get "text" }}</div>
+</div>
 
 <style>
+  .h3-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    margin: 2rem 0;
+  }
+  .h3-icon {
+    font-size: 1.5rem;
+  }
   .h3-title {
+    font-size: 1.5rem;
     background: linear-gradient(45deg, #1c1917, #57534e);
     font-weight: bolder;
     background-clip: text;

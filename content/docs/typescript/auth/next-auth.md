@@ -7,6 +7,8 @@ authors:
     image: https://github.com/wylu1037.png?size=40
 ---
 
+{{< button/docs text="Auth.js Docs" link="https://authjs.dev/getting-started/migrating-to-v5" >}}
+
 ## 1. Installation
 
 ```shell
