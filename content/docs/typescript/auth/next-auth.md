@@ -20,52 +20,6 @@ npm install next-auth@beta
 
 ## 3. Configuration
 
-```typescript {filename="auth.ts", hl_lines=[8,39,40,41,42]}
-export const authConfig = {
-  providers: [
-    CredentialsProvider({
-      credentials: {
-        email: { type: "email" },
-        password: { type: "password" },
-      },
-      authorize: authorize(db),
-    }),
-    /**
-     * ...add more providers here.
-     *
-     * Most other providers require a bit more work than the Discord provider. For example, the
-     * GitHub provider requires you to add the `refresh_token_expires_in` field to the Account
-     * model. Refer to the NextAuth.js docs for the provider you want to use. Example:
-     *
-     * @see https://next-auth.js.org/providers/github
-     */
-  ],
-  adapter: PrismaAdapter(db),
-  session: {
-    strategy: "jwt",
-  },
-  callbacks: {
-    jwt({ token, user }) {
-      if (user && "role" in user) token.role = user.role;
-      return token;
-    },
-    session({ session, token }) {
-      return {
-        ...session,
-        user: {
-          ...session.user,
-          id: token.sub!,
-          role: token.role,
-        },
-      };
-    },
-    authorized: async ({ auth }) => {
-      // Logged in users are authorized, otherwise redirect to login page
-      return !!auth;
-    },
-  },
-} satisfies NextAuthConfig;
-```
 
 ### 3.1 providers.authorize
 
@@ -102,53 +56,6 @@ const authorize = (db: DB) => async (
 {{< callout type="info" >}}
 
 使用中间件，在项目的根目录下创建 middleware.ts 文件，并添加以下代码：
-```typescript {filename="middleware.ts"}
-//export { auth as middleware } from "@/server/auth";
-
-import { NextRequest, NextResponse } from "next/server";
-import { getToken } from "next-auth/jwt";
-
-export async function middleware(request: NextRequest) {
-  console.log("middleware", request);
-
-  const token = await getToken({ req: request });
-  if (!token) {
-    return NextResponse.redirect(new URL("/signin", request.url));
-  }
-  return NextResponse.next();
-}
-
-export const config = {
-  matcher: [
-    "/app/dashboard/:path*",
-    "/api/dashboard/:path*",
-    "/api/trpc/:path*",
-  ],
-};
-```
-
-```typescript
-import { withAuth } from "next-auth/middleware";
-
-export default withAuth({
-  // 自定义配置
-  callbacks: {
-    authorized: ({ token }) => {
-      return !!token; // 只允许登录用户访问
-    },
-  },
-});
-
-// 配置需要保护的路由
-export const config = {
-  matcher: [
-    "/dashboard/:path*",
-    "/admin/:path*",
-    // 排除特定路径
-    "/((?!api|_next/static|_next/image|favicon.ico).*)",
-  ],
-};
-```
 
 {{< /callout >}}
 
@@ -167,11 +74,133 @@ callbacks: {
 
 ## 4. Database
 
+### Models
 
-## 5. Session
+#### User
 
+#### Account
+The Account model is for information about accounts associated with a `User`. A single `User` can have multiple `Account(s)`, but each `Account` can only have one `User`.
+> For Example: use different OAuth providers to login, the account will be different.
+
+#### Session
+
+The Session model is used for database sessions and it can store arbitrary data for an active user session. A single `User` can have multiple `Session(s)`, each `Session` can only have one `User`.
+> For Example: use different devices(app, web, etc.) to login, the session will be different.
+
+
+#### VerificationToken
+The VerificationToken model is used to store tokens for email-based **magic-link** sign in.
+
+
+## 5. Session Management
+
+### Session Strategies
+Auth.js supports 2 main session strategies, the JWT-based session and Database session.
+```
+optional strategy: "jwt" | "database";
+```
+
+### 5.3 Protecting Resources
+
+#### Pages
+
+Protecting routes can be done generally by checking for the session and taking an action if an active session is not found, like redirecting the user to the login page or simply returning a 401: Unauthenticated response.
+
+{{< tabs items="Next.js,Next.js(Client)" >}}
+{{< tab >}}
+You can use the `auth` function returned from `NextAuth()` and exported from your `auth.ts` or `auth.js` configuration file to get the session object.
+
+```tsx {filename="app/server/page.tsx", hl_lines=[4]}
+import { auth } from "@/auth"
+ 
+export default async function Page() {
+  const session = await auth()
+  if (!session) return <div>Not authenticated</div>
+ 
+  return (
+    <div>
+      <pre>{JSON.stringify(session, null, 2)}</pre>
+    </div>
+  )
+}
+```
+{{< /tab >}}
+{{< tab >}}
+{{< /tab >}}
+{{< /tabs >}}
+
+#### API Routes
+{{< tabs items="Next.js,Next.js(Client)" >}}
+{{< tab >}}
+```tsx {filename="app/api/admin/route.ts", hl_lines=[4]}
+import { auth } from "@/auth"
+import { NextResponse } from "next/server"
+ 
+export const GET = auth(function GET(req) {
+  if (req.auth) return NextResponse.json(req.auth)
+  return NextResponse.json({ message: "Not authenticated" }, { status: 401 })
+})
+```
+{{< /tab >}}
+{{< tab >}}
+{{< /tab >}}
+{{< /tabs >}}
+
+#### Next.js Middleware
+With Next.js 12+, the easiest way to protect a set of pages is using the middleware file. You can create a `middleware.ts` file in your root pages directory with the following contents.
+
+```typescript {filename="middleware.ts", hl_lines=[1]}
+export { auth as middleware } from "@/auth"
+
+```
+
+Then define `authorized` callback in your `auth.ts` file. For more details check out the [reference docs](https://authjs.dev/reference/nextjs#authorized).
+
+```typescript {filename="auth.ts"}
+import NextAuth from "next-auth"
+ 
+export const { auth, handlers } = NextAuth({
+  callbacks: {
+    authorized: async ({ auth }) => {
+      // Logged in users are authenticated, otherwise redirect to login page
+      return !!auth
+    },
+  },
+})
+```
+
+You can also use the `auth` method as a wrapper if you’d like to implement more logic inside the middleware.
+
+```typescript {filename="middleware.ts"}
+import { auth } from "@/auth"
+ 
+export default auth((req) => {
+  if (!req.auth && req.nextUrl.pathname !== "/login") {
+    const newUrl = new URL("/login", req.nextUrl.origin)
+    return Response.redirect(newUrl)
+  }
+})
+```
+
+You can also use a regex to match multiple routes or you can negate certain routes in order to protect all remaining routes. The following example avoids running the middleware on paths such as the favicon or static images.
+
+```typescript {filename="middleware.ts"}
+export const config = {
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+}
+```
+
+Middleware will protect pages as defined by the `matcher` config export. For more details about the matcher, check out the [Next.js docs](https://nextjs.org/docs/pages/building-your-application/routing/middleware#matching-paths).
 
 ## 6. Providers
 
+### 6.1 GitHub,
+
+### 6.2 Google
 
 ## 7. Adapters
+### 7.1 Prisma
+
+### 7.2 Drizzle
+
+
