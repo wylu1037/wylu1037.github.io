@@ -7,14 +7,9 @@ authors:
     image: https://github.com/wylu1037.png?size=40
 ---
 
-Instagram
-Uber
-Gmail
+{{< button/docs text="Learn System Design the Structured Way" link="https://systemdesignschool.io/" >}}
 
-Youtube
-Vercel
-
-Netflix & Uber.
+## EDA
 
 {{< youtube hrvx8Nv9eQA >}}
 
@@ -51,3 +46,8 @@ NLB is Network Load Balancer. Load balance TCP/TLS traffic. Layer 4.
 DNS-based Load Balancer. Layer 7.
 
 API Gateway & Load Balancer.
+
+{{< youtube KGM9eSPeZ04 >}}
+
+
+
