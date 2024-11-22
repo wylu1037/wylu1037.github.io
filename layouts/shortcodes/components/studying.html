@@ -7,12 +7,12 @@
         </div>
         <p class="tech-description">A JavaScript library for building user interfaces with components</p>
         <div class="tech-meta">
-          <span class="tech-level advanced">Advanced</span>
           <span class="tech-status active" title="Active">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 6L9 17l-5-5"></path>
             </svg>
           </span>
+          <span class="tech-level advanced">Advanced</span>
         </div>
       </li>
       <li class="tech-item" style="--bg-color: #3178c6;">
@@ -24,14 +24,14 @@
           <span class="tech-name">TypeScript</span>
         </div>
         <p class="tech-description">Strongly typed programming language that builds on JavaScript</p>
-        <div class="tech-meta">
-          <span class="tech-level intermediate">Intermediate</span>
+        <div class="tech-meta">         
           <span class="tech-status in-progress" title="In Progress">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
               <polygon points="10 8 16 12 10 16 10 8"></polygon>
             </svg>
           </span>
+          <span class="tech-level intermediate">Intermediate</span>
         </div>
       </li>
       <li class="tech-item" style="--bg-color: #00FFFF;">
@@ -42,13 +42,13 @@
           <span class="tech-name">AI</span>
         </div>
         <p class="tech-description">Field of computer science focused on creating intelligent machines</p>
-        <div class="tech-meta">
-          <span class="tech-level intermediate">Intermediate</span>
+        <div class="tech-meta">          
           <span class="tech-status active" title="Active">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 6L9 17l-5-5"></path>
             </svg>
           </span>
+          <span class="tech-level intermediate">Intermediate</span>
         </div>
       </li>
       <li class="tech-item" style="--bg-color: #DEA584;">
@@ -60,12 +60,12 @@
         </div>
         <p class="tech-description">Systems programming language focused on safety, speed, and concurrency</p>
         <div class="tech-meta">
-          <span class="tech-level beginner">Beginner</span>
           <span class="tech-status planning" title="Planning">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
             </svg>
           </span>
+          <span class="tech-level beginner">Beginner</span>
         </div>
       </li>
     </ul>
@@ -169,9 +169,9 @@
       letter-spacing: 0.5px;
     }
   
-    .tech-level.beginner { background-color: #22d3ee; color: white; }
-    .tech-level.intermediate { background-color: #fbbf24; color: white; }
-    .tech-level.advanced { background-color: #f87171; color: white; }
+    .tech-level.beginner { width: 100px; text-align: center; border: 1px solid #22d3ee; color: #22d3ee; }
+    .tech-level.intermediate { width: 100px; text-align: center; border: 1px solid #fbbf24; color: #fbbf24; }
+    .tech-level.advanced { width: 100px; text-align: center; border: 1px solid #f87171; color: #f87171; }
   
     .tech-status {
       display: flex;
@@ -188,9 +188,9 @@
       height: 16px;
     }
   
-    .tech-status.planning { background-color: #a78bfa; }
+    /*.tech-status.planning { background-color: #a78bfa; }
     .tech-status.active { background-color: #4ade80; }
-    .tech-status.in-progress { background-color: #fb923c; }
+    .tech-status.in-progress { background-color: #fb923c; }*/
   
     @media (max-width: 768px) {
       .studying-component {
