@@ -219,6 +219,15 @@ weight: 2
     color="#276dbd"
     stars="22.6k" 
   >}}
+  {{<
+    card/github 
+    repo="cypress-io/cypress"
+    description="Fast, easy and reliable testing for anything that runs in a browser."
+    link="https://github.com/cypress-io/cypress"
+    language="TypeScript"
+    color="#276dbd"
+    stars="47.1k" 
+  >}}
 {{< /card/github-container >}}
 
 
