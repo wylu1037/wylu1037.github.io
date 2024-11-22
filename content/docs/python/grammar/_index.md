@@ -2,7 +2,7 @@
 title: 语法篇
 date: 2024-09-13T19:31:45+08:00
 width: full
-weight: 1
+weight: 3
 ---
 
 {{< cards >}}
