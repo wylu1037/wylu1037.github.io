@@ -1,0 +1,63 @@
+{{- $items := split (.Get "items") "," -}}
+<div class="tech-stack-badges">
+  {{- range $i, $item := $items -}}
+    <div class="tech-badge ghost">
+      <span class="tech-label">{{- $item -}}</span>
+    </div>
+  {{- end -}}
+</div>
+
+<style>
+    .tech-stack-badges {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        gap: 8px;
+        padding: 16px 0px;
+    }
+
+    .tech-badge {
+        display: flex;
+        align-items: center;
+        background-color: transparent; /* 透明背景 */
+        border: 1px solid #e7e5e4; /* 边框颜色 */
+        border-radius: 8px;
+        padding: 4px 12px;
+        transition: all 0.3s ease;
+        box-shadow: none; /* 去掉阴影 */
+    }
+
+    .tech-badge:hover {
+        background-color: #f0f4f8; /* 悬停时背景颜色 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 悬停时阴影 */
+    }
+
+    .tech-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tech-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #2d3748;
+    }
+
+    @media (max-width: 640px) {
+        .tech-stack-badges {
+            gap: 8px;
+        }
+
+        .tech-badge {
+            padding: 6px 12px;
+        }
+
+        .tech-label {
+            font-size: 12px;
+        }
+    }
+</style>
