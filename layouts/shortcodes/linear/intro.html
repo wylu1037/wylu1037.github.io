@@ -1,0 +1,135 @@
+<div class="linear-container">
+    {{ with .Get "title" }}
+      <h2 class="linear-title">{{ . }}</h2>
+    {{ end }}
+    
+    {{ with .Get "tags" }}
+      <div class="linear-tags">
+        {{ range split . "," }}
+          <span class="linear-tag">{{ . }}</span>
+        {{ end }}
+      </div>
+    {{ end }}
+    
+    <div class="linear-card">
+      {{ with .Get "quote" }}
+        <div class="linear-quote">
+          <p>{{ . }}</p>
+          {{ with $.Get "author" }}
+            <div class="linear-author">{{ . }}</div>
+          {{ end }}
+        </div>
+      {{ end }}
+      
+      {{ with .Get "content" }}
+        <div class="linear-content">{{ . }}</div>
+      {{ end }}
+    </div>
+</div>
+
+<style>
+.linear-container {
+  position: relative;
+  padding: 24px;
+  color: #333;
+  /* background: linear-gradient(125deg, rgba(250,250,255,0.95) 0%, rgba(245,245,250,0.95) 100%); */
+}
+
+.linear-title {
+  font-size: 32px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #7b61ff 0%, #5c6fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 24px;
+  text-align: center;
+  border-bottom: none;
+}
+
+.linear-tags {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.linear-tag {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  background: rgba(123, 97, 255, 0.1);
+  border: 1px solid rgba(123, 97, 255, 0.2);
+  color: #7b61ff;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.linear-tag:hover {
+  background: rgba(123, 97, 255, 0.15);
+  border-color: rgba(123, 97, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.linear-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  border: 1px solid rgba(123, 97, 255, 0.2);
+  padding: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.linear-quote {
+  margin-bottom: 24px;
+  color: #444;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.linear-author {
+  margin-top: 12px;
+  text-align: right;
+  color: #666;
+  font-size: 14px;
+}
+
+.linear-content {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* 修改发光效果 */
+.linear-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  background: linear-gradient(45deg, 
+    rgba(123, 97, 255, 0.1) 0%, 
+    rgba(123, 97, 255, 0) 60%
+  );
+  pointer-events: none;
+}
+
+/* 修改模糊光晕效果 */
+.linear-container::after {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 100%;
+  top: -5%;
+  left: -10%;
+  background: radial-gradient(
+    circle at top right,
+    rgba(123, 97, 255, 0.15) 0%,
+    rgba(123, 97, 255, 0) 60%
+  );
+  filter: blur(40px);
+  z-index: -1;
+}
+</style>
