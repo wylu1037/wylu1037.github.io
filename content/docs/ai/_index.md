@@ -23,3 +23,11 @@ weight: 1
 
 
 
+{{< button/docs text="Vercel AI SDK" link="https://sdk.vercel.ai/" >}}
+
++ Guide
++ AI SDK Core
++ AI SDK UI
+
+
+{{< button/docs text="Cloudflare AI" link="https://ai.cloudflare.com/" >}}
