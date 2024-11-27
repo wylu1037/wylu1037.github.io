@@ -67,6 +67,29 @@ weight: 1
   >}}
 {{< /card/github-container >}}
 
+## Practice
+
+{{< card/github-container >}}
+  {{<
+    card/github 
+    repo="BCG-X-Official/agentkit"
+    description="Starter-kit to build constrained agents with Nextjs, FastAPI and Langchain"
+    link="https://github.com/BCG-X-Official/agentkit"
+    language="python"
+    color="#2b679a"
+    stars="1.6k" 
+  >}}
+  {{<
+    card/github 
+    repo="miurla/morphic"
+    description="An AI-powered search engine with a generative UI"
+    link="https://github.com/miurla/morphic"
+    language="typescript"
+    color="#276dbd"
+    stars="6.4k" 
+  >}}
+{{< /card/github-container >}}
+
 
 ## Hugging Face Transformers
 + **用途**：提供多种预训练的语言模型，支持文本生成、分类、问答等任务。
