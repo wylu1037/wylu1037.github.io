@@ -1,5 +1,5 @@
 ---
-title: Github
+title: GitHub
 date: 2024-11-22T19:35:40+08:00
 authors:
   - name: wylu
