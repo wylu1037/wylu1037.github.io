@@ -250,8 +250,8 @@ toc: false
             <p>Some Text</p>
             <div>
               <a>Go</a>
-              <a>Java</a>
-              <a>Kotlin</a>
+              <a>TS</a>
+              <a>Rust</a>
             </div>
           </div>
           <div class="timeline-component timeline-content">
