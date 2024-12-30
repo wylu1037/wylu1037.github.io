@@ -262,3 +262,26 @@ weight: 2
     stars="19.9k" 
   >}}
 {{< /card/github-container >}}
+
+## Monorepo
+
+{{< card/github-container >}}
+{{<
+card/github
+repo="t3-oss/create-t3-turbo"
+description="Clean and simple starter repo using the T3 Stack along with Expo React Native"
+link="https://github.com/t3-oss/create-t3-turbo"
+language="TypeScript"
+color="#276dbd"
+stars="4.8k"
+>}}
+{{<
+card/github
+repo="vercel/turborepo"
+description="Build system optimized for JavaScript and TypeScript, written in Rust"
+link="https://github.com/vercel/turborepo"
+language="TypeScript"
+color="#276dbd"
+stars="26.7k"
+>}}
+{{< /card/github-container >}}
