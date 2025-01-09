@@ -90,6 +90,57 @@ fn main() {
 }
 ```
 
-### PartialEq
+### 2.4 PartialEq
+> PartialEq 是一个用于比较类型是否相等的特性（trait）。
+> + 为类型提供 == 和 != 运算符支持。
+> + 实现 PartialEq 表明可以在类型实例之间判断 “部分等价性”。
 
-### Eq
+### 2.5 Eq
+> Eq 是 PartialEq 的子特性，表示类型具有 “完全等价性”。
+
+### 2.6 Send
+> Send 是一个标志性特性，表示类型的值可以安全地在线程之间移动（transfer ownership）。
+> + 如果一个类型实现了 Send，则它可以被所有权转移到另一个线程。
+> + Rust 的绝大多数类型都自动实现了 Send（例如，i32、String 等）。
+
+```rust
+use std::thread;
+
+fn main() {
+    let s = String::from("Hello");
+
+    let handle = thread::spawn(move || {
+        println!("{}", s); // 所有权转移到另一个线程
+    });
+
+    handle.join().unwrap();
+}
+```
+
+### 2.7 Sync
+> Sync 是一个标志性特性，表示类型的引用可以安全地在多个线程中共享（共享引用 &T 是安全的）。
+> + 如果一个类型实现了 Sync，则它的引用可以在线程之间共享。
+> + Arc（原子引用计数）实现了 Sync，因此它的引用可以安全地在多个线程中共享。
+
+```rust
+use std::sync::Arc;
+use std::thread;
+
+fn main() {
+    let s = Arc::new(String::from("Hello"));
+
+    let s1 = Arc::clone(&s);
+    let s2 = Arc::clone(&s);
+
+    let handle1 = thread::spawn(move || {
+        println!("{}", s1);
+    });
+
+    let handle2 = thread::spawn(move || {
+        println!("{}", s2);
+    });
+
+    handle1.join().unwrap();
+    handle2.join().unwrap();
+}
+```
