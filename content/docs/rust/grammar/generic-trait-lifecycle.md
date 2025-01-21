@@ -144,3 +144,53 @@ fn main() {
     handle2.join().unwrap();
 }
 ```
+
+### 2.8 Into
+> Into trait定义了一个方法into，它允许将一个类型转换成另一个类型。
+```rust
+pub trait Into<T>: Sized {
+    fn into(self) -> T;
+}
+```
+
+示例：
+```rust
+struct Wrapper(i32);
+
+impl Into<Wrapper> for i32 {
+    fn into(self) -> Wrapper {
+        Wrapper(self)
+    }
+}
+
+fn main() {
+    let num: i32 = 5;
+    let wrapped: Wrapper = num.into();
+    println!("Wrapped value: {:?}", wrapped);
+}
+```
+
+### 2.9 From
+> From trait定义了一个方法from，它允许从一个类型创建另一个类型。
+```rust
+pub trait From<T>: Sized {
+    fn from(value: T) -> Self;
+}
+```
+
+示例：
+```rust
+struct Wrapper(i32);
+
+impl From<i32> for Wrapper {
+    fn from(value: i32) -> Self {
+        Wrapper(value)
+    }
+}
+
+fn main() {
+    let num: i32 = 5;
+    let wrapped: Wrapper = Wrapper::from(num);
+    println!("Wrapped value: {:?}", wrapped);
+}
+```
