@@ -253,3 +253,85 @@ obj = SubClass()
 print(obj._protected)  # 可以访问，但不推荐
 print(obj.access_protected())  # 子类可以正确访问受保护属性
 ```
+
+## abc
+> abc（Abstract Base Classes）是 Python 中的一个模块，它提供了一种机制，用于创建抽象基类（Abstract Base Classes）。
+
+### 接口
+#### ABC
+> 使用 abc 模块强制子类实现特定方法。
+```python
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius ** 2
+```
+#### Duck Typing
+> 依赖方法签名而非显式接口。
+
+```python
+class Square:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return self.radius * self.radius
+
+def print_area(shape):
+    print(f"Area: {shape.area()}")
+
+if __name__ == '__main__':
+    print_area(Square(10, 20))
+```
+
+### 多重继承与MRO
+**多重继承**允许一个类同时继承多个父类，而 **MRO**（Method Resolution Order，方法解析顺序） 决定了当多个父类存在同名方法时，子类调用方法的优先级顺序。
+
+### 多重继承
+```python
+python
+class A:
+    def show(self):
+        print("A")
+
+class B(A):
+    def show(self):
+        print("B")
+
+class C(A):
+    def show(self):
+        print("C")
+
+# 多重继承
+class D(B, C):
+    # 关键字，当语法上需要一条语句但程序逻辑不需要任何操作时使用
+    pass
+```
+
+#### MRO
+当子类调用方法时，Python 需要确定从哪个父类继承方法。MRO 通过 C3 算法 生成一个继承顺序列表，规则是：
++ 子类优先级高于父类。
++ 父类间的顺序按定义从左到右。
++ 保证所有父类在继承链中只出现一次。
+
+## 注解
+### builtin
+#### @classmethod
+`@classmethod` 是 Python 中的一个内置装饰器，用于定义类方法。与实例方法不同，类方法的第一个参数是类本身(通常命名为`cls`)，而不是实例(即`self`)。这使得类方法能够在不实例化类的情况下访问和修改类级别的属性或调用其他类方法。
