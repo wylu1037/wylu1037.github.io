@@ -182,6 +182,16 @@ weight: 2
     color="#276dbd"
     stars="8.8k" 
   >}}
+
+  {{<
+    card/github
+    repo="timolins/react-hot-toast"
+    description="Smoking Hot React Notifications."
+    link="https://github.com/timolins/react-hot-toast"
+    language="TypeScript"
+    color="#276dbd"
+    stars="10.1k"
+  >}}
 {{< /card/github-container >}}
 
 ## Database
