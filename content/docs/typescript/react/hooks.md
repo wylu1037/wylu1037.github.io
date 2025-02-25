@@ -13,7 +13,7 @@ authors:
 {{< /cards >}}
 
 ## 1. useState
-管理组件内部状态。
+管理组件**内部**状态。
 ```jsx
 const [count, setCount] = useState(0);
 ```
@@ -59,13 +59,60 @@ useEffect(() => {
 + 无依赖：每次渲染都运行
 
 ## 3. useContext
-主要作用是跨组件层级传递数据，避免 prop drilling。
-```javascript
-const value = useContext(MyContext);
-```
+主要作用是<u>跨组件</u>层级传递数据，避免 **_prop drilling_**。
 
-> + 上下文变化会触发所有消费者组件重新渲染
-> + 复杂场景建议结合 useReducer
+### 基本概念
++ Context：一个对象，用于存储需要共享的数据。
++ Provider：一个组件，用于向子组件提供上下文数据。
++ Consumer：一种方式（可以是 useContext 或 <Context.Consumer>），用于从上下文中读取数据。
+
+### 使用步骤
+(1) 创建 Context
+使用 React.createContext 创建一个上下文对象。
+
+```javascript
+import React, { createContext } from 'react';
+
+// 创建一个 Context 对象
+const MyContext = createContext();
+```
++ `createContext` 返回一个包含 `Provider` 和 `Consumer` 的对象。
++ 默认情况下，上下文的值为 `undefined`，除非通过 `Provider` 提供值。
+
+(2) 提供上下文值
+使用 Provider 组件将数据传递给子组件。
+```javascript
+function App() {
+  const theme = { color: 'blue', fontSize: '16px' };
+
+  return (
+    <MyContext.Provider value={theme}>
+      <ChildComponent />
+    </MyContext.Provider>
+  );
+}
+```
++ `value` 属性用于传递上下文数据。
++ 所有嵌套在 `Provider` 内的子组件都可以访问该上下文。
+
+(3) 使用 useContext 消费上下文
+在子组件中使用 `useContext` 钩子读取上下文数据。
+```javascript
+import React, { useContext } from 'react';
+
+function ChildComponent() {
+  // 使用 useContext 获取上下文值
+  const theme = useContext(MyContext);
+
+  return (
+    <div style={{ color: theme.color, fontSize: theme.fontSize }}>
+      Hello, this is styled by the context!
+    </div>
+  );
+}
+```
++ `useContext` 接收一个上下文对象（由 `createContext` 创建），并返回当前上下文的值。
++ 如果没有匹配的 Provider，则返回 `createContext` 的默认值。
 
 ### 3.1 主题切换
 ```jsx
