@@ -97,8 +97,10 @@
       padding: 0;
       display: grid;
       justify-content: center;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
   
     .tech-item {
@@ -106,17 +108,26 @@
       background-color: #f9fafb;
       color: #333;
       padding: 1.5rem;
-      border-radius: 12px;
+      border-radius: 16px;
       text-align: left;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       flex-direction: column;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
     }
-  
-    .tech-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(var(--bg-color-rgb), 0.4);
+
+    .tech-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--bg-color), rgba(var(--bg-color-rgb), 0.7));
+      transform: scaleX(0);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
   
     .tech-item[style*="--bg-color: #61dafb"] { --bg-color-rgb: 97, 218, 251; }
@@ -138,16 +149,18 @@
     }
   
     .tech-name {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #333;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1f2937;
+      letter-spacing: -0.025em;
     }
   
     .tech-description {
-      font-size: 0.95rem;
-      color: #666;
-      margin: 0 0 1rem 0;
-      line-height: 1.5;
+      font-size: 1rem;
+      color: #6b7280;
+      margin: 0 0 1.25rem 0;
+      line-height: 1.6;
+      opacity: 0.9;
     }
   
     .tech-meta {
@@ -168,14 +181,22 @@
       color: #fff;
     }
   
+    .tech-status.active {
+      background-color: #10b981;
+    }
+
+    .tech-status.in-progress {
+      background-color: #f59e0b;
+    }
+
+    .tech-status.planning {
+      background-color: #6b7280;
+    }
+
     .tech-status svg {
       width: 16px;
       height: 16px;
     }
-  
-    /*.tech-status.planning { background-color: #a78bfa; }
-    .tech-status.active { background-color: #4ade80; }
-    .tech-status.in-progress { background-color: #fb923c; }*/
   
     @media (max-width: 768px) {
       .studying-component {

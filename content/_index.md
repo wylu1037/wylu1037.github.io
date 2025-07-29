@@ -8,11 +8,9 @@ displayPlaceholder: false
 ---
 
 {{< animation type="main">}}
+
 {{< components/hero >}}
-
 {{< components/tech-stack >}}
-
-<!-- 正在学习 -->
 {{< components/bg >}}
     {{< components/badge text="正在学习" href="/docs/astra-ai" >}}
     {{< components/title 
@@ -21,6 +19,5 @@ displayPlaceholder: false
     >}}
     {{< components/studying >}}
 {{</ components/bg >}}
-<!-- 正在学习 -->
 
 {{< layout/footer>}}
