@@ -394,11 +394,21 @@ fn main() {
 >
 > 4
 
-### 1.2 DRY
+### 1.4 DRY（不要重复你自己）
 
-Don't Repeat Yourself
+宏能够通过抽象来减少代码重复。通过编写一次代码并让宏处理重复的部分，我们可以保持代码的 DRY 原则：
 
-### 1.3 DSL
+```rust
+macro_rules! impl_op_ex {
+    ($($t:ty)*) => ($(impl OpEx for $t { })*);
+}
+
+impl_op_ex! { i8 i16 i32 i64 isize u8 u16 u32 u64 usize f32 f64 }
+```
+
+### 1.5 DSL（领域特定语言）
+
+宏使得创建领域特定语言成为可能，这些语言在特定问题域中提供更自然的语法：
 
 ```rust
 macro_rules! calculate {
@@ -421,7 +431,7 @@ fn main() {
 }
 ```
 
-### 1.4 Variadic
+### 1.6 可变参数宏（Variadic Macros）
 
 可变接口接受任意数量的参数。例如，`println!` 可以接受任意数量的参数，由格式字符串决定。
 
@@ -451,4 +461,392 @@ fn main() {
         eval (2 * 3) + 1
     }
 }
+```
+
+### 1.7 过程宏（Procedural Macros）
+
+过程宏允许你在编译时运行代码来操作 Rust 语法树，比声明式宏更强大但也更复杂。
+
+#### 1.7.1 派生宏（Derive Macros）
+派生宏用于为结构体和枚举自动实现 trait：
+
+```rust
+use proc_macro::TokenStream;
+use quote::quote;
+use syn;
+
+#[proc_macro_derive(HelloMacro)]
+pub fn hello_macro_derive(input: TokenStream) -> TokenStream {
+    // 构建 Rust 代码所代表的语法树
+    let ast = syn::parse(input).unwrap();
+
+    // 构建 impl
+    impl_hello_macro(&ast)
+}
+
+fn impl_hello_macro(ast: &syn::DeriveInput) -> TokenStream {
+    let name = &ast.ident;
+    let gen = quote! {
+        impl HelloMacro for #name {
+            fn hello_macro() {
+                println!("Hello, Macro! My name is {}!", stringify!(#name));
+            }
+        }
+    };
+    gen.into()
+}
+```
+
+#### 1.7.2 类属性宏（Attribute-like Macros）
+创建新属性的宏：
+
+```rust
+#[proc_macro_attribute]
+pub fn route(attr: TokenStream, item: TokenStream) -> TokenStream {
+    // 实现逻辑
+}
+```
+
+#### 1.7.3 类函数宏（Function-like Macros）
+看起来像函数调用的过程宏：
+
+```rust
+#[proc_macro]
+pub fn sql(input: TokenStream) -> TokenStream {
+    // 实现逻辑
+}
+```
+
+## 2.不安全 Rust（Unsafe Rust）
+
+Rust 的内存安全保证是通过静态分析来实现的，但有时这些保证会过于保守。在这些情况下，可以使用 `unsafe` 来告诉编译器你知道自己在做什么。
+
+### 2.1 不安全的超能力
+
+在 `unsafe` 块中，你可以进行五种不安全的操作：
+
+1. **解引用原生指针**
+2. **调用不安全的函数或方法**
+3. **访问或修改可变静态变量**
+4. **实现不安全 trait**
+5. **访问 `union` 的字段**
+
+### 2.2 解引用原生指针
+
+原生指针有两种类型：`*const T` 和 `*mut T`。它们不实现自动清理功能。
+
+```rust
+fn main() {
+    let mut num = 5;
+
+    let r1 = &num as *const i32;
+    let r2 = &mut num as *mut i32;
+
+    unsafe {
+        println!("r1 is: {}", *r1);
+        println!("r2 is: {}", *r2);
+    }
+}
+```
+
+### 2.3 调用不安全函数或方法
+
+```rust
+unsafe fn dangerous() {
+    println!("This is dangerous!");
+}
+
+fn main() {
+    unsafe {
+        dangerous();
+    }
+}
+```
+
+### 2.4 创建不安全代码的安全抽象
+
+```rust
+use std::slice;
+
+fn split_at_mut(slice: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
+    let len = slice.len();
+    let ptr = slice.as_mut_ptr();
+
+    assert!(mid <= len);
+
+    unsafe {
+        (
+            slice::from_raw_parts_mut(ptr, mid),
+            slice::from_raw_parts_mut(ptr.add(mid), len - mid),
+        )
+    }
+}
+```
+
+### 2.5 使用 extern 函数调用外部代码
+
+```rust
+extern "C" {
+    fn abs(input: i32) -> i32;
+}
+
+fn main() {
+    unsafe {
+        println!("Absolute value of -3 according to C: {}", abs(-3));
+    }
+}
+```
+
+## 3.高级 trait
+
+### 3.1 关联类型在 trait 定义中指定占位符类型
+
+**关联类型**（associated types）是一个将类型占位符与 trait 相关联的方式，这样 trait 的方法签名中就可以使用这些占位符类型。
+
+```rust
+pub trait Iterator {
+    type Item;
+
+    fn next(&mut self) -> Option<Self::Item>;
+}
+
+struct Counter {
+    current: usize,
+    max: usize,
+}
+
+impl Iterator for Counter {
+    type Item = usize;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        if self.current < self.max {
+            let current = self.current;
+            self.current += 1;
+            Some(current)
+        } else {
+            None
+        }
+    }
+}
+```
+
+### 3.2 默认泛型类型参数和运算符重载
+
+```rust
+use std::ops::Add;
+
+#[derive(Debug, PartialEq)]
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+impl Add for Point {
+    type Output = Point;
+
+    fn add(self, other: Point) -> Point {
+        Point {
+            x: self.x + other.x,
+            y: self.y + other.y,
+        }
+    }
+}
+
+fn main() {
+    assert_eq!(
+        Point { x: 1, y: 0 } + Point { x: 2, y: 3 },
+        Point { x: 3, y: 3 }
+    );
+}
+```
+
+### 3.3 完全限定语法与消歧义
+
+```rust
+trait Pilot {
+    fn fly(&self);
+}
+
+trait Wizard {
+    fn fly(&self);
+}
+
+struct Human;
+
+impl Pilot for Human {
+    fn fly(&self) {
+        println!("This is your captain speaking.");
+    }
+}
+
+impl Wizard for Human {
+    fn fly(&self) {
+        println!("Up!");
+    }
+}
+
+impl Human {
+    fn fly(&self) {
+        println!("*waving arms furiously*");
+    }
+}
+
+fn main() {
+    let person = Human;
+    Pilot::fly(&person);
+    Wizard::fly(&person);
+    person.fly();
+}
+```
+
+### 3.4 父 trait 用于在另一个 trait 中使用某 trait 的功能
+
+```rust
+use std::fmt;
+
+trait OutlinePrint: fmt::Display {
+    fn outline_print(&self) {
+        let output = self.to_string();
+        let len = output.len();
+        println!("{}", "*".repeat(len + 4));
+        println!("*{}*", " ".repeat(len + 2));
+        println!("* {} *", output);
+        println!("*{}*", " ".repeat(len + 2));
+        println!("{}", "*".repeat(len + 4));
+    }
+}
+
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+impl fmt::Display for Point {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "({}, {})", self.x, self.y)
+    }
+}
+
+impl OutlinePrint for Point {}
+```
+
+### 3.5 newtype 模式用以在外部类型上实现外部 trait
+
+```rust
+use std::fmt;
+
+struct Wrapper(Vec<String>);
+
+impl fmt::Display for Wrapper {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "[{}]", self.0.join(", "))
+    }
+}
+
+fn main() {
+    let w = Wrapper(vec![String::from("hello"), String::from("world")]);
+    println!("w = {}", w);
+}
+```
+
+## 4.高级类型
+
+### 4.1 为了类型安全和抽象而使用 newtype 模式
+
+newtype 模式可以用于：
+1. **类型安全**：确保值不会混淆
+2. **抽象**：隐藏内部实现
+
+```rust
+struct Millimeters(u32);
+struct Meters(u32);
+
+impl Millimeters {
+    fn to_meters(&self) -> Meters {
+        Meters(self.0 / 1000)
+    }
+}
+```
+
+### 4.2 类型别名用来创建类型同名
+
+```rust
+type Kilometers = i32;
+
+let x: i32 = 5;
+let y: Kilometers = 5;
+
+println!("x + y = {}", x + y);
+```
+
+### 4.3 从不返回的 never type
+
+```rust
+fn bar() -> ! {
+    panic!("This function never returns!");
+}
+
+let guess: u32 = match guess.trim().parse() {
+    Ok(num) => num,
+    Err(_) => continue, // continue 的类型是 !
+};
+```
+
+### 4.4 动态大小类型和 Sized trait
+
+Rust 需要知道类型占用多少空间，但**动态大小类型**（DST）的大小只能在运行时确定：
+
+```rust
+// str 是 DST，所以我们不能直接使用
+// let s1: str = "Hello there!"; // 错误
+
+// 必须使用 &str
+let s1: &str = "Hello there!";
+
+// 或者使用 Box<str>
+let s2: Box<str> = "Hello there!".into();
+```
+
+## 5.高级函数与闭包
+
+### 5.1 函数指针
+
+```rust
+fn add_one(x: i32) -> i32 {
+    x + 1
+}
+
+fn do_twice(f: fn(i32) -> i32, arg: i32) -> i32 {
+    f(arg) + f(arg)
+}
+
+fn main() {
+    let answer = do_twice(add_one, 5);
+    println!("The answer is: {}", answer);
+}
+```
+
+### 5.2 返回闭包
+
+```rust
+fn returns_closure() -> Box<dyn Fn(i32) -> i32> {
+    Box::new(|x| x + 1)
+}
+
+fn main() {
+    let f = returns_closure();
+    println!("{}", f(1));
+}
+```
+
+### 5.3 函数指针与闭包的区别
+
+```rust
+let list_of_numbers = vec![1, 2, 3];
+let list_of_strings: Vec<String> =
+    list_of_numbers.iter().map(|i| i.to_string()).collect();
+
+// 也可以使用函数指针
+let list_of_strings: Vec<String> =
+    list_of_numbers.iter().map(ToString::to_string).collect();
 ```

@@ -77,7 +77,269 @@ crate
 ```
 
 ## 3.路径
+为了在 Rust 的模块树中找到某个项，需要使用路径的方式，就像在文件系统使用路径一样。如果想要调用一个函数，需要知道它的路径。
+
+路径有两种形式：
++ **绝对路径（absolute path）**：从 crate 根开始，以 crate 名或者字面值 `crate` 开头。
++ **相对路径（relative path）**：从当前模块开始，以 `self`、`super` 或当前模块的标识符开头。
+
+### 3.1 绝对路径和相对路径
+```rust
+mod front_of_house {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+    }
+}
+
+pub fn eat_at_restaurant() {
+    // 绝对路径
+    crate::front_of_house::hosting::add_to_waitlist();
+
+    // 相对路径
+    front_of_house::hosting::add_to_waitlist();
+}
+```
+
+### 3.2 使用 pub 关键字暴露路径
+模块不仅对于组织代码很有用。它们还定义了 Rust 的 **私有性边界**（privacy boundary）：这条界线不允许外部代码了解、调用和依赖被封装的实现细节。所以，如果你希望创建一个库或二进制项的某一部分是私有的，可以将其放入模块。
+
+Rust 中默认所有项（函数、方法、结构体、枚举、模块和常量）都是私有的。父模块中的项不能使用子模块中的私有项，但是子模块中的项可以使用他们父模块中的项。
+
+### 3.3 使用 super 起始的相对路径
+还可以使用 `super` 开头来构建从父模块开始的相对路径。这么做类似于文件系统中以 `..` 开头的语法。
+
+```rust
+fn serve_order() {}
+
+mod back_of_house {
+    fn fix_incorrect_order() {
+        cook_order();
+        super::serve_order();
+    }
+
+    fn cook_order() {}
+}
+```
 
 ## 4.使用use
+使用 `use` 关键字可以将路径一次性引入作用域，然后调用该路径中的项，就如同它们是本地项一样。
 
-## 5.分割模块
+### 4.1 基本用法
+```rust
+mod front_of_house {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+    }
+}
+
+use crate::front_of_house::hosting;
+
+pub fn eat_at_restaurant() {
+    hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
+}
+```
+
+### 4.2 使用 use 的习惯用法
+对于函数来说，我们习惯是指定到父模块，然后在调用时指定父模块，这样可以清晰地表明函数不是在本地定义的。
+
+对于结构体、枚举和其他项，习惯是指定它们的完整路径：
+```rust
+use std::collections::HashMap;
+
+fn main() {
+    let mut map = HashMap::new();
+    map.insert(1, 2);
+}
+```
+
+### 4.3 使用 as 关键字提供新的名称
+```rust
+use std::fmt::Result;
+use std::io::Result as IoResult;
+
+fn function1() -> Result {
+    // --snip--
+    Ok(())
+}
+
+fn function2() -> IoResult<()> {
+    // --snip--
+    Ok(())
+}
+```
+
+### 4.4 使用 pub use 重导出名称
+当使用 `use` 关键字将名称导入作用域时，在新作用域中可用的名称是私有的。如果为了让调用你编写的代码的代码能够像在自己的作用域内引用这些类型，可以结合 `pub` 和 `use`。这个技术被称为 **重导出**（re-exporting）：
+
+```rust
+mod front_of_house {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+    }
+}
+
+pub use crate::front_of_house::hosting;
+
+pub fn eat_at_restaurant() {
+    hosting::add_to_waitlist();
+}
+```
+
+### 4.5 使用外部包
+在 `Cargo.toml` 中加入依赖：
+```toml
+[dependencies]
+rand = "0.8.3"
+```
+
+然后在代码中使用：
+```rust
+use rand::Rng;
+
+fn main() {
+    let secret_number = rand::thread_rng().gen_range(1..101);
+}
+```
+
+### 4.6 嵌套路径来消除大量的 use 行
+当需要引入很多定义于相同包或相同模块的项时，为每一项单独列出一行会占用源码很大的纵向空间。可以使用嵌套路径：
+
+```rust
+// 替代这样：
+// use std::cmp::Ordering;
+// use std::io;
+
+use std::{cmp::Ordering, io};
+```
+
+```rust
+// 替代这样：
+// use std::io;
+// use std::io::Write;
+
+use std::io::{self, Write};
+```
+
+### 4.7 通过 glob 运算符将所有的公有定义引入作用域
+如果希望将一个路径下所有公有项引入作用域，可以指定路径后跟 `*`，glob 运算符：
+
+```rust
+use std::collections::*;
+```
+
+**注意**：这个操作应该谨慎使用！Glob 会使得我们难以推导作用域中有什么名称和它们是在何处定义的。
+
+## 5.分割模块到不同文件
+当模块变得更大时，你可能想要将它们的定义移动到单独的文件中，从而使代码更容易阅读。
+
+### 5.1 将模块移动到文件中
+以 `front_of_house` 模块为例，将模块移动到各自的文件中：
+
+**src/lib.rs**
+```rust
+mod front_of_house;
+
+pub use crate::front_of_house::hosting;
+
+pub fn eat_at_restaurant() {
+    hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
+}
+```
+
+**src/front_of_house.rs**
+```rust
+pub mod hosting;
+```
+
+**src/front_of_house/hosting.rs**
+```rust
+pub fn add_to_waitlist() {
+    println!("Adding to waitlist...");
+}
+```
+
+### 5.2 模块文件系统的规则
++ 如果一个名为 `foo` 的模块没有子模块，应该将 `foo` 的声明放在叫做 `foo.rs` 的文件中。
++ 如果一个名为 `foo` 的模块有子模块，应该将 `foo` 的声明放在叫做 `foo/mod.rs` 的文件中。
+
+### 5.3 现代文件组织方式
+在较新的 Rust 版本中，也可以使用这种文件组织方式：
+
+```
+src/
+├── lib.rs
+├── front_of_house.rs
+└── front_of_house/
+    ├── hosting.rs
+    └── serving.rs
+```
+
+这样的话，`src/front_of_house.rs` 内容为：
+```rust
+pub mod hosting;
+pub mod serving;
+```
+
+### 5.4 完整示例
+这是一个完整的模块分离示例：
+
+**项目结构：**
+```
+restaurant/
+├── Cargo.toml
+└── src/
+    ├── lib.rs
+    ├── front_of_house.rs
+    └── front_of_house/
+        ├── hosting.rs
+        └── serving.rs
+```
+
+**src/lib.rs**
+```rust
+mod front_of_house;
+
+pub use crate::front_of_house::hosting;
+
+pub fn eat_at_restaurant() {
+    hosting::add_to_waitlist();
+}
+```
+
+**src/front_of_house.rs**
+```rust
+pub mod hosting;
+pub mod serving;
+```
+
+**src/front_of_house/hosting.rs**
+```rust
+pub fn add_to_waitlist() {
+    println!("Adding to waitlist...");
+}
+
+pub fn seat_at_table() {
+    println!("Seating at table...");
+}
+```
+
+**src/front_of_house/serving.rs**
+```rust
+pub fn take_order() {
+    println!("Taking order...");
+}
+
+pub fn serve_order() {
+    println!("Serving order...");
+}
+
+pub fn take_payment() {
+    println!("Taking payment...");
+}
+```
+
+这种方式让代码组织更加清晰，每个模块都有自己的文件，便于维护和理解。
