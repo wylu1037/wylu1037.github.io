@@ -14,10 +14,10 @@ displayPlaceholder: false
 
 <!-- 正在学习 -->
 {{< components/bg >}}
-    {{< components/badge text="Introduce Studying" href="/docs/astra-ai" >}}
+    {{< components/badge text="正在学习" href="/docs/astra-ai" >}}
     {{< components/title 
-    title="Explore powerful techniques" 
-    subtitle="Discover innovative solutions and advanced methods to enhance your development skills" 
+    title="探索强大的技术" 
+    subtitle="发现创新解决方案和先进方法，提升你的开发技能" 
     >}}
     {{< components/studying >}}
 {{</ components/bg >}}
