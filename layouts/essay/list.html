@@ -126,27 +126,76 @@
 
         <!-- Pagination -->
         {{ if gt $paginator.TotalPages 1 }}
-          <nav class="pagination-nav mt-8" aria-label="Pagination">
+          <nav class="pagination-nav mt-12" aria-label="Pagination">
             <div class="pagination-container">
               {{ if $paginator.HasPrev }}
-                <a href="{{ $paginator.Prev.URL }}" class="pagination-btn pagination-prev">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href="{{ $paginator.Prev.URL }}" class="pagination-btn pagination-prev" title="Previous page">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                   </svg>
-                  {{ $previousPage }}
+                  <span class="pagination-text">{{ $previousPage }}</span>
                 </a>
               {{ end }}
               
-              <div class="pagination-info">
-                <span class="pagination-current">{{ $paginator.PageNumber }}</span>
-                <span class="pagination-separator">/</span>
-                <span class="pagination-total">{{ $paginator.TotalPages }}</span>
+              <!-- Page numbers with dots for large page counts -->
+              <div class="pagination-numbers">
+                {{ $currentPage := $paginator.PageNumber }}
+                {{ $totalPages := $paginator.TotalPages }}
+                
+                {{ if le $totalPages 7 }}
+                  <!-- Show all pages if 7 or fewer -->
+                  {{ range $paginator.Pagers }}
+                    {{ if eq .PageNumber $currentPage }}
+                      <span class="pagination-number pagination-current">{{ .PageNumber }}</span>
+                    {{ else }}
+                      <a href="{{ .URL }}" class="pagination-number">{{ .PageNumber }}</a>
+                    {{ end }}
+                  {{ end }}
+                {{ else }}
+                  <!-- Show abbreviated pagination for more than 7 pages -->
+                  {{ if le $currentPage 4 }}
+                    <!-- Current page is near the beginning -->
+                    {{ range first 5 $paginator.Pagers }}
+                      {{ if eq .PageNumber $currentPage }}
+                        <span class="pagination-number pagination-current">{{ .PageNumber }}</span>
+                      {{ else }}
+                        <a href="{{ .URL }}" class="pagination-number">{{ .PageNumber }}</a>
+                      {{ end }}
+                    {{ end }}
+                    <span class="pagination-ellipsis">...</span>
+                    <a href="{{ (index $paginator.Pagers (sub $totalPages 1)).URL }}" class="pagination-number">{{ $totalPages }}</a>
+                  {{ else if ge $currentPage (sub $totalPages 3) }}
+                    <!-- Current page is near the end -->
+                    <a href="{{ (index $paginator.Pagers 0).URL }}" class="pagination-number">1</a>
+                    <span class="pagination-ellipsis">...</span>
+                    {{ range last 5 $paginator.Pagers }}
+                      {{ if eq .PageNumber $currentPage }}
+                        <span class="pagination-number pagination-current">{{ .PageNumber }}</span>
+                      {{ else }}
+                        <a href="{{ .URL }}" class="pagination-number">{{ .PageNumber }}</a>
+                      {{ end }}
+                    {{ end }}
+                  {{ else }}
+                    <!-- Current page is in the middle -->
+                    <a href="{{ (index $paginator.Pagers 0).URL }}" class="pagination-number">1</a>
+                    <span class="pagination-ellipsis">...</span>
+                    {{ range slice $paginator.Pagers (sub $currentPage 2) (add $currentPage 1) }}
+                      {{ if eq .PageNumber $currentPage }}
+                        <span class="pagination-number pagination-current">{{ .PageNumber }}</span>
+                      {{ else }}
+                        <a href="{{ .URL }}" class="pagination-number">{{ .PageNumber }}</a>
+                      {{ end }}
+                    {{ end }}
+                    <span class="pagination-ellipsis">...</span>
+                    <a href="{{ (index $paginator.Pagers (sub $totalPages 1)).URL }}" class="pagination-number">{{ $totalPages }}</a>
+                  {{ end }}
+                {{ end }}
               </div>
 
               {{ if $paginator.HasNext }}
-                <a href="{{ $paginator.Next.URL }}" class="pagination-btn pagination-next">
-                  {{ $nextPage }}
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href="{{ $paginator.Next.URL }}" class="pagination-btn pagination-next" title="Next page">
+                  <span class="pagination-text">{{ $nextPage }}</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                   </svg>
                 </a>
@@ -289,27 +338,10 @@
       max-width: 450px;
     }
 
-    .essay-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-
     .essay-card:hover {
       transform: translateY(-4px) scale(1.01);
       border-color: rgba(59, 130, 246, 0.3);
       box-shadow: 0 12px 24px rgba(59, 130, 246, 0.08), 0 0 0 1px rgba(59, 130, 246, 0.1);
-    }
-
-    .essay-card:hover::before {
-      transform: scaleX(1);
     }
 
     .essay-link {
@@ -473,38 +505,97 @@
     .pagination-nav {
       display: flex;
       justify-content: center;
+      margin-top: 3rem;
     }
 
     .pagination-container {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      padding: 1rem 2rem;
-      background: white;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(226, 232, 240, 0.6);
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
     .pagination-btn {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.25rem;
+      gap: 0.375rem;
+      padding: 0.625rem 1rem;
       font-weight: 500;
-      color: #475569;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
+      font-size: 0.875rem;
+      color: #64748b;
+      background: rgba(248, 250, 252, 0.8);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      border-radius: 12px;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      min-width: fit-content;
     }
 
     .pagination-btn:hover {
       color: #3b82f6;
-      background: #eff6ff;
-      border-color: #3b82f6;
+      background: rgba(239, 246, 255, 0.9);
+      border-color: rgba(59, 130, 246, 0.3);
       transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    }
+
+    .pagination-btn:active {
+      transform: translateY(0);
+    }
+
+    .pagination-text {
+      font-weight: 500;
+    }
+
+    .pagination-numbers {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin: 0 0.5rem;
+    }
+
+    .pagination-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: #64748b;
+      background: transparent;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .pagination-number:hover {
+      color: #3b82f6;
+      background: rgba(239, 246, 255, 0.8);
+      transform: scale(1.05);
+    }
+
+    .pagination-number.pagination-current {
+      color: white;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+      font-weight: 600;
+    }
+
+    .pagination-ellipsis {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      color: #94a3b8;
+      font-weight: 500;
+      pointer-events: none;
     }
 
     .pagination-info {
@@ -543,20 +634,40 @@
       }
 
       .pagination-container {
-        background: #1e293b;
-        border-color: #334155;
+        background: rgba(30, 41, 59, 0.8);
+        backdrop-filter: blur(10px);
+        border-color: rgba(51, 65, 85, 0.6);
       }
 
       .pagination-btn {
         color: #cbd5e1;
-        background: #334155;
-        border-color: #475569;
+        background: rgba(51, 65, 85, 0.8);
+        border-color: rgba(71, 85, 105, 0.8);
       }
 
       .pagination-btn:hover {
         color: #60a5fa;
-        background: #1e3a8a;
-        border-color: #60a5fa;
+        background: rgba(30, 58, 138, 0.9);
+        border-color: rgba(96, 165, 250, 0.3);
+        box-shadow: 0 4px 12px rgba(96, 165, 250, 0.15);
+      }
+
+      .pagination-number {
+        color: #94a3b8;
+      }
+
+      .pagination-number:hover {
+        color: #60a5fa;
+        background: rgba(30, 58, 138, 0.3);
+      }
+
+      .pagination-number.pagination-current {
+        background: linear-gradient(135deg, #60a5fa, #3b82f6);
+        color: white;
+      }
+
+      .pagination-ellipsis {
+        color: #64748b;
       }
     }
 
@@ -601,16 +712,32 @@
       }
 
       .pagination-container {
-        padding: 0.75rem 1rem;
-        gap: 0.75rem;
-        flex-direction: column;
+        padding: 0.625rem 0.875rem;
+        gap: 0.5rem;
+        flex-wrap: wrap;
       }
 
       .pagination-btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.875rem;
-        width: 100%;
+        padding: 0.5rem 0.875rem;
+        font-size: 0.8rem;
+        flex: 1;
+        min-width: 80px;
         justify-content: center;
+      }
+
+      .pagination-numbers {
+        gap: 0.125rem;
+        margin: 0 0.25rem;
+      }
+
+      .pagination-number {
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.8rem;
+      }
+
+      .pagination-text {
+        display: none;
       }
     }
 
