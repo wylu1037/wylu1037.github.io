@@ -110,8 +110,8 @@ params:
     displayTitle: true
     displayLogo: true
     logo:
-      path: images/meebits_pixian.png
-      dark: images/meebits_pixian.png
+      path: images/logo.svg
+      dark: images/logo.svg
       link: /
       width: 40
-      height: 20
+      height: 40

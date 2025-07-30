@@ -1,0 +1,13 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景矩形 -->
+  <rect x="0" y="0" width="200" height="200" fill="#FFFFFF" />
+  
+  <!-- 主要三角形 - 核心元素 (现在为黑色) -->
+  <path d="M40,140 L100,60 L160,140 Z" fill="#000000" />
+  
+  <!-- 内部元素 - 表示舰队和层次 (现在为白色) -->
+  <path d="M70,140 L100,90 L130,140 Z" fill="#FFFFFF" />
+  
+  <!-- 动态线条 - 类似 Google 的简约线条 (现在为黑色) -->
+  <path d="M60,110 L140,110" stroke="#000000" stroke-width="4" stroke-linecap="round" fill="none" />
+</svg>
